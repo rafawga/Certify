@@ -179,27 +179,37 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.space_dashboard,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 0, 0),
-                                  child: Text(
-                                    'Meus Cursos',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('ProductorViewCurses');
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.space_dashboard,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12, 0, 0, 0),
+                                    child: Text(
+                                      'Meus Cursos',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -232,7 +242,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 0, 0, 0),
                                   child: Text(
-                                    'Alunos',
+                                    'Cadastrar novo curso',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -271,7 +281,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 0, 0, 0),
                                   child: Text(
-                                    'Dashboards',
+                                    'Alunos',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -285,7 +295,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                       child: Text(
-                        'Settings',
+                        'Área pessoal',
                         style: FlutterFlowTheme.of(context).labelMedium,
                       ),
                     ),
@@ -317,7 +327,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 0, 0, 0),
                                   child: Text(
-                                    'Notifications',
+                                    'Meus Certificados',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -380,7 +390,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 0, 0, 0),
                                   child: Text(
-                                    'Billing',
+                                    'Notificações',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -393,39 +403,54 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.wifi_tethering_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 0, 0),
-                                  child: Text(
-                                    'Explore',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.goNamedAuth('AuthLogin', context.mounted);
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          width: double.infinity,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            borderRadius: BorderRadius.circular(12),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.wifi_tethering_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12, 0, 0, 0),
+                                    child: Text(
+                                      'Explore',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
