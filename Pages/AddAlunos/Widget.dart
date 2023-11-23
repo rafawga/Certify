@@ -156,14 +156,19 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                   child: TabBarView(
                                     controller: _model.tabBarController,
                                     children: [
-                                      Text(
-                                        addAlunosCursosRecord.name,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 32,
-                                            ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            addAlunosCursosRecord.name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 32,
+                                                ),
+                                          ),
+                                        ],
                                       ),
                                       Align(
                                         alignment:
