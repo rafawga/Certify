@@ -82,7 +82,9 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                 wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => setState(() {}),
-                  child: NavbarWidget(),
+                  child: NavbarWidget(
+                    tabAtual: 2,
+                  ),
                 ),
                 Expanded(
                   child: Align(
@@ -105,14 +107,13 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                               child: Text(
                                 'Cadastre um novo curso',
                                 textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .displaySmall
-                                    .override(
-                                      fontFamily: 'Plus Jakarta Sans',
-                                      color: Color(0xFF101213),
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                style: GoogleFonts.getFont(
+                                  'Plus Jakarta Sans',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 36,
+                                ),
                               ),
                             ),
                             Align(
@@ -163,8 +164,8 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      width: 2,
+                                                              .secondaryText,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -174,7 +175,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -184,7 +185,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -194,27 +195,26 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0xFFF1F4F8),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0xFF101213),
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: GoogleFonts.getFont(
+                                                  'Plus Jakarta Sans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                ),
                                                 keyboardType:
                                                     TextInputType.emailAddress,
                                                 validator: _model
@@ -255,8 +255,8 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      width: 2,
+                                                              .secondaryText,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -266,7 +266,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -276,7 +276,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -286,14 +286,17 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0xFFF1F4F8),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -337,7 +340,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelText:
-                                                      'Nome do Professor (certificado)',
+                                                      'Professor (certificado)',
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -348,8 +351,8 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      width: 2,
+                                                              .secondaryText,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -359,7 +362,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -369,7 +372,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -379,14 +382,17 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0xFFF1F4F8),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -430,7 +436,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelText:
-                                                      'Duração do curso (hrs)',
+                                                      'Carga horária (horas)',
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -441,8 +447,8 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      width: 2,
+                                                              .secondaryText,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -452,7 +458,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -462,7 +468,7 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -472,14 +478,17 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
-                                                      width: 2,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0xFFF1F4F8),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
