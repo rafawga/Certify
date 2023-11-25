@@ -19,6 +19,7 @@ class CardCursosWidget extends StatefulWidget {
   _CardCursosWidgetState createState() => _CardCursosWidgetState();
 }
 
+
 class _CardCursosWidgetState extends State<CardCursosWidget>
     with TickerProviderStateMixin {
   late CardCursosModel _model;
