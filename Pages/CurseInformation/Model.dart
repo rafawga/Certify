@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -22,16 +23,36 @@ class AddAlunosModel extends FlutterFlowModel<AddAlunosWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for Name widget.
-  FocusNode? nameFocusNode;
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  FocusNode? nameFocusNode1;
+  TextEditingController? nameController1;
+  String? Function(BuildContext, String?)? nameController1Validator;
   // State field(s) for CPF widget.
   FocusNode? cpfFocusNode;
   TextEditingController? cpfController;
   String? Function(BuildContext, String?)? cpfControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
+  // State field(s) for Name widget.
+  FocusNode? nameFocusNode2;
+  TextEditingController? nameController2;
+  String? Function(BuildContext, String?)? nameController2Validator;
+  // State field(s) for Description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionController;
+  String? Function(BuildContext, String?)? descriptionControllerValidator;
+  // State field(s) for Professor widget.
+  FocusNode? professorFocusNode;
+  TextEditingController? professorController;
+  String? Function(BuildContext, String?)? professorControllerValidator;
+  // State field(s) for Duracao widget.
+  FocusNode? duracaoFocusNode;
+  TextEditingController? duracaoController;
+  String? Function(BuildContext, String?)? duracaoControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -43,11 +64,26 @@ class AddAlunosModel extends FlutterFlowModel<AddAlunosWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
     tabBarController?.dispose();
-    nameFocusNode?.dispose();
-    nameController?.dispose();
+    textFieldFocusNode?.dispose();
+    textController1?.dispose();
+
+    nameFocusNode1?.dispose();
+    nameController1?.dispose();
 
     cpfFocusNode?.dispose();
     cpfController?.dispose();
+
+    nameFocusNode2?.dispose();
+    nameController2?.dispose();
+
+    descriptionFocusNode?.dispose();
+    descriptionController?.dispose();
+
+    professorFocusNode?.dispose();
+    professorController?.dispose();
+
+    duracaoFocusNode?.dispose();
+    duracaoController?.dispose();
   }
 
   /// Action blocks are added here.
