@@ -11,11 +11,11 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'add_alunos_model.dart';
-export 'add_alunos_model.dart';
+import 'curso_detail_model.dart';
+export 'curso_detail_model.dart';
 
-class AddAlunosWidget extends StatefulWidget {
-  const AddAlunosWidget({
+class CursoDetailWidget extends StatefulWidget {
+  const CursoDetailWidget({
     Key? key,
     required this.curso,
     int? tab,
@@ -26,19 +26,19 @@ class AddAlunosWidget extends StatefulWidget {
   final int tab;
 
   @override
-  _AddAlunosWidgetState createState() => _AddAlunosWidgetState();
+  _CursoDetailWidgetState createState() => _CursoDetailWidgetState();
 }
 
-class _AddAlunosWidgetState extends State<AddAlunosWidget>
+class _CursoDetailWidgetState extends State<CursoDetailWidget>
     with TickerProviderStateMixin {
-  late AddAlunosModel _model;
+  late CursoDetailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddAlunosModel());
+    _model = createModel(context, () => CursoDetailModel());
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -110,7 +110,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
             ),
           );
         }
-        final addAlunosCursosRecord = snapshot.data!;
+        final cursoDetailCursosRecord = snapshot.data!;
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -179,618 +179,624 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                   child: TabBarView(
                                     controller: _model.tabBarController,
                                     children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(16, 16, 16, 16),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 20, 20, 20),
+                                        child: Container(
+                                          width: 100,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(16, 16, 16, 16),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                        ),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0,
                                                                           0,
                                                                           12,
                                                                           0),
-                                                              child: Text(
-                                                                addAlunosCursosRecord
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineMedium,
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                                                  child: Text(
+                                                                    cursoDetailCursosRecord
+                                                                        .name,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium,
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0,
                                                                           4,
                                                                           12,
                                                                           0),
-                                                              child: Text(
-                                                                addAlunosCursosRecord
-                                                                    .description,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium,
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              addAlunosCursosRecord
-                                                                  .instructorName,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                            Text(
-                                                              addAlunosCursosRecord
-                                                                  .duracao
-                                                                  .toString(),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      if (responsiveVisibility(
-                                                        context: context,
-                                                        phone: false,
-                                                        tablet: false,
-                                                      ))
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 16, 0),
-                                                          child: Container(
-                                                            width: 270,
-                                                            child:
-                                                                TextFormField(
-                                                              controller: _model
-                                                                  .textController1,
-                                                              focusNode: _model
-                                                                  .textFieldFocusNode,
-                                                              textCapitalization:
-                                                                  TextCapitalization
-                                                                      .sentences,
-                                                              obscureText:
-                                                                  false,
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                isDense: true,
-                                                                hintText:
-                                                                    'Search users...',
-                                                                hintStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall,
-                                                                enabledBorder:
-                                                                    OutlineInputBorder(
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: FlutterFlowTheme.of(
+                                                                  child: Text(
+                                                                    cursoDetailCursosRecord
+                                                                        .description,
+                                                                    style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryBackground,
-                                                                    width: 2,
+                                                                        .labelMedium,
                                                                   ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
                                                                 ),
-                                                                focusedBorder:
-                                                                    OutlineInputBorder(
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Color(
-                                                                        0x00000000),
-                                                                    width: 2,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                ),
-                                                                errorBorder:
-                                                                    OutlineInputBorder(
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Color(
-                                                                        0x00000000),
-                                                                    width: 2,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                ),
-                                                                focusedErrorBorder:
-                                                                    OutlineInputBorder(
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Color(
-                                                                        0x00000000),
-                                                                    width: 2,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                ),
-                                                                prefixIcon:
-                                                                    Icon(
-                                                                  Icons
-                                                                      .search_rounded,
-                                                                  color: FlutterFlowTheme.of(
+                                                                Text(
+                                                                  cursoDetailCursosRecord
+                                                                      .instructorName,
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
-                                                                  size: 20,
+                                                                      .bodyMedium,
                                                                 ),
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                              validator: _model
-                                                                  .textController1Validator
-                                                                  .asValidator(
-                                                                      context),
+                                                                Text(
+                                                                  cursoDetailCursosRecord
+                                                                      .duracao
+                                                                      .toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
-                                                        ),
-                                                      FFButtonWidget(
-                                                        onPressed: () async {
-                                                          context.pushNamed(
-                                                            'AddAlunos',
-                                                            queryParameters: {
-                                                              'curso':
-                                                                  serializeParam(
-                                                                widget.curso,
-                                                                ParamType
-                                                                    .DocumentReference,
+                                                          if (responsiveVisibility(
+                                                            context: context,
+                                                            phone: false,
+                                                            tablet: false,
+                                                          ))
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          16,
+                                                                          0),
+                                                              child: Container(
+                                                                width: 270,
+                                                                child:
+                                                                    TextFormField(
+                                                                  controller: _model
+                                                                      .textController1,
+                                                                  focusNode: _model
+                                                                      .textFieldFocusNode,
+                                                                  textCapitalization:
+                                                                      TextCapitalization
+                                                                          .sentences,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    isDense:
+                                                                        true,
+                                                                    hintText:
+                                                                        'Search users...',
+                                                                    hintStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
+                                                                    enabledBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryBackground,
+                                                                        width:
+                                                                            2,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
+                                                                    ),
+                                                                    focusedBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0x00000000),
+                                                                        width:
+                                                                            2,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0x00000000),
+                                                                        width:
+                                                                            2,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0x00000000),
+                                                                        width:
+                                                                            2,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
+                                                                    ),
+                                                                    prefixIcon:
+                                                                        Icon(
+                                                                      Icons
+                                                                          .search_rounded,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size: 20,
+                                                                    ),
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                  validator: _model
+                                                                      .textController1Validator
+                                                                      .asValidator(
+                                                                          context),
+                                                                ),
                                                               ),
-                                                              'tab':
-                                                                  serializeParam(
-                                                                1,
-                                                                ParamType.int,
+                                                            ),
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                'CursoDetail',
+                                                                queryParameters:
+                                                                    {
+                                                                  'curso':
+                                                                      serializeParam(
+                                                                    widget
+                                                                        .curso,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                  'tab':
+                                                                      serializeParam(
+                                                                    1,
+                                                                    ParamType
+                                                                        .int,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            text: 'Create User',
+                                                            icon: Icon(
+                                                              Icons.add_rounded,
+                                                              size: 15,
+                                                            ),
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 40,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16,
+                                                                          0,
+                                                                          16,
+                                                                          0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                              elevation: 3,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1,
                                                               ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        },
-                                                        text: 'Create User',
-                                                        icon: Icon(
-                                                          Icons.add_rounded,
-                                                          size: 15,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 16, 0, 0),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        height: 40,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    8),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    8),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                          ),
                                                         ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          height: 40,
+                                                        child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(16,
                                                                       0, 16, 0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: Colors
-                                                                        .white,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 4,
+                                                                child: Text(
+                                                                  'User Information',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall,
+                                                                ),
+                                                              ),
+                                                              if (responsiveVisibility(
+                                                                context:
+                                                                    context,
+                                                                phone: false,
+                                                              ))
+                                                                Expanded(
+                                                                  flex: 2,
+                                                                  child: Text(
+                                                                    'Data de inscrição',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
                                                                   ),
-                                                          elevation: 3,
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 16, 0, 0),
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      height: 40,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  8),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  8),
-                                                        ),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(16, 0,
-                                                                    16, 0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                              tablet: false,
-                                                            ))
+                                                                ),
                                                               Expanded(
-                                                                flex: 1,
                                                                 child: Text(
-                                                                  'ID',
+                                                                  'Status',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodySmall,
                                                                 ),
                                                               ),
-                                                            Expanded(
-                                                              flex: 4,
-                                                              child: Text(
-                                                                'User Information',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall,
-                                                              ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              phone: false,
-                                                            ))
                                                               Expanded(
-                                                                flex: 2,
                                                                 child: Text(
-                                                                  'Data de inscrição',
+                                                                  'Actions',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .end,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodySmall,
                                                                 ),
                                                               ),
-                                                            Expanded(
-                                                              child: Text(
-                                                                'Status',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Text(
-                                                                'Actions',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .end,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall,
-                                                              ),
-                                                            ),
-                                                          ],
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  StreamBuilder<
-                                                      List<AlunosCursoRecord>>(
-                                                    stream:
-                                                        queryAlunosCursoRecord(
-                                                      queryBuilder:
-                                                          (alunosCursoRecord) =>
-                                                              alunosCursoRecord
-                                                                  .where(
-                                                        'cursoID',
-                                                        isEqualTo: widget.curso,
+                                                    StreamBuilder<
+                                                        List<
+                                                            AlunosCursoRecord>>(
+                                                      stream:
+                                                          queryAlunosCursoRecord(
+                                                        queryBuilder:
+                                                            (alunosCursoRecord) =>
+                                                                alunosCursoRecord
+                                                                    .where(
+                                                          'cursoID',
+                                                          isEqualTo:
+                                                              widget.curso,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50,
+                                                              height: 50,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<AlunosCursoRecord>
-                                                          listViewAlunosCursoRecordList =
-                                                          snapshot.data!;
-                                                      return ListView.builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        shrinkWrap: true,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount:
-                                                            listViewAlunosCursoRecordList
-                                                                .length,
-                                                        itemBuilder: (context,
-                                                            listViewIndex) {
-                                                          final listViewAlunosCursoRecord =
-                                                              listViewAlunosCursoRecordList[
-                                                                  listViewIndex];
-                                                          return Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        1),
-                                                            child: Container(
-                                                              width: 100,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        0,
+                                                          );
+                                                        }
+                                                        List<AlunosCursoRecord>
+                                                            listViewAlunosCursoRecordList =
+                                                            snapshot.data!;
+                                                        return ListView.builder(
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          shrinkWrap: true,
+                                                          scrollDirection:
+                                                              Axis.vertical,
+                                                          itemCount:
+                                                              listViewAlunosCursoRecordList
+                                                                  .length,
+                                                          itemBuilder: (context,
+                                                              listViewIndex) {
+                                                            final listViewAlunosCursoRecord =
+                                                                listViewAlunosCursoRecordList[
+                                                                    listViewIndex];
+                                                            return Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          0,
+                                                                          1),
+                                                              child: Container(
+                                                                width: 100,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          0,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      offset:
+                                                                          Offset(
+                                                                              0,
+                                                                              1),
+                                                                    )
+                                                                  ],
+                                                                  border: Border
+                                                                      .all(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    offset:
-                                                                        Offset(
-                                                                            0,
-                                                                            1),
-                                                                  )
-                                                                ],
-                                                              ),
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16,
-                                                                            0,
-                                                                            16,
-                                                                            0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    if (responsiveVisibility(
-                                                                      context:
-                                                                          context,
-                                                                      phone:
-                                                                          false,
-                                                                      tablet:
-                                                                          false,
-                                                                    ))
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16,
+                                                                          0,
+                                                                          16,
+                                                                          0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
                                                                       Expanded(
-                                                                        flex: 1,
+                                                                        flex: 4,
                                                                         child:
-                                                                            Text(
-                                                                          '#2424552',
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0,
+                                                                              8,
+                                                                              12,
+                                                                              8),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Text(
+                                                                                        listViewAlunosCursoRecord.alunoNome,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Readex Pro',
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                            ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                                                        child: Text(
+                                                                                          listViewAlunosCursoRecord.alunoCpf,
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                fontFamily: 'Readex Pro',
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    Expanded(
-                                                                      flex: 4,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            8,
-                                                                            12,
-                                                                            8),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        phone:
+                                                                            false,
+                                                                      ))
+                                                                        Expanded(
+                                                                          flex:
+                                                                              2,
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              listViewAlunosCursoRecord.dataInscricao?.toString(),
+                                                                              '0',
+                                                                            ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                        ),
+                                                                      Expanded(
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            Expanded(
+                                                                            Container(
+                                                                              height: 32,
+                                                                              decoration: BoxDecoration(
+                                                                                color: listViewAlunosCursoRecord.isDone ? FlutterFlowTheme.of(context).success : FlutterFlowTheme.of(context).warning,
+                                                                                borderRadius: BorderRadius.circular(40),
+                                                                              ),
+                                                                              alignment: AlignmentDirectional(0.00, 0.00),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Text(
-                                                                                      'Randy Peterson',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Readex Pro',
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                          ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                                                                                      child: Text(
-                                                                                        'randy.p@domainname.com',
-                                                                                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                              fontFamily: 'Readex Pro',
-                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                                                                                child: Text(
+                                                                                  listViewAlunosCursoRecord.isDone ? 'Finalizado' : 'Em andamento',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 ),
                                                                               ),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                    if (responsiveVisibility(
-                                                                      context:
-                                                                          context,
-                                                                      phone:
-                                                                          false,
-                                                                    ))
                                                                       Expanded(
-                                                                        flex: 2,
                                                                         child:
-                                                                            Text(
-                                                                          'Jan. 30th, 2023',
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          children: [
+                                                                            if (responsiveVisibility(
+                                                                              context: context,
+                                                                              phone: false,
+                                                                            ))
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                                                                                child: FlutterFlowIconButton(
+                                                                                  borderColor: Colors.transparent,
+                                                                                  borderRadius: 30,
+                                                                                  borderWidth: 1,
+                                                                                  buttonSize: 44,
+                                                                                  icon: Icon(
+                                                                                    Icons.edit_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                    size: 20,
+                                                                                  ),
+                                                                                  onPressed: () {
+                                                                                    print('IconButton pressed ...');
+                                                                                  },
+                                                                                ),
+                                                                              ),
+                                                                            FlutterFlowIconButton(
+                                                                              borderColor: Colors.transparent,
+                                                                              borderRadius: 30,
+                                                                              borderWidth: 1,
+                                                                              buttonSize: 44,
+                                                                              icon: Icon(
+                                                                                Icons.more_vert,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 20,
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                print('IconButton pressed ...');
+                                                                              },
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Container(
-                                                                            height:
-                                                                                32,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              borderRadius: BorderRadius.circular(40),
-                                                                            ),
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                                                                              child: Text(
-                                                                                'Active',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.end,
-                                                                        children: [
-                                                                          if (responsiveVisibility(
-                                                                            context:
-                                                                                context,
-                                                                            phone:
-                                                                                false,
-                                                                          ))
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                                                                              child: FlutterFlowIconButton(
-                                                                                borderColor: Colors.transparent,
-                                                                                borderRadius: 30,
-                                                                                borderWidth: 1,
-                                                                                buttonSize: 44,
-                                                                                icon: Icon(
-                                                                                  Icons.edit_outlined,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 20,
-                                                                                ),
-                                                                                onPressed: () {
-                                                                                  print('IconButton pressed ...');
-                                                                                },
-                                                                              ),
-                                                                            ),
-                                                                          FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            borderRadius:
-                                                                                30,
-                                                                            borderWidth:
-                                                                                1,
-                                                                            buttonSize:
-                                                                                44,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.more_vert,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              size: 20,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ],
+                                                                    ],
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                  ),
-                                                ],
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Align(
@@ -799,7 +805,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  50, 50, 50, 50),
+                                                  20, 20, 20, 20),
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
@@ -809,11 +815,11 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.00, -1.00),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                    MainAxisAlignment.start,
                                                 children: [
                                                   Align(
                                                     alignment:
@@ -1016,8 +1022,9 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
-                                                                    0xFF101213),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 14,
                                                                 fontWeight:
                                                                     FontWeight
@@ -1103,22 +1110,30 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                         await AlunosCursoRecord
                                                             .collection
                                                             .doc()
-                                                            .set(
-                                                                createAlunosCursoRecordData(
-                                                              cursoID:
-                                                                  widget.curso,
-                                                              alunoCpf: _model
-                                                                  .cpfController
-                                                                  .text,
-                                                              isDone: _model
-                                                                  .checkboxValue,
-                                                              alunoNome: _model
-                                                                  .nameController1
-                                                                  .text,
-                                                            ));
+                                                            .set({
+                                                          ...createAlunosCursoRecordData(
+                                                            cursoID:
+                                                                widget.curso,
+                                                            alunoCpf: _model
+                                                                .cpfController
+                                                                .text,
+                                                            isDone: _model
+                                                                .checkboxValue,
+                                                            alunoNome: _model
+                                                                .nameController1
+                                                                .text,
+                                                          ),
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'dataInscricao':
+                                                                  FieldValue
+                                                                      .serverTimestamp(),
+                                                            },
+                                                          ),
+                                                        });
 
                                                         context.pushNamed(
-                                                          'AddAlunos',
+                                                          'CursoDetail',
                                                           queryParameters: {
                                                             'curso':
                                                                 serializeParam(
@@ -1185,7 +1200,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            20, 100, 20, 20),
+                                            20, 20, 20, 20),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1251,7 +1266,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                         .nameController2 ??=
                                                                     TextEditingController(
                                                                   text:
-                                                                      addAlunosCursosRecord
+                                                                      cursoDetailCursosRecord
                                                                           .name,
                                                                 ),
                                                                 focusNode: _model
@@ -1366,7 +1381,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                 controller: _model
                                                                         .descriptionController ??=
                                                                     TextEditingController(
-                                                                  text: addAlunosCursosRecord
+                                                                  text: cursoDetailCursosRecord
                                                                       .description,
                                                                 ),
                                                                 focusNode: _model
@@ -1445,8 +1460,9 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
-                                                                          0xFF101213),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
                                                                       fontSize:
                                                                           14,
                                                                       fontWeight:
@@ -1483,7 +1499,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                 controller: _model
                                                                         .professorController ??=
                                                                     TextEditingController(
-                                                                  text: addAlunosCursosRecord
+                                                                  text: cursoDetailCursosRecord
                                                                       .instructorName,
                                                                 ),
                                                                 focusNode: _model
@@ -1562,8 +1578,9 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
-                                                                          0xFF101213),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
                                                                       fontSize:
                                                                           14,
                                                                       fontWeight:
@@ -1600,7 +1617,7 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                 controller: _model
                                                                         .duracaoController ??=
                                                                     TextEditingController(
-                                                                  text: addAlunosCursosRecord
+                                                                  text: cursoDetailCursosRecord
                                                                       .duracao
                                                                       .toString(),
                                                                 ),
@@ -1680,8 +1697,9 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
-                                                                          0xFF101213),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
                                                                       fontSize:
                                                                           14,
                                                                       fontWeight:
@@ -1707,29 +1725,25 @@ class _AddAlunosWidgetState extends State<AddAlunosWidget>
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
-                                                              await CursosRecord
-                                                                  .collection
-                                                                  .doc()
-                                                                  .set(
+                                                              await widget
+                                                                  .curso!
+                                                                  .update(
                                                                       createCursosRecordData(
-                                                                    name: _model
-                                                                        .nameController2
+                                                                name: _model
+                                                                    .nameController2
+                                                                    .text,
+                                                                description: _model
+                                                                    .descriptionController
+                                                                    .text,
+                                                                instructorName:
+                                                                    _model
+                                                                        .professorController
                                                                         .text,
-                                                                    description:
-                                                                        _model
-                                                                            .descriptionController
-                                                                            .text,
-                                                                    instructorName:
-                                                                        _model
-                                                                            .professorController
-                                                                            .text,
-                                                                    productorId:
-                                                                        currentUserReference,
-                                                                    duracao: int
-                                                                        .tryParse(_model
-                                                                            .duracaoController
-                                                                            .text),
-                                                                  ));
+                                                                duracao: int
+                                                                    .tryParse(_model
+                                                                        .duracaoController
+                                                                        .text),
+                                                              ));
 
                                                               context.pushNamed(
                                                                   'ProductorViewCurses');
