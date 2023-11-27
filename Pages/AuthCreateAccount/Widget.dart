@@ -189,15 +189,7 @@ class _AuthCreateAccountWidgetState extends State<AuthCreateAccountWidget> {
                                             labelText: 'Name',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                                    .labelMedium,
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0xFFF1F4F8),
@@ -695,7 +687,7 @@ class _AuthCreateAccountWidgetState extends State<AuthCreateAccountWidget> {
                                             .doc(user.uid)
                                             .update(createUsersRecordData(
                                               displayName:
-                                                  '${_model.nameController.text}${_model.lastNameController.text}',
+                                                  '${_model.nameController.text} ${_model.lastNameController.text}',
                                               lastName: _model
                                                   .lastNameController.text,
                                               cpf: _model.cpfController.text,
