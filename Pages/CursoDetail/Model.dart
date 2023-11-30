@@ -23,7 +23,6 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
  
-
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController1;
