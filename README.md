@@ -8,3 +8,4 @@ For students, researchers and free agents, EasyCertificates will be a platform w
 This is a commercial purpose project. 
 SPDX-License-Identifier: BSD-3-Clause should be applied
 
+EXPECTED SOP DATE: 01/02/2024
