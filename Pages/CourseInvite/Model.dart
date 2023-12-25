@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 
 class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
   ///  State fields for stateful widgets in this page.
-
   final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
