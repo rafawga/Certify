@@ -18,7 +18,7 @@ class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
   late NavbarModel navbarModel;
 
   /// Initialization and disposal methods.
-
+ 
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
   }
