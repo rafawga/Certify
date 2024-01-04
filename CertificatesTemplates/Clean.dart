@@ -18,6 +18,7 @@ Future gerarPDF(
   final pdf = pw.Document();
   final hoje = DateTime.now();
 
+  
   // Define a cor roxa para o nome do curso
   final PdfColor corRoxa = PdfColor.fromInt(0xff8e44ad);
 
