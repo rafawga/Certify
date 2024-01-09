@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483930210525",
+    "project_id": "easy-certificates-y874s2",
+    "storage_bucket": "easy-certificates-y874s2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483930210525:android:3a3013ef990ddb68ce9b34",
+        "android_client_info": {
+          "package_name": "Robin.Do"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6fYg7CLLaxhClI0omYhPmqLLMFxSabIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483930210525:android:e32867e9f82c8992ce9b34",
+        "android_client_info": {
+          "package_name": "com.mycompany.easycertificados"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6fYg7CLLaxhClI0omYhPmqLLMFxSabIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
