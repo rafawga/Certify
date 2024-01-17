@@ -804,7 +804,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     width: double.infinity,
                                     height: 44.0,
                                     decoration: BoxDecoration(
-                                      color: widget.tabAtual == 5
+                                      color: widget.tabAtual == 6
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .primaryBackground,

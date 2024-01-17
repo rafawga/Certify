@@ -41,12 +41,24 @@ class AssinaturasRecord extends FirestoreRecord {
   String get email => _email ?? '';
   bool hasEmail() => _email != null;
 
+  // "UserRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
+  // "Sub_Assinatura" field.
+  String? _subAssinatura;
+  String get subAssinatura => _subAssinatura ?? '';
+  bool hasSubAssinatura() => _subAssinatura != null;
+
   void _initializeFields() {
     _iDAssinatura = snapshotData['ID_Assinatura'] as String?;
     _data = snapshotData['Data'] as DateTime?;
     _aPIPriceAssinatura = snapshotData['API_Price_Assinatura'] as String?;
     _customer = snapshotData['Customer'] as String?;
     _email = snapshotData['Email'] as String?;
+    _userRef = snapshotData['UserRef'] as DocumentReference?;
+    _subAssinatura = snapshotData['Sub_Assinatura'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -89,6 +101,8 @@ Map<String, dynamic> createAssinaturasRecordData({
   String? aPIPriceAssinatura,
   String? customer,
   String? email,
+  DocumentReference? userRef,
+  String? subAssinatura,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +111,8 @@ Map<String, dynamic> createAssinaturasRecordData({
       'API_Price_Assinatura': aPIPriceAssinatura,
       'Customer': customer,
       'Email': email,
+      'UserRef': userRef,
+      'Sub_Assinatura': subAssinatura,
     }.withoutNulls,
   );
 
@@ -112,12 +128,21 @@ class AssinaturasRecordDocumentEquality implements Equality<AssinaturasRecord> {
         e1?.data == e2?.data &&
         e1?.aPIPriceAssinatura == e2?.aPIPriceAssinatura &&
         e1?.customer == e2?.customer &&
-        e1?.email == e2?.email;
+        e1?.email == e2?.email &&
+        e1?.userRef == e2?.userRef &&
+        e1?.subAssinatura == e2?.subAssinatura;
   }
 
   @override
-  int hash(AssinaturasRecord? e) => const ListEquality().hash(
-      [e?.iDAssinatura, e?.data, e?.aPIPriceAssinatura, e?.customer, e?.email]);
+  int hash(AssinaturasRecord? e) => const ListEquality().hash([
+        e?.iDAssinatura,
+        e?.data,
+        e?.aPIPriceAssinatura,
+        e?.customer,
+        e?.email,
+        e?.userRef,
+        e?.subAssinatura
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is AssinaturasRecord;

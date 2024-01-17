@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -70,7 +72,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                   model: _model.navbarModel,
                   updateCallback: () => setState(() {}),
                   child: NavbarWidget(
-                    tabAtual: 5,
+                    tabAtual: 6,
                   ),
                 ),
                 Expanded(
@@ -165,6 +167,23 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                   );
                                   if ((_model.apiResult6ee?.succeeded ??
                                       true)) {
+                                    await AssinaturasRecord.collection
+                                        .doc()
+                                        .set({
+                                      ...createAssinaturasRecordData(
+                                        iDAssinatura:
+                                            CriarSessaoCheckoutCall.id(
+                                          (_model.apiResult6ee?.jsonBody ?? ''),
+                                        ),
+                                        userRef: currentUserReference,
+                                        email: currentUserEmail,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'Data': FieldValue.serverTimestamp(),
+                                        },
+                                      ),
+                                    });
                                     await launchURL(CriarSessaoCheckoutCall.url(
                                       (_model.apiResult6ee?.jsonBody ?? ''),
                                     )!);
