@@ -796,7 +796,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('Settings');
+                                    context.pushNamed('GetProPlan');
                                   },
                                   child: AnimatedContainer(
                                     duration: Duration(milliseconds: 200),
@@ -804,7 +804,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     width: double.infinity,
                                     height: 44.0,
                                     decoration: BoxDecoration(
-                                      color: widget.tabAtual == 4
+                                      color: widget.tabAtual == 5
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -819,8 +819,8 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Icon(
-                                            Icons.settings_rounded,
+                                          FaIcon(
+                                            FontAwesomeIcons.addressCard,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -831,7 +831,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Configurações',
+                                                'Torne-se Produtor',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
@@ -910,7 +910,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('GetProPlan');
+                                    context.pushNamed('Settings');
                                   },
                                   child: AnimatedContainer(
                                     duration: Duration(milliseconds: 200),
@@ -918,7 +918,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     width: double.infinity,
                                     height: 44.0,
                                     decoration: BoxDecoration(
-                                      color: widget.tabAtual == 5
+                                      color: widget.tabAtual == 4
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -933,8 +933,8 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.laugh,
+                                          Icon(
+                                            Icons.settings_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -945,7 +945,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Torne-se Produtor',
+                                                'Configurações',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,

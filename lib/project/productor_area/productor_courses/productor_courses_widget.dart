@@ -114,269 +114,395 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                         maxWidth: 1170.0,
                       ),
                       decoration: BoxDecoration(),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 2.0, 0.0, 0.0),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 16.0, 0.0, 0.0),
-                                      child: AuthUserStreamWidget(
-                                        builder: (context) => Text(
-                                          'Cursos criados por ${currentUserDisplayName}',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineLarge,
-                                        ),
-                                      ),
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 16.0, 0.0, 0.0),
-                                          child:
-                                              StreamBuilder<List<CursosRecord>>(
-                                            stream: queryCursosRecord(
-                                              queryBuilder: (cursosRecord) =>
-                                                  cursosRecord.where(
-                                                'productorId',
-                                                isEqualTo: currentUserReference,
+                      child: FutureBuilder<int>(
+                        future: queryCursosRecordCount(
+                          queryBuilder: (cursosRecord) => cursosRecord.where(
+                            'productorId',
+                            isEqualTo: currentUserReference,
+                          ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          int columnCount = snapshot.data!;
+                          return SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                if (columnCount > 0)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 2.0, 0.0, 0.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Cursos criados por ${currentUserDisplayName}',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLarge,
                                               ),
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 16.0, 0.0, 0.0),
+                                                child: StreamBuilder<
+                                                    List<CursosRecord>>(
+                                                  stream: queryCursosRecord(
+                                                    queryBuilder:
+                                                        (cursosRecord) =>
+                                                            cursosRecord.where(
+                                                      'productorId',
+                                                      isEqualTo:
+                                                          currentUserReference,
                                                     ),
                                                   ),
-                                                );
-                                              }
-                                              List<CursosRecord>
-                                                  listViewCursosRecordList =
-                                                  snapshot.data!;
-                                              return ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                itemCount:
-                                                    listViewCursosRecordList
-                                                        .length,
-                                                itemBuilder:
-                                                    (context, listViewIndex) {
-                                                  final listViewCursosRecord =
-                                                      listViewCursosRecordList[
-                                                          listViewIndex];
-                                                  return Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16.0,
-                                                                12.0,
-                                                                16.0,
-                                                                12.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'CursoDetail',
-                                                          queryParameters: {
-                                                            'curso':
-                                                                serializeParam(
-                                                              listViewCursosRecord
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
                                                             ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 100.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x230E151B),
-                                                              offset: Offset(
-                                                                  0.0, 2.0),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
+                                                          ),
                                                         ),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          scrollDirection:
-                                                              Axis.horizontal,
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              12.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                    child: Image
-                                                                        .network(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        listViewCursosRecord
-                                                                            .photoURL,
-                                                                        'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg',
-                                                                      ),
-                                                                      width:
-                                                                          120.0,
-                                                                      height:
-                                                                          100.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
+                                                      );
+                                                    }
+                                                    List<CursosRecord>
+                                                        listViewCursosRecordList =
+                                                        snapshot.data!;
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          listViewCursosRecordList
+                                                              .length,
+                                                      itemBuilder: (context,
+                                                          listViewIndex) {
+                                                        final listViewCursosRecord =
+                                                            listViewCursosRecordList[
+                                                                listViewIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      12.0,
+                                                                      16.0,
+                                                                      12.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'CursoDetail',
+                                                                queryParameters:
+                                                                    {
+                                                                  'curso':
+                                                                      serializeParam(
+                                                                    listViewCursosRecord
+                                                                        .reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
                                                                   ),
-                                                                ],
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Container(
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 100.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    blurRadius:
+                                                                        4.0,
+                                                                    color: Color(
+                                                                        0x230E151B),
+                                                                    offset:
+                                                                        Offset(
                                                                             0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Column(
+                                                                            2.0),
+                                                                  )
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              child:
+                                                                  SingleChildScrollView(
+                                                                scrollDirection:
+                                                                    Axis.horizontal,
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.only(
+                                                                            bottomLeft:
+                                                                                Radius.circular(12.0),
+                                                                            bottomRight:
+                                                                                Radius.circular(0.0),
+                                                                            topLeft:
+                                                                                Radius.circular(12.0),
+                                                                            topRight:
+                                                                                Radius.circular(0.0),
+                                                                          ),
+                                                                          child:
+                                                                              Image.network(
+                                                                            valueOrDefault<String>(
+                                                                              listViewCursosRecord.photoURL,
+                                                                              'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg',
+                                                                            ),
+                                                                            width:
+                                                                                120.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
                                                                               .max,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
-                                                                              .center,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
+                                                                              .spaceBetween,
                                                                       children: [
-                                                                        Text(
-                                                                          listViewCursosRecord
-                                                                              .name,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyLarge,
-                                                                        ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              16.0,
                                                                               0.0,
-                                                                              4.0,
-                                                                              0.0,
-                                                                              4.0),
+                                                                              12.0,
+                                                                              0.0),
                                                                           child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
                                                                               Text(
-                                                                            listViewCursosRecord.description,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).labelSmall,
-                                                                          ),
-                                                                        ),
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Text(
-                                                                              listViewCursosRecord.instructorName,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
-                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                listViewCursosRecord.name,
+                                                                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                child: Text(
+                                                                                  listViewCursosRecord.description,
+                                                                                  style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                ),
+                                                                              ),
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    listViewCursosRecord.instructorName,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Readex Pro',
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                        ),
                                                                                   ),
-                                                                            ),
-                                                                          ],
+                                                                                ],
+                                                                              ),
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                  ),
-                                                                ],
+                                                                  ],
+                                                                ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                if (columnCount == 0)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 2.0, 0.0, 0.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Opa... Parece que você ainda não criou cursos! ',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 50.0, 0.0, 25.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                    'CreateNewCurse');
+                                              },
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 2.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.1,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.1,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3.0,
+                                                    ),
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.08,
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.08,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF1DF3D0),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Icon(
+                                                          Icons
+                                                              .add_circle_outline,
+                                                          color: Colors.white,
+                                                          size: 44.0,
                                                         ),
                                                       ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation']!),
-                                                  );
-                                                },
-                                              );
-                                            },
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Crie um agora!',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ],
-                                ),
-                              ),
+                                  ),
+                              ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ),
