@@ -58,6 +58,13 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
             ).then((s) => s.firstOrNull);
           }(),
         );
+        _model.qntdAlunos = await queryAlunosCursoRecordCount(
+          queryBuilder: (alunosCursoRecord) => alunosCursoRecord.where(
+            'cursoID',
+            isEqualTo: widget.cursoID,
+          ),
+        );
+        _model.curso = await CursosRecord.getDocumentOnce(widget.cursoID!);
       } else {
         context.pushNamed(
           'AuthLogin',
@@ -180,67 +187,96 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                           onPressed: () async {
                                             if ((_model.alreadyExist != null) ==
                                                 false) {
-                                              _model.generetedHash =
-                                                  await actions.gerarHash(
-                                                currentUserReference?.id,
-                                                widget.cursoID?.id,
-                                              );
-
-                                              await AlunosCursoRecord.collection
-                                                  .doc()
-                                                  .set({
-                                                ...createAlunosCursoRecordData(
-                                                  cursoID: widget.cursoID,
-                                                  isDone: true,
-                                                  alunoUser:
-                                                      currentUserReference,
-                                                  hash: _model.generetedHash,
-                                                  isValid: true,
-                                                ),
-                                                ...mapToFirestore(
-                                                  {
-                                                    'dataInscricao': FieldValue
-                                                        .serverTimestamp(),
-                                                    'dataModificacao':
-                                                        FieldValue
-                                                            .serverTimestamp(),
-                                                  },
-                                                ),
-                                              });
-
-                                              await widget.cursoID!.update({
-                                                ...mapToFirestore(
-                                                  {
-                                                    'UserList':
-                                                        FieldValue.arrayUnion([
-                                                      currentUserReference
-                                                    ]),
-                                                  },
-                                                ),
-                                              });
-
-                                              context.pushNamed('UserCourses');
-
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'Você foi adicionado (a) ao curso com sucesso',
-                                                    style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
+                                              if ((_model.qntdAlunos! >=
+                                                      courseInvitationCursosRecord
+                                                          .usersLimit) &&
+                                                  courseInvitationCursosRecord
+                                                      .hasUserLimit) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Este curso já atingiu o limite de usuários definidos pelo produtor! Entre em contato com o mesmo.',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
                                                     ),
+                                                    duration: Duration(
+                                                        milliseconds: 3000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .warning,
                                                   ),
-                                                  duration: Duration(
-                                                      milliseconds: 3000),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondary,
-                                                ),
-                                              );
+                                                );
+                                              } else {
+                                                _model.generetedHash =
+                                                    await actions.gerarHash(
+                                                  currentUserReference?.id,
+                                                  widget.cursoID?.id,
+                                                );
+
+                                                await AlunosCursoRecord
+                                                    .collection
+                                                    .doc()
+                                                    .set({
+                                                  ...createAlunosCursoRecordData(
+                                                    cursoID: widget.cursoID,
+                                                    isDone: true,
+                                                    alunoUser:
+                                                        currentUserReference,
+                                                    hash: _model.generetedHash,
+                                                    isValid: true,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'dataInscricao': FieldValue
+                                                          .serverTimestamp(),
+                                                      'dataModificacao':
+                                                          FieldValue
+                                                              .serverTimestamp(),
+                                                    },
+                                                  ),
+                                                });
+
+                                                await widget.cursoID!.update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'UserList': FieldValue
+                                                          .arrayUnion([
+                                                        currentUserReference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+
+                                                context
+                                                    .pushNamed('UserCourses');
+
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Você foi adicionado (a) ao curso com sucesso',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 3000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
+                                              }
                                             } else {
                                               if (_model
                                                       .alreadyExist?.isValid ==
@@ -354,6 +390,20 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                       ),
                                     ],
                                   ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    _model.qntdAlunos?.toString(),
+                                    '10000',
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                                Text(
+                                  courseInvitationCursosRecord.usersLimit
+                                      .toString(),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),

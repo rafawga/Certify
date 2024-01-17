@@ -20,5 +20,7 @@ export '/project/user_area/feed_backs/feed_backs_widget.dart'
     show FeedBacksWidget;
 export '/project/productor_area/verify_certificate/verify_certificate_widget.dart'
     show VerifyCertificateWidget;
-export '/project/productor_area/get_pro_plan/get_pro_plan_widget.dart'
+export '/project/payment_area/get_pro_plan/get_pro_plan_widget.dart'
     show GetProPlanWidget;
+export '/project/payment_area/assinatura_sucesso/assinatura_sucesso_widget.dart'
+    show AssinaturaSucessoWidget;

@@ -160,6 +160,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GetProPlan',
           path: '/getProPlan',
           builder: (context, params) => GetProPlanWidget(),
+        ),
+        FFRoute(
+          name: 'AssinaturaSucesso',
+          path: '/assinaturaSucesso',
+          builder: (context, params) => AssinaturaSucessoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

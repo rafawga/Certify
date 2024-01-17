@@ -157,7 +157,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                   _model.apiResult6ee =
                                       await CriarSessaoCheckoutCall.call(
                                     successUrl:
-                                        'https://easy-certificados.flutterflow.app/settings',
+                                        'https://easy-certificados.flutterflow.app/assinaturaSucesso',
                                     priceAPIID:
                                         'price_1OZLypGvat1kN0fUGpHdyVwH',
                                     customerEmail: currentUserEmail,
