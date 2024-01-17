@@ -46,6 +46,12 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
   FocusNode? duracaoFocusNode;
   TextEditingController? duracaoController;
   String? Function(BuildContext, String?)? duracaoControllerValidator;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue;
+  // State field(s) for LimiteUsers widget.
+  FocusNode? limiteUsersFocusNode;
+  TextEditingController? limiteUsersController;
+  String? Function(BuildContext, String?)? limiteUsersControllerValidator;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -72,6 +78,9 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
 
     duracaoFocusNode?.dispose();
     duracaoController?.dispose();
+
+    limiteUsersFocusNode?.dispose();
+    limiteUsersController?.dispose();
   }
 
   /// Action blocks are added here.

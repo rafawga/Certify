@@ -66,6 +66,16 @@ class CursosRecord extends FirestoreRecord {
   String get photoURL => _photoURL ?? '';
   bool hasPhotoURL() => _photoURL != null;
 
+  // "UsersLimit" field.
+  int? _usersLimit;
+  int get usersLimit => _usersLimit ?? 0;
+  bool hasUsersLimit() => _usersLimit != null;
+
+  // "HasUserLimit" field.
+  bool? _hasUserLimit;
+  bool get hasUserLimit => _hasUserLimit ?? false;
+  bool hasHasUserLimit() => _hasUserLimit != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -77,6 +87,8 @@ class CursosRecord extends FirestoreRecord {
     _userList = getDataList(snapshotData['UserList']);
     _excludeUserList = getDataList(snapshotData['ExcludeUserList']);
     _photoURL = snapshotData['PhotoURL'] as String?;
+    _usersLimit = castToType<int>(snapshotData['UsersLimit']);
+    _hasUserLimit = snapshotData['HasUserLimit'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -121,6 +133,8 @@ Map<String, dynamic> createCursosRecordData({
   DateTime? createdAt,
   DateTime? editAt,
   String? photoURL,
+  int? usersLimit,
+  bool? hasUserLimit,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -132,6 +146,8 @@ Map<String, dynamic> createCursosRecordData({
       'createdAt': createdAt,
       'EditAt': editAt,
       'PhotoURL': photoURL,
+      'UsersLimit': usersLimit,
+      'HasUserLimit': hasUserLimit,
     }.withoutNulls,
   );
 
@@ -153,7 +169,9 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e1?.editAt == e2?.editAt &&
         listEquality.equals(e1?.userList, e2?.userList) &&
         listEquality.equals(e1?.excludeUserList, e2?.excludeUserList) &&
-        e1?.photoURL == e2?.photoURL;
+        e1?.photoURL == e2?.photoURL &&
+        e1?.usersLimit == e2?.usersLimit &&
+        e1?.hasUserLimit == e2?.hasUserLimit;
   }
 
   @override
@@ -167,7 +185,9 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e?.editAt,
         e?.userList,
         e?.excludeUserList,
-        e?.photoURL
+        e?.photoURL,
+        e?.usersLimit,
+        e?.hasUserLimit
       ]);
 
   @override

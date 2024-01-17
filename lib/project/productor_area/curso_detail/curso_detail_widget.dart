@@ -61,6 +61,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
     _model.duracaoFocusNode ??= FocusNode();
 
+    _model.limiteUsersFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -820,7 +822,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       .all(
                                                                           16.0),
                                                               child: Container(
-                                                                width: 370.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
@@ -934,7 +937,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       .all(
                                                                           16.0),
                                                               child: Container(
-                                                                width: 370.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
@@ -1049,7 +1053,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       .all(
                                                                           16.0),
                                                               child: Container(
-                                                                width: 370.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
@@ -1164,7 +1169,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       .all(
                                                                           16.0),
                                                               child: Container(
-                                                                width: 370.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
@@ -1278,6 +1284,199 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                             ),
                                                           ),
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        -1.0),
+                                                                child: Text(
+                                                                  'Possui limite de usários?',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                              Theme(
+                                                                data: ThemeData(
+                                                                  checkboxTheme:
+                                                                      CheckboxThemeData(
+                                                                    visualDensity:
+                                                                        VisualDensity
+                                                                            .compact,
+                                                                    materialTapTargetSize:
+                                                                        MaterialTapTargetSize
+                                                                            .shrinkWrap,
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              4.0),
+                                                                    ),
+                                                                  ),
+                                                                  unselectedWidgetColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                ),
+                                                                child: Checkbox(
+                                                                  value: _model
+                                                                          .checkboxValue ??=
+                                                                      cursoDetailCursosRecord
+                                                                          .hasUserLimit,
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    setState(() =>
+                                                                        _model.checkboxValue =
+                                                                            newValue!);
+                                                                  },
+                                                                  activeColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                  checkColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .info,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          if (_model
+                                                                  .checkboxValue ??
+                                                              true)
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            16.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  child:
+                                                                      TextFormField(
+                                                                    controller:
+                                                                        _model.limiteUsersController ??=
+                                                                            TextEditingController(
+                                                                      text: cursoDetailCursosRecord
+                                                                          .usersLimit
+                                                                          .toString(),
+                                                                    ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .limiteUsersFocusNode,
+                                                                    autofocus:
+                                                                        true,
+                                                                    autofillHints: [
+                                                                      AutofillHints
+                                                                          .email
+                                                                    ],
+                                                                    obscureText:
+                                                                        false,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      labelText:
+                                                                          'Limite de Usuários',
+                                                                      labelStyle:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMedium,
+                                                                      enabledBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      focusedBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              Color(0xFF4B39EF),
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      errorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              Color(0xFFFF5963),
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      focusedErrorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              Color(0xFFFF5963),
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      filled:
+                                                                          true,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryBackground,
+                                                                    ),
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Plus Jakarta Sans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                                    keyboardType:
+                                                                        TextInputType
+                                                                            .number,
+                                                                    validator: _model
+                                                                        .limiteUsersControllerValidator
+                                                                        .asValidator(
+                                                                            context),
+                                                                    inputFormatters: [
+                                                                      FilteringTextInputFormatter
+                                                                          .allow(
+                                                                              RegExp('[0-9]'))
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
                                                           Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1532,6 +1731,12 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       photoURL:
                                                                           _model
                                                                               .uploadedFileUrl,
+                                                                      hasUserLimit:
+                                                                          _model
+                                                                              .checkboxValue,
+                                                                      usersLimit: int.tryParse(_model
+                                                                          .limiteUsersController
+                                                                          .text),
                                                                     ),
                                                                     ...mapToFirestore(
                                                                       {
@@ -1556,6 +1761,12 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .text,
                                                                       duracao: int.tryParse(_model
                                                                           .duracaoController
+                                                                          .text),
+                                                                      hasUserLimit:
+                                                                          _model
+                                                                              .checkboxValue,
+                                                                      usersLimit: int.tryParse(_model
+                                                                          .limiteUsersController
                                                                           .text),
                                                                     ),
                                                                     ...mapToFirestore(

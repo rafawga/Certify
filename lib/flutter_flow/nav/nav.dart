@@ -155,6 +155,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'VerifyCertificate',
           path: '/VerifyCertificateAuth',
           builder: (context, params) => VerifyCertificateWidget(),
+        ),
+        FFRoute(
+          name: 'GetProPlan',
+          path: '/getProPlan',
+          builder: (context, params) => GetProPlanWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
