@@ -136,7 +136,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                             ),
                                       ),
                                       TextSpan(
-                                        text: 'Lorem ',
+                                        text: 'Lorem',
                                         style: TextStyle(),
                                       )
                                     ],

@@ -53,6 +53,28 @@ class CriarSessaoCheckoutCall {
       ));
 }
 
+class CancelarAAssinaturaCall {
+  static Future<ApiCallResponse> call({
+    String? id = 'sub_1OZifsGvat1kN0fUbHLBxAeA',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Cancelar a assinatura',
+      apiUrl: 'https://api.stripe.com/v1/subscriptions/${id}',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization':
+            'Bearer sk_test_51OVFkRGvat1kN0fUiDYEMDam5EKkr7VKsssP6JlMun4rwbjvIPeAMu4Jx4pBiiXzJUmj7iQcYRmhQRtutaxlJ8nF00Ln74HLhH',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
