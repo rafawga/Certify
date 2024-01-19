@@ -135,7 +135,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                   Icons.feedback_outlined,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryText,
+                                                      .primary,
                                                   size: 24.0,
                                                 ),
                                               ),

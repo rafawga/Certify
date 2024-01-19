@@ -214,7 +214,7 @@ class _UserCoursesWidgetState extends State<UserCoursesWidget>
                                                                       .checklist,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
+                                                                      .primary,
                                                                   size: 24.0,
                                                                 ),
                                                               ),

@@ -207,7 +207,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
+                                                              .primary,
                                                       size: 24.0,
                                                     ),
                                                   ),

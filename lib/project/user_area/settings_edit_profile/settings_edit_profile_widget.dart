@@ -163,7 +163,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                               .space_dashboard_sharp,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primary,
                                                           size: 24.0,
                                                         ),
                                                       ),

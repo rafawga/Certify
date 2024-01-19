@@ -1,6 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,8 +102,64 @@ class _ConfirmarCancelamentoWidgetState
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    _model.assinaturaUser =
+                                        await queryAssinaturasRecordOnce(
+                                      queryBuilder: (assinaturasRecord) =>
+                                          assinaturasRecord.where(
+                                        'UserRef',
+                                        isEqualTo: currentUserReference,
+                                      ),
+                                      singleRecord: true,
+                                    ).then((s) => s.firstOrNull);
+                                    _model.cancelarResponse =
+                                        await CancelarAAssinaturaCall.call(
+                                      id: _model.assinaturaUser?.subAssinatura,
+                                    );
+                                    if ((_model.cancelarResponse?.succeeded ??
+                                        true)) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Assinatura cancelada com sucesso!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Algo deu errado, tente novamente!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                        ),
+                                      );
+                                    }
+
+                                    Navigator.pop(context);
+
+                                    setState(() {});
                                   },
                                   text: 'Cancelar Assinatura',
                                   options: FFButtonOptions(
@@ -124,10 +185,10 @@ class _ConfirmarCancelamentoWidgetState
                                   ),
                                 ),
                                 FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    Navigator.pop(context);
                                   },
-                                  text: 'Voltar',
+                                  text: 'Retornar',
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 50.0,
