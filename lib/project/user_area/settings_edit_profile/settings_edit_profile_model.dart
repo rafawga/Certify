@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/project/components/cancelar_assinatura/cancelar_assinatura_widget.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import 'settings_edit_profile_widget.dart' show SettingsEditProfileWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';

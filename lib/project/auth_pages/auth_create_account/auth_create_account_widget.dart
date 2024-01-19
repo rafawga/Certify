@@ -625,7 +625,7 @@ class _AuthCreateAccountWidgetState extends State<AuthCreateAccountWidget> {
                                             ));
 
                                         context.goNamedAuth(
-                                            'UserCourses', context.mounted);
+                                            'HomePage', context.mounted);
                                       },
                                       text: 'Criar conta',
                                       options: FFButtonOptions(

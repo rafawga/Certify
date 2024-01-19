@@ -24,3 +24,4 @@ export '/project/payment_area/get_pro_plan/get_pro_plan_widget.dart'
     show GetProPlanWidget;
 export '/project/payment_area/assinatura_sucesso/assinatura_sucesso_widget.dart'
     show AssinaturaSucessoWidget;
+export '/home_page/home_page_widget.dart' show HomePageWidget;
