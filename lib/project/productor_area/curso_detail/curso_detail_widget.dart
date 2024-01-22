@@ -261,38 +261,40 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     MainAxisAlignment
                                                                         .spaceBetween,
                                                                 children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .info_sharp,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          size:
-                                                                              24.0,
+                                                                  Flexible(
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              12.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.info,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                      Text(
-                                                                        'Área do produtor / Detalhes do curso',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Readex Pro',
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              fontSize: 16.0,
-                                                                            ),
-                                                                      ),
-                                                                    ],
+                                                                        Flexible(
+                                                                          child:
+                                                                              Text(
+                                                                            'Área do produtor / Detalhes do curso',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  fontSize: 16.0,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                   Row(
                                                                     mainAxisSize:
@@ -371,7 +373,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Detalhes do Curso',
+                                                                'Informações do curso',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineLarge
@@ -393,7 +395,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Informações do curso e dos alunos.',
+                                                                'Veja os detalhes e informações do curso e dos alunos.',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyLarge
