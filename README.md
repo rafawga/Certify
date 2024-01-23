@@ -19,7 +19,7 @@ To get started with **IDokey**, please access the link (currently in progress).
 
 ## Contributing
 
-We warmly welcome contributions from the community. Key contributors to this project include:
+ Key contributors to this project include:
 
 - **@Rafawga**: Tech Lead / Developer
 - **@GustaMota**: Business Analyst / Marketing
