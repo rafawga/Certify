@@ -26,10 +26,6 @@ We warmly welcome contributions from the community. Key contributors to this pro
 
 If you wish to contribute, please refer to our contribution guidelines.
 
-## Support
-
-For support inquiries, kindly open an issue or contact our support team at support@idokey.com.
-
 ## License
 
 **IDokey** is licensed under the [MIT License](LICENSE.md).
