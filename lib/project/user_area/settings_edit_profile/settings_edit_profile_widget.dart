@@ -264,7 +264,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Personalize o seu perfil para ter uma melhor experiência usando o EasyCertificados',
+                                                'Personalize o seu perfil para ter uma melhor experiência usando o iDokey.',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyLarge

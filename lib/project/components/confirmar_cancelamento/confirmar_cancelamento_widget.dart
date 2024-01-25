@@ -159,6 +159,8 @@ class _ConfirmarCancelamentoWidgetState
 
                                     Navigator.pop(context);
 
+                                    context.pushNamed('HomePage');
+
                                     setState(() {});
                                   },
                                   text: 'Cancelar Assinatura',

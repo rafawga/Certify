@@ -235,7 +235,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                       style: TextStyle(),
                                     ),
                                     TextSpan(
-                                      text: ' Easy Certificados ',
+                                      text: ' iDokey ',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

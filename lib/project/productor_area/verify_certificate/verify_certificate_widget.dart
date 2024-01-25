@@ -246,10 +246,13 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                       TextSpan(
                                         text:
                                             'Bem-vindo à plataforma de verificação de certificados líder do mercado: ',
-                                        style: TextStyle(),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                       ),
                                       TextSpan(
-                                        text: 'Easy Certificados. ',
+                                        text: 'iDokey. ',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -264,7 +267,10 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                       TextSpan(
                                         text:
                                             'Com a nossa tecnologia avançada, você pode facilmente ',
-                                        style: TextStyle(),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                       ),
                                       TextSpan(
                                         text: 'confirmar a autenticidade ',
@@ -282,7 +288,10 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                       TextSpan(
                                         text:
                                             'dos seus certificados digitais através de um ',
-                                        style: TextStyle(),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                       ),
                                       TextSpan(
                                         text: 'código de validação.',
@@ -300,7 +309,10 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                       TextSpan(
                                         text:
                                             'Nosso sistema realiza uma verificação rápida e segura, assegurando a validade dos seus documentos com total confiança.',
-                                        style: TextStyle(),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                       )
                                     ],
                                     style: FlutterFlowTheme.of(context)
