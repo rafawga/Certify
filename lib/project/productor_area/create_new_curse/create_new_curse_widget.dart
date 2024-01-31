@@ -15,10 +15,10 @@ import 'create_new_curse_model.dart';
 export 'create_new_curse_model.dart';
 
 class CreateNewCurseWidget extends StatefulWidget {
-  const CreateNewCurseWidget({Key? key}) : super(key: key);
+  const CreateNewCurseWidget({super.key});
 
   @override
-  _CreateNewCurseWidgetState createState() => _CreateNewCurseWidgetState();
+  State<CreateNewCurseWidget> createState() => _CreateNewCurseWidgetState();
 }
 
 class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
@@ -1048,6 +1048,16 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                             .serverTimestamp(),
                                                         'EditAt': FieldValue
                                                             .serverTimestamp(),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'CoursesQnt': FieldValue
+                                                            .increment(1),
                                                       },
                                                     ),
                                                   });

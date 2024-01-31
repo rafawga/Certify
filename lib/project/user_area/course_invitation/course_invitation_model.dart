@@ -30,6 +30,8 @@ class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
   late NavbarModel navbarModel;
   // Stores action output result for [Custom Action - gerarHash] action in Button widget.
   String? generetedHash;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersRecord? productor;
 
   /// Initialization and disposal methods.
 

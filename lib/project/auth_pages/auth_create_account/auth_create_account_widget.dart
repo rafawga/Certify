@@ -14,14 +14,14 @@ export 'auth_create_account_model.dart';
 
 class AuthCreateAccountWidget extends StatefulWidget {
   const AuthCreateAccountWidget({
-    Key? key,
+    super.key,
     this.conviteCurso,
-  }) : super(key: key);
+  });
 
   final DocumentReference? conviteCurso;
 
   @override
-  _AuthCreateAccountWidgetState createState() =>
+  State<AuthCreateAccountWidget> createState() =>
       _AuthCreateAccountWidgetState();
 }
 
@@ -119,7 +119,7 @@ class _AuthCreateAccountWidgetState extends State<AuthCreateAccountWidget> {
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  'Easy Certificados',
+                                  'iDokey',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall

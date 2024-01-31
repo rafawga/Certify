@@ -9,10 +9,10 @@ import 'assinatura_sucesso_model.dart';
 export 'assinatura_sucesso_model.dart';
 
 class AssinaturaSucessoWidget extends StatefulWidget {
-  const AssinaturaSucessoWidget({Key? key}) : super(key: key);
+  const AssinaturaSucessoWidget({super.key});
 
   @override
-  _AssinaturaSucessoWidgetState createState() =>
+  State<AssinaturaSucessoWidget> createState() =>
       _AssinaturaSucessoWidgetState();
 }
 
@@ -98,49 +98,6 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 50.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 2.0,
-                            shape: const CircleBorder(),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.2,
-                              height: MediaQuery.sizeOf(context).width * 0.2,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 3.0,
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.15,
-                                    height:
-                                        MediaQuery.sizeOf(context).width * 0.15,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF1DF3D0),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Icon(
-                                      Icons.download_done,
-                                      color: Colors.white,
-                                      size: 44.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           child: Text(
                             'Assinatura realizada com sucesso!',
@@ -173,7 +130,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                               0.0, 100.0, 0.0, 200.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              context.pushNamed('ProductorCourses');
+                              context.pushNamed('HomePage');
                             },
                             text: 'Voltar ao início',
                             options: FFButtonOptions(
@@ -182,13 +139,9 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                               padding: EdgeInsets.all(0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF1DF3D0),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Color(0xC0000000),
-                                  ),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).titleSmall,
                               elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,

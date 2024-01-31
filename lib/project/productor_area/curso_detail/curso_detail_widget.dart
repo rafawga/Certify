@@ -18,17 +18,16 @@ export 'curso_detail_model.dart';
 
 class CursoDetailWidget extends StatefulWidget {
   const CursoDetailWidget({
-    Key? key,
+    super.key,
     required this.curso,
     int? tab,
-  })  : this.tab = tab ?? 0,
-        super(key: key);
+  }) : this.tab = tab ?? 0;
 
   final DocumentReference? curso;
   final int tab;
 
   @override
-  _CursoDetailWidgetState createState() => _CursoDetailWidgetState();
+  State<CursoDetailWidget> createState() => _CursoDetailWidgetState();
 }
 
 class _CursoDetailWidgetState extends State<CursoDetailWidget>
@@ -918,6 +917,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                       context: context,
                                                                                                       builder: (dialogContext) {
                                                                                                         return Dialog(
+                                                                                                          elevation: 0,
                                                                                                           insetPadding: EdgeInsets.zero,
                                                                                                           backgroundColor: Colors.transparent,
                                                                                                           alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
@@ -926,6 +926,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                             child: UserPopUpWidget(
                                                                                                               userRef: containerUsersRecord.reference,
                                                                                                               courseRef: widget.curso!,
+                                                                                                              productorRef: cursoDetailCursosRecord.productorId!,
                                                                                                             ),
                                                                                                           ),
                                                                                                         );

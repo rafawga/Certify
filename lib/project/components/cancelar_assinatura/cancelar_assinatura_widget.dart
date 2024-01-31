@@ -13,10 +13,10 @@ import 'cancelar_assinatura_model.dart';
 export 'cancelar_assinatura_model.dart';
 
 class CancelarAssinaturaWidget extends StatefulWidget {
-  const CancelarAssinaturaWidget({Key? key}) : super(key: key);
+  const CancelarAssinaturaWidget({super.key});
 
   @override
-  _CancelarAssinaturaWidgetState createState() =>
+  State<CancelarAssinaturaWidget> createState() =>
       _CancelarAssinaturaWidgetState();
 }
 
@@ -247,6 +247,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                             context: context,
                                             builder: (dialogContext) {
                                               return Dialog(
+                                                elevation: 0,
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,

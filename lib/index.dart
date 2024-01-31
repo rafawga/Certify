@@ -13,7 +13,7 @@ export '/project/user_area/course_invitation/course_invitation_widget.dart'
     show CourseInvitationWidget;
 export '/project/user_area/user_courses/user_courses_widget.dart'
     show UserCoursesWidget;
-export '/project/user_area/settings/settings_widget.dart' show SettingsWidget;
+export '/project/settings/settings_widget.dart' show SettingsWidget;
 export '/project/user_area/settings_edit_profile/settings_edit_profile_widget.dart'
     show SettingsEditProfileWidget;
 export '/project/user_area/feed_backs/feed_backs_widget.dart'
@@ -25,3 +25,5 @@ export '/project/payment_area/get_pro_plan/get_pro_plan_widget.dart'
 export '/project/payment_area/assinatura_sucesso/assinatura_sucesso_widget.dart'
     show AssinaturaSucessoWidget;
 export '/home_page/home_page_widget.dart' show HomePageWidget;
+export '/project/user_area/dashboard/dashboard_widget.dart'
+    show DashboardWidget;

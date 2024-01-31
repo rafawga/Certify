@@ -14,10 +14,10 @@ import 'feed_backs_model.dart';
 export 'feed_backs_model.dart';
 
 class FeedBacksWidget extends StatefulWidget {
-  const FeedBacksWidget({Key? key}) : super(key: key);
+  const FeedBacksWidget({super.key});
 
   @override
-  _FeedBacksWidgetState createState() => _FeedBacksWidgetState();
+  State<FeedBacksWidget> createState() => _FeedBacksWidgetState();
 }
 
 class _FeedBacksWidgetState extends State<FeedBacksWidget> {

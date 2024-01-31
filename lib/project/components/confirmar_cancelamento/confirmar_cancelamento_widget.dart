@@ -14,10 +14,10 @@ import 'confirmar_cancelamento_model.dart';
 export 'confirmar_cancelamento_model.dart';
 
 class ConfirmarCancelamentoWidget extends StatefulWidget {
-  const ConfirmarCancelamentoWidget({Key? key}) : super(key: key);
+  const ConfirmarCancelamentoWidget({super.key});
 
   @override
-  _ConfirmarCancelamentoWidgetState createState() =>
+  State<ConfirmarCancelamentoWidget> createState() =>
       _ConfirmarCancelamentoWidgetState();
 }
 

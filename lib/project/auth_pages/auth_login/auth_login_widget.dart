@@ -13,14 +13,14 @@ export 'auth_login_model.dart';
 
 class AuthLoginWidget extends StatefulWidget {
   const AuthLoginWidget({
-    Key? key,
+    super.key,
     this.conviteCurso,
-  }) : super(key: key);
+  });
 
   final DocumentReference? conviteCurso;
 
   @override
-  _AuthLoginWidgetState createState() => _AuthLoginWidgetState();
+  State<AuthLoginWidget> createState() => _AuthLoginWidgetState();
 }
 
 class _AuthLoginWidgetState extends State<AuthLoginWidget> {
@@ -104,7 +104,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
-                              'Easy Certificados',
+                              'iDokey',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(

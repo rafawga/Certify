@@ -16,10 +16,10 @@ import 'user_courses_model.dart';
 export 'user_courses_model.dart';
 
 class UserCoursesWidget extends StatefulWidget {
-  const UserCoursesWidget({Key? key}) : super(key: key);
+  const UserCoursesWidget({super.key});
 
   @override
-  _UserCoursesWidgetState createState() => _UserCoursesWidgetState();
+  State<UserCoursesWidget> createState() => _UserCoursesWidgetState();
 }
 
 class _UserCoursesWidgetState extends State<UserCoursesWidget>

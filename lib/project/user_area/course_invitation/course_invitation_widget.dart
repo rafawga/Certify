@@ -19,14 +19,14 @@ export 'course_invitation_model.dart';
 
 class CourseInvitationWidget extends StatefulWidget {
   const CourseInvitationWidget({
-    Key? key,
+    super.key,
     required this.cursoID,
-  }) : super(key: key);
+  });
 
   final DocumentReference? cursoID;
 
   @override
-  _CourseInvitationWidgetState createState() => _CourseInvitationWidgetState();
+  State<CourseInvitationWidget> createState() => _CourseInvitationWidgetState();
 }
 
 class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
@@ -450,6 +450,34 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                                 FieldValue.arrayUnion([
                                                                               currentUserReference
                                                                             ]),
+                                                                          },
+                                                                        ),
+                                                                      });
+                                                                      _model.productor =
+                                                                          await queryUsersRecordOnce(
+                                                                        queryBuilder:
+                                                                            (usersRecord) =>
+                                                                                usersRecord.where(
+                                                                          'uid',
+                                                                          isEqualTo:
+                                                                              valueOrDefault<String>(
+                                                                            courseInvitationCursosRecord.productorId?.id,
+                                                                            'Productor',
+                                                                          ),
+                                                                        ),
+                                                                        singleRecord:
+                                                                            true,
+                                                                      ).then((s) =>
+                                                                              s.firstOrNull);
+
+                                                                      await _model
+                                                                          .productor!
+                                                                          .reference
+                                                                          .update({
+                                                                        ...mapToFirestore(
+                                                                          {
+                                                                            'AlunosQnt':
+                                                                                FieldValue.increment(1),
                                                                           },
                                                                         ),
                                                                       });

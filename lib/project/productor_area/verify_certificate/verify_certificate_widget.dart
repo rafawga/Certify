@@ -16,10 +16,10 @@ import 'verify_certificate_model.dart';
 export 'verify_certificate_model.dart';
 
 class VerifyCertificateWidget extends StatefulWidget {
-  const VerifyCertificateWidget({Key? key}) : super(key: key);
+  const VerifyCertificateWidget({super.key});
 
   @override
-  _VerifyCertificateWidgetState createState() =>
+  State<VerifyCertificateWidget> createState() =>
       _VerifyCertificateWidgetState();
 }
 

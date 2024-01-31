@@ -14,16 +14,18 @@ export 'user_pop_up_model.dart';
 
 class UserPopUpWidget extends StatefulWidget {
   const UserPopUpWidget({
-    Key? key,
+    super.key,
     required this.userRef,
     required this.courseRef,
-  }) : super(key: key);
+    required this.productorRef,
+  });
 
   final DocumentReference? userRef;
   final DocumentReference? courseRef;
+  final DocumentReference? productorRef;
 
   @override
-  _UserPopUpWidgetState createState() => _UserPopUpWidgetState();
+  State<UserPopUpWidget> createState() => _UserPopUpWidgetState();
 }
 
 class _UserPopUpWidgetState extends State<UserPopUpWidget> {
@@ -332,6 +334,16 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                   'UserList':
                                                       FieldValue.arrayRemove(
                                                           [widget.userRef]),
+                                                },
+                                              ),
+                                            });
+
+                                            await widget.productorRef!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'AlunosQnt':
+                                                      FieldValue.increment(
+                                                          -(1)),
                                                 },
                                               ),
                                             });

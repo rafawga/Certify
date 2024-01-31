@@ -16,10 +16,10 @@ import 'settings_edit_profile_model.dart';
 export 'settings_edit_profile_model.dart';
 
 class SettingsEditProfileWidget extends StatefulWidget {
-  const SettingsEditProfileWidget({Key? key}) : super(key: key);
+  const SettingsEditProfileWidget({super.key});
 
   @override
-  _SettingsEditProfileWidgetState createState() =>
+  State<SettingsEditProfileWidget> createState() =>
       _SettingsEditProfileWidgetState();
 }
 
@@ -810,6 +810,8 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                                 builder:
                                                                     (dialogContext) {
                                                                   return Dialog(
+                                                                    elevation:
+                                                                        0,
                                                                     insetPadding:
                                                                         EdgeInsets
                                                                             .zero,

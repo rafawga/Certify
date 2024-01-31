@@ -15,10 +15,10 @@ import 'productor_courses_model.dart';
 export 'productor_courses_model.dart';
 
 class ProductorCoursesWidget extends StatefulWidget {
-  const ProductorCoursesWidget({Key? key}) : super(key: key);
+  const ProductorCoursesWidget({super.key});
 
   @override
-  _ProductorCoursesWidgetState createState() => _ProductorCoursesWidgetState();
+  State<ProductorCoursesWidget> createState() => _ProductorCoursesWidgetState();
 }
 
 class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>

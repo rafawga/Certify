@@ -14,10 +14,10 @@ import 'get_pro_plan_model.dart';
 export 'get_pro_plan_model.dart';
 
 class GetProPlanWidget extends StatefulWidget {
-  const GetProPlanWidget({Key? key}) : super(key: key);
+  const GetProPlanWidget({super.key});
 
   @override
-  _GetProPlanWidgetState createState() => _GetProPlanWidgetState();
+  State<GetProPlanWidget> createState() => _GetProPlanWidgetState();
 }
 
 class _GetProPlanWidgetState extends State<GetProPlanWidget> {
@@ -274,7 +274,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                               await CriarSessaoCheckoutCall
                                                   .call(
                                             successUrl:
-                                                'https://easy-certificados.flutterflow.app/assinaturaSucesso',
+                                                'https://idokey.flutterflow.app/assinaturaSucesso',
                                             priceAPIID:
                                                 'price_1OZLypGvat1kN0fUGpHdyVwH',
                                             customerEmail: currentUserEmail,
@@ -302,6 +302,11 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 },
                                               ),
                                             });
+
+                                            await currentUserReference!
+                                                .update(createUsersRecordData(
+                                              isProdutor: true,
+                                            ));
                                             await launchURL(
                                                 CriarSessaoCheckoutCall.url(
                                               (_model.apiResult6ee?.jsonBody ??

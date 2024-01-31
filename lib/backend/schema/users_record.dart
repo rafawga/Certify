@@ -76,6 +76,16 @@ class UsersRecord extends FirestoreRecord {
   String get name => _name ?? '';
   bool hasName() => _name != null;
 
+  // "CoursesQnt" field.
+  int? _coursesQnt;
+  int get coursesQnt => _coursesQnt ?? 0;
+  bool hasCoursesQnt() => _coursesQnt != null;
+
+  // "AlunosQnt" field.
+  int? _alunosQnt;
+  int get alunosQnt => _alunosQnt ?? 0;
+  bool hasAlunosQnt() => _alunosQnt != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -89,6 +99,8 @@ class UsersRecord extends FirestoreRecord {
     _certificateName = snapshotData['CertificateName'] as String?;
     _hasChangeNameToken = snapshotData['HasChangeNameToken'] as bool?;
     _name = snapshotData['name'] as String?;
+    _coursesQnt = castToType<int>(snapshotData['CoursesQnt']);
+    _alunosQnt = castToType<int>(snapshotData['AlunosQnt']);
   }
 
   static CollectionReference get collection =>
@@ -137,6 +149,8 @@ Map<String, dynamic> createUsersRecordData({
   String? certificateName,
   bool? hasChangeNameToken,
   String? name,
+  int? coursesQnt,
+  int? alunosQnt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -152,6 +166,8 @@ Map<String, dynamic> createUsersRecordData({
       'CertificateName': certificateName,
       'HasChangeNameToken': hasChangeNameToken,
       'name': name,
+      'CoursesQnt': coursesQnt,
+      'AlunosQnt': alunosQnt,
     }.withoutNulls,
   );
 
@@ -174,7 +190,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.isProdutor == e2?.isProdutor &&
         e1?.certificateName == e2?.certificateName &&
         e1?.hasChangeNameToken == e2?.hasChangeNameToken &&
-        e1?.name == e2?.name;
+        e1?.name == e2?.name &&
+        e1?.coursesQnt == e2?.coursesQnt &&
+        e1?.alunosQnt == e2?.alunosQnt;
   }
 
   @override
@@ -190,7 +208,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.isProdutor,
         e?.certificateName,
         e?.hasChangeNameToken,
-        e?.name
+        e?.name,
+        e?.coursesQnt,
+        e?.alunosQnt
       ]);
 
   @override
