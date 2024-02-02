@@ -174,6 +174,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Dashboard',
           path: '/dashboard',
           builder: (context, params) => DashboardWidget(),
+        ),
+        FFRoute(
+          name: 'dummyPage',
+          path: '/dummyPage',
+          builder: (context, params) => DummyPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

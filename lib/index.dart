@@ -27,3 +27,5 @@ export '/project/payment_area/assinatura_sucesso/assinatura_sucesso_widget.dart'
 export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/project/user_area/dashboard/dashboard_widget.dart'
     show DashboardWidget;
+export '/project/dummy_page/dummy_page/dummy_page_widget.dart'
+    show DummyPageWidget;

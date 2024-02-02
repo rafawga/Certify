@@ -13,14 +13,7 @@ import 'package:printing/printing.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:image/image.dart' as img;
 
-Future gerarPDF(
-  String aluno,
-  String curso,
-  String professor,
-  DateTime data,
-  String duracao,
-  String key,
-) async {
+Future gerarPDFCopy() async {
   final pdf = pw.Document();
 
   // Carrega a imagem
@@ -46,10 +39,6 @@ Future gerarPDF(
   final PdfColor mainTextColor = PdfColor.fromInt(0x00214d);
   final PdfColor nameTextColor = PdfColor.fromInt(0xa27430);
 
-  // Formata a data
-  final dataFormatada =
-      "${data.day.toString().padLeft(2, '0')}/${data.month.toString().padLeft(2, '0')}/${data.year}";
-
   pdf.addPage(
     pw.Page(
       pageFormat: pageFormat,
@@ -62,62 +51,39 @@ Future gerarPDF(
             ),
             pw.Center(
               // Centraliza o texto
-              child: pw.Padding(
-                padding: pw.EdgeInsets.symmetric(
-                    horizontal: imageWidth *
-                        PdfPageFormat.point *
-                        0.1), // Ajusta o padding horizontal
+              child: pw.Container(
+                width: imageWidth *
+                    PdfPageFormat.point *
+                    0.8, // Define a largura máxima do texto
                 child: pw.Column(
                   mainAxisAlignment:
                       pw.MainAxisAlignment.center, // Centraliza verticalmente
                   children: [
                     pw.Text(
-                      'Certificamos que, para os devidos fins',
+                      'Certificamos que, para os fins devidos', // Texto inicial alterado
                       style: pw.TextStyle(
                         font: pw.Font.times(),
                         fontSize: 48,
-                        color: mainTextColor,
+                        color: mainTextColor, // Cor principal do texto
                       ),
                       textAlign: pw.TextAlign.center,
                     ),
-                    pw.SizedBox(height: 10),
+                    pw.SizedBox(height: 10), // Espaço entre linhas
                     pw.Text(
-                      aluno.toUpperCase(), // Aluno
+                      'RAFAEL GUTIERREZ IVANKIO',
                       style: pw.TextStyle(
-                        font: pw.Font.timesBold(),
+                        font: pw.Font.timesBold(), // Times Bold para dar ênfase
                         fontSize: 90,
-                        color: nameTextColor,
+                        color: nameTextColor, // Cor do nome
                       ),
                       textAlign: pw.TextAlign.center,
                     ),
                     pw.Text(
-                      'concluiu o curso "$curso" ministrado pelo profissional $professor na data de $dataFormatada com uma duração de $duracao horas.', // Curso, professor, data, duração
+                      'concluiu o curso "Python para iniciantes" ministrado pelo profissional Fernanda Ivankio na data de 21/07/2023 com uma duração de 40 horas.',
                       style: pw.TextStyle(
                         font: pw.Font.times(),
                         fontSize: 48,
-                        color: mainTextColor,
-                      ),
-                      textAlign: pw.TextAlign.center,
-                    ),
-                    pw.Padding(
-                        padding: pw.EdgeInsets.only(
-                            top: imageHeight *
-                                0.05)), // Ajusta o espaço antes dos textos adicionais
-                    pw.Text(
-                      'Código do Certificado: $key', // Chave
-                      style: pw.TextStyle(
-                        font: pw.Font.times(),
-                        fontSize: 36,
-                        color: mainTextColor,
-                      ),
-                      textAlign: pw.TextAlign.center,
-                    ),
-                    pw.Text(
-                      'Powered by iDokey',
-                      style: pw.TextStyle(
-                        font: pw.Font.times(),
-                        fontSize: 36,
-                        color: mainTextColor,
+                        color: mainTextColor, // Cor principal do texto
                       ),
                       textAlign: pw.TextAlign.center,
                     ),

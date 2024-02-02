@@ -591,10 +591,11 @@ class _UserCoursesWidgetState extends State<UserCoursesWidget>
                                                                                                     if (valueOrDefault(currentUserDocument?.certificateName, '') != null && valueOrDefault(currentUserDocument?.certificateName, '') != '') {
                                                                                                       await actions.gerarPDF(
                                                                                                         valueOrDefault(currentUserDocument?.certificateName, ''),
-                                                                                                        videoCardCursosRecord.duracao.toString(),
                                                                                                         videoCardCursosRecord.name,
+                                                                                                        videoCardCursosRecord.instructorName,
+                                                                                                        listViewAlunosCursoRecord.dataInscricao!,
+                                                                                                        videoCardCursosRecord.duracao.toString(),
                                                                                                         listViewAlunosCursoRecord.hash,
-                                                                                                        listViewAlunosCursoRecord.dataInscricao,
                                                                                                       );
                                                                                                     } else {
                                                                                                       ScaffoldMessenger.of(context).showSnackBar(
@@ -681,10 +682,11 @@ class _UserCoursesWidgetState extends State<UserCoursesWidget>
                                                                               if (valueOrDefault(currentUserDocument?.certificateName, '') != null && valueOrDefault(currentUserDocument?.certificateName, '') != '') {
                                                                                 await actions.gerarPDF(
                                                                                   valueOrDefault(currentUserDocument?.certificateName, ''),
-                                                                                  videoCardCursosRecord.duracao.toString(),
                                                                                   videoCardCursosRecord.name,
+                                                                                  videoCardCursosRecord.instructorName,
+                                                                                  listViewAlunosCursoRecord.dataInscricao!,
+                                                                                  videoCardCursosRecord.duracao.toString(),
                                                                                   listViewAlunosCursoRecord.hash,
-                                                                                  listViewAlunosCursoRecord.dataInscricao,
                                                                                 );
                                                                               } else {
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
