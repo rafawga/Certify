@@ -347,7 +347,6 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                 },
                                               ),
                                             });
-                                            Navigator.pop(context);
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                               SnackBar(
@@ -366,6 +365,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                         .secondary,
                                               ),
                                             );
+                                            Navigator.pop(context);
                                           },
                                           text: 'Remover do curso',
                                           options: FFButtonOptions(

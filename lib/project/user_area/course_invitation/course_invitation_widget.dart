@@ -430,6 +430,8 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                               _model.generetedHash,
                                                                           isValid:
                                                                               true,
+                                                                          professorID:
+                                                                              courseInvitationCursosRecord.productorId,
                                                                         ),
                                                                         ...mapToFirestore(
                                                                           {

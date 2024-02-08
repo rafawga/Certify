@@ -106,16 +106,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ProductorCourses',
           path: '/productorCourses',
+          requireAuth: true,
           builder: (context, params) => ProductorCoursesWidget(),
         ),
         FFRoute(
           name: 'CreateNewCurse',
           path: '/createNewCurse',
+          requireAuth: true,
           builder: (context, params) => CreateNewCurseWidget(),
         ),
         FFRoute(
           name: 'CursoDetail',
           path: '/cursoDetail',
+          requireAuth: true,
           builder: (context, params) => CursoDetailWidget(
             curso: params.getParam(
                 'curso', ParamType.DocumentReference, false, ['cursos']),
@@ -125,6 +128,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CourseInvitation',
           path: '/courseInvitation',
+          requireAuth: true,
           builder: (context, params) => CourseInvitationWidget(
             cursoID: params.getParam(
                 'cursoID', ParamType.DocumentReference, false, ['cursos']),
@@ -133,26 +137,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'UserCourses',
           path: '/userCourses',
+          requireAuth: true,
           builder: (context, params) => UserCoursesWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
+          requireAuth: true,
           builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
           name: 'SettingsEditProfile',
           path: '/settingsEditProfile',
+          requireAuth: true,
           builder: (context, params) => SettingsEditProfileWidget(),
         ),
         FFRoute(
           name: 'FeedBacks',
           path: '/feedBacks',
+          requireAuth: true,
           builder: (context, params) => FeedBacksWidget(),
         ),
         FFRoute(
           name: 'VerifyCertificate',
           path: '/VerifyCertificateAuth',
+          requireAuth: true,
           builder: (context, params) => VerifyCertificateWidget(),
         ),
         FFRoute(
@@ -168,11 +177,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/home',
+          requireAuth: true,
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'Dashboard',
           path: '/dashboard',
+          requireAuth: true,
           builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(

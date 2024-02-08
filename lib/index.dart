@@ -3,7 +3,7 @@ export '/project/auth_pages/auth_create_account/auth_create_account_widget.dart'
     show AuthCreateAccountWidget;
 export '/project/auth_pages/auth_login/auth_login_widget.dart'
     show AuthLoginWidget;
-export '/project/productor_area/productor_courses/productor_courses_widget.dart'
+export '/project/productor_courses/productor_courses_widget.dart'
     show ProductorCoursesWidget;
 export '/project/productor_area/create_new_curse/create_new_curse_widget.dart'
     show CreateNewCurseWidget;

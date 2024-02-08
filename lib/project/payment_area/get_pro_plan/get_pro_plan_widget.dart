@@ -1,11 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -227,6 +225,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
+                                borderRadius: BorderRadius.circular(10.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).primary,
                                 ),
@@ -237,7 +236,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'Plano Standart ',
+                                      'Plano Produtor iDokey ',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge,
                                     ),
@@ -276,37 +275,12 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                             successUrl:
                                                 'https://idokey.flutterflow.app/assinaturaSucesso',
                                             priceAPIID:
-                                                'price_1OZLypGvat1kN0fUGpHdyVwH',
+                                                'price_1OhJ04Gvat1kN0fUI9ctzl2D',
                                             customerEmail: currentUserEmail,
                                             mode: 'subscription',
                                           );
                                           if ((_model.apiResult6ee?.succeeded ??
                                               true)) {
-                                            await AssinaturasRecord.collection
-                                                .doc()
-                                                .set({
-                                              ...createAssinaturasRecordData(
-                                                iDAssinatura:
-                                                    CriarSessaoCheckoutCall.id(
-                                                  (_model.apiResult6ee
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                userRef: currentUserReference,
-                                                email: currentUserEmail,
-                                              ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'Data': FieldValue
-                                                      .serverTimestamp(),
-                                                },
-                                              ),
-                                            });
-
-                                            await currentUserReference!
-                                                .update(createUsersRecordData(
-                                              isProdutor: true,
-                                            ));
                                             await launchURL(
                                                 CriarSessaoCheckoutCall.url(
                                               (_model.apiResult6ee?.jsonBody ??
@@ -377,10 +351,13 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                          Text(
-                                            'Cadastre cursos ilimitados.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Flexible(
+                                            child: Text(
+                                              'Cadastre cursos ilimitados.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -399,10 +376,13 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                          Text(
-                                            'Adicione alunos ilimitados.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Flexible(
+                                            child: Text(
+                                              'Adicione alunos ilimitados.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -421,10 +401,13 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                          Text(
-                                            'Gere certificados automáticamente.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Flexible(
+                                            child: Text(
+                                              'Gere certificados ilimitados  automáticamente.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -443,10 +426,13 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                          Text(
-                                            'Código de segurança nos certificados dos alunos.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Flexible(
+                                            child: Text(
+                                              'Código de segurança nos certificados dos alunos.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -465,10 +451,13 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                          Text(
-                                            'Dashboard exclusivo & Estatísticas do curso',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Flexible(
+                                            child: Text(
+                                              'Dashboard exclusivo & Estatísticas do curso',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),

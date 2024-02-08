@@ -1,3 +1,18 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "alunosCurso",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "professorID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "dataInscricao",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
 }

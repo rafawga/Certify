@@ -21,7 +21,7 @@ class CriarSessaoCheckoutCall {
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
-            'Bearer sk_test_51OVFkRGvat1kN0fUiDYEMDam5EKkr7VKsssP6JlMun4rwbjvIPeAMu4Jx4pBiiXzJUmj7iQcYRmhQRtutaxlJ8nF00Ln74HLhH',
+            'Bearer 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',
       },
       params: {
         'success_url': successUrl,
@@ -63,7 +63,7 @@ class CancelarAAssinaturaCall {
       callType: ApiCallType.DELETE,
       headers: {
         'Authorization':
-            'Bearer sk_test_51OVFkRGvat1kN0fUiDYEMDam5EKkr7VKsssP6JlMun4rwbjvIPeAMu4Jx4pBiiXzJUmj7iQcYRmhQRtutaxlJ8nF00Ln74HLhH',
+            'Bearer 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',
       },
       params: {},
       returnBody: true,

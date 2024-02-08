@@ -1629,6 +1629,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                     queryBuilder:
                                                         (alunosCursoRecord) =>
                                                             alunosCursoRecord
+                                                                .where(
+                                                                  'professorID',
+                                                                  isEqualTo:
+                                                                      currentUserReference,
+                                                                )
                                                                 .orderBy(
                                                                     'dataInscricao',
                                                                     descending:

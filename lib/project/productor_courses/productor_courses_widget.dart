@@ -815,7 +815,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  16.0,
+                                                                  32.0,
                                                                   0.0,
                                                                   16.0),
                                                       child: Container(

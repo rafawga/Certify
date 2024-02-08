@@ -14,7 +14,8 @@ import '../cloud_functions/cloud_functions.dart';
 final _isProd = false;
 
 // Stripe Credentials
-const _kProdStripePublishableKey = '';
+const _kProdStripePublishableKey =
+    'pk_live_51OVFkRGvat1kN0fUdOgW9HlH1FAwbKbl08ogTXL2wxIH0dSACojiqIqJqZYjxw2oB52zryCgThP4zCO9s0keuhhZ006fYjlyWE';
 const _kTestStripePublishableKey =
     'pk_test_51OVFkRGvat1kN0fUl9Y1QWe6FFdPNoTvsoNEKbOzeNLHxXauOrTRvg7jk5GF6if76wdExs2xEqJx4Aj8lY9BS0NW00AOkeRbGs';
 const _kAppleMerchantId = '';
@@ -91,7 +92,7 @@ Future<StripePaymentResponse> processStripePayment(
         paymentIntentClientSecret: response['paymentIntent'],
         customerEphemeralKeySecret: response['ephemeralKey'],
         customerId: response['customer'],
-        merchantDisplayName: 'EasyCertificados',
+        merchantDisplayName: 'iDokey',
         googlePay: allowGooglePay
             ? PaymentSheetGooglePay(
                 merchantCountryCode: 'BRL',

@@ -51,6 +51,11 @@ class AlunosCursoRecord extends FirestoreRecord {
   bool get isValid => _isValid ?? false;
   bool hasIsValid() => _isValid != null;
 
+  // "professorID" field.
+  DocumentReference? _professorID;
+  DocumentReference? get professorID => _professorID;
+  bool hasProfessorID() => _professorID != null;
+
   void _initializeFields() {
     _cursoID = snapshotData['cursoID'] as DocumentReference?;
     _isDone = snapshotData['isDone'] as bool?;
@@ -59,6 +64,7 @@ class AlunosCursoRecord extends FirestoreRecord {
     _alunoUser = snapshotData['alunoUser'] as DocumentReference?;
     _hash = snapshotData['hash'] as String?;
     _isValid = snapshotData['isValid'] as bool?;
+    _professorID = snapshotData['professorID'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -103,6 +109,7 @@ Map<String, dynamic> createAlunosCursoRecordData({
   DocumentReference? alunoUser,
   String? hash,
   bool? isValid,
+  DocumentReference? professorID,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -113,6 +120,7 @@ Map<String, dynamic> createAlunosCursoRecordData({
       'alunoUser': alunoUser,
       'hash': hash,
       'isValid': isValid,
+      'professorID': professorID,
     }.withoutNulls,
   );
 
@@ -130,7 +138,8 @@ class AlunosCursoRecordDocumentEquality implements Equality<AlunosCursoRecord> {
         e1?.dataModificacao == e2?.dataModificacao &&
         e1?.alunoUser == e2?.alunoUser &&
         e1?.hash == e2?.hash &&
-        e1?.isValid == e2?.isValid;
+        e1?.isValid == e2?.isValid &&
+        e1?.professorID == e2?.professorID;
   }
 
   @override
@@ -141,7 +150,8 @@ class AlunosCursoRecordDocumentEquality implements Equality<AlunosCursoRecord> {
         e?.dataModificacao,
         e?.alunoUser,
         e?.hash,
-        e?.isValid
+        e?.isValid,
+        e?.professorID
       ]);
 
   @override

@@ -107,8 +107,8 @@ class _ConfirmarCancelamentoWidgetState
                                         await queryAssinaturasRecordOnce(
                                       queryBuilder: (assinaturasRecord) =>
                                           assinaturasRecord.where(
-                                        'UserRef',
-                                        isEqualTo: currentUserReference,
+                                        'Email',
+                                        isEqualTo: currentUserEmail,
                                       ),
                                       singleRecord: true,
                                     ).then((s) => s.firstOrNull);
@@ -141,7 +141,7 @@ class _ConfirmarCancelamentoWidgetState
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Algo deu errado, tente novamente!',
+                                            'Algo deu errado, tente novamente! Caso o problema persistir entre em contato com o suporte',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
