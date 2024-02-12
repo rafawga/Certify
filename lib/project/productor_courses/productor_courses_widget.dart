@@ -516,15 +516,10 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
-                                                                                      Text(
-                                                                                        listViewCursosRecord.name,
-                                                                                        style: FlutterFlowTheme.of(context).bodyLarge,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                      Flexible(
                                                                                         child: Text(
-                                                                                          listViewCursosRecord.description,
-                                                                                          style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                          listViewCursosRecord.name,
+                                                                                          style: FlutterFlowTheme.of(context).bodyLarge,
                                                                                         ),
                                                                                       ),
                                                                                       Row(
@@ -803,7 +798,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Seja bem vindo como produtor, crie o seu primeiro curso! É fácil e rápido.',
+                                                        'Seja bem vindo como produtor. Crie o seu primeiro curso! É fácil e rápido.',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -829,7 +824,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      150.0),
+                                                                      12.0),
                                                         ),
                                                         child: Padding(
                                                           padding:

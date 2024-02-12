@@ -76,6 +76,31 @@ class CursosRecord extends FirestoreRecord {
   bool get hasUserLimit => _hasUserLimit ?? false;
   bool hasHasUserLimit() => _hasUserLimit != null;
 
+  // "PreNameText" field.
+  String? _preNameText;
+  String get preNameText => _preNameText ?? '';
+  bool hasPreNameText() => _preNameText != null;
+
+  // "PreProfText" field.
+  String? _preProfText;
+  String get preProfText => _preProfText ?? '';
+  bool hasPreProfText() => _preProfText != null;
+
+  // "PreDataText" field.
+  String? _preDataText;
+  String get preDataText => _preDataText ?? '';
+  bool hasPreDataText() => _preDataText != null;
+
+  // "PreDuracaoText" field.
+  String? _preDuracaoText;
+  String get preDuracaoText => _preDuracaoText ?? '';
+  bool hasPreDuracaoText() => _preDuracaoText != null;
+
+  // "PreCouseText" field.
+  String? _preCouseText;
+  String get preCouseText => _preCouseText ?? '';
+  bool hasPreCouseText() => _preCouseText != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -89,6 +114,11 @@ class CursosRecord extends FirestoreRecord {
     _photoURL = snapshotData['PhotoURL'] as String?;
     _usersLimit = castToType<int>(snapshotData['UsersLimit']);
     _hasUserLimit = snapshotData['HasUserLimit'] as bool?;
+    _preNameText = snapshotData['PreNameText'] as String?;
+    _preProfText = snapshotData['PreProfText'] as String?;
+    _preDataText = snapshotData['PreDataText'] as String?;
+    _preDuracaoText = snapshotData['PreDuracaoText'] as String?;
+    _preCouseText = snapshotData['PreCouseText'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -135,6 +165,11 @@ Map<String, dynamic> createCursosRecordData({
   String? photoURL,
   int? usersLimit,
   bool? hasUserLimit,
+  String? preNameText,
+  String? preProfText,
+  String? preDataText,
+  String? preDuracaoText,
+  String? preCouseText,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -148,6 +183,11 @@ Map<String, dynamic> createCursosRecordData({
       'PhotoURL': photoURL,
       'UsersLimit': usersLimit,
       'HasUserLimit': hasUserLimit,
+      'PreNameText': preNameText,
+      'PreProfText': preProfText,
+      'PreDataText': preDataText,
+      'PreDuracaoText': preDuracaoText,
+      'PreCouseText': preCouseText,
     }.withoutNulls,
   );
 
@@ -171,7 +211,12 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         listEquality.equals(e1?.excludeUserList, e2?.excludeUserList) &&
         e1?.photoURL == e2?.photoURL &&
         e1?.usersLimit == e2?.usersLimit &&
-        e1?.hasUserLimit == e2?.hasUserLimit;
+        e1?.hasUserLimit == e2?.hasUserLimit &&
+        e1?.preNameText == e2?.preNameText &&
+        e1?.preProfText == e2?.preProfText &&
+        e1?.preDataText == e2?.preDataText &&
+        e1?.preDuracaoText == e2?.preDuracaoText &&
+        e1?.preCouseText == e2?.preCouseText;
   }
 
   @override
@@ -187,7 +232,12 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e?.excludeUserList,
         e?.photoURL,
         e?.usersLimit,
-        e?.hasUserLimit
+        e?.hasUserLimit,
+        e?.preNameText,
+        e?.preProfText,
+        e?.preDataText,
+        e?.preDuracaoText,
+        e?.preCouseText
       ]);
 
   @override

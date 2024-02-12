@@ -1041,6 +1041,15 @@ class _CreateNewCurseWidgetState extends State<CreateNewCurseWidget> {
                                                           _model
                                                               .limiteUsersController
                                                               .text),
+                                                      preNameText:
+                                                          'Certificamos que, para os devidos fins',
+                                                      preCouseText:
+                                                          'concluiu o curso',
+                                                      preProfText:
+                                                          'ministrado pelo profissional',
+                                                      preDataText: 'na data de',
+                                                      preDuracaoText:
+                                                          'com uma duração de',
                                                     ),
                                                     ...mapToFirestore(
                                                       {

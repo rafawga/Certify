@@ -182,263 +182,199 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     thickness: 2.0,
                     color: FlutterFlowTheme.of(context).alternate,
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('HomePage');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 7
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.home,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('HomePage');
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              width: double.infinity,
+                              height: 44.0,
+                              decoration: BoxDecoration(
+                                color: widget.tabAtual == 7
+                                    ? FlutterFlowTheme.of(context).accent1
+                                    : FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                borderRadius: BorderRadius.circular(12.0),
+                                shape: BoxShape.rectangle,
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    height: 12.0,
-                    thickness: 2.0,
-                    color: FlutterFlowTheme.of(context).alternate,
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('ProductorCourses');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 1
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.space_dashboard,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.home,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('CreateNewCurse');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 2
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.note_add,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Dashboard');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 8
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.bar_chart,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    height: 12.0,
-                    thickness: 2.0,
-                    color: FlutterFlowTheme.of(context).alternate,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('UserCourses');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 3
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.checklist_rtl,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  if (!valueOrDefault<bool>(
-                      currentUserDocument?.isProdutor, false))
-                    Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: AuthUserStreamWidget(
-                        builder: (context) => InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('GetProPlan');
-                          },
-                          child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.easeInOut,
-                            width: double.infinity,
-                            height: 44.0,
-                            decoration: BoxDecoration(
-                              color: widget.tabAtual == 6
-                                  ? FlutterFlowTheme.of(context).accent1
-                                  : FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                              borderRadius: BorderRadius.circular(12.0),
-                              shape: BoxShape.rectangle,
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: Row(
+                          ),
+                        ),
+                        if (valueOrDefault<bool>(
+                            currentUserDocument?.isProdutor, false))
+                          AuthUserStreamWidget(
+                            builder: (context) => Container(
+                              decoration: BoxDecoration(),
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.addressCard,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 5.0, 5.0, 5.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('ProductorCourses');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: widget.tabAtual == 1
+                                              ? FlutterFlowTheme.of(context)
+                                                  .accent1
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.space_dashboard,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Torne-se Produtor',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                  Padding(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('CreateNewCurse');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: widget.tabAtual == 2
+                                              ? FlutterFlowTheme.of(context)
+                                                  .accent1
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.note_add,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('Dashboard');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: widget.tabAtual == 8
+                                              ? FlutterFlowTheme.of(context)
+                                                  .accent1
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.bar_chart,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -446,87 +382,198 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               ),
                             ),
                           ),
+                        Divider(
+                          height: 12.0,
+                          thickness: 2.0,
+                          color: FlutterFlowTheme.of(context).alternate,
                         ),
-                      ),
-                    ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('VerifyCertificate');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 5
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.search_sharp,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                        if (!valueOrDefault<bool>(
+                            currentUserDocument?.isProdutor, false))
+                          Padding(
+                            padding: EdgeInsets.all(5.0),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('GetProPlan');
+                                },
+                                child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 200),
+                                  curve: Curves.easeInOut,
+                                  width: double.infinity,
+                                  height: 44.0,
+                                  decoration: BoxDecoration(
+                                    color: widget.tabAtual == 6
+                                        ? FlutterFlowTheme.of(context).accent1
+                                        : FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.addressCard,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Torne-se Produtor',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ],
+                            ),
+                          ),
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('UserCourses');
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              width: double.infinity,
+                              height: 44.0,
+                              decoration: BoxDecoration(
+                                color: widget.tabAtual == 3
+                                    ? FlutterFlowTheme.of(context).accent1
+                                    : FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                borderRadius: BorderRadius.circular(12.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.checklist_rtl,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Settings');
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: widget.tabAtual == 4
-                              ? FlutterFlowTheme.of(context).accent1
-                              : FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.settings_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('VerifyCertificate');
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              width: double.infinity,
+                              height: 44.0,
+                              decoration: BoxDecoration(
+                                color: widget.tabAtual == 5
+                                    ? FlutterFlowTheme.of(context).accent1
+                                    : FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                borderRadius: BorderRadius.circular(12.0),
+                                shape: BoxShape.rectangle,
                               ),
-                            ],
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.search_sharp,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Settings');
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              width: double.infinity,
+                              height: 44.0,
+                              decoration: BoxDecoration(
+                                color: widget.tabAtual == 4
+                                    ? FlutterFlowTheme.of(context).accent1
+                                    : FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                borderRadius: BorderRadius.circular(12.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.settings_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -756,475 +803,495 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     ),
                   ),
                   Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        if (valueOrDefault<bool>(
-                            currentUserDocument?.isProdutor, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => Container(
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (valueOrDefault<bool>(
+                              currentUserDocument?.isProdutor, false))
+                            AuthUserStreamWidget(
+                              builder: (context) => Container(
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 12.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Área do produtor',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 12.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Área do produtor',
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 5.0, 12.0, 5.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('ProductorCourses');
-                                      },
-                                      child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.easeInOut,
-                                        width: double.infinity,
-                                        height: 44.0,
-                                        decoration: BoxDecoration(
-                                          color: widget.tabAtual == 1
-                                              ? FlutterFlowTheme.of(context)
-                                                  .accent1
-                                              : FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.space_dashboard,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Meus Cursos',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                          12.0, 5.0, 12.0, 5.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('ProductorCourses');
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 200),
+                                          curve: Curves.easeInOut,
+                                          width: double.infinity,
+                                          height: 44.0,
+                                          decoration: BoxDecoration(
+                                            color: widget.tabAtual == 1
+                                                ? FlutterFlowTheme.of(context)
+                                                    .accent1
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.space_dashboard,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Meus Cursos',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 5.0, 12.0, 5.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('CreateNewCurse');
-                                      },
-                                      child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.easeInOut,
-                                        width: double.infinity,
-                                        height: 44.0,
-                                        decoration: BoxDecoration(
-                                          color: widget.tabAtual == 2
-                                              ? FlutterFlowTheme.of(context)
-                                                  .accent1
-                                              : FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.note_add_sharp,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Cadastrar novo curso',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 5.0, 12.0, 5.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('Dashboard');
-                                      },
-                                      child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.easeInOut,
-                                        width: double.infinity,
-                                        height: 44.0,
-                                        decoration: BoxDecoration(
-                                          color: widget.tabAtual == 8
-                                              ? FlutterFlowTheme.of(context)
-                                                  .accent1
-                                              : FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.bar_chart,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Estatíticas',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        Container(
-                          decoration: BoxDecoration(),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Área pessoal',
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 5.0, 12.0, 5.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('UserCourses');
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    curve: Curves.easeInOut,
-                                    width: double.infinity,
-                                    height: 44.0,
-                                    decoration: BoxDecoration(
-                                      color: widget.tabAtual == 3
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.checklist_rtl,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Meus Certificados',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
+                                              ],
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 5.0, 12.0, 5.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('CreateNewCurse');
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 200),
+                                          curve: Curves.easeInOut,
+                                          width: double.infinity,
+                                          height: 44.0,
+                                          decoration: BoxDecoration(
+                                            color: widget.tabAtual == 2
+                                                ? FlutterFlowTheme.of(context)
+                                                    .accent1
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.note_add_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Cadastrar novo curso',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 5.0, 12.0, 5.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Dashboard');
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 200),
+                                          curve: Curves.easeInOut,
+                                          width: double.infinity,
+                                          height: 44.0,
+                                          decoration: BoxDecoration(
+                                            color: widget.tabAtual == 8
+                                                ? FlutterFlowTheme.of(context)
+                                                    .accent1
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.bar_chart,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Estatíticas',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          Container(
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Área pessoal',
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
                                     ),
                                   ),
                                 ),
-                              ),
-                              if (!valueOrDefault<bool>(
-                                  currentUserDocument?.isProdutor, false))
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 5.0, 12.0, 5.0),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) => InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('GetProPlan');
-                                      },
-                                      child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.easeInOut,
-                                        width: double.infinity,
-                                        height: 44.0,
-                                        decoration: BoxDecoration(
-                                          color: widget.tabAtual == 6
-                                              ? FlutterFlowTheme.of(context)
-                                                  .accent1
-                                              : FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              FaIcon(
-                                                FontAwesomeIcons.addressCard,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Torne-se Produtor',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('UserCourses');
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: widget.tabAtual == 3
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.checklist_rtl,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Meus Certificados',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 5.0, 12.0, 5.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('VerifyCertificate');
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    curve: Curves.easeInOut,
-                                    width: double.infinity,
-                                    height: 44.0,
-                                    decoration: BoxDecoration(
-                                      color: widget.tabAtual == 5
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.search_sharp,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
+                                if (!valueOrDefault<bool>(
+                                    currentUserDocument?.isProdutor, false))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 5.0, 12.0, 5.0),
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('GetProPlan');
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 200),
+                                          curve: Curves.easeInOut,
+                                          width: double.infinity,
+                                          height: 44.0,
+                                          decoration: BoxDecoration(
+                                            color: widget.tabAtual == 6
+                                                ? FlutterFlowTheme.of(context)
+                                                    .accent1
+                                                : FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            shape: BoxShape.rectangle,
                                           ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Verificar Autenticação',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                FaIcon(
+                                                  FontAwesomeIcons.addressCard,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Torne-se Produtor',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                        ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 5.0, 12.0, 5.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('VerifyCertificate');
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: widget.tabAtual == 5
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.search_sharp,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Verificar Autenticação',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 5.0, 12.0, 5.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('Settings');
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    curve: Curves.easeInOut,
-                                    width: double.infinity,
-                                    height: 44.0,
-                                    decoration: BoxDecoration(
-                                      color: widget.tabAtual == 4
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.settings_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Configurações',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 5.0, 12.0, 5.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('Settings');
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: widget.tabAtual == 4
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.settings_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Configurações',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ].divide(SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
+                      ),
                     ),
                   ),
                   Align(

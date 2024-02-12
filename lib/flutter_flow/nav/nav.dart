@@ -166,7 +166,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'GetProPlan',
-          path: '/getProPlan',
+          path: '/iDokeyPlans',
+          requireAuth: true,
           builder: (context, params) => GetProPlanWidget(),
         ),
         FFRoute(
