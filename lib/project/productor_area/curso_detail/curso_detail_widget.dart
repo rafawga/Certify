@@ -10,11 +10,13 @@ import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import '/project/components/user_pop_up/user_pop_up_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutterflow_colorpicker/flutterflow_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'curso_detail_model.dart';
@@ -105,7 +107,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
     _model.professorFocusNode1 ??= FocusNode();
 
-    _model.duracaoFocusNode1 ??= FocusNode();
+    _model.duracaoFocusNode ??= FocusNode();
 
     _model.limiteUsersFocusNode ??= FocusNode();
 
@@ -129,13 +131,13 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
     _model.duracaoTextFocusNode ??= FocusNode();
 
-    _model.duracaoController2 ??= TextEditingController();
-    _model.duracaoFocusNode2 ??= FocusNode();
+    _model.corDuracaoController ??= TextEditingController();
+    _model.corDuracaoFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.nameController2?.text = '*NOME DO ALUNO*';
           _model.professorController3?.text = '*DATA DE EMISSÃO*';
-          _model.duracaoController2?.text = '*DURAÇÃO*  horas';
+          _model.corDuracaoController?.text = '*DURAÇÃO*  horas';
         }));
   }
 
@@ -1884,7 +1886,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     child:
                                                                         TextFormField(
                                                                       controller:
-                                                                          _model.duracaoController1 ??=
+                                                                          _model.duracaoController ??=
                                                                               TextEditingController(
                                                                         text: cursoDetailCursosRecord
                                                                             .duracao
@@ -1892,7 +1894,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                       focusNode:
                                                                           _model
-                                                                              .duracaoFocusNode1,
+                                                                              .duracaoFocusNode,
                                                                       autofocus:
                                                                           true,
                                                                       autofillHints: [
@@ -1977,7 +1979,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           TextInputType
                                                                               .number,
                                                                       validator: _model
-                                                                          .duracaoController1Validator
+                                                                          .duracaoControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -2381,7 +2383,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .professorController1
                                                                               .text,
                                                                           duracao: int.tryParse(_model
-                                                                              .duracaoController1
+                                                                              .duracaoController
                                                                               .text),
                                                                           photoURL:
                                                                               _model.uploadedFileUrl,
@@ -2413,7 +2415,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .professorController1
                                                                               .text,
                                                                           duracao: int.tryParse(_model
-                                                                              .duracaoController1
+                                                                              .duracaoController
                                                                               .text),
                                                                           hasUserLimit:
                                                                               _model.checkboxValue,
@@ -2861,6 +2863,95 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          // AA
+                                                                          final _colorPicked1Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked1 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.preNameTextColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked1Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked1 = _colorPicked1Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
                                                                   Expanded(
                                                                     flex: 1,
                                                                     child:
@@ -2948,6 +3039,88 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          // AA
+                                                                          final _colorPicked2Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked2 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.nameAlunoColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked2Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked2 = _colorPicked2Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
                                                                 ],
                                                               ),
                                                               Row(
@@ -3034,6 +3207,94 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked3Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked3 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.preCourseColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked3Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked3 = _colorPicked3Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
                                                                   Expanded(
                                                                     flex: 1,
                                                                     child:
@@ -3114,6 +3375,87 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         ),
                                                                       ),
                                                                     ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked4Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked4 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.courseColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked4Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked4 = _colorPicked4Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -3201,6 +3543,94 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked5Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked5 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.preProfTextColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked5Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked5 = _colorPicked5Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
                                                                   Expanded(
                                                                     flex: 1,
                                                                     child:
@@ -3281,6 +3711,87 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         ),
                                                                       ),
                                                                     ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked6Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked6 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.profColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked6Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked6 = _colorPicked6Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -3368,6 +3879,94 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked7Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked7 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.preDataText,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked7Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked7 = _colorPicked7Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
                                                                   Expanded(
                                                                     flex: 1,
                                                                     child:
@@ -3446,6 +4045,87 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         ),
                                                                       ),
                                                                     ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked8Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked8 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.dataColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked8Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked8 = _colorPicked8Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -3538,6 +4218,94 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked9Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked9 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.preDuracaoColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked9Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked9 = _colorPicked9Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
                                                                   Expanded(
                                                                     child:
                                                                         Align(
@@ -3556,9 +4324,9 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           child:
                                                                               TextFormField(
                                                                             controller:
-                                                                                _model.duracaoController2,
+                                                                                _model.corDuracaoController,
                                                                             focusNode:
-                                                                                _model.duracaoFocusNode2,
+                                                                                _model.corDuracaoFocusNode,
                                                                             autofocus:
                                                                                 true,
                                                                             autofillHints: [
@@ -3612,7 +4380,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             keyboardType:
                                                                                 TextInputType.number,
                                                                             validator:
-                                                                                _model.duracaoController2Validator.asValidator(context),
+                                                                                _model.corDuracaoControllerValidator.asValidator(context),
                                                                             inputFormatters: [
                                                                               FilteringTextInputFormatter.allow(RegExp('[0-9]'))
                                                                             ],
@@ -3620,6 +4388,87 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         ),
                                                                       ),
                                                                     ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Cor da fonte',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          final _colorPicked10Color =
+                                                                              await showFFColorPicker(
+                                                                            context,
+                                                                            currentColor: _model.colorPicked10 ??=
+                                                                                colorFromCssString(
+                                                                              cursoDetailCursosRecord.duracaoColor,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            showRecentColors:
+                                                                                true,
+                                                                            allowOpacity:
+                                                                                true,
+                                                                            textColor:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            secondaryTextColor:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            primaryButtonBackgroundColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            primaryButtonTextColor:
+                                                                                Colors.white,
+                                                                            primaryButtonBorderColor:
+                                                                                Colors.transparent,
+                                                                            displayAsBottomSheet:
+                                                                                isMobileWidth(context),
+                                                                          );
+
+                                                                          if (_colorPicked10Color !=
+                                                                              null) {
+                                                                            safeSetState(() =>
+                                                                                _model.colorPicked10 = _colorPicked10Color);
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lineColor,
+                                                                            borderRadius:
+                                                                                BorderRadius.only(
+                                                                              bottomLeft: Radius.circular(0.0),
+                                                                              bottomRight: Radius.circular(0.0),
+                                                                              topLeft: Radius.circular(0.0),
+                                                                              topRight: Radius.circular(0.0),
+                                                                            ),
+                                                                            border:
+                                                                                Border.all(
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -3654,6 +4503,36 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       preDuracaoText:
                                                                           cursoDetailCursosRecord
                                                                               .preDuracaoText,
+                                                                      preNameTextColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked1),
+                                                                      nameAlunoColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked2),
+                                                                      preCourseColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked3),
+                                                                      courseColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked4),
+                                                                      preProfTextColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked5),
+                                                                      profColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked6),
+                                                                      preDataTextColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked7),
+                                                                      dataColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked8),
+                                                                      preDuracaoColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked9),
+                                                                      duracaoColor:
+                                                                          functions
+                                                                              .colorToString(_model.colorPicked10),
                                                                     ));
                                                                   },
                                                                   text:
