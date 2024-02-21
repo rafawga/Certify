@@ -17,10 +17,12 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
   }
 
+  @override
   void dispose() {
     navbarModel.dispose();
   }

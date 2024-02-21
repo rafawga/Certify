@@ -39,10 +39,12 @@ class VerifyCertificateModel extends FlutterFlowModel<VerifyCertificateWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     navbarModel.dispose();

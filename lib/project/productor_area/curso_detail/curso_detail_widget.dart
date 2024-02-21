@@ -90,26 +90,53 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 2,
+      length: 3,
       initialIndex: min(
           valueOrDefault<int>(
             widget.tab,
             0,
           ),
-          1),
+          2),
     )..addListener(() => setState(() {}));
 
-    _model.nameFocusNode ??= FocusNode();
+    _model.nameFocusNode1 ??= FocusNode();
 
-    _model.descriptionFocusNode ??= FocusNode();
+    _model.descriptionFocusNode1 ??= FocusNode();
 
-    _model.professorFocusNode ??= FocusNode();
+    _model.professorFocusNode1 ??= FocusNode();
 
-    _model.duracaoFocusNode ??= FocusNode();
+    _model.duracaoFocusNode1 ??= FocusNode();
 
     _model.limiteUsersFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    _model.initalTextFocusNode ??= FocusNode();
+
+    _model.nameController2 ??= TextEditingController();
+    _model.nameFocusNode2 ??= FocusNode();
+
+    _model.courseTextFocusNode ??= FocusNode();
+
+    _model.descriptionFocusNode2 ??= FocusNode();
+
+    _model.profTextFocusNode ??= FocusNode();
+
+    _model.professorFocusNode2 ??= FocusNode();
+
+    _model.dataTextFocusNode ??= FocusNode();
+
+    _model.professorController3 ??= TextEditingController();
+    _model.professorFocusNode3 ??= FocusNode();
+
+    _model.duracaoTextFocusNode ??= FocusNode();
+
+    _model.duracaoController2 ??= TextEditingController();
+    _model.duracaoFocusNode2 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.nameController2?.text = '*NOME DO ALUNO*';
+          _model.professorController3?.text = '*DATA DE EMISSÃO*';
+          _model.duracaoController2?.text = '*DURAÇÃO*  horas';
+        }));
   }
 
   @override
@@ -217,16 +244,25 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                         Tab(
                                           text: 'Editar Curso',
                                         ),
+                                        Tab(
+                                          text: 'Personalizar Certificado',
+                                        ),
                                       ],
                                       controller: _model.tabBarController,
                                       onTap: (i) async {
-                                        [() async {}, () async {}][i]();
+                                        [
+                                          () async {},
+                                          () async {},
+                                          () async {}
+                                        ][i]();
                                       },
                                     ),
                                   ),
                                   Expanded(
                                     child: TabBarView(
                                       controller: _model.tabBarController,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.all(20.0),
@@ -1316,7 +1352,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .edit_square,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondaryText,
+                                                                          .primary,
                                                                       size:
                                                                           24.0,
                                                                     ),
@@ -1512,14 +1548,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     child:
                                                                         TextFormField(
                                                                       controller:
-                                                                          _model.nameController ??=
+                                                                          _model.nameController1 ??=
                                                                               TextEditingController(
                                                                         text: cursoDetailCursosRecord
                                                                             .name,
                                                                       ),
                                                                       focusNode:
                                                                           _model
-                                                                              .nameFocusNode,
+                                                                              .nameFocusNode1,
                                                                       autofocus:
                                                                           true,
                                                                       autofillHints: [
@@ -1598,7 +1634,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             14.0,
                                                                       ),
                                                                       validator: _model
-                                                                          .nameControllerValidator
+                                                                          .nameController1Validator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -1622,14 +1658,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     child:
                                                                         TextFormField(
                                                                       controller:
-                                                                          _model.descriptionController ??=
+                                                                          _model.descriptionController1 ??=
                                                                               TextEditingController(
                                                                         text: cursoDetailCursosRecord
                                                                             .description,
                                                                       ),
                                                                       focusNode:
                                                                           _model
-                                                                              .descriptionFocusNode,
+                                                                              .descriptionFocusNode1,
                                                                       autofocus:
                                                                           true,
                                                                       autofillHints: [
@@ -1711,7 +1747,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                 FontWeight.w500,
                                                                           ),
                                                                       validator: _model
-                                                                          .descriptionControllerValidator
+                                                                          .descriptionController1Validator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -1735,14 +1771,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     child:
                                                                         TextFormField(
                                                                       controller:
-                                                                          _model.professorController ??=
+                                                                          _model.professorController1 ??=
                                                                               TextEditingController(
                                                                         text: cursoDetailCursosRecord
                                                                             .instructorName,
                                                                       ),
                                                                       focusNode:
                                                                           _model
-                                                                              .professorFocusNode,
+                                                                              .professorFocusNode1,
                                                                       autofocus:
                                                                           true,
                                                                       autofillHints: [
@@ -1824,7 +1860,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                 FontWeight.w500,
                                                                           ),
                                                                       validator: _model
-                                                                          .professorControllerValidator
+                                                                          .professorController1Validator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -1848,7 +1884,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     child:
                                                                         TextFormField(
                                                                       controller:
-                                                                          _model.duracaoController ??=
+                                                                          _model.duracaoController1 ??=
                                                                               TextEditingController(
                                                                         text: cursoDetailCursosRecord
                                                                             .duracao
@@ -1856,7 +1892,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                       focusNode:
                                                                           _model
-                                                                              .duracaoFocusNode,
+                                                                              .duracaoFocusNode1,
                                                                       autofocus:
                                                                           true,
                                                                       autofillHints: [
@@ -1941,7 +1977,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           TextInputType
                                                                               .number,
                                                                       validator: _model
-                                                                          .duracaoControllerValidator
+                                                                          .duracaoController1Validator
                                                                           .asValidator(
                                                                               context),
                                                                       inputFormatters: [
@@ -2336,16 +2372,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .update({
                                                                         ...createCursosRecordData(
                                                                           name: _model
-                                                                              .nameController
+                                                                              .nameController1
                                                                               .text,
                                                                           description: _model
-                                                                              .descriptionController
+                                                                              .descriptionController1
                                                                               .text,
                                                                           instructorName: _model
-                                                                              .professorController
+                                                                              .professorController1
                                                                               .text,
                                                                           duracao: int.tryParse(_model
-                                                                              .duracaoController
+                                                                              .duracaoController1
                                                                               .text),
                                                                           photoURL:
                                                                               _model.uploadedFileUrl,
@@ -2368,16 +2404,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .update({
                                                                         ...createCursosRecordData(
                                                                           name: _model
-                                                                              .nameController
+                                                                              .nameController1
                                                                               .text,
                                                                           description: _model
-                                                                              .descriptionController
+                                                                              .descriptionController1
                                                                               .text,
                                                                           instructorName: _model
-                                                                              .professorController
+                                                                              .professorController1
                                                                               .text,
                                                                           duracao: int.tryParse(_model
-                                                                              .duracaoController
+                                                                              .duracaoController1
                                                                               .text),
                                                                           hasUserLimit:
                                                                               _model.checkboxValue,
@@ -2413,6 +2449,1212 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             FlutterFlowTheme.of(context).secondary,
                                                                       ),
                                                                     );
+                                                                  },
+                                                                  text:
+                                                                      'Salvar alterações',
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    height:
+                                                                        40.0,
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            24.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              Colors.white,
+                                                                        ),
+                                                                    elevation:
+                                                                        3.0,
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Colors
+                                                                          .transparent,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.all(20.0),
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  12.0,
+                                                                  12.0,
+                                                                  25.0),
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 100.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              blurRadius: 1.0,
+                                                              color: Color(
+                                                                  0x33000000),
+                                                              offset: Offset(
+                                                                  0.0, 2.0),
+                                                            )
+                                                          ],
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .edit_square,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Área do produtor / Personalizar Certificado',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          fontSize:
+                                                                              16.0,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    tablet:
+                                                                        false,
+                                                                    tabletLandscape:
+                                                                        false,
+                                                                    desktop:
+                                                                        false,
+                                                                  ))
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        scaffoldKey
+                                                                            .currentState!
+                                                                            .openDrawer();
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .menu_outlined,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        size:
+                                                                            35.0,
+                                                                      ),
+                                                                    ),
+                                                                  if (responsiveVisibility(
+                                                                    context:
+                                                                        context,
+                                                                    phone:
+                                                                        false,
+                                                                  ))
+                                                                    Icon(
+                                                                      Icons
+                                                                          .lightbulb_outlined,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            ' Personalizar Certificado',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Deixe o certificado com a cara de sua empresa!',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(10.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, -1.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      20.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            TextFormField(
+                                                                          controller: _model.initalTextController ??=
+                                                                              TextEditingController(
+                                                                            text:
+                                                                                cursoDetailCursosRecord.preNameText,
+                                                                          ),
+                                                                          focusNode:
+                                                                              _model.initalTextFocusNode,
+                                                                          autofocus:
+                                                                              true,
+                                                                          autofillHints: [
+                                                                            AutofillHints.email
+                                                                          ],
+                                                                          obscureText:
+                                                                              false,
+                                                                          decoration:
+                                                                              InputDecoration(
+                                                                            labelText:
+                                                                                'Texto Inicial',
+                                                                            labelStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium,
+                                                                            enabledBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            focusedBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFF4B39EF),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            errorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFFFF5963),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            focusedErrorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFFFF5963),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            filled:
+                                                                                true,
+                                                                            fillColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                          ),
+                                                                          style:
+                                                                              GoogleFonts.getFont(
+                                                                            'Plus Jakarta Sans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                          ),
+                                                                          maxLines:
+                                                                              null,
+                                                                          validator: _model
+                                                                              .initalTextControllerValidator
+                                                                              .asValidator(context),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            TextFormField(
+                                                                          controller:
+                                                                              _model.nameController2,
+                                                                          focusNode:
+                                                                              _model.nameFocusNode2,
+                                                                          autofocus:
+                                                                              true,
+                                                                          autofillHints: [
+                                                                            AutofillHints.email
+                                                                          ],
+                                                                          readOnly:
+                                                                              true,
+                                                                          obscureText:
+                                                                              false,
+                                                                          decoration:
+                                                                              InputDecoration(
+                                                                            labelText:
+                                                                                'Aluno',
+                                                                            labelStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium,
+                                                                            enabledBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            focusedBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFF4B39EF),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            errorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFFFF5963),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            focusedErrorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: Color(0xFFFF5963),
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                            ),
+                                                                            filled:
+                                                                                true,
+                                                                            fillColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                          ),
+                                                                          style:
+                                                                              GoogleFonts.getFont(
+                                                                            'Plus Jakarta Sans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                          ),
+                                                                          validator: _model
+                                                                              .nameController2Validator
+                                                                              .asValidator(context),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.courseTextController ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.preCouseText,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.courseTextFocusNode,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Texto de apresentação do curso',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.courseTextControllerValidator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.descriptionController2 ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.name,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.descriptionFocusNode2,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            readOnly:
+                                                                                true,
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Curso',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.descriptionController2Validator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.profTextController ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.preProfText,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.profTextFocusNode,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Texto de Intrutor',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.profTextControllerValidator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.professorController2 ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.instructorName,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.professorFocusNode2,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            readOnly:
+                                                                                true,
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Instrutor',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.professorController2Validator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.dataTextController ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.preDataText,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.dataTextFocusNode,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Texto  data',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.dataTextControllerValidator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller:
+                                                                                _model.professorController3,
+                                                                            focusNode:
+                                                                                _model.professorFocusNode3,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            readOnly:
+                                                                                true,
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Data Emissão',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            validator:
+                                                                                _model.professorController3Validator.asValidator(context),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller: _model.duracaoTextController ??=
+                                                                                TextEditingController(
+                                                                              text: cursoDetailCursosRecord.preDuracaoText,
+                                                                            ),
+                                                                            focusNode:
+                                                                                _model.duracaoTextFocusNode,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Texto duração',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            keyboardType:
+                                                                                TextInputType.number,
+                                                                            validator:
+                                                                                _model.duracaoTextControllerValidator.asValidator(context),
+                                                                            inputFormatters: [
+                                                                              FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TextFormField(
+                                                                            controller:
+                                                                                _model.duracaoController2,
+                                                                            focusNode:
+                                                                                _model.duracaoFocusNode2,
+                                                                            autofocus:
+                                                                                true,
+                                                                            autofillHints: [
+                                                                              AutofillHints.email
+                                                                            ],
+                                                                            readOnly:
+                                                                                true,
+                                                                            obscureText:
+                                                                                false,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              labelText: 'Carga horária (horas)',
+                                                                              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                              enabledBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFF4B39EF),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              errorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              focusedErrorBorder: OutlineInputBorder(
+                                                                                borderSide: BorderSide(
+                                                                                  color: Color(0xFFFF5963),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(12.0),
+                                                                              ),
+                                                                              filled: true,
+                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                            keyboardType:
+                                                                                TextInputType.number,
+                                                                            validator:
+                                                                                _model.duracaoController2Validator.asValidator(context),
+                                                                            inputFormatters: [
+                                                                              FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    FFButtonWidget(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    await widget
+                                                                        .curso!
+                                                                        .update(
+                                                                            createCursosRecordData(
+                                                                      preNameText: _model
+                                                                          .initalTextController
+                                                                          .text,
+                                                                      preCouseText: _model
+                                                                          .courseTextController
+                                                                          .text,
+                                                                      preProfText: _model
+                                                                          .profTextController
+                                                                          .text,
+                                                                      preDataText: _model
+                                                                          .dataTextController
+                                                                          .text,
+                                                                      preDuracaoText:
+                                                                          cursoDetailCursosRecord
+                                                                              .preDuracaoText,
+                                                                    ));
                                                                   },
                                                                   text:
                                                                       'Salvar alterações',

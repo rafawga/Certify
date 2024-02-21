@@ -44,10 +44,12 @@ class SettingsEditProfileModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
   }
 
+  @override
   void dispose() {
     navbarModel.dispose();
     yourNameFocusNode1?.dispose();

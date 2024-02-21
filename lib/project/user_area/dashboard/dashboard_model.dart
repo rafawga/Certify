@@ -28,10 +28,12 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     navbarModel.dispose();
