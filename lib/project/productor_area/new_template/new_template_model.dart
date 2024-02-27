@@ -1,8 +1,14 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'new_template_widget.dart' show NewTemplateWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +21,8 @@ class NewTemplateModel extends FlutterFlowModel<NewTemplateWidget> {
 
   int? mode = 1;
 
+  bool photoAdded = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -24,107 +32,132 @@ class NewTemplateModel extends FlutterFlowModel<NewTemplateWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue1;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for Certificado widget.
   FocusNode? certificadoFocusNode1;
   TextEditingController? certificadoController1;
   String? Function(BuildContext, String?)? certificadoController1Validator;
   // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode1;
-  TextEditingController? certificadoFonteController1;
-  String? Function(BuildContext, String?)? certificadoFonteController1Validator;
+  FocusNode? certificadoFonteFocusNode;
+  TextEditingController? certificadoFonteController;
+  String? Function(BuildContext, String?)? certificadoFonteControllerValidator;
   Color? colorPicked1;
+  // State field(s) for AntesNome widget.
+  FocusNode? antesNomeFocusNode;
+  TextEditingController? antesNomeController;
+  String? Function(BuildContext, String?)? antesNomeControllerValidator;
+  // State field(s) for AntesNomeFonte widget.
+  FocusNode? antesNomeFonteFocusNode;
+  TextEditingController? antesNomeFonteController;
+  String? Function(BuildContext, String?)? antesNomeFonteControllerValidator;
+  Color? colorPicked2;
+  // State field(s) for ALuno widget.
+  FocusNode? aLunoFocusNode;
+  TextEditingController? aLunoController;
+  String? Function(BuildContext, String?)? aLunoControllerValidator;
+  // State field(s) for NomeFonte widget.
+  FocusNode? nomeFonteFocusNode;
+  TextEditingController? nomeFonteController;
+  String? Function(BuildContext, String?)? nomeFonteControllerValidator;
+  Color? colorPicked3;
+  // State field(s) for Prf widget.
+  FocusNode? prfFocusNode;
+  TextEditingController? prfController;
+  String? Function(BuildContext, String?)? prfControllerValidator;
+  // State field(s) for AntesCursoFonte widget.
+  FocusNode? antesCursoFonteFocusNode;
+  TextEditingController? antesCursoFonteController;
+  String? Function(BuildContext, String?)? antesCursoFonteControllerValidator;
+  Color? colorPicked4;
+  // State field(s) for Curso widget.
+  FocusNode? cursoFocusNode;
+  TextEditingController? cursoController;
+  String? Function(BuildContext, String?)? cursoControllerValidator;
+  // State field(s) for CursoFonte widget.
+  FocusNode? cursoFonteFocusNode;
+  TextEditingController? cursoFonteController;
+  String? Function(BuildContext, String?)? cursoFonteControllerValidator;
+  Color? colorPicked5;
+  // State field(s) for AntesProfessor widget.
+  FocusNode? antesProfessorFocusNode;
+  TextEditingController? antesProfessorController;
+  String? Function(BuildContext, String?)? antesProfessorControllerValidator;
+  // State field(s) for AntesProfFonte widget.
+  FocusNode? antesProfFonteFocusNode;
+  TextEditingController? antesProfFonteController;
+  String? Function(BuildContext, String?)? antesProfFonteControllerValidator;
+  Color? colorPicked6;
+  // State field(s) for PRofessor widget.
+  FocusNode? pRofessorFocusNode;
+  TextEditingController? pRofessorController;
+  String? Function(BuildContext, String?)? pRofessorControllerValidator;
+  // State field(s) for ProfFonte widget.
+  FocusNode? profFonteFocusNode;
+  TextEditingController? profFonteController;
+  String? Function(BuildContext, String?)? profFonteControllerValidator;
+  Color? colorPicked7;
+  // State field(s) for Antesdata widget.
+  FocusNode? antesdataFocusNode;
+  TextEditingController? antesdataController;
+  String? Function(BuildContext, String?)? antesdataControllerValidator;
+  // State field(s) for AntesDataFonte widget.
+  FocusNode? antesDataFonteFocusNode;
+  TextEditingController? antesDataFonteController;
+  String? Function(BuildContext, String?)? antesDataFonteControllerValidator;
+  Color? colorPicked8;
+  // State field(s) for data widget.
+  FocusNode? dataFocusNode;
+  TextEditingController? dataController;
+  String? Function(BuildContext, String?)? dataControllerValidator;
+  // State field(s) for DataFonte widget.
+  FocusNode? dataFonteFocusNode;
+  TextEditingController? dataFonteController;
+  String? Function(BuildContext, String?)? dataFonteControllerValidator;
+  Color? colorPicked9;
+  // State field(s) for antesDuracao widget.
+  FocusNode? antesDuracaoFocusNode;
+  TextEditingController? antesDuracaoController;
+  String? Function(BuildContext, String?)? antesDuracaoControllerValidator;
+  // State field(s) for AntesDuracaoFonte widget.
+  FocusNode? antesDuracaoFonteFocusNode;
+  TextEditingController? antesDuracaoFonteController;
+  String? Function(BuildContext, String?)? antesDuracaoFonteControllerValidator;
+  Color? colorPicked10;
   // State field(s) for Certificado widget.
   FocusNode? certificadoFocusNode2;
   TextEditingController? certificadoController2;
   String? Function(BuildContext, String?)? certificadoController2Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode2;
-  TextEditingController? certificadoFonteController2;
-  String? Function(BuildContext, String?)? certificadoFonteController2Validator;
-  Color? colorPicked2;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode3;
-  TextEditingController? certificadoController3;
-  String? Function(BuildContext, String?)? certificadoController3Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode3;
-  TextEditingController? certificadoFonteController3;
-  String? Function(BuildContext, String?)? certificadoFonteController3Validator;
-  Color? colorPicked3;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode4;
-  TextEditingController? certificadoController4;
-  String? Function(BuildContext, String?)? certificadoController4Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode4;
-  TextEditingController? certificadoFonteController4;
-  String? Function(BuildContext, String?)? certificadoFonteController4Validator;
-  Color? colorPicked4;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode5;
-  TextEditingController? certificadoController5;
-  String? Function(BuildContext, String?)? certificadoController5Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode5;
-  TextEditingController? certificadoFonteController5;
-  String? Function(BuildContext, String?)? certificadoFonteController5Validator;
-  Color? colorPicked5;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode6;
-  TextEditingController? certificadoController6;
-  String? Function(BuildContext, String?)? certificadoController6Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode6;
-  TextEditingController? certificadoFonteController6;
-  String? Function(BuildContext, String?)? certificadoFonteController6Validator;
-  Color? colorPicked6;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode7;
-  TextEditingController? certificadoController7;
-  String? Function(BuildContext, String?)? certificadoController7Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode7;
-  TextEditingController? certificadoFonteController7;
-  String? Function(BuildContext, String?)? certificadoFonteController7Validator;
-  Color? colorPicked7;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode8;
-  TextEditingController? certificadoController8;
-  String? Function(BuildContext, String?)? certificadoController8Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode8;
-  TextEditingController? certificadoFonteController8;
-  String? Function(BuildContext, String?)? certificadoFonteController8Validator;
-  Color? colorPicked8;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode9;
-  TextEditingController? certificadoController9;
-  String? Function(BuildContext, String?)? certificadoController9Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode9;
-  TextEditingController? certificadoFonteController9;
-  String? Function(BuildContext, String?)? certificadoFonteController9Validator;
-  Color? colorPicked9;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode10;
-  TextEditingController? certificadoController10;
-  String? Function(BuildContext, String?)? certificadoController10Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode10;
-  TextEditingController? certificadoFonteController10;
-  String? Function(BuildContext, String?)?
-      certificadoFonteController10Validator;
-  Color? colorPicked10;
-  // State field(s) for Certificado widget.
-  FocusNode? certificadoFocusNode11;
-  TextEditingController? certificadoController11;
-  String? Function(BuildContext, String?)? certificadoController11Validator;
-  // State field(s) for CertificadoFonte widget.
-  FocusNode? certificadoFonteFocusNode11;
-  TextEditingController? certificadoFonteController11;
-  String? Function(BuildContext, String?)?
-      certificadoFonteController11Validator;
+  // State field(s) for DuracaoFonte widget.
+  FocusNode? duracaoFonteFocusNode;
+  TextEditingController? duracaoFonteController;
+  String? Function(BuildContext, String?)? duracaoFonteControllerValidator;
   Color? colorPicked11;
+  // State field(s) for PowerediDokey widget.
+  FocusNode? powerediDokeyFocusNode;
+  TextEditingController? powerediDokeyController;
+  String? Function(BuildContext, String?)? powerediDokeyControllerValidator;
+  // State field(s) for idokeyFonte widget.
+  FocusNode? idokeyFonteFocusNode;
+  TextEditingController? idokeyFonteController;
+  String? Function(BuildContext, String?)? idokeyFonteControllerValidator;
+  Color? colorPicked12;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue2;
+  // State field(s) for Keysegurana widget.
+  FocusNode? keyseguranaFocusNode;
+  TextEditingController? keyseguranaController;
+  String? Function(BuildContext, String?)? keyseguranaControllerValidator;
+  // State field(s) for keyFonte widget.
+  FocusNode? keyFonteFocusNode;
+  TextEditingController? keyFonteController;
+  String? Function(BuildContext, String?)? keyFonteControllerValidator;
+  Color? colorPicked13;
 
   /// Initialization and disposal methods.
 
@@ -143,68 +176,80 @@ class NewTemplateModel extends FlutterFlowModel<NewTemplateWidget> {
     certificadoFocusNode1?.dispose();
     certificadoController1?.dispose();
 
-    certificadoFonteFocusNode1?.dispose();
-    certificadoFonteController1?.dispose();
+    certificadoFonteFocusNode?.dispose();
+    certificadoFonteController?.dispose();
+
+    antesNomeFocusNode?.dispose();
+    antesNomeController?.dispose();
+
+    antesNomeFonteFocusNode?.dispose();
+    antesNomeFonteController?.dispose();
+
+    aLunoFocusNode?.dispose();
+    aLunoController?.dispose();
+
+    nomeFonteFocusNode?.dispose();
+    nomeFonteController?.dispose();
+
+    prfFocusNode?.dispose();
+    prfController?.dispose();
+
+    antesCursoFonteFocusNode?.dispose();
+    antesCursoFonteController?.dispose();
+
+    cursoFocusNode?.dispose();
+    cursoController?.dispose();
+
+    cursoFonteFocusNode?.dispose();
+    cursoFonteController?.dispose();
+
+    antesProfessorFocusNode?.dispose();
+    antesProfessorController?.dispose();
+
+    antesProfFonteFocusNode?.dispose();
+    antesProfFonteController?.dispose();
+
+    pRofessorFocusNode?.dispose();
+    pRofessorController?.dispose();
+
+    profFonteFocusNode?.dispose();
+    profFonteController?.dispose();
+
+    antesdataFocusNode?.dispose();
+    antesdataController?.dispose();
+
+    antesDataFonteFocusNode?.dispose();
+    antesDataFonteController?.dispose();
+
+    dataFocusNode?.dispose();
+    dataController?.dispose();
+
+    dataFonteFocusNode?.dispose();
+    dataFonteController?.dispose();
+
+    antesDuracaoFocusNode?.dispose();
+    antesDuracaoController?.dispose();
+
+    antesDuracaoFonteFocusNode?.dispose();
+    antesDuracaoFonteController?.dispose();
 
     certificadoFocusNode2?.dispose();
     certificadoController2?.dispose();
 
-    certificadoFonteFocusNode2?.dispose();
-    certificadoFonteController2?.dispose();
+    duracaoFonteFocusNode?.dispose();
+    duracaoFonteController?.dispose();
 
-    certificadoFocusNode3?.dispose();
-    certificadoController3?.dispose();
+    powerediDokeyFocusNode?.dispose();
+    powerediDokeyController?.dispose();
 
-    certificadoFonteFocusNode3?.dispose();
-    certificadoFonteController3?.dispose();
+    idokeyFonteFocusNode?.dispose();
+    idokeyFonteController?.dispose();
 
-    certificadoFocusNode4?.dispose();
-    certificadoController4?.dispose();
+    keyseguranaFocusNode?.dispose();
+    keyseguranaController?.dispose();
 
-    certificadoFonteFocusNode4?.dispose();
-    certificadoFonteController4?.dispose();
-
-    certificadoFocusNode5?.dispose();
-    certificadoController5?.dispose();
-
-    certificadoFonteFocusNode5?.dispose();
-    certificadoFonteController5?.dispose();
-
-    certificadoFocusNode6?.dispose();
-    certificadoController6?.dispose();
-
-    certificadoFonteFocusNode6?.dispose();
-    certificadoFonteController6?.dispose();
-
-    certificadoFocusNode7?.dispose();
-    certificadoController7?.dispose();
-
-    certificadoFonteFocusNode7?.dispose();
-    certificadoFonteController7?.dispose();
-
-    certificadoFocusNode8?.dispose();
-    certificadoController8?.dispose();
-
-    certificadoFonteFocusNode8?.dispose();
-    certificadoFonteController8?.dispose();
-
-    certificadoFocusNode9?.dispose();
-    certificadoController9?.dispose();
-
-    certificadoFonteFocusNode9?.dispose();
-    certificadoFonteController9?.dispose();
-
-    certificadoFocusNode10?.dispose();
-    certificadoController10?.dispose();
-
-    certificadoFonteFocusNode10?.dispose();
-    certificadoFonteController10?.dispose();
-
-    certificadoFocusNode11?.dispose();
-    certificadoController11?.dispose();
-
-    certificadoFonteFocusNode11?.dispose();
-    certificadoFonteController11?.dispose();
+    keyFonteFocusNode?.dispose();
+    keyFonteController?.dispose();
   }
 
   /// Action blocks are added here.

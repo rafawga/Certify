@@ -1,7 +1,13 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -34,94 +40,109 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
     _model.certificadoController1 ??= TextEditingController();
     _model.certificadoFocusNode1 ??= FocusNode();
 
-    _model.certificadoFonteController1 ??= TextEditingController();
-    _model.certificadoFonteFocusNode1 ??= FocusNode();
+    _model.certificadoFonteController ??= TextEditingController();
+    _model.certificadoFonteFocusNode ??= FocusNode();
+
+    _model.antesNomeController ??= TextEditingController();
+    _model.antesNomeFocusNode ??= FocusNode();
+
+    _model.antesNomeFonteController ??= TextEditingController();
+    _model.antesNomeFonteFocusNode ??= FocusNode();
+
+    _model.aLunoController ??= TextEditingController();
+    _model.aLunoFocusNode ??= FocusNode();
+
+    _model.nomeFonteController ??= TextEditingController();
+    _model.nomeFonteFocusNode ??= FocusNode();
+
+    _model.prfController ??= TextEditingController();
+    _model.prfFocusNode ??= FocusNode();
+
+    _model.antesCursoFonteController ??= TextEditingController();
+    _model.antesCursoFonteFocusNode ??= FocusNode();
+
+    _model.cursoController ??= TextEditingController();
+    _model.cursoFocusNode ??= FocusNode();
+
+    _model.cursoFonteController ??= TextEditingController();
+    _model.cursoFonteFocusNode ??= FocusNode();
+
+    _model.antesProfessorController ??= TextEditingController();
+    _model.antesProfessorFocusNode ??= FocusNode();
+
+    _model.antesProfFonteController ??= TextEditingController();
+    _model.antesProfFonteFocusNode ??= FocusNode();
+
+    _model.pRofessorController ??= TextEditingController();
+    _model.pRofessorFocusNode ??= FocusNode();
+
+    _model.profFonteController ??= TextEditingController();
+    _model.profFonteFocusNode ??= FocusNode();
+
+    _model.antesdataController ??= TextEditingController();
+    _model.antesdataFocusNode ??= FocusNode();
+
+    _model.antesDataFonteController ??= TextEditingController();
+    _model.antesDataFonteFocusNode ??= FocusNode();
+
+    _model.dataController ??= TextEditingController();
+    _model.dataFocusNode ??= FocusNode();
+
+    _model.dataFonteController ??= TextEditingController();
+    _model.dataFonteFocusNode ??= FocusNode();
+
+    _model.antesDuracaoController ??= TextEditingController();
+    _model.antesDuracaoFocusNode ??= FocusNode();
+
+    _model.antesDuracaoFonteController ??= TextEditingController();
+    _model.antesDuracaoFonteFocusNode ??= FocusNode();
 
     _model.certificadoController2 ??= TextEditingController();
     _model.certificadoFocusNode2 ??= FocusNode();
 
-    _model.certificadoFonteController2 ??= TextEditingController();
-    _model.certificadoFonteFocusNode2 ??= FocusNode();
+    _model.duracaoFonteController ??= TextEditingController();
+    _model.duracaoFonteFocusNode ??= FocusNode();
 
-    _model.certificadoController3 ??= TextEditingController();
-    _model.certificadoFocusNode3 ??= FocusNode();
+    _model.powerediDokeyController ??= TextEditingController();
+    _model.powerediDokeyFocusNode ??= FocusNode();
 
-    _model.certificadoFonteController3 ??= TextEditingController();
-    _model.certificadoFonteFocusNode3 ??= FocusNode();
+    _model.idokeyFonteController ??= TextEditingController();
+    _model.idokeyFonteFocusNode ??= FocusNode();
 
-    _model.certificadoController4 ??= TextEditingController();
-    _model.certificadoFocusNode4 ??= FocusNode();
+    _model.keyseguranaController ??= TextEditingController();
+    _model.keyseguranaFocusNode ??= FocusNode();
 
-    _model.certificadoFonteController4 ??= TextEditingController();
-    _model.certificadoFonteFocusNode4 ??= FocusNode();
-
-    _model.certificadoController5 ??= TextEditingController();
-    _model.certificadoFocusNode5 ??= FocusNode();
-
-    _model.certificadoFonteController5 ??= TextEditingController();
-    _model.certificadoFonteFocusNode5 ??= FocusNode();
-
-    _model.certificadoController6 ??= TextEditingController();
-    _model.certificadoFocusNode6 ??= FocusNode();
-
-    _model.certificadoFonteController6 ??= TextEditingController();
-    _model.certificadoFonteFocusNode6 ??= FocusNode();
-
-    _model.certificadoController7 ??= TextEditingController();
-    _model.certificadoFocusNode7 ??= FocusNode();
-
-    _model.certificadoFonteController7 ??= TextEditingController();
-    _model.certificadoFonteFocusNode7 ??= FocusNode();
-
-    _model.certificadoController8 ??= TextEditingController();
-    _model.certificadoFocusNode8 ??= FocusNode();
-
-    _model.certificadoFonteController8 ??= TextEditingController();
-    _model.certificadoFonteFocusNode8 ??= FocusNode();
-
-    _model.certificadoController9 ??= TextEditingController();
-    _model.certificadoFocusNode9 ??= FocusNode();
-
-    _model.certificadoFonteController9 ??= TextEditingController();
-    _model.certificadoFonteFocusNode9 ??= FocusNode();
-
-    _model.certificadoController10 ??= TextEditingController();
-    _model.certificadoFocusNode10 ??= FocusNode();
-
-    _model.certificadoFonteController10 ??= TextEditingController();
-    _model.certificadoFonteFocusNode10 ??= FocusNode();
-
-    _model.certificadoController11 ??= TextEditingController();
-    _model.certificadoFocusNode11 ??= FocusNode();
-
-    _model.certificadoFonteController11 ??= TextEditingController();
-    _model.certificadoFonteFocusNode11 ??= FocusNode();
+    _model.keyFonteController ??= TextEditingController();
+    _model.keyFonteFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.certificadoController1?.text = 'Certificado';
-          _model.certificadoFonteController1?.text = '23';
-          _model.certificadoController2?.text = 'Certificamos que';
-          _model.certificadoFonteController2?.text = '16';
-          _model.certificadoController3?.text = 'NOME DO ALUNO';
-          _model.certificadoFonteController3?.text = '31';
-          _model.certificadoController4?.text =
-              'Concluiu com sucesso a formação';
-          _model.certificadoFonteController4?.text = '16';
-          _model.certificadoController5?.text = 'NOME DO CURSO';
-          _model.certificadoFonteController5?.text = '16';
-          _model.certificadoController6?.text = 'Ministrado pelo profissional';
-          _model.certificadoFonteController6?.text = '16';
-          _model.certificadoController7?.text = 'Nome do Professor';
-          _model.certificadoFonteController7?.text = '16';
-          _model.certificadoController8?.text = 'na data de';
-          _model.certificadoFonteController8?.text = '16';
-          _model.certificadoController9?.text =
-              'DATA DE EMISSÃO DO CERTIFICADO';
-          _model.certificadoFonteController9?.text = '16';
-          _model.certificadoController10?.text = 'com uma duração de';
-          _model.certificadoFonteController10?.text = '16';
-          _model.certificadoController11?.text = '[DURÃÇAO] horas';
-          _model.certificadoFonteController11?.text = '16';
+          _model.certificadoFonteController?.text = '23';
+          _model.antesNomeController?.text = 'Certificamos que';
+          _model.antesNomeFonteController?.text = '16';
+          _model.aLunoController?.text = 'NOME DO ALUNO';
+          _model.nomeFonteController?.text = '31';
+          _model.prfController?.text = 'Concluiu com sucesso a formação';
+          _model.antesCursoFonteController?.text = '16';
+          _model.cursoController?.text = 'NOME DO CURSO';
+          _model.cursoFonteController?.text = '16';
+          _model.antesProfessorController?.text =
+              'Ministrado pelo profissional';
+          _model.antesProfFonteController?.text = '16';
+          _model.pRofessorController?.text = 'Nome do Professor';
+          _model.profFonteController?.text = '16';
+          _model.antesdataController?.text = 'na data de';
+          _model.antesDataFonteController?.text = '16';
+          _model.dataController?.text = 'DATA DE EMISSÃO DO CERTIFICADO';
+          _model.dataFonteController?.text = '16';
+          _model.antesDuracaoController?.text = 'com uma duração de';
+          _model.antesDuracaoFonteController?.text = '16';
+          _model.certificadoController2?.text = '[DURÃÇAO] horas';
+          _model.duracaoFonteController?.text = '16';
+          _model.powerediDokeyController?.text = 'Powered by iDokey';
+          _model.idokeyFonteController?.text = '12';
+          _model.keyseguranaController?.text = '[Key de segurança]';
+          _model.keyFonteController?.text = '16';
         }));
   }
 
@@ -355,83 +376,135 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    width: 565.0,
-                                    height: 400.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.asset(
-                                          'assets/images/certificate1.png',
-                                        ).image,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          50.0, 75.0, 50.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    if (!_model.photoAdded)
+                                      Container(
+                                        width: 565.0,
+                                        height: 400.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: Image.asset(
+                                              'assets/images/certificate1.png',
+                                            ).image,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  50.0, 75.0, 50.0, 0.0),
+                                          child: Column(
                                             mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
                                             children: [
-                                              Flexible(
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    setState(() {
-                                                      _model.mode = 1;
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    _model
-                                                        .certificadoController1
-                                                        .text,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: _model
-                                                              .colorPicked1,
-                                                          fontSize: double
-                                                              .tryParse(_model
-                                                                  .certificadoFonteController1
-                                                                  .text),
-                                                        ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Flexible(
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        setState(() {
+                                                          _model.mode = 1;
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        _model
+                                                            .certificadoController1
+                                                            .text,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: _model
+                                                                      .colorPicked1,
+                                                                  fontSize: double
+                                                                      .tryParse(_model
+                                                                          .certificadoFonteController
+                                                                          .text),
+                                                                ),
+                                                      ),
+                                                    ),
                                                   ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 40.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            _model.mode = 2;
+                                                          });
+                                                        },
+                                                        child: Text(
+                                                          _model
+                                                              .antesNomeController
+                                                              .text,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: _model
+                                                                    .colorPicked2,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesNomeFonteController
+                                                                        .text),
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 40.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Flexible(
-                                                  child: InkWell(
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  InkWell(
                                                     splashColor:
                                                         Colors.transparent,
                                                     focusColor:
@@ -442,13 +515,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       setState(() {
-                                                        _model.mode = 2;
+                                                        _model.mode = 3;
                                                       });
                                                     },
                                                     child: Text(
-                                                      _model
-                                                          .certificadoController2
-                                                          .text,
+                                                      'NOME DO ALUNO',
+                                                      textAlign:
+                                                          TextAlign.center,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -457,311 +530,1051 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                                 fontFamily:
                                                                     'Readex Pro',
                                                                 color: _model
-                                                                    .colorPicked2,
+                                                                    .colorPicked3,
                                                                 fontSize: double
                                                                     .tryParse(_model
-                                                                        .certificadoFonteController2
+                                                                        .nomeFonteController
                                                                         .text),
                                                               ),
                                                     ),
                                                   ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  // You will have to add an action on this rich text to go to your login page.
+                                                  Flexible(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .prfController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked4,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesCursoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            4;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (nome do curso) ',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked5,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .cursoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            5;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesProfessorController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked6,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesProfFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            6;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (nome do professor) ',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked7,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .profFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            7;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesdataController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked8,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesDataFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            8;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: ' (data)',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked9,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .dataFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            9;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesDuracaoController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked10,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesDuracaoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            10;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (duração) horas.',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked11,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .duracaoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            11;
+                                                                      });
+                                                                    },
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF101213),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (_model
+                                                              .checkboxValue2 ??
+                                                          true)
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            setState(() {
+                                                              _model.mode = 12;
+                                                            });
+                                                          },
+                                                          child: Text(
+                                                            'Powered by iDokey',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: _model
+                                                                      .colorPicked12,
+                                                                  fontSize: double
+                                                                      .tryParse(_model
+                                                                          .idokeyFonteController
+                                                                          .text),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            _model.mode = 13;
+                                                          });
+                                                        },
+                                                        child: Text(
+                                                          'Key de segurança',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: _model
+                                                                    .colorPicked13,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .keyFonteController
+                                                                        .text),
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    if (_model.photoAdded)
+                                      Container(
+                                        width: 565.0,
+                                        height: 400.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: Image.network(
+                                              _model.uploadedFileUrl,
+                                            ).image,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  50.0, 75.0, 50.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Flexible(
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        setState(() {
+                                                          _model.mode = 1;
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        _model
+                                                            .certificadoController1
+                                                            .text,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: _model
+                                                                      .colorPicked1,
+                                                                  fontSize: double
+                                                                      .tryParse(_model
+                                                                          .certificadoFonteController
+                                                                          .text),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 40.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            _model.mode = 2;
+                                                          });
+                                                        },
+                                                        child: Text(
+                                                          _model
+                                                              .antesNomeController
+                                                              .text,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: _model
+                                                                    .colorPicked2,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesNomeFonteController
+                                                                        .text),
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      setState(() {
+                                                        _model.mode = 3;
+                                                      });
+                                                    },
+                                                    child: Text(
+                                                      'NOME DO ALUNO',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: _model
+                                                                    .colorPicked3,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .nomeFonteController
+                                                                        .text),
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  // You will have to add an action on this rich text to go to your login page.
+                                                  Flexible(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .prfController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked4,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesCursoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            4;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (nome do curso) ',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked5,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .cursoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            5;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesProfessorController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked6,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesProfFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            6;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (nome do professor) ',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked7,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .profFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            7;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesdataController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked8,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesDataFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            8;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: ' (data)',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked9,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .dataFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            9;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text: _model
+                                                                  .antesDuracaoController
+                                                                  .text,
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked10,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .antesDuracaoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            10;
+                                                                      });
+                                                                    },
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (duração) horas.',
+                                                              style: TextStyle(
+                                                                color: _model
+                                                                    .colorPicked11,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .duracaoFonteController
+                                                                        .text),
+                                                              ),
+                                                              mouseCursor:
+                                                                  SystemMouseCursors
+                                                                      .click,
+                                                              recognizer:
+                                                                  TapGestureRecognizer()
+                                                                    ..onTap =
+                                                                        () async {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.mode =
+                                                                            11;
+                                                                      });
+                                                                    },
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF101213),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (_model
+                                                              .checkboxValue2 ??
+                                                          true)
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            setState(() {
+                                                              _model.mode = 12;
+                                                            });
+                                                          },
+                                                          child: Text(
+                                                            'Powered by iDokey',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: _model
+                                                                      .colorPicked12,
+                                                                  fontSize: double
+                                                                      .tryParse(_model
+                                                                          .idokeyFonteController
+                                                                          .text),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            _model.mode = 13;
+                                                          });
+                                                        },
+                                                        child: Text(
+                                                          'Key de segurança',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: _model
+                                                                    .colorPicked13,
+                                                                fontSize: double
+                                                                    .tryParse(_model
+                                                                        .keyFonteController
+                                                                        .text),
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          30.0, 0.0, 0.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 20.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Theme(
+                                                  data: ThemeData(
+                                                    checkboxTheme:
+                                                        CheckboxThemeData(
+                                                      visualDensity:
+                                                          VisualDensity.compact,
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                      ),
+                                                    ),
+                                                    unselectedWidgetColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                  ),
+                                                  child: Checkbox(
+                                                    value: _model
+                                                            .checkboxValue1 ??=
+                                                        true,
+                                                    onChanged:
+                                                        (newValue) async {
+                                                      setState(() => _model
+                                                              .checkboxValue1 =
+                                                          newValue!);
+                                                      if (newValue!) {
+                                                        setState(() {
+                                                          _model.photoAdded =
+                                                              false;
+                                                        });
+                                                      } else {
+                                                        setState(() {
+                                                          _model.photoAdded =
+                                                              true;
+                                                        });
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Adione uma foto de fundo personalizada!',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+                                                    },
+                                                    activeColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    checkColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .info,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'Usar Fundo Padrão',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  setState(() {
-                                                    _model.mode = 3;
-                                                  });
-                                                },
-                                                child: Text(
-                                                  'NOME DO ALUNO',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            _model.colorPicked3,
-                                                        fontSize: double
-                                                            .tryParse(_model
-                                                                .certificadoFonteController3
-                                                                .text),
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              // You will have to add an action on this rich text to go to your login page.
-                                              Flexible(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 12.0, 0.0, 12.0),
-                                                  child: RichText(
-                                                    textScaleFactor:
-                                                        MediaQuery.of(context)
-                                                            .textScaleFactor,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text: _model
-                                                              .certificadoController4
-                                                              .text,
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked4,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController4
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        4;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '[Nome do Curso] ',
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked5,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController5
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        5;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text: _model
-                                                              .certificadoController6
-                                                              .text,
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked6,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoController6
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        6;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '[NOME DO PROFESSOR]',
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked7,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController7
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        7;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text: _model
-                                                              .certificadoController8
-                                                              .text,
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked8,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController8
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        8;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '[DATA DE EMISSÃO]',
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked9,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController9
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        9;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text: _model
-                                                              .certificadoController10
-                                                              .text,
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked10,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController10
-                                                                    .text),
-                                                          ),
-                                                          mouseCursor:
-                                                              SystemMouseCursors
-                                                                  .click,
-                                                          recognizer:
-                                                              TapGestureRecognizer()
-                                                                ..onTap =
-                                                                    () async {
-                                                                  setState(() {
-                                                                    _model.mode =
-                                                                        10;
-                                                                  });
-                                                                },
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '[Duracao] horas',
-                                                          style: TextStyle(
-                                                            color: _model
-                                                                .colorPicked11,
-                                                            fontSize: double
-                                                                .tryParse(_model
-                                                                    .certificadoFonteController11
-                                                                    .text),
-                                                          ),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Plus Jakarta Sans',
-                                                            color: Color(
-                                                                0xFF101213),
-                                                            fontSize: 14.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              final selectedMedia =
+                                                  await selectMediaWithSourceBottomSheet(
+                                                context: context,
+                                                allowPhoto: true,
+                                              );
+                                              if (selectedMedia != null &&
+                                                  selectedMedia.every((m) =>
+                                                      validateFileFormat(
+                                                          m.storagePath,
+                                                          context))) {
+                                                setState(() => _model
+                                                    .isDataUploading = true);
+                                                var selectedUploadedFiles =
+                                                    <FFUploadedFile>[];
+
+                                                var downloadUrls = <String>[];
+                                                try {
+                                                  selectedUploadedFiles =
+                                                      selectedMedia
+                                                          .map((m) =>
+                                                              FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                          .toList();
+
+                                                  downloadUrls =
+                                                      (await Future.wait(
+                                                    selectedMedia.map(
+                                                      (m) async =>
+                                                          await uploadData(
+                                                              m.storagePath,
+                                                              m.bytes),
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                  ),
+                                                  ))
+                                                          .where(
+                                                              (u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
+                                                } finally {
+                                                  _model.isDataUploading =
+                                                      false;
+                                                }
+                                                if (selectedUploadedFiles
+                                                            .length ==
+                                                        selectedMedia.length &&
+                                                    downloadUrls.length ==
+                                                        selectedMedia.length) {
+                                                  setState(() {
+                                                    _model.uploadedLocalFile =
+                                                        selectedUploadedFiles
+                                                            .first;
+                                                    _model.uploadedFileUrl =
+                                                        downloadUrls.first;
+                                                  });
+                                                } else {
+                                                  setState(() {});
+                                                  return;
+                                                }
+                                              }
+
+                                              setState(() {
+                                                _model.photoAdded = true;
+                                              });
+                                              setState(() {
+                                                _model.checkboxValue1 = false;
+                                              });
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                borderRadius:
+                                                    BorderRadius.circular(5.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(10.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.upload,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 48.0,
+                                                    ),
+                                                    Text(
+                                                      'Carregar foto de fundo [A4]',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 14.0,
+                                                              ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                  ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.upload,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 48.0,
-                                            ),
-                                            Text(
-                                              'Carregar foto de fundo [A4]',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 14.0,
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               if (_model.mode == 1)
                                 Row(
@@ -870,12 +1683,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController1,
+                                                  .certificadoFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode1,
+                                                  .certificadoFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController1',
+                                                '_model.certificadoFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -885,7 +1698,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -947,7 +1760,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController1Validator
+                                                  .certificadoFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1036,12 +1849,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.certificadoController2,
+                                                  _model.antesNomeController,
                                               focusNode:
-                                                  _model.certificadoFocusNode2,
+                                                  _model.antesNomeFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController2',
+                                                '_model.antesNomeController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -1111,7 +1924,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController2Validator
+                                                  .antesNomeControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1129,12 +1942,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController2,
+                                                  .antesNomeFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode2,
+                                                  .antesNomeFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController2',
+                                                '_model.antesNomeFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -1144,7 +1957,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -1206,7 +2019,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController2Validator
+                                                  .antesNomeFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1295,12 +2108,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.certificadoController3,
-                                              focusNode:
-                                                  _model.certificadoFocusNode3,
+                                                  _model.aLunoController,
+                                              focusNode: _model.aLunoFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController3',
+                                                '_model.aLunoController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -1370,7 +2182,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController3Validator
+                                                  .aLunoControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1387,13 +2199,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoFonteController3,
-                                              focusNode: _model
-                                                  .certificadoFonteFocusNode3,
+                                              controller:
+                                                  _model.nomeFonteController,
+                                              focusNode:
+                                                  _model.nomeFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController3',
+                                                '_model.nomeFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -1403,7 +2215,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -1465,7 +2277,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController3Validator
+                                                  .nomeFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1553,13 +2365,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller:
-                                                  _model.certificadoController4,
-                                              focusNode:
-                                                  _model.certificadoFocusNode4,
+                                              controller: _model.prfController,
+                                              focusNode: _model.prfFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController4',
+                                                '_model.prfController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -1629,7 +2439,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController4Validator
+                                                  .prfControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1647,12 +2457,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController4,
+                                                  .antesCursoFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode4,
+                                                  .antesCursoFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController4',
+                                                '_model.antesCursoFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -1662,7 +2472,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -1724,7 +2534,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController4Validator
+                                                  .antesCursoFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1813,12 +2623,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.certificadoController5,
-                                              focusNode:
-                                                  _model.certificadoFocusNode5,
+                                                  _model.cursoController,
+                                              focusNode: _model.cursoFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController5',
+                                                '_model.cursoController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -1888,7 +2697,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController5Validator
+                                                  .cursoControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1905,13 +2714,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoFonteController5,
-                                              focusNode: _model
-                                                  .certificadoFonteFocusNode5,
+                                              controller:
+                                                  _model.cursoFonteController,
+                                              focusNode:
+                                                  _model.cursoFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController5',
+                                                '_model.cursoFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -1921,7 +2730,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -1983,7 +2792,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController5Validator
+                                                  .cursoFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2071,13 +2880,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller:
-                                                  _model.certificadoController6,
-                                              focusNode:
-                                                  _model.certificadoFocusNode6,
+                                              controller: _model
+                                                  .antesProfessorController,
+                                              focusNode: _model
+                                                  .antesProfessorFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController6',
+                                                '_model.antesProfessorController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -2147,7 +2956,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController6Validator
+                                                  .antesProfessorControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2165,12 +2974,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController6,
+                                                  .antesProfFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode6,
+                                                  .antesProfFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController6',
+                                                '_model.antesProfFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -2180,7 +2989,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -2242,7 +3051,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController6Validator
+                                                  .antesProfFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2331,12 +3140,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.certificadoController7,
+                                                  _model.pRofessorController,
                                               focusNode:
-                                                  _model.certificadoFocusNode7,
+                                                  _model.pRofessorFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController7',
+                                                '_model.pRofessorController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -2406,7 +3215,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController7Validator
+                                                  .pRofessorControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2423,13 +3232,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoFonteController7,
-                                              focusNode: _model
-                                                  .certificadoFonteFocusNode7,
+                                              controller:
+                                                  _model.profFonteController,
+                                              focusNode:
+                                                  _model.profFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController7',
+                                                '_model.profFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -2439,7 +3248,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -2501,7 +3310,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController7Validator
+                                                  .profFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2590,12 +3399,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.certificadoController8,
+                                                  _model.antesdataController,
                                               focusNode:
-                                                  _model.certificadoFocusNode8,
+                                                  _model.antesdataFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController8',
+                                                '_model.antesdataController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -2665,7 +3474,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController8Validator
+                                                  .antesdataControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2683,12 +3492,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController8,
+                                                  .antesDataFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode8,
+                                                  .antesDataFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController8',
+                                                '_model.antesDataFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -2698,7 +3507,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -2760,7 +3569,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController8Validator
+                                                  .antesDataFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2848,13 +3657,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller:
-                                                  _model.certificadoController9,
-                                              focusNode:
-                                                  _model.certificadoFocusNode9,
+                                              controller: _model.dataController,
+                                              focusNode: _model.dataFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController9',
+                                                '_model.dataController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -2924,7 +3731,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController9Validator
+                                                  .dataControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2941,13 +3748,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoFonteController9,
-                                              focusNode: _model
-                                                  .certificadoFonteFocusNode9,
+                                              controller:
+                                                  _model.dataFonteController,
+                                              focusNode:
+                                                  _model.dataFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController9',
+                                                '_model.dataFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -2957,7 +3764,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -3019,7 +3826,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController9Validator
+                                                  .dataFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3107,13 +3914,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoController10,
+                                              controller:
+                                                  _model.antesDuracaoController,
                                               focusNode:
-                                                  _model.certificadoFocusNode10,
+                                                  _model.antesDuracaoFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController10',
+                                                '_model.antesDuracaoController',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -3183,7 +3990,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController10Validator
+                                                  .antesDuracaoControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3201,12 +4008,12 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .certificadoFonteController10,
+                                                  .antesDuracaoFonteController,
                                               focusNode: _model
-                                                  .certificadoFonteFocusNode10,
+                                                  .antesDuracaoFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController10',
+                                                '_model.antesDuracaoFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -3216,7 +4023,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -3278,7 +4085,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController10Validator
+                                                  .antesDuracaoFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3366,13 +4173,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoController11,
+                                              controller:
+                                                  _model.certificadoController2,
                                               focusNode:
-                                                  _model.certificadoFocusNode11,
+                                                  _model.certificadoFocusNode2,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoController11',
+                                                '_model.certificadoController2',
                                                 Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
@@ -3442,7 +4249,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 fontSize: 14.0,
                                               ),
                                               validator: _model
-                                                  .certificadoController11Validator
+                                                  .certificadoController2Validator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3459,13 +4266,13 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
-                                              controller: _model
-                                                  .certificadoFonteController11,
-                                              focusNode: _model
-                                                  .certificadoFonteFocusNode11,
+                                              controller:
+                                                  _model.duracaoFonteController,
+                                              focusNode:
+                                                  _model.duracaoFonteFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.certificadoFonteController11',
+                                                '_model.duracaoFonteController',
                                                 Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
@@ -3475,7 +4282,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Titulo',
+                                                labelText: 'Tamanho da fonte',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -3537,7 +4344,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   .numberWithOptions(
                                                   decimal: true),
                                               validator: _model
-                                                  .certificadoFonteController11Validator
+                                                  .duracaoFonteControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3611,13 +4418,683 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                     ),
                                   ],
                                 ),
+                              if (_model.mode == 12)
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller: _model
+                                                  .powerediDokeyController,
+                                              focusNode:
+                                                  _model.powerediDokeyFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.powerediDokeyController',
+                                                Duration(milliseconds: 10),
+                                                () => setState(() {}),
+                                              ),
+                                              autofocus: true,
+                                              autofillHints: [
+                                                AutofillHints.email
+                                              ],
+                                              readOnly: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText:
+                                                    'Dê credibilidade ao seu certificado!',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFF4B39EF),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                              ),
+                                              style: GoogleFonts.getFont(
+                                                'Plus Jakarta Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14.0,
+                                              ),
+                                              validator: _model
+                                                  .powerediDokeyControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.idokeyFonteController,
+                                              focusNode:
+                                                  _model.idokeyFonteFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.idokeyFonteController',
+                                                Duration(milliseconds: 2000),
+                                                () => setState(() {}),
+                                              ),
+                                              autofocus: true,
+                                              autofillHints: [
+                                                AutofillHints.email
+                                              ],
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: 'Tamanho da fonte',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFF4B39EF),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                              ),
+                                              style: GoogleFonts.getFont(
+                                                'Plus Jakarta Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14.0,
+                                              ),
+                                              keyboardType: const TextInputType
+                                                  .numberWithOptions(
+                                                  decimal: true),
+                                              validator: _model
+                                                  .idokeyFonteControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'Cor da fonte',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final _colorPicked12Color =
+                                                await showFFColorPicker(
+                                              context,
+                                              currentColor:
+                                                  _model.colorPicked12 ??=
+                                                      _model.colorPicked12,
+                                              showRecentColors: true,
+                                              allowOpacity: true,
+                                              textColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              secondaryTextColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              primaryButtonBackgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              primaryButtonTextColor:
+                                                  Colors.white,
+                                              primaryButtonBorderColor:
+                                                  Colors.transparent,
+                                              displayAsBottomSheet:
+                                                  isMobileWidth(context),
+                                            );
+
+                                            if (_colorPicked12Color != null) {
+                                              safeSetState(() =>
+                                                  _model.colorPicked12 =
+                                                      _colorPicked12Color);
+                                            }
+                                          },
+                                          child: Container(
+                                            width: 25.0,
+                                            height: 25.0,
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                _model.colorPicked12,
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(2.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'Visivel?',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        Container(
+                                          width: 25.0,
+                                          height: 25.0,
+                                          decoration: BoxDecoration(),
+                                          child: Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                              ),
+                                              unselectedWidgetColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                            child: Checkbox(
+                                              key: ValueKey('false'),
+                                              value: _model.checkboxValue2 ??=
+                                                  true,
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    _model.checkboxValue2 =
+                                                        newValue!);
+                                              },
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              checkColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              if (_model.mode == 13)
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.keyseguranaController,
+                                              focusNode:
+                                                  _model.keyseguranaFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.keyseguranaController',
+                                                Duration(milliseconds: 10),
+                                                () => setState(() {}),
+                                              ),
+                                              autofocus: true,
+                                              autofillHints: [
+                                                AutofillHints.email
+                                              ],
+                                              readOnly: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: 'Key de segurança',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFF4B39EF),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                              ),
+                                              style: GoogleFonts.getFont(
+                                                'Plus Jakarta Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14.0,
+                                              ),
+                                              validator: _model
+                                                  .keyseguranaControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.keyFonteController,
+                                              focusNode:
+                                                  _model.keyFonteFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.keyFonteController',
+                                                Duration(milliseconds: 2000),
+                                                () => setState(() {}),
+                                              ),
+                                              autofocus: true,
+                                              autofillHints: [
+                                                AutofillHints.email
+                                              ],
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: 'Tamanho da fonte',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 12.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFF4B39EF),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFFF5963),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                              ),
+                                              style: GoogleFonts.getFont(
+                                                'Plus Jakarta Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14.0,
+                                              ),
+                                              keyboardType: const TextInputType
+                                                  .numberWithOptions(
+                                                  decimal: true),
+                                              validator: _model
+                                                  .keyFonteControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'Cor da fonte',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final _colorPicked13Color =
+                                                await showFFColorPicker(
+                                              context,
+                                              currentColor:
+                                                  _model.colorPicked13 ??=
+                                                      _model.colorPicked13,
+                                              showRecentColors: true,
+                                              allowOpacity: true,
+                                              textColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              secondaryTextColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              primaryButtonBackgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              primaryButtonTextColor:
+                                                  Colors.white,
+                                              primaryButtonBorderColor:
+                                                  Colors.transparent,
+                                              displayAsBottomSheet:
+                                                  isMobileWidth(context),
+                                            );
+
+                                            if (_colorPicked13Color != null) {
+                                              safeSetState(() =>
+                                                  _model.colorPicked13 =
+                                                      _colorPicked13Color);
+                                            }
+                                          },
+                                          child: Container(
+                                            width: 25.0,
+                                            height: 25.0,
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                _model.colorPicked13,
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(2.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      await CertificadoTemplateRecord.createDoc(
+                                              currentUserReference!)
+                                          .set(
+                                              createCertificadoTemplateRecordData(
+                                        certificado:
+                                            _model.certificadoController1.text,
+                                        certificadoCOR: functions
+                                            .colorToString(_model.colorPicked1),
+                                        certificadoSIZE: _model
+                                            .certificadoFonteController.text,
+                                        preName:
+                                            _model.antesNomeController.text,
+                                        preNameCOR: functions
+                                            .colorToString(_model.colorPicked2),
+                                        preNameSize: double.tryParse(_model
+                                            .antesNomeFonteController.text),
+                                        aluno: '[NOME DO ALUNO]',
+                                        alunoCOR: functions
+                                            .colorToString(_model.colorPicked3),
+                                        alunoSize: double.tryParse(
+                                            _model.nomeFonteController.text),
+                                        preCurso: _model.prfController.text,
+                                        preCursoCOR: functions
+                                            .colorToString(_model.colorPicked4),
+                                        preCursoSize: double.tryParse(_model
+                                            .antesCursoFonteController.text),
+                                        curso: '[CURSO]',
+                                        cursoCOR: functions
+                                            .colorToString(_model.colorPicked5),
+                                        cursoSize: double.tryParse(
+                                            _model.cursoFonteController.text),
+                                        preProf: _model
+                                            .antesProfessorController.text,
+                                        preProfCOR: functions
+                                            .colorToString(_model.colorPicked6),
+                                        preProfSize: double.tryParse(_model
+                                            .antesProfFonteController.text),
+                                        prof: '[PROFESSOR]',
+                                        profCOR: functions
+                                            .colorToString(_model.colorPicked7),
+                                        profSize: double.tryParse(
+                                            _model.profFonteController.text),
+                                        preData:
+                                            _model.antesdataController.text,
+                                        preDataCOR: functions
+                                            .colorToString(_model.colorPicked8),
+                                        preDataSize: double.tryParse(_model
+                                            .antesDataFonteController.text),
+                                        data: '[data]',
+                                        dataCOR: functions
+                                            .colorToString(_model.colorPicked9),
+                                        dataSize: double.tryParse(
+                                            _model.dataFonteController.text),
+                                        preDuracao:
+                                            _model.antesDuracaoController.text,
+                                        preDuracaoCOR: functions.colorToString(
+                                            _model.colorPicked10),
+                                        preDuracaoSize: double.tryParse(_model
+                                            .antesDuracaoFonteController.text),
+                                        duracao: '[duracao]',
+                                        duracaoCOR: functions.colorToString(
+                                            _model.colorPicked11),
+                                        duracaoSize: double.tryParse(
+                                            _model.duracaoFonteController.text),
+                                        iDOkeySize: double.tryParse(
+                                            _model.idokeyFonteController.text),
+                                        backgroundPhoto: _model.uploadedFileUrl,
+                                        templateName:
+                                            _model.nameController.text,
+                                        isDefaultImage: _model.checkboxValue1,
+                                      ));
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Template criado com sucesso',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
                                     },
                                     text: 'Salvar Template',
                                     options: FFButtonOptions(
