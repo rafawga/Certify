@@ -151,6 +151,11 @@ class CursosRecord extends FirestoreRecord {
   String get preCourseColor => _preCourseColor ?? '';
   bool hasPreCourseColor() => _preCourseColor != null;
 
+  // "FotoCertificado" field.
+  String? _fotoCertificado;
+  String get fotoCertificado => _fotoCertificado ?? '';
+  bool hasFotoCertificado() => _fotoCertificado != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -179,6 +184,7 @@ class CursosRecord extends FirestoreRecord {
     _dataColor = snapshotData['DataColor'] as String?;
     _duracaoColor = snapshotData['DuracaoColor'] as String?;
     _preCourseColor = snapshotData['PreCourseColor'] as String?;
+    _fotoCertificado = snapshotData['FotoCertificado'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -240,6 +246,7 @@ Map<String, dynamic> createCursosRecordData({
   String? dataColor,
   String? duracaoColor,
   String? preCourseColor,
+  String? fotoCertificado,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -268,6 +275,7 @@ Map<String, dynamic> createCursosRecordData({
       'DataColor': dataColor,
       'DuracaoColor': duracaoColor,
       'PreCourseColor': preCourseColor,
+      'FotoCertificado': fotoCertificado,
     }.withoutNulls,
   );
 
@@ -306,7 +314,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e1?.profColor == e2?.profColor &&
         e1?.dataColor == e2?.dataColor &&
         e1?.duracaoColor == e2?.duracaoColor &&
-        e1?.preCourseColor == e2?.preCourseColor;
+        e1?.preCourseColor == e2?.preCourseColor &&
+        e1?.fotoCertificado == e2?.fotoCertificado;
   }
 
   @override
@@ -337,7 +346,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e?.profColor,
         e?.dataColor,
         e?.duracaoColor,
-        e?.preCourseColor
+        e?.preCourseColor,
+        e?.fotoCertificado
       ]);
 
   @override

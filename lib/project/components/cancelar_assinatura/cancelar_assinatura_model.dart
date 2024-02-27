@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/confirmar_cancelamento/confirmar_cancelamento_widget.dart';
 import 'cancelar_assinatura_widget.dart' show CancelarAssinaturaWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

@@ -10,6 +10,7 @@ import 'schema/cursos_record.dart';
 import 'schema/alunos_curso_record.dart';
 import 'schema/report_record.dart';
 import 'schema/assinaturas_record.dart';
+import 'schema/certificado_template_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,6 +23,7 @@ export 'schema/cursos_record.dart';
 export 'schema/alunos_curso_record.dart';
 export 'schema/report_record.dart';
 export 'schema/assinaturas_record.dart';
+export 'schema/certificado_template_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -203,6 +205,46 @@ Future<List<AssinaturasRecord>> queryAssinaturasRecordOnce({
     queryCollectionOnce(
       AssinaturasRecord.collection,
       AssinaturasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CertificadoTemplateRecords (as a Stream and as a Future).
+Future<int> queryCertificadoTemplateRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CertificadoTemplateRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CertificadoTemplateRecord>> queryCertificadoTemplateRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CertificadoTemplateRecord.collection(parent),
+      CertificadoTemplateRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CertificadoTemplateRecord>> queryCertificadoTemplateRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CertificadoTemplateRecord.collection(parent),
+      CertificadoTemplateRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

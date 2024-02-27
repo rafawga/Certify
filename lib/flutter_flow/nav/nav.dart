@@ -191,6 +191,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'dummyPage',
           path: '/dummyPage',
           builder: (context, params) => DummyPageWidget(),
+        ),
+        FFRoute(
+          name: 'NewTemplate',
+          path: '/newTemplate',
+          builder: (context, params) => NewTemplateWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -362,6 +367,7 @@ class FFRoute {
           return null;
         },
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(
