@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -33,9 +30,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _navOpen = false;
   bool get navOpen => _navOpen;
-  set navOpen(bool _value) {
-    _navOpen = _value;
-    prefs.setBool('ff_navOpen', _value);
+  set navOpen(bool value) {
+    _navOpen = value;
+    prefs.setBool('ff_navOpen', value);
   }
 }
 

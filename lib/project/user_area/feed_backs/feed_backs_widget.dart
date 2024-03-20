@@ -4,11 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'feed_backs_model.dart';
 export 'feed_backs_model.dart';
 
@@ -44,8 +41,6 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -56,28 +51,28 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => setState(() {}),
-                  child: NavbarWidget(
+                  child: const NavbarWidget(
                     tabAtual: 4,
                   ),
                 ),
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 1170.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 30.0, 20.0, 20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -88,7 +83,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 12.0, 12.0, 25.0),
                                   child: Container(
                                     width:
@@ -97,7 +92,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 1.0,
                                           color: Color(0x33000000),
@@ -107,7 +102,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -118,7 +113,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 12.0, 0.0),
                                                 child: Icon(
@@ -196,7 +191,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Deixe alguma sugestão ou feedback para que possamos melhorar ainda mais a usa experiência!',
                                 textAlign: TextAlign.center,
@@ -212,14 +207,13 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
 
                             // You will have to add an action on this rich text to go to your login page.
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 12.0),
                               child: RichText(
-                                textScaleFactor:
-                                    MediaQuery.of(context).textScaleFactor,
+                                textScaler: MediaQuery.of(context).textScaler,
                                 text: TextSpan(
                                   children: [
-                                    TextSpan(
+                                    const TextSpan(
                                       text:
                                           'Reporte bugs ou informe feautures (funcionalidades)  que gostaria que o',
                                       style: TextStyle(),
@@ -230,12 +224,12 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF4B39EF),
+                                            color: const Color(0xFF4B39EF),
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
-                                    TextSpan(
+                                    const TextSpan(
                                       text: 'tivesse.',
                                       style: TextStyle(),
                                     )
@@ -244,7 +238,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF101213),
+                                        color: const Color(0xFF101213),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -252,9 +246,9 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsets.all(16.0),
+                                padding: const EdgeInsets.all(16.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -262,7 +256,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                         .primaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -270,16 +264,16 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
-                                            padding: EdgeInsets.all(16.0),
+                                            padding: const EdgeInsets.all(16.0),
                                             child: TextFormField(
                                               controller:
                                                   _model.feedbackController,
                                               focusNode:
                                                   _model.feedbackFocusNode,
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -301,7 +295,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -310,7 +304,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -320,7 +314,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -350,7 +344,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -385,7 +379,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                               .primaryText,
                                                     ),
                                                   ),
-                                                  duration: Duration(
+                                                  duration: const Duration(
                                                       milliseconds: 4000),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -400,10 +394,10 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                             text: 'Enviar sugestão',
                                             options: FFButtonOptions(
                                               height: 40.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -417,7 +411,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                         color: Colors.white,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),

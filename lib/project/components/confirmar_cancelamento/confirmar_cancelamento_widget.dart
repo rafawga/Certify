@@ -4,11 +4,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'confirmar_cancelamento_model.dart';
 export 'confirmar_cancelamento_model.dart';
 
@@ -47,16 +44,14 @@ class _ConfirmarCancelamentoWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
-      alignment: AlignmentDirectional(0.0, -1.0),
+      alignment: const AlignmentDirectional(0.0, -1.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 60.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 60.0),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 0.85,
           height: 350.0,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             minWidth: 300.0,
             maxWidth: 700.0,
           ),
@@ -65,16 +60,16 @@ class _ConfirmarCancelamentoWidgetState
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +89,7 @@ class _ConfirmarCancelamentoWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 44.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -129,7 +124,7 @@ class _ConfirmarCancelamentoWidgetState
                                             ),
                                           ),
                                           duration:
-                                              Duration(milliseconds: 4000),
+                                              const Duration(milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondary,
@@ -148,7 +143,7 @@ class _ConfirmarCancelamentoWidgetState
                                             ),
                                           ),
                                           duration:
-                                              Duration(milliseconds: 4000),
+                                              const Duration(milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .warning,
@@ -166,8 +161,8 @@ class _ConfirmarCancelamentoWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 50.0,
-                                    padding: EdgeInsets.all(3.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(3.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).error,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -179,7 +174,7 @@ class _ConfirmarCancelamentoWidgetState
                                           fontWeight: FontWeight.normal,
                                         ),
                                     elevation: 2.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -193,8 +188,8 @@ class _ConfirmarCancelamentoWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 50.0,
-                                    padding: EdgeInsets.all(3.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(3.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).success,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -206,7 +201,7 @@ class _ConfirmarCancelamentoWidgetState
                                           fontWeight: FontWeight.normal,
                                         ),
                                     elevation: 2.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),

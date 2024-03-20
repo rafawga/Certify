@@ -11,7 +11,7 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import '../../flutter_flow/flutter_flow_widgets.dart';
 import '../cloud_functions/cloud_functions.dart';
 
-final _isProd = false;
+const _isProd = false;
 
 // Stripe Credentials
 const _kProdStripePublishableKey =
@@ -52,7 +52,7 @@ Future<StripePaymentResponse> processStripePayment(
   Color? buttonTextColor,
 }) async {
   try {
-    final callName = _isProd ? 'initStripePayment' : 'initStripeTestPayment';
+    const callName = _isProd ? 'initStripePayment' : 'initStripeTestPayment';
     final response = await makeCloudCall(
       callName,
       {
@@ -101,7 +101,7 @@ Future<StripePaymentResponse> processStripePayment(
               )
             : null,
         applePay: isiOS && allowApplePay
-            ? PaymentSheetApplePay(
+            ? const PaymentSheetApplePay(
                 merchantCountryCode: 'BRL',
               )
             : null,
@@ -130,7 +130,7 @@ Future<StripePaymentResponse> processStripePayment(
     return StripePaymentResponse(paymentId: response['paymentId']);
   } catch (e) {
     if (e is StripeException && e.error.code == FailureCode.Canceled) {
-      return StripePaymentResponse();
+      return const StripePaymentResponse();
     }
     return StripePaymentResponse(errorMessage: '$e');
   }
@@ -153,7 +153,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
   buttonColor = buttonColor ?? FlutterFlowTheme.of(context).primary;
   final screenWidth = MediaQuery.sizeOf(context).width;
 
-  final buildPaymentSheet = (BuildContext context, double width) => Column(
+  buildPaymentSheet(BuildContext context, double width) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ClipRRect(
@@ -163,7 +163,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
               child: Container(
                 width: width,
                 padding: const EdgeInsets.fromLTRB(24.0, 14.0, 24.0, 24.0),
-                color: isDarkMode ? Color(0xFF101213) : Colors.white,
+                color: isDarkMode ? const Color(0xFF101213) : Colors.white,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +180,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                                 style: GoogleFonts.outfit(
                                   color: isDarkMode
                                       ? Colors.white
-                                      : Color(0xFF101213),
+                                      : const Color(0xFF101213),
                                   fontSize: 28,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -194,8 +194,8 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                                   Icons.close_rounded,
                                   size: 22,
                                   color: isDarkMode
-                                      ? Color(0xFF95A1AC)
-                                      : Color(0xFF57636C),
+                                      ? const Color(0xFF95A1AC)
+                                      : const Color(0xFF57636C),
                                 ),
                               ),
                             ),
@@ -207,8 +207,8 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                             description,
                             style: GoogleFonts.outfit(
                               color: isDarkMode
-                                  ? Color(0xFF95A1AC)
-                                  : Color(0xFF57636C),
+                                  ? const Color(0xFF95A1AC)
+                                  : const Color(0xFF57636C),
                               fontSize: 14,
                             ),
                           ),
@@ -228,17 +228,17 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: isDarkMode
-                                ? Color(0xFF22282F)
-                                : Color(0xFFE0E3E7),
+                                ? const Color(0xFF22282F)
+                                : const Color(0xFFE0E3E7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        fillColor: Color(0xFFF1F4F8),
+                        fillColor: const Color(0xFFF1F4F8),
                         filled: isDarkMode,
                       ),
                       style: GoogleFonts.outfit(
-                        color: isDarkMode ? Colors.white : Color(0xFF101213),
+                        color: isDarkMode ? Colors.white : const Color(0xFF101213),
                         fontSize: 14,
                       ),
                       // enablePostalCode: true,
@@ -246,17 +246,32 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                     const SizedBox(height: 20.0),
                     FFButtonWidget(
                       onPressed: () async {
-                        final response = await Stripe.instance.confirmPayment(
-                          paymentIntentClientSecret: paymentIntentSecret,
-                          data: PaymentMethodParams.card(
-                            paymentMethodData: PaymentMethodData(),
-                          ),
-                          options: PaymentMethodOptions(),
-                        );
-                        if (response.status == PaymentIntentsStatus.Succeeded) {
+                        try {
+                          final response = await Stripe.instance.confirmPayment(
+                            paymentIntentClientSecret: paymentIntentSecret,
+                            data: const PaymentMethodParams.card(
+                              paymentMethodData: PaymentMethodData(),
+                            ),
+                            options: const PaymentMethodOptions(),
+                          );
+                          if (response.status ==
+                              PaymentIntentsStatus.Succeeded) {
+                            Navigator.pop(
+                              context,
+                              StripePaymentResponse(paymentId: paymentId),
+                            );
+                          }
+                        } catch (e) {
+                          if (e is StripeException &&
+                              e.error.code == FailureCode.Canceled) {
+                            Navigator.pop(
+                              context,
+                              const StripePaymentResponse(),
+                            );
+                          }
                           Navigator.pop(
                             context,
-                            StripePaymentResponse(paymentId: paymentId),
+                            StripePaymentResponse(errorMessage: '$e'),
                           );
                         }
                       },
@@ -272,7 +287,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                           fontWeight: FontWeight.w600,
                         ),
                         elevation: 2,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1,
                         ),
@@ -296,7 +311,7 @@ Future<StripePaymentResponse> showWebPaymentSheet(
     ),
   );
   // Return the payment response, or an empty response if the user canceled.
-  return response ?? StripePaymentResponse();
+  return response ?? const StripePaymentResponse();
 }
 
 String _displayAmount(String currency, double amount) {

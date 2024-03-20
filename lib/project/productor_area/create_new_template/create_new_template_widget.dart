@@ -7,32 +7,31 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterflow_colorpicker/flutterflow_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'new_template_model.dart';
-export 'new_template_model.dart';
+import 'create_new_template_model.dart';
+export 'create_new_template_model.dart';
 
-class NewTemplateWidget extends StatefulWidget {
-  const NewTemplateWidget({super.key});
+class CreateNewTemplateWidget extends StatefulWidget {
+  const CreateNewTemplateWidget({super.key});
 
   @override
-  State<NewTemplateWidget> createState() => _NewTemplateWidgetState();
+  State<CreateNewTemplateWidget> createState() =>
+      _CreateNewTemplateWidgetState();
 }
 
-class _NewTemplateWidgetState extends State<NewTemplateWidget> {
-  late NewTemplateModel _model;
+class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
+  late CreateNewTemplateModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NewTemplateModel());
+    _model = createModel(context, () => CreateNewTemplateModel());
 
     _model.nameController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
@@ -155,8 +154,6 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -167,28 +164,28 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => setState(() {}),
-                  child: NavbarWidget(
+                  child: const NavbarWidget(
                     tabAtual: 4,
                   ),
                 ),
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 1170.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 30.0, 20.0, 20.0),
                         child: SingleChildScrollView(
                           child: Column(
@@ -200,7 +197,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 12.0, 12.0, 25.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -209,7 +206,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 1.0,
                                             color: Color(0x33000000),
@@ -220,7 +217,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -231,7 +228,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 12.0, 0.0),
                                                   child: Icon(
@@ -311,16 +308,16 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                 ],
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Container(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: SizedBox(
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.nameController,
                                       focusNode: _model.nameFocusNode,
                                       autofocus: true,
-                                      autofillHints: [AutofillHints.email],
+                                      autofillHints: const [AutofillHints.email],
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Nome do template',
@@ -336,7 +333,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFF4B39EF),
                                             width: 1.0,
                                           ),
@@ -344,7 +341,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFFFF5963),
                                             width: 1.0,
                                           ),
@@ -352,7 +349,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFFFF5963),
                                             width: 1.0,
                                           ),
@@ -399,7 +396,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   50.0, 75.0, 50.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -450,7 +447,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ],
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 40.0, 0.0, 0.0),
                                                 child: Row(
@@ -547,17 +544,17 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   Flexible(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   12.0,
                                                                   0.0,
                                                                   12.0),
                                                       child: RichText(
-                                                        textScaleFactor:
+                                                        textScaler:
                                                             MediaQuery.of(
                                                                     context)
-                                                                .textScaleFactor,
+                                                                .textScaler,
                                                         text: TextSpan(
                                                           children: [
                                                             TextSpan(
@@ -770,7 +767,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF101213),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -883,7 +880,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   50.0, 75.0, 50.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -934,7 +931,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ],
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 40.0, 0.0, 0.0),
                                                 child: Row(
@@ -1031,17 +1028,17 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   Flexible(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   12.0,
                                                                   0.0,
                                                                   12.0),
                                                       child: RichText(
-                                                        textScaleFactor:
+                                                        textScaler:
                                                             MediaQuery.of(
                                                                     context)
-                                                                .textScaleFactor,
+                                                                .textScaler,
                                                         text: TextSpan(
                                                           children: [
                                                             TextSpan(
@@ -1254,7 +1251,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF101213),
                                                                 fontSize: 14.0,
                                                                 fontWeight:
@@ -1352,14 +1349,14 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                         ),
                                       ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           30.0, 0.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 20.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1416,7 +1413,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                                     .primaryText,
                                                               ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     4000),
                                                             backgroundColor:
@@ -1540,7 +1537,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                     BorderRadius.circular(5.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsets.all(10.0),
+                                                padding: const EdgeInsets.all(10.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1584,10 +1581,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -1597,11 +1594,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.certificadoController1',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -1624,7 +1621,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -1633,7 +1630,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1643,7 +1640,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1676,10 +1673,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -1689,11 +1686,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.certificadoFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -1716,7 +1713,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -1725,7 +1722,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1735,7 +1732,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1781,12 +1778,16 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked1Color =
+                                            final colorPicked1Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
                                                   _model.colorPicked1 ??=
-                                                      _model.colorPicked1,
+                                                      valueOrDefault<Color>(
+                                                _model.colorPicked1,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                              ),
                                               showRecentColors: true,
                                               allowOpacity: true,
                                               textColor:
@@ -1809,10 +1810,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked1Color != null) {
+                                            if (colorPicked1Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked1 =
-                                                      _colorPicked1Color);
+                                                      colorPicked1Color);
                                             }
                                           },
                                           child: Container(
@@ -1842,10 +1843,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -1855,11 +1856,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesNomeController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -1883,7 +1884,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -1892,7 +1893,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1902,7 +1903,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1935,10 +1936,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -1948,11 +1949,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesNomeFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -1975,7 +1976,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -1984,7 +1985,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -1994,7 +1995,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2040,12 +2041,16 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked2Color =
+                                            final colorPicked2Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
                                                   _model.colorPicked2 ??=
-                                                      _model.colorPicked2,
+                                                      valueOrDefault<Color>(
+                                                _model.colorPicked2,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                              ),
                                               showRecentColors: true,
                                               allowOpacity: true,
                                               textColor:
@@ -2068,10 +2073,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked2Color != null) {
+                                            if (colorPicked2Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked2 =
-                                                      _colorPicked2Color);
+                                                      colorPicked2Color);
                                             }
                                           },
                                           child: Container(
@@ -2101,10 +2106,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -2113,11 +2118,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.aLunoController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -2141,7 +2146,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2150,7 +2155,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2160,7 +2165,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2193,10 +2198,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -2206,11 +2211,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.nomeFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -2233,7 +2238,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2242,7 +2247,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2252,7 +2257,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2298,12 +2303,16 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked3Color =
+                                            final colorPicked3Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
                                                   _model.colorPicked3 ??=
-                                                      _model.colorPicked3,
+                                                      valueOrDefault<Color>(
+                                                _model.colorPicked3,
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                              ),
                                               showRecentColors: true,
                                               allowOpacity: true,
                                               textColor:
@@ -2326,10 +2335,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked3Color != null) {
+                                            if (colorPicked3Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked3 =
-                                                      _colorPicked3Color);
+                                                      colorPicked3Color);
                                             }
                                           },
                                           child: Container(
@@ -2359,10 +2368,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model.prfController,
@@ -2370,11 +2379,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.prfController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -2398,7 +2407,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2407,7 +2416,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2417,7 +2426,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2450,10 +2459,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -2463,11 +2472,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesCursoFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -2490,7 +2499,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2499,7 +2508,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2509,7 +2518,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2555,7 +2564,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked4Color =
+                                            final colorPicked4Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -2583,10 +2592,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked4Color != null) {
+                                            if (colorPicked4Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked4 =
-                                                      _colorPicked4Color);
+                                                      colorPicked4Color);
                                             }
                                           },
                                           child: Container(
@@ -2616,10 +2625,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -2628,11 +2637,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.cursoController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -2656,7 +2665,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2665,7 +2674,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2675,7 +2684,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2708,10 +2717,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -2721,11 +2730,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.cursoFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -2748,7 +2757,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2757,7 +2766,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2767,7 +2776,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2813,7 +2822,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked5Color =
+                                            final colorPicked5Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -2841,10 +2850,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked5Color != null) {
+                                            if (colorPicked5Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked5 =
-                                                      _colorPicked5Color);
+                                                      colorPicked5Color);
                                             }
                                           },
                                           child: Container(
@@ -2874,10 +2883,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -2887,11 +2896,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesProfessorController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -2915,7 +2924,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -2924,7 +2933,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2934,7 +2943,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -2967,10 +2976,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -2980,11 +2989,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesProfFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3007,7 +3016,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3016,7 +3025,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3026,7 +3035,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3072,7 +3081,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked6Color =
+                                            final colorPicked6Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -3100,10 +3109,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked6Color != null) {
+                                            if (colorPicked6Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked6 =
-                                                      _colorPicked6Color);
+                                                      colorPicked6Color);
                                             }
                                           },
                                           child: Container(
@@ -3133,10 +3142,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -3146,11 +3155,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.pRofessorController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -3174,7 +3183,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3183,7 +3192,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3193,7 +3202,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3226,10 +3235,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -3239,11 +3248,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.profFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3266,7 +3275,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3275,7 +3284,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3285,7 +3294,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3331,7 +3340,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked7Color =
+                                            final colorPicked7Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -3359,10 +3368,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked7Color != null) {
+                                            if (colorPicked7Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked7 =
-                                                      _colorPicked7Color);
+                                                      colorPicked7Color);
                                             }
                                           },
                                           child: Container(
@@ -3392,10 +3401,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -3405,11 +3414,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesdataController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3433,7 +3442,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3442,7 +3451,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3452,7 +3461,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3485,10 +3494,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -3498,11 +3507,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesDataFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3525,7 +3534,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3534,7 +3543,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3544,7 +3553,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3590,7 +3599,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked8Color =
+                                            final colorPicked8Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -3618,10 +3627,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked8Color != null) {
+                                            if (colorPicked8Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked8 =
-                                                      _colorPicked8Color);
+                                                      colorPicked8Color);
                                             }
                                           },
                                           child: Container(
@@ -3651,10 +3660,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model.dataController,
@@ -3662,11 +3671,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.dataController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -3690,7 +3699,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3699,7 +3708,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3709,7 +3718,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3742,10 +3751,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -3755,11 +3764,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.dataFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3782,7 +3791,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3791,7 +3800,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3801,7 +3810,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3847,7 +3856,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked9Color =
+                                            final colorPicked9Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -3875,10 +3884,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked9Color != null) {
+                                            if (colorPicked9Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked9 =
-                                                      _colorPicked9Color);
+                                                      colorPicked9Color);
                                             }
                                           },
                                           child: Container(
@@ -3908,10 +3917,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -3921,11 +3930,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesDuracaoController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -3949,7 +3958,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -3958,7 +3967,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -3968,7 +3977,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4001,10 +4010,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -4014,11 +4023,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.antesDuracaoFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -4041,7 +4050,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4050,7 +4059,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4060,7 +4069,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4106,7 +4115,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked10Color =
+                                            final colorPicked10Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -4134,10 +4143,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked10Color != null) {
+                                            if (colorPicked10Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked10 =
-                                                      _colorPicked10Color);
+                                                      colorPicked10Color);
                                             }
                                           },
                                           child: Container(
@@ -4167,10 +4176,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -4180,11 +4189,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.certificadoController2',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -4208,7 +4217,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4217,7 +4226,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4227,7 +4236,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4260,10 +4269,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -4273,11 +4282,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.duracaoFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -4300,7 +4309,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4309,7 +4318,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4319,7 +4328,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4365,7 +4374,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked11Color =
+                                            final colorPicked11Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -4393,10 +4402,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked11Color != null) {
+                                            if (colorPicked11Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked11 =
-                                                      _colorPicked11Color);
+                                                      colorPicked11Color);
                                             }
                                           },
                                           child: Container(
@@ -4426,10 +4435,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -4439,11 +4448,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.powerediDokeyController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -4468,7 +4477,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4477,7 +4486,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4487,7 +4496,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4520,10 +4529,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -4533,11 +4542,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.idokeyFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -4560,7 +4569,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4569,7 +4578,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4579,7 +4588,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4625,7 +4634,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked12Color =
+                                            final colorPicked12Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -4653,10 +4662,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked12Color != null) {
+                                            if (colorPicked12Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked12 =
-                                                      _colorPicked12Color);
+                                                      colorPicked12Color);
                                             }
                                           },
                                           child: Container(
@@ -4691,7 +4700,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                         Container(
                                           width: 25.0,
                                           height: 25.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Theme(
                                             data: ThemeData(
                                               checkboxTheme: CheckboxThemeData(
@@ -4711,7 +4720,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                       .secondaryText,
                                             ),
                                             child: Checkbox(
-                                              key: ValueKey('false'),
+                                              key: const ValueKey('false'),
                                               value: _model.checkboxValue2 ??=
                                                   true,
                                               onChanged: (newValue) async {
@@ -4740,10 +4749,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 2,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -4753,11 +4762,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.keyseguranaController',
-                                                Duration(milliseconds: 10),
+                                                const Duration(milliseconds: 10),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -4781,7 +4790,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4790,7 +4799,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4800,7 +4809,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4833,10 +4842,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                       flex: 1,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(16.0),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -4846,11 +4855,11 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.keyFonteController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -4878,7 +4887,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 1.0,
                                                   ),
@@ -4887,7 +4896,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                           12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4897,7 +4906,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 1.0,
                                                   ),
@@ -4943,7 +4952,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            final _colorPicked13Color =
+                                            final colorPicked13Color =
                                                 await showFFColorPicker(
                                               context,
                                               currentColor:
@@ -4971,10 +4980,10 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                                   isMobileWidth(context),
                                             );
 
-                                            if (_colorPicked13Color != null) {
+                                            if (colorPicked13Color != null) {
                                               safeSetState(() =>
                                                   _model.colorPicked13 =
-                                                      _colorPicked13Color);
+                                                      colorPicked13Color);
                                             }
                                           },
                                           child: Container(
@@ -5006,103 +5015,132 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      await CertificadoTemplateRecord.createDoc(
-                                              currentUserReference!)
-                                          .set(
-                                              createCertificadoTemplateRecordData(
-                                        certificado:
-                                            _model.certificadoController1.text,
-                                        certificadoCOR: functions
-                                            .colorToString(_model.colorPicked1),
-                                        certificadoSIZE: _model
-                                            .certificadoFonteController.text,
-                                        preName:
-                                            _model.antesNomeController.text,
-                                        preNameCOR: functions
-                                            .colorToString(_model.colorPicked2),
-                                        preNameSize: double.tryParse(_model
-                                            .antesNomeFonteController.text),
-                                        aluno: '[NOME DO ALUNO]',
-                                        alunoCOR: functions
-                                            .colorToString(_model.colorPicked3),
-                                        alunoSize: double.tryParse(
-                                            _model.nomeFonteController.text),
-                                        preCurso: _model.prfController.text,
-                                        preCursoCOR: functions
-                                            .colorToString(_model.colorPicked4),
-                                        preCursoSize: double.tryParse(_model
-                                            .antesCursoFonteController.text),
-                                        curso: '[CURSO]',
-                                        cursoCOR: functions
-                                            .colorToString(_model.colorPicked5),
-                                        cursoSize: double.tryParse(
-                                            _model.cursoFonteController.text),
-                                        preProf: _model
-                                            .antesProfessorController.text,
-                                        preProfCOR: functions
-                                            .colorToString(_model.colorPicked6),
-                                        preProfSize: double.tryParse(_model
-                                            .antesProfFonteController.text),
-                                        prof: '[PROFESSOR]',
-                                        profCOR: functions
-                                            .colorToString(_model.colorPicked7),
-                                        profSize: double.tryParse(
-                                            _model.profFonteController.text),
-                                        preData:
-                                            _model.antesdataController.text,
-                                        preDataCOR: functions
-                                            .colorToString(_model.colorPicked8),
-                                        preDataSize: double.tryParse(_model
-                                            .antesDataFonteController.text),
-                                        data: '[data]',
-                                        dataCOR: functions
-                                            .colorToString(_model.colorPicked9),
-                                        dataSize: double.tryParse(
-                                            _model.dataFonteController.text),
-                                        preDuracao:
-                                            _model.antesDuracaoController.text,
-                                        preDuracaoCOR: functions.colorToString(
-                                            _model.colorPicked10),
-                                        preDuracaoSize: double.tryParse(_model
-                                            .antesDuracaoFonteController.text),
-                                        duracao: '[duracao]',
-                                        duracaoCOR: functions.colorToString(
-                                            _model.colorPicked11),
-                                        duracaoSize: double.tryParse(
-                                            _model.duracaoFonteController.text),
-                                        iDOkeySize: double.tryParse(
-                                            _model.idokeyFonteController.text),
-                                        backgroundPhoto: _model.uploadedFileUrl,
-                                        templateName:
-                                            _model.nameController.text,
-                                        isDefaultImage: _model.checkboxValue1,
-                                      ));
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Template criado com sucesso',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                      if (_model.nameController.text == '') {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Por favor, adicione o nome do template!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
                                             ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .warning,
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
-                                      );
+                                        );
+                                      } else {
+                                        await TemplateCertificadoRecord
+                                            .collection
+                                            .doc()
+                                            .set(
+                                                createTemplateCertificadoRecordData(
+                                              certificado: _model
+                                                  .certificadoController1.text,
+                                              certificadoCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked1),
+                                              certificadoSize: double.tryParse(
+                                                  _model
+                                                      .certificadoFonteController
+                                                      .text),
+                                              templateName:
+                                                  _model.nameController.text,
+                                              preName: _model
+                                                  .antesNomeController.text,
+                                              preNameCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked2),
+                                              preNameSIZE: double.tryParse(
+                                                  _model
+                                                      .antesNomeFonteController
+                                                      .text),
+                                              aluno: 'ALUNO',
+                                              alunoCOR: functions.colorToString(
+                                                  _model.colorPicked3),
+                                              alunoSIZE: double.tryParse(_model
+                                                  .nomeFonteController.text),
+                                              preCurso:
+                                                  _model.prfController.text,
+                                              preCursoCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked4),
+                                              preCursoSIZE: double.tryParse(
+                                                  _model
+                                                      .antesCursoFonteController
+                                                      .text),
+                                              curso: 'CURSO',
+                                              cursoCOR: functions.colorToString(
+                                                  _model.colorPicked5),
+                                              cursoSize: double.tryParse(_model
+                                                  .cursoFonteController.text),
+                                              preProf: _model
+                                                  .antesProfessorController
+                                                  .text,
+                                              preProfCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked6),
+                                              preProfSIZE: double.tryParse(
+                                                  _model
+                                                      .antesProfFonteController
+                                                      .text),
+                                              prof: 'PROFESSOR',
+                                              profCOR: functions.colorToString(
+                                                  _model.colorPicked7),
+                                              profSIZE: double.tryParse(_model
+                                                  .profFonteController.text),
+                                              preDate: _model
+                                                  .antesdataController.text,
+                                              preDateCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked8),
+                                              preDateSIZE: double.tryParse(
+                                                  _model
+                                                      .antesDataFonteController
+                                                      .text),
+                                              data: 'DATA',
+                                              dataCOR: functions.colorToString(
+                                                  _model.colorPicked9),
+                                              dataSIZE: double.tryParse(_model
+                                                  .dataFonteController.text),
+                                              preDuracao: _model
+                                                  .antesDuracaoController.text,
+                                              preDuracaoCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked10),
+                                              preDuracaoSize: double.tryParse(
+                                                  _model
+                                                      .antesDuracaoFonteController
+                                                      .text),
+                                              duracao: 'DURAÇÃO',
+                                              duracaoCOR:
+                                                  functions.colorToString(
+                                                      _model.colorPicked11),
+                                              duracaoSIZE: double.tryParse(
+                                                  _model.duracaoFonteController
+                                                      .text),
+                                              iDokeySize: double.tryParse(_model
+                                                  .idokeyFonteController.text),
+                                              isDefaultImage:
+                                                  _model.checkboxValue1,
+                                              userID: currentUserReference,
+                                              showIDokey: _model.checkboxValue2,
+                                              image: _model.uploadedFileUrl,
+                                            ));
+                                      }
                                     },
-                                    text: 'Salvar Template',
+                                    text: 'Criar Template',
                                     options: FFButtonOptions(
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -5113,7 +5151,7 @@ class _NewTemplateWidgetState extends State<NewTemplateWidget> {
                                             color: Colors.white,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),

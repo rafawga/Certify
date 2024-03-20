@@ -8,11 +8,11 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class CertificadoTemplateRecord extends FirestoreRecord {
-  CertificadoTemplateRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+class TemplateCertificadoRecord extends FirestoreRecord {
+  TemplateCertificadoRecord._(
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -26,15 +26,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get certificadoCOR => _certificadoCOR ?? '';
   bool hasCertificadoCOR() => _certificadoCOR != null;
 
-  // "CertificadoSIZE" field.
-  String? _certificadoSIZE;
-  String get certificadoSIZE => _certificadoSIZE ?? '';
-  bool hasCertificadoSIZE() => _certificadoSIZE != null;
-
-  // "BackgroundPhoto" field.
-  String? _backgroundPhoto;
-  String get backgroundPhoto => _backgroundPhoto ?? '';
-  bool hasBackgroundPhoto() => _backgroundPhoto != null;
+  // "CertificadoSize" field.
+  double? _certificadoSize;
+  double get certificadoSize => _certificadoSize ?? 0.0;
+  bool hasCertificadoSize() => _certificadoSize != null;
 
   // "TemplateName" field.
   String? _templateName;
@@ -51,10 +46,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get preNameCOR => _preNameCOR ?? '';
   bool hasPreNameCOR() => _preNameCOR != null;
 
-  // "PreNameSize" field.
-  double? _preNameSize;
-  double get preNameSize => _preNameSize ?? 0.0;
-  bool hasPreNameSize() => _preNameSize != null;
+  // "PreNameSIZE" field.
+  double? _preNameSIZE;
+  double get preNameSIZE => _preNameSIZE ?? 0.0;
+  bool hasPreNameSIZE() => _preNameSIZE != null;
 
   // "Aluno" field.
   String? _aluno;
@@ -66,10 +61,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get alunoCOR => _alunoCOR ?? '';
   bool hasAlunoCOR() => _alunoCOR != null;
 
-  // "AlunoSize" field.
-  double? _alunoSize;
-  double get alunoSize => _alunoSize ?? 0.0;
-  bool hasAlunoSize() => _alunoSize != null;
+  // "AlunoSIZE" field.
+  double? _alunoSIZE;
+  double get alunoSIZE => _alunoSIZE ?? 0.0;
+  bool hasAlunoSIZE() => _alunoSIZE != null;
 
   // "PreCurso" field.
   String? _preCurso;
@@ -81,10 +76,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get preCursoCOR => _preCursoCOR ?? '';
   bool hasPreCursoCOR() => _preCursoCOR != null;
 
-  // "PreCursoSize" field.
-  double? _preCursoSize;
-  double get preCursoSize => _preCursoSize ?? 0.0;
-  bool hasPreCursoSize() => _preCursoSize != null;
+  // "PreCursoSIZE" field.
+  double? _preCursoSIZE;
+  double get preCursoSIZE => _preCursoSIZE ?? 0.0;
+  bool hasPreCursoSIZE() => _preCursoSIZE != null;
 
   // "Curso" field.
   String? _curso;
@@ -111,10 +106,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get preProfCOR => _preProfCOR ?? '';
   bool hasPreProfCOR() => _preProfCOR != null;
 
-  // "PreProfSize" field.
-  double? _preProfSize;
-  double get preProfSize => _preProfSize ?? 0.0;
-  bool hasPreProfSize() => _preProfSize != null;
+  // "PreProfSIZE" field.
+  double? _preProfSIZE;
+  double get preProfSIZE => _preProfSIZE ?? 0.0;
+  bool hasPreProfSIZE() => _preProfSIZE != null;
 
   // "Prof" field.
   String? _prof;
@@ -126,25 +121,25 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get profCOR => _profCOR ?? '';
   bool hasProfCOR() => _profCOR != null;
 
-  // "ProfSize" field.
-  double? _profSize;
-  double get profSize => _profSize ?? 0.0;
-  bool hasProfSize() => _profSize != null;
+  // "ProfSIZE" field.
+  double? _profSIZE;
+  double get profSIZE => _profSIZE ?? 0.0;
+  bool hasProfSIZE() => _profSIZE != null;
 
-  // "PreData" field.
-  String? _preData;
-  String get preData => _preData ?? '';
-  bool hasPreData() => _preData != null;
+  // "PreDate" field.
+  String? _preDate;
+  String get preDate => _preDate ?? '';
+  bool hasPreDate() => _preDate != null;
 
-  // "PreDataCOR" field.
-  String? _preDataCOR;
-  String get preDataCOR => _preDataCOR ?? '';
-  bool hasPreDataCOR() => _preDataCOR != null;
+  // "PreDateCOR" field.
+  String? _preDateCOR;
+  String get preDateCOR => _preDateCOR ?? '';
+  bool hasPreDateCOR() => _preDateCOR != null;
 
-  // "PreDataSize" field.
-  double? _preDataSize;
-  double get preDataSize => _preDataSize ?? 0.0;
-  bool hasPreDataSize() => _preDataSize != null;
+  // "PreDateSIZE" field.
+  double? _preDateSIZE;
+  double get preDateSIZE => _preDateSIZE ?? 0.0;
+  bool hasPreDateSIZE() => _preDateSIZE != null;
 
   // "Data" field.
   String? _data;
@@ -156,10 +151,10 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get dataCOR => _dataCOR ?? '';
   bool hasDataCOR() => _dataCOR != null;
 
-  // "DataSize" field.
-  double? _dataSize;
-  double get dataSize => _dataSize ?? 0.0;
-  bool hasDataSize() => _dataSize != null;
+  // "DataSIZE" field.
+  double? _dataSIZE;
+  double get dataSIZE => _dataSIZE ?? 0.0;
+  bool hasDataSIZE() => _dataSIZE != null;
 
   // "PreDuracao" field.
   String? _preDuracao;
@@ -186,273 +181,291 @@ class CertificadoTemplateRecord extends FirestoreRecord {
   String get duracaoCOR => _duracaoCOR ?? '';
   bool hasDuracaoCOR() => _duracaoCOR != null;
 
-  // "DuracaoSize" field.
-  double? _duracaoSize;
-  double get duracaoSize => _duracaoSize ?? 0.0;
-  bool hasDuracaoSize() => _duracaoSize != null;
+  // "DuracaoSIZE" field.
+  double? _duracaoSIZE;
+  double get duracaoSIZE => _duracaoSIZE ?? 0.0;
+  bool hasDuracaoSIZE() => _duracaoSIZE != null;
 
-  // "iDOkeySize" field.
-  double? _iDOkeySize;
-  double get iDOkeySize => _iDOkeySize ?? 0.0;
-  bool hasIDOkeySize() => _iDOkeySize != null;
+  // "IDokeySize" field.
+  double? _iDokeySize;
+  double get iDokeySize => _iDokeySize ?? 0.0;
+  bool hasIDokeySize() => _iDokeySize != null;
 
-  // "IsDefaultImage" field.
+  // "isDefaultImage" field.
   bool? _isDefaultImage;
   bool get isDefaultImage => _isDefaultImage ?? false;
   bool hasIsDefaultImage() => _isDefaultImage != null;
 
-  DocumentReference get parentReference => reference.parent.parent!;
+  // "UserID" field.
+  DocumentReference? _userID;
+  DocumentReference? get userID => _userID;
+  bool hasUserID() => _userID != null;
+
+  // "ShowIDokey" field.
+  bool? _showIDokey;
+  bool get showIDokey => _showIDokey ?? false;
+  bool hasShowIDokey() => _showIDokey != null;
+
+  // "Image" field.
+  String? _image;
+  String get image => _image ?? '';
+  bool hasImage() => _image != null;
 
   void _initializeFields() {
     _certificado = snapshotData['Certificado'] as String?;
     _certificadoCOR = snapshotData['CertificadoCOR'] as String?;
-    _certificadoSIZE = snapshotData['CertificadoSIZE'] as String?;
-    _backgroundPhoto = snapshotData['BackgroundPhoto'] as String?;
+    _certificadoSize = castToType<double>(snapshotData['CertificadoSize']);
     _templateName = snapshotData['TemplateName'] as String?;
     _preName = snapshotData['PreName'] as String?;
     _preNameCOR = snapshotData['PreNameCOR'] as String?;
-    _preNameSize = castToType<double>(snapshotData['PreNameSize']);
+    _preNameSIZE = castToType<double>(snapshotData['PreNameSIZE']);
     _aluno = snapshotData['Aluno'] as String?;
     _alunoCOR = snapshotData['AlunoCOR'] as String?;
-    _alunoSize = castToType<double>(snapshotData['AlunoSize']);
+    _alunoSIZE = castToType<double>(snapshotData['AlunoSIZE']);
     _preCurso = snapshotData['PreCurso'] as String?;
     _preCursoCOR = snapshotData['PreCursoCOR'] as String?;
-    _preCursoSize = castToType<double>(snapshotData['PreCursoSize']);
+    _preCursoSIZE = castToType<double>(snapshotData['PreCursoSIZE']);
     _curso = snapshotData['Curso'] as String?;
     _cursoCOR = snapshotData['CursoCOR'] as String?;
     _cursoSize = castToType<double>(snapshotData['CursoSize']);
     _preProf = snapshotData['PreProf'] as String?;
     _preProfCOR = snapshotData['PreProfCOR'] as String?;
-    _preProfSize = castToType<double>(snapshotData['PreProfSize']);
+    _preProfSIZE = castToType<double>(snapshotData['PreProfSIZE']);
     _prof = snapshotData['Prof'] as String?;
     _profCOR = snapshotData['ProfCOR'] as String?;
-    _profSize = castToType<double>(snapshotData['ProfSize']);
-    _preData = snapshotData['PreData'] as String?;
-    _preDataCOR = snapshotData['PreDataCOR'] as String?;
-    _preDataSize = castToType<double>(snapshotData['PreDataSize']);
+    _profSIZE = castToType<double>(snapshotData['ProfSIZE']);
+    _preDate = snapshotData['PreDate'] as String?;
+    _preDateCOR = snapshotData['PreDateCOR'] as String?;
+    _preDateSIZE = castToType<double>(snapshotData['PreDateSIZE']);
     _data = snapshotData['Data'] as String?;
     _dataCOR = snapshotData['DataCOR'] as String?;
-    _dataSize = castToType<double>(snapshotData['DataSize']);
+    _dataSIZE = castToType<double>(snapshotData['DataSIZE']);
     _preDuracao = snapshotData['PreDuracao'] as String?;
     _preDuracaoCOR = snapshotData['PreDuracaoCOR'] as String?;
     _preDuracaoSize = castToType<double>(snapshotData['PreDuracaoSize']);
     _duracao = snapshotData['Duracao'] as String?;
     _duracaoCOR = snapshotData['DuracaoCOR'] as String?;
-    _duracaoSize = castToType<double>(snapshotData['DuracaoSize']);
-    _iDOkeySize = castToType<double>(snapshotData['iDOkeySize']);
-    _isDefaultImage = snapshotData['IsDefaultImage'] as bool?;
+    _duracaoSIZE = castToType<double>(snapshotData['DuracaoSIZE']);
+    _iDokeySize = castToType<double>(snapshotData['IDokeySize']);
+    _isDefaultImage = snapshotData['isDefaultImage'] as bool?;
+    _userID = snapshotData['UserID'] as DocumentReference?;
+    _showIDokey = snapshotData['ShowIDokey'] as bool?;
+    _image = snapshotData['Image'] as String?;
   }
 
-  static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
-      parent != null
-          ? parent.collection('CertificadoTemplate')
-          : FirebaseFirestore.instance.collectionGroup('CertificadoTemplate');
+  static CollectionReference get collection =>
+      FirebaseFirestore.instance.collection('TemplateCertificado');
 
-  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
-      parent.collection('CertificadoTemplate').doc(id);
+  static Stream<TemplateCertificadoRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => TemplateCertificadoRecord.fromSnapshot(s));
 
-  static Stream<CertificadoTemplateRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => CertificadoTemplateRecord.fromSnapshot(s));
-
-  static Future<CertificadoTemplateRecord> getDocumentOnce(
+  static Future<TemplateCertificadoRecord> getDocumentOnce(
           DocumentReference ref) =>
-      ref.get().then((s) => CertificadoTemplateRecord.fromSnapshot(s));
+      ref.get().then((s) => TemplateCertificadoRecord.fromSnapshot(s));
 
-  static CertificadoTemplateRecord fromSnapshot(DocumentSnapshot snapshot) =>
-      CertificadoTemplateRecord._(
+  static TemplateCertificadoRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      TemplateCertificadoRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static CertificadoTemplateRecord getDocumentFromData(
+  static TemplateCertificadoRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      CertificadoTemplateRecord._(reference, mapFromFirestore(data));
+      TemplateCertificadoRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'CertificadoTemplateRecord(reference: ${reference.path}, data: $snapshotData)';
+      'TemplateCertificadoRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is CertificadoTemplateRecord &&
+      other is TemplateCertificadoRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createCertificadoTemplateRecordData({
+Map<String, dynamic> createTemplateCertificadoRecordData({
   String? certificado,
   String? certificadoCOR,
-  String? certificadoSIZE,
-  String? backgroundPhoto,
+  double? certificadoSize,
   String? templateName,
   String? preName,
   String? preNameCOR,
-  double? preNameSize,
+  double? preNameSIZE,
   String? aluno,
   String? alunoCOR,
-  double? alunoSize,
+  double? alunoSIZE,
   String? preCurso,
   String? preCursoCOR,
-  double? preCursoSize,
+  double? preCursoSIZE,
   String? curso,
   String? cursoCOR,
   double? cursoSize,
   String? preProf,
   String? preProfCOR,
-  double? preProfSize,
+  double? preProfSIZE,
   String? prof,
   String? profCOR,
-  double? profSize,
-  String? preData,
-  String? preDataCOR,
-  double? preDataSize,
+  double? profSIZE,
+  String? preDate,
+  String? preDateCOR,
+  double? preDateSIZE,
   String? data,
   String? dataCOR,
-  double? dataSize,
+  double? dataSIZE,
   String? preDuracao,
   String? preDuracaoCOR,
   double? preDuracaoSize,
   String? duracao,
   String? duracaoCOR,
-  double? duracaoSize,
-  double? iDOkeySize,
+  double? duracaoSIZE,
+  double? iDokeySize,
   bool? isDefaultImage,
+  DocumentReference? userID,
+  bool? showIDokey,
+  String? image,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'Certificado': certificado,
       'CertificadoCOR': certificadoCOR,
-      'CertificadoSIZE': certificadoSIZE,
-      'BackgroundPhoto': backgroundPhoto,
+      'CertificadoSize': certificadoSize,
       'TemplateName': templateName,
       'PreName': preName,
       'PreNameCOR': preNameCOR,
-      'PreNameSize': preNameSize,
+      'PreNameSIZE': preNameSIZE,
       'Aluno': aluno,
       'AlunoCOR': alunoCOR,
-      'AlunoSize': alunoSize,
+      'AlunoSIZE': alunoSIZE,
       'PreCurso': preCurso,
       'PreCursoCOR': preCursoCOR,
-      'PreCursoSize': preCursoSize,
+      'PreCursoSIZE': preCursoSIZE,
       'Curso': curso,
       'CursoCOR': cursoCOR,
       'CursoSize': cursoSize,
       'PreProf': preProf,
       'PreProfCOR': preProfCOR,
-      'PreProfSize': preProfSize,
+      'PreProfSIZE': preProfSIZE,
       'Prof': prof,
       'ProfCOR': profCOR,
-      'ProfSize': profSize,
-      'PreData': preData,
-      'PreDataCOR': preDataCOR,
-      'PreDataSize': preDataSize,
+      'ProfSIZE': profSIZE,
+      'PreDate': preDate,
+      'PreDateCOR': preDateCOR,
+      'PreDateSIZE': preDateSIZE,
       'Data': data,
       'DataCOR': dataCOR,
-      'DataSize': dataSize,
+      'DataSIZE': dataSIZE,
       'PreDuracao': preDuracao,
       'PreDuracaoCOR': preDuracaoCOR,
       'PreDuracaoSize': preDuracaoSize,
       'Duracao': duracao,
       'DuracaoCOR': duracaoCOR,
-      'DuracaoSize': duracaoSize,
-      'iDOkeySize': iDOkeySize,
-      'IsDefaultImage': isDefaultImage,
+      'DuracaoSIZE': duracaoSIZE,
+      'IDokeySize': iDokeySize,
+      'isDefaultImage': isDefaultImage,
+      'UserID': userID,
+      'ShowIDokey': showIDokey,
+      'Image': image,
     }.withoutNulls,
   );
 
   return firestoreData;
 }
 
-class CertificadoTemplateRecordDocumentEquality
-    implements Equality<CertificadoTemplateRecord> {
-  const CertificadoTemplateRecordDocumentEquality();
+class TemplateCertificadoRecordDocumentEquality
+    implements Equality<TemplateCertificadoRecord> {
+  const TemplateCertificadoRecordDocumentEquality();
 
   @override
-  bool equals(CertificadoTemplateRecord? e1, CertificadoTemplateRecord? e2) {
+  bool equals(TemplateCertificadoRecord? e1, TemplateCertificadoRecord? e2) {
     return e1?.certificado == e2?.certificado &&
         e1?.certificadoCOR == e2?.certificadoCOR &&
-        e1?.certificadoSIZE == e2?.certificadoSIZE &&
-        e1?.backgroundPhoto == e2?.backgroundPhoto &&
+        e1?.certificadoSize == e2?.certificadoSize &&
         e1?.templateName == e2?.templateName &&
         e1?.preName == e2?.preName &&
         e1?.preNameCOR == e2?.preNameCOR &&
-        e1?.preNameSize == e2?.preNameSize &&
+        e1?.preNameSIZE == e2?.preNameSIZE &&
         e1?.aluno == e2?.aluno &&
         e1?.alunoCOR == e2?.alunoCOR &&
-        e1?.alunoSize == e2?.alunoSize &&
+        e1?.alunoSIZE == e2?.alunoSIZE &&
         e1?.preCurso == e2?.preCurso &&
         e1?.preCursoCOR == e2?.preCursoCOR &&
-        e1?.preCursoSize == e2?.preCursoSize &&
+        e1?.preCursoSIZE == e2?.preCursoSIZE &&
         e1?.curso == e2?.curso &&
         e1?.cursoCOR == e2?.cursoCOR &&
         e1?.cursoSize == e2?.cursoSize &&
         e1?.preProf == e2?.preProf &&
         e1?.preProfCOR == e2?.preProfCOR &&
-        e1?.preProfSize == e2?.preProfSize &&
+        e1?.preProfSIZE == e2?.preProfSIZE &&
         e1?.prof == e2?.prof &&
         e1?.profCOR == e2?.profCOR &&
-        e1?.profSize == e2?.profSize &&
-        e1?.preData == e2?.preData &&
-        e1?.preDataCOR == e2?.preDataCOR &&
-        e1?.preDataSize == e2?.preDataSize &&
+        e1?.profSIZE == e2?.profSIZE &&
+        e1?.preDate == e2?.preDate &&
+        e1?.preDateCOR == e2?.preDateCOR &&
+        e1?.preDateSIZE == e2?.preDateSIZE &&
         e1?.data == e2?.data &&
         e1?.dataCOR == e2?.dataCOR &&
-        e1?.dataSize == e2?.dataSize &&
+        e1?.dataSIZE == e2?.dataSIZE &&
         e1?.preDuracao == e2?.preDuracao &&
         e1?.preDuracaoCOR == e2?.preDuracaoCOR &&
         e1?.preDuracaoSize == e2?.preDuracaoSize &&
         e1?.duracao == e2?.duracao &&
         e1?.duracaoCOR == e2?.duracaoCOR &&
-        e1?.duracaoSize == e2?.duracaoSize &&
-        e1?.iDOkeySize == e2?.iDOkeySize &&
-        e1?.isDefaultImage == e2?.isDefaultImage;
+        e1?.duracaoSIZE == e2?.duracaoSIZE &&
+        e1?.iDokeySize == e2?.iDokeySize &&
+        e1?.isDefaultImage == e2?.isDefaultImage &&
+        e1?.userID == e2?.userID &&
+        e1?.showIDokey == e2?.showIDokey &&
+        e1?.image == e2?.image;
   }
 
   @override
-  int hash(CertificadoTemplateRecord? e) => const ListEquality().hash([
+  int hash(TemplateCertificadoRecord? e) => const ListEquality().hash([
         e?.certificado,
         e?.certificadoCOR,
-        e?.certificadoSIZE,
-        e?.backgroundPhoto,
+        e?.certificadoSize,
         e?.templateName,
         e?.preName,
         e?.preNameCOR,
-        e?.preNameSize,
+        e?.preNameSIZE,
         e?.aluno,
         e?.alunoCOR,
-        e?.alunoSize,
+        e?.alunoSIZE,
         e?.preCurso,
         e?.preCursoCOR,
-        e?.preCursoSize,
+        e?.preCursoSIZE,
         e?.curso,
         e?.cursoCOR,
         e?.cursoSize,
         e?.preProf,
         e?.preProfCOR,
-        e?.preProfSize,
+        e?.preProfSIZE,
         e?.prof,
         e?.profCOR,
-        e?.profSize,
-        e?.preData,
-        e?.preDataCOR,
-        e?.preDataSize,
+        e?.profSIZE,
+        e?.preDate,
+        e?.preDateCOR,
+        e?.preDateSIZE,
         e?.data,
         e?.dataCOR,
-        e?.dataSize,
+        e?.dataSIZE,
         e?.preDuracao,
         e?.preDuracaoCOR,
         e?.preDuracaoSize,
         e?.duracao,
         e?.duracaoCOR,
-        e?.duracaoSize,
-        e?.iDOkeySize,
-        e?.isDefaultImage
+        e?.duracaoSIZE,
+        e?.iDokeySize,
+        e?.isDefaultImage,
+        e?.userID,
+        e?.showIDokey,
+        e?.image
       ]);
 
   @override
-  bool isValidKey(Object? o) => o is CertificadoTemplateRecord;
+  bool isValidKey(Object? o) => o is TemplateCertificadoRecord;
 }

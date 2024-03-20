@@ -1,16 +1,11 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'verify_certificate_model.dart';
 export 'verify_certificate_model.dart';
 
@@ -47,8 +42,6 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -59,30 +52,30 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => setState(() {}),
-                  child: NavbarWidget(
+                  child: const NavbarWidget(
                     tabAtual: 5,
                   ),
                 ),
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 1170.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, -1.0),
+                        alignment: const AlignmentDirectional(-1.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 30.0, 20.0, 20.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -93,7 +86,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 12.0, 12.0, 25.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -102,7 +95,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 1.0,
                                             color: Color(0x33000000),
@@ -113,7 +106,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -126,7 +119,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 12.0, 0.0),
                                                     child: Icon(
@@ -210,7 +203,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                 ],
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Verifique a Autenticidade do Seu Certificado Aqui!',
                                   textAlign: TextAlign.center,
@@ -226,11 +219,10 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
 
                               // You will have to add an action on this rich text to go to your login page.
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     40.0, 12.0, 40.0, 12.0),
                                 child: RichText(
-                                  textScaleFactor:
-                                      MediaQuery.of(context).textScaleFactor,
+                                  textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
@@ -309,7 +301,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF101213),
+                                          color: const Color(0xFF101213),
                                           fontSize: 16.0,
                                           letterSpacing: 0.5,
                                           fontWeight: FontWeight.w500,
@@ -324,10 +316,10 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                    alignment: const AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Container(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.5,
@@ -358,7 +350,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0xFF4B39EF),
                                                 width: 1.0,
                                               ),
@@ -366,7 +358,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 1.0,
                                               ),
@@ -375,7 +367,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 1.0,
                                               ),
@@ -463,7 +455,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                               ),
                               if (_model.hasSearched)
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,

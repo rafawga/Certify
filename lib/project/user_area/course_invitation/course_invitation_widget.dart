@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,12 +6,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'course_invitation_model.dart';
 export 'course_invitation_model.dart';
 
@@ -89,8 +86,6 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<CursosRecord>(
       stream: CursosRecord.getDocument(widget.cursoID!),
       builder: (context, snapshot) {
@@ -122,28 +117,28 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
                       updateCallback: () => setState(() {}),
-                      child: NavbarWidget(
+                      child: const NavbarWidget(
                         tabAtual: -1,
                       ),
                     ),
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 1170.0,
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 20.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -151,9 +146,9 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                               children: [
                                 Flexible(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 29.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -166,7 +161,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 12.0, 12.0, 25.0),
                                                 child: Container(
@@ -179,7 +174,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 1.0,
                                                         color:
@@ -194,7 +189,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -212,7 +207,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -305,7 +300,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                           ),
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -314,7 +309,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       'Deseja aceitar o convite de ${courseInvitationCursosRecord.instructorName} para entrar em \" ${courseInvitationCursosRecord.name}\" ?',
@@ -336,11 +331,11 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                   Flexible(
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     30.0,
@@ -358,7 +353,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -389,7 +384,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              Duration(milliseconds: 3000),
+                                                                              const Duration(milliseconds: 3000),
                                                                           backgroundColor:
                                                                               FlutterFlowTheme.of(context).warning,
                                                                         ),
@@ -490,7 +485,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              Duration(milliseconds: 3000),
+                                                                              const Duration(milliseconds: 3000),
                                                                           backgroundColor:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                         ),
@@ -514,7 +509,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              Duration(milliseconds: 3000),
+                                                                              const Duration(milliseconds: 3000),
                                                                           backgroundColor:
                                                                               FlutterFlowTheme.of(context).warning,
                                                                         ),
@@ -533,7 +528,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              Duration(milliseconds: 3000),
+                                                                              const Duration(milliseconds: 3000),
                                                                           backgroundColor:
                                                                               FlutterFlowTheme.of(context).warning,
                                                                         ),
@@ -551,13 +546,13 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                 options:
                                                                     FFButtonOptions(
                                                                   height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
+                                                                  iconPadding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -578,7 +573,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                   elevation:
                                                                       3.0,
                                                                   borderSide:
-                                                                      BorderSide(
+                                                                      const BorderSide(
                                                                     color: Colors
                                                                         .transparent,
                                                                     width: 1.0,
@@ -600,14 +595,14 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                               options:
                                                                   FFButtonOptions(
                                                                 height: 40.0,
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -627,7 +622,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Colors
                                                                       .transparent,
                                                                   width: 1.0,

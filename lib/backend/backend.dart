@@ -10,7 +10,7 @@ import 'schema/cursos_record.dart';
 import 'schema/alunos_curso_record.dart';
 import 'schema/report_record.dart';
 import 'schema/assinaturas_record.dart';
-import 'schema/certificado_template_record.dart';
+import 'schema/template_certificado_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -23,7 +23,7 @@ export 'schema/cursos_record.dart';
 export 'schema/alunos_curso_record.dart';
 export 'schema/report_record.dart';
 export 'schema/assinaturas_record.dart';
-export 'schema/certificado_template_record.dart';
+export 'schema/template_certificado_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -210,41 +210,38 @@ Future<List<AssinaturasRecord>> queryAssinaturasRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query CertificadoTemplateRecords (as a Stream and as a Future).
-Future<int> queryCertificadoTemplateRecordCount({
-  DocumentReference? parent,
+/// Functions to query TemplateCertificadoRecords (as a Stream and as a Future).
+Future<int> queryTemplateCertificadoRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      CertificadoTemplateRecord.collection(parent),
+      TemplateCertificadoRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<CertificadoTemplateRecord>> queryCertificadoTemplateRecord({
-  DocumentReference? parent,
+Stream<List<TemplateCertificadoRecord>> queryTemplateCertificadoRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      CertificadoTemplateRecord.collection(parent),
-      CertificadoTemplateRecord.fromSnapshot,
+      TemplateCertificadoRecord.collection,
+      TemplateCertificadoRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<CertificadoTemplateRecord>> queryCertificadoTemplateRecordOnce({
-  DocumentReference? parent,
+Future<List<TemplateCertificadoRecord>> queryTemplateCertificadoRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      CertificadoTemplateRecord.collection(parent),
-      CertificadoTemplateRecord.fromSnapshot,
+      TemplateCertificadoRecord.collection,
+      TemplateCertificadoRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -263,7 +260,7 @@ Future<int> queryCollectionCount(
 
   return query.count().get().catchError((err) {
     print('Error querying $collection: $err');
-  }).then((value) => value.count);
+  }).then((value) => value.count!);
 }
 
 Stream<List<T>> queryCollection<T>(
@@ -360,7 +357,7 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   } else {
     docSnapshot = await query.get();
   }
-  final getDocs = (QuerySnapshot s) => s.docs
+  getDocs(QuerySnapshot s) => s.docs
       .map(
         (d) => safeGet(
           () => recordBuilder(d),

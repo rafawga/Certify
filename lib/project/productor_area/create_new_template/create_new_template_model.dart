@@ -1,22 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
-import 'new_template_widget.dart' show NewTemplateWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
+import 'create_new_template_widget.dart' show CreateNewTemplateWidget;
 import 'package:flutter/material.dart';
-import 'package:flutterflow_colorpicker/flutterflow_colorpicker.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-class NewTemplateModel extends FlutterFlowModel<NewTemplateWidget> {
+class CreateNewTemplateModel extends FlutterFlowModel<CreateNewTemplateWidget> {
   ///  Local state fields for this page.
 
   int? mode = 1;

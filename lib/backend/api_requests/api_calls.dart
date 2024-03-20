@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -59,7 +58,7 @@ class CancelarAAssinaturaCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Cancelar a assinatura',
-      apiUrl: 'https://api.stripe.com/v1/subscriptions/${id}',
+      apiUrl: 'https://api.stripe.com/v1/subscriptions/$id',
       callType: ApiCallType.DELETE,
       headers: {
         'Authorization':

@@ -7,10 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/project/components/cancelar_assinatura/cancelar_assinatura_widget.dart';
 import '/project/components/navbar/navbar_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'settings_edit_profile_model.dart';
 export 'settings_edit_profile_model.dart';
 
@@ -56,8 +53,6 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -67,7 +62,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
           wrapWithModel(
             model: _model.navbarModel,
             updateCallback: () => setState(() {}),
-            child: NavbarWidget(
+            child: const NavbarWidget(
               tabAtual: 4,
             ),
           ),
@@ -77,16 +72,16 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
               children: [
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       width: double.infinity,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 1170.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -105,7 +100,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 12.0, 12.0, 25.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -116,7 +111,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 1.0,
                                                   color: Color(0x33000000),
@@ -127,7 +122,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
                                               child: Row(
@@ -142,7 +137,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -234,7 +229,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -250,7 +245,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -278,7 +273,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 12.0, 16.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -424,11 +419,11 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                 text: 'Mudar Foto',
                                                 options: FFButtonOptions(
                                                   height: 44.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -465,12 +460,12 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   hoverElevation: 3.0,
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 16.0)),
+                                            ].divide(const SizedBox(width: 16.0)),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 16.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => TextFormField(
@@ -540,7 +535,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -558,7 +553,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 16.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => TextFormField(
@@ -628,7 +623,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -646,7 +641,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 16.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => TextFormField(
@@ -717,7 +712,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -735,7 +730,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 24.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -753,7 +748,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -777,7 +772,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                                 .circular(2.0),
                                                       ),
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Builder(
                                                         builder: (context) =>
@@ -808,13 +803,13 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                                     backgroundColor:
                                                                         Colors
                                                                             .transparent,
-                                                                    alignment: AlignmentDirectional(
+                                                                    alignment: const AlignmentDirectional(
                                                                             0.0,
                                                                             0.0)
                                                                         .resolve(
                                                                             Directionality.of(context)),
                                                                     child:
-                                                                        CancelarAssinaturaWidget(),
+                                                                        const CancelarAssinaturaWidget(),
                                                                   );
                                                                 },
                                                               ).then((value) =>
@@ -832,7 +827,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary
-                                                                    : Color(
+                                                                    : const Color(
                                                                         0x00000000),
                                                                 borderRadius:
                                                                     BorderRadius
@@ -841,7 +836,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             10.0),
                                                                 child:
@@ -886,7 +881,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   16.0,
@@ -905,7 +900,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   4.0,
@@ -957,13 +952,13 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                   ],
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 16.0)),
+                                            ].divide(const SizedBox(width: 16.0)),
                                           ),
                                         ),
                                       ],
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           24.0, 12.0, 24.0, 24.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -972,7 +967,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.05),
+                                                const AlignmentDirectional(0.0, 0.05),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 Navigator.pop(context);
@@ -980,11 +975,11 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               text: 'Cancel',
                                               options: FFButtonOptions(
                                                 height: 44.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -1020,7 +1015,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.05),
+                                                const AlignmentDirectional(0.0, 0.05),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 await currentUserReference!
@@ -1085,7 +1080,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                             color: Colors.white,
                                                           ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -1097,11 +1092,11 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               text: 'Save Changes',
                                               options: FFButtonOptions(
                                                 height: 44.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -1111,7 +1106,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall,
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -1133,7 +1128,7 @@ class _SettingsEditProfileWidgetState extends State<SettingsEditProfileWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 50.0)),
+                                        ].divide(const SizedBox(width: 50.0)),
                                       ),
                                     ),
                                   ],

@@ -2,21 +2,22 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import '/project/components/user_pop_up/user_pop_up_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'curso_detail_model.dart';
 export 'curso_detail_model.dart';
 
@@ -25,7 +26,7 @@ class CursoDetailWidget extends StatefulWidget {
     super.key,
     required this.curso,
     int? tab,
-  }) : this.tab = tab ?? 0;
+  }) : tab = tab ?? 0;
 
   final DocumentReference? curso;
   final int tab;
@@ -56,8 +57,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 500.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -76,8 +77,8 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 500.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -121,8 +122,6 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<CursosRecord>(
       stream: CursosRecord.getDocument(widget.curso!),
       builder: (context, snapshot) {
@@ -154,36 +153,36 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
                       updateCallback: () => setState(() {}),
-                      child: NavbarWidget(
+                      child: const NavbarWidget(
                         tabAtual: 1,
                       ),
                     ),
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 2.0),
                           child: Container(
                             width: double.infinity,
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxWidth: 1170.0,
                             ),
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Column(
                                 children: [
                                   Align(
-                                    alignment: Alignment(0.0, 0),
+                                    alignment: const Alignment(0.0, 0),
                                     child: TabBar(
                                       labelColor: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -192,10 +191,10 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                               .secondaryText,
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium,
-                                      unselectedLabelStyle: TextStyle(),
+                                      unselectedLabelStyle: const TextStyle(),
                                       indicatorColor:
                                           FlutterFlowTheme.of(context).primary,
-                                      padding: EdgeInsets.all(4.0),
+                                      padding: const EdgeInsets.all(4.0),
                                       tabs: [
                                         Tab(
                                           text:
@@ -205,10 +204,10 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                   ? 'Info Curso'
                                                   : 'Informações do Curso',
                                         ),
-                                        Tab(
+                                        const Tab(
                                           text: 'Editar Curso',
                                         ),
-                                        Tab(
+                                        const Tab(
                                           text: 'Personalizar Certificado',
                                         ),
                                       ],
@@ -229,7 +228,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                           const NeverScrollableScrollPhysics(),
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.all(20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: Container(
                                             width: 100.0,
                                             height: 100.0,
@@ -239,7 +238,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                       .primaryBackground,
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: SingleChildScrollView(
@@ -256,7 +255,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       12.0,
@@ -274,7 +273,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryBackground,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       1.0,
@@ -293,7 +292,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -314,7 +313,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               12.0,
@@ -402,7 +401,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -421,7 +420,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -442,7 +441,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -468,7 +467,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                     ),
                                                     Flexible(
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             16.0),
                                                         child: Container(
                                                           width:
@@ -493,7 +492,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               children: [
                                                                 ClipRRect(
                                                                   borderRadius:
-                                                                      BorderRadius
+                                                                      const BorderRadius
                                                                           .only(
                                                                     bottomLeft:
                                                                         Radius.circular(
@@ -528,7 +527,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             16.0),
                                                                     child:
                                                                         Column(
@@ -584,7 +583,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -606,7 +605,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       16.0,
@@ -619,7 +618,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -657,7 +656,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              Duration(milliseconds: 4000),
+                                                                              const Duration(milliseconds: 4000),
                                                                           backgroundColor:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                         ),
@@ -673,7 +672,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
-                                                                        boxShadow: [
+                                                                        boxShadow: const [
                                                                           BoxShadow(
                                                                             blurRadius:
                                                                                 1.0,
@@ -688,7 +687,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             0.0,
@@ -707,7 +706,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.person_add,
                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -738,7 +737,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -785,7 +784,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
-                                                                        boxShadow: [
+                                                                        boxShadow: const [
                                                                           BoxShadow(
                                                                             blurRadius:
                                                                                 1.0,
@@ -800,7 +799,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             0.0,
@@ -819,7 +818,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.document_scanner,
                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -855,14 +854,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                     ),
                                                     Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -884,7 +883,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -899,7 +898,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           16.0,
@@ -917,7 +916,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               context)
                                                                           .secondaryBackground,
                                                                       borderRadius:
-                                                                          BorderRadius
+                                                                          const BorderRadius
                                                                               .only(
                                                                         bottomLeft:
                                                                             Radius.circular(0.0),
@@ -937,7 +936,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
@@ -1008,7 +1007,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         final userListItem =
                                                                             userList[userListIndex];
                                                                         return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -1042,7 +1041,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                     BoxShadow(
                                                                                       blurRadius: 0.0,
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                      offset: Offset(0.0, 1.0),
+                                                                                      offset: const Offset(0.0, 1.0),
                                                                                     )
                                                                                   ],
                                                                                   border: Border.all(
@@ -1050,24 +1049,24 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                   ),
                                                                                 ),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     children: [
                                                                                       Expanded(
                                                                                         flex: 2,
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 3.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 3.0, 0.0),
                                                                                                 child: Container(
                                                                                                   width: 40.0,
                                                                                                   height: 40.0,
                                                                                                   clipBehavior: Clip.antiAlias,
-                                                                                                  decoration: BoxDecoration(
+                                                                                                  decoration: const BoxDecoration(
                                                                                                     shape: BoxShape.circle,
                                                                                                   ),
                                                                                                   child: Image.network(
@@ -1081,7 +1080,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                               ),
                                                                                               Expanded(
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                                   child: Column(
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -1095,7 +1094,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                             ),
                                                                                                       ),
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                                         child: Text(
                                                                                                           containerUsersRecord.email,
                                                                                                           style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -1119,7 +1118,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                         Expanded(
                                                                                           flex: 1,
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                                                                                             child: StreamBuilder<List<AlunosCursoRecord>>(
                                                                                               stream: queryAlunosCursoRecord(
                                                                                                 queryBuilder: (alunosCursoRecord) => alunosCursoRecord
@@ -1174,7 +1173,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                           children: [
                                                                                             Builder(
                                                                                               builder: (context) => Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                 child: FlutterFlowIconButton(
                                                                                                   borderColor: Colors.transparent,
                                                                                                   borderRadius: 30.0,
@@ -1193,7 +1192,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                           elevation: 0,
                                                                                                           insetPadding: EdgeInsets.zero,
                                                                                                           backgroundColor: Colors.transparent,
-                                                                                                          alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                          alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                                           child: GestureDetector(
                                                                                                             onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                             child: UserPopUpWidget(
@@ -1236,7 +1235,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.all(20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: SingleChildScrollView(
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -1251,7 +1250,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   12.0,
@@ -1269,7 +1268,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          boxShadow: [
+                                                          boxShadow: const [
                                                             BoxShadow(
                                                               blurRadius: 1.0,
                                                               color: Color(
@@ -1285,7 +1284,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -1305,7 +1304,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1415,7 +1414,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       0.0,
@@ -1437,7 +1436,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       0.0,
@@ -1463,11 +1462,11 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -1477,11 +1476,11 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1497,16 +1496,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
-                                                                      Container(
+                                                                      SizedBox(
                                                                     width: double
                                                                         .infinity,
                                                                     child:
@@ -1522,7 +1521,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .nameFocusNode,
                                                                       autofocus:
                                                                           true,
-                                                                      autofillHints: [
+                                                                      autofillHints: const [
                                                                         AutofillHints
                                                                             .email
                                                                       ],
@@ -1549,7 +1548,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFF4B39EF),
                                                                             width:
@@ -1561,7 +1560,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         errorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1573,7 +1572,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedErrorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1607,16 +1606,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
-                                                                      Container(
+                                                                      SizedBox(
                                                                     width: double
                                                                         .infinity,
                                                                     child:
@@ -1632,7 +1631,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .descriptionFocusNode,
                                                                       autofocus:
                                                                           true,
-                                                                      autofillHints: [
+                                                                      autofillHints: const [
                                                                         AutofillHints
                                                                             .email
                                                                       ],
@@ -1659,7 +1658,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFF4B39EF),
                                                                             width:
@@ -1671,7 +1670,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         errorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1683,7 +1682,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedErrorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1720,16 +1719,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
-                                                                      Container(
+                                                                      SizedBox(
                                                                     width: double
                                                                         .infinity,
                                                                     child:
@@ -1745,7 +1744,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .professorFocusNode,
                                                                       autofocus:
                                                                           true,
-                                                                      autofillHints: [
+                                                                      autofillHints: const [
                                                                         AutofillHints
                                                                             .email
                                                                       ],
@@ -1772,7 +1771,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFF4B39EF),
                                                                             width:
@@ -1784,7 +1783,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         errorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1796,7 +1795,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedErrorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1833,16 +1832,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
-                                                                      Container(
+                                                                      SizedBox(
                                                                     width: double
                                                                         .infinity,
                                                                     child:
@@ -1859,7 +1858,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               .duracaoFocusNode,
                                                                       autofocus:
                                                                           true,
-                                                                      autofillHints: [
+                                                                      autofillHints: const [
                                                                         AutofillHints
                                                                             .email
                                                                       ],
@@ -1886,7 +1885,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFF4B39EF),
                                                                             width:
@@ -1898,7 +1897,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         errorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1910,7 +1909,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         focusedErrorBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              BorderSide(
+                                                                              const BorderSide(
                                                                             color:
                                                                                 Color(0xFFFF5963),
                                                                             width:
@@ -1965,7 +1964,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             -1.0,
                                                                             -1.0),
                                                                     child: Text(
@@ -2021,16 +2020,16 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                   true)
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             16.0),
                                                                     child:
-                                                                        Container(
+                                                                        SizedBox(
                                                                       width: double
                                                                           .infinity,
                                                                       child:
@@ -2046,7 +2045,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             _model.limiteUsersFocusNode,
                                                                         autofocus:
                                                                             true,
-                                                                        autofillHints: [
+                                                                        autofillHints: const [
                                                                           AutofillHints
                                                                               .email
                                                                         ],
@@ -2071,7 +2070,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           focusedBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0xFF4B39EF),
                                                                               width: 1.0,
                                                                             ),
@@ -2081,7 +2080,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           errorBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0xFFFF5963),
                                                                               width: 1.0,
                                                                             ),
@@ -2091,7 +2090,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           focusedErrorBorder:
                                                                               OutlineInputBorder(
                                                                             borderSide:
-                                                                                BorderSide(
+                                                                                const BorderSide(
                                                                               color: Color(0xFFFF5963),
                                                                               width: 1.0,
                                                                             ),
@@ -2127,7 +2126,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                   ),
                                                                 ),
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         12.0,
@@ -2272,12 +2271,12 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           FFButtonOptions(
                                                                         height:
                                                                             44.0,
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             24.0,
                                                                             0.0,
                                                                             24.0,
                                                                             0.0),
-                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -2312,14 +2311,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             3.0,
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           16.0)),
                                                                 ),
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             20.0,
@@ -2408,7 +2407,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           ),
                                                                         ),
                                                                         duration:
-                                                                            Duration(milliseconds: 3500),
+                                                                            const Duration(milliseconds: 3500),
                                                                         backgroundColor:
                                                                             FlutterFlowTheme.of(context).secondary,
                                                                       ),
@@ -2420,14 +2419,14 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                       FFButtonOptions(
                                                                     height:
                                                                         40.0,
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             24.0,
                                                                             0.0,
                                                                             24.0,
                                                                             0.0),
                                                                     iconPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -2447,7 +2446,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     elevation:
                                                                         3.0,
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Colors
                                                                           .transparent,
                                                                       width:
@@ -2471,233 +2470,746 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.all(20.0),
-                                          child: SingleChildScrollView(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Column(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: StreamBuilder<
+                                              TemplateCertificadoRecord>(
+                                            stream: TemplateCertificadoRecord
+                                                .getDocument(
+                                                    cursoDetailCursosRecord
+                                                        .templateRef!),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              final columnTemplateCertificadoRecord =
+                                                  snapshot.data!;
+                                              return SingleChildScrollView(
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  12.0,
-                                                                  12.0,
-                                                                  25.0),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
-                                                        height: 100.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 1.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                  0.0, 2.0),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      0.0,
-                                                                      16.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .edit_square,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          24.0,
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    'Área do produtor / Personalizar Certificado',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    tablet:
-                                                                        false,
-                                                                    tabletLandscape:
-                                                                        false,
-                                                                    desktop:
-                                                                        false,
-                                                                  ))
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        scaffoldKey
-                                                                            .currentState!
-                                                                            .openDrawer();
-                                                                      },
-                                                                      child:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .menu_outlined,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                        size:
-                                                                            35.0,
-                                                                      ),
-                                                                    ),
-                                                                  if (responsiveVisibility(
-                                                                    context:
-                                                                        context,
-                                                                    phone:
-                                                                        false,
-                                                                  ))
-                                                                    Icon(
-                                                                      Icons
-                                                                          .lightbulb_outlined,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      size:
-                                                                          24.0,
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
                                                     Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
+                                                                      8.0,
                                                                       12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Meus templates',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                                      12.0,
+                                                                      25.0),
+                                                          child: Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                1.0,
+                                                            height: 100.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              boxShadow: const [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      1.0,
+                                                                  color: Color(
+                                                                      0x33000000),
+                                                                  offset:
+                                                                      Offset(
+                                                                          0.0,
+                                                                          2.0),
+                                                                )
+                                                              ],
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .edit_square,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        'Área do produtor / Personalizar Certificado',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              fontSize: 16.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tablet:
+                                                                            false,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            scaffoldKey.currentState!.openDrawer();
+                                                                          },
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.menu_outlined,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            size:
+                                                                                35.0,
+                                                                          ),
+                                                                        ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        phone:
+                                                                            false,
+                                                                      ))
+                                                                        Icon(
+                                                                          Icons
+                                                                              .lightbulb_outlined,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Selecione qual template irá ser aplicado a este curso!',
-                                                            style: FlutterFlowTheme
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Meus templates',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Selecione qual template irá ser aplicado a este curso!',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Container(
+                                                          width: 565.0,
+                                                          height: 400.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                .secondaryBackground,
+                                                            image:
+                                                                DecorationImage(
+                                                              fit: BoxFit.cover,
+                                                              image:
+                                                                  Image.asset(
+                                                                'assets/images/certificate1.png',
+                                                              ).image,
+                                                            ),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        50.0,
+                                                                        75.0,
+                                                                        50.0,
+                                                                        0.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Flexible(
+                                                                      child:
+                                                                          Text(
+                                                                        columnTemplateCertificadoRecord
+                                                                            .certificado,
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              color: functions.stringToColor(columnTemplateCertificadoRecord.certificadoCOR),
+                                                                              fontSize: columnTemplateCertificadoRecord.certificadoSize,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          40.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Flexible(
+                                                                        child:
+                                                                            Text(
+                                                                          columnTemplateCertificadoRecord
+                                                                              .preName,
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                color: functions.stringToColor(columnTemplateCertificadoRecord.preNameCOR),
+                                                                                fontSize: columnTemplateCertificadoRecord.preNameSIZE,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Text(
+                                                                      'NOME DO ALUNO',
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                colorFromCssString(
+                                                                              columnTemplateCertificadoRecord.alunoCOR,
+                                                                              defaultColor: Colors.black,
+                                                                            ),
+                                                                            fontSize:
+                                                                                columnTemplateCertificadoRecord.alunoSIZE,
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    // You will have to add an action on this rich text to go to your login page.
+                                                                    Flexible(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0,
+                                                                            12.0),
+                                                                        child:
+                                                                            RichText(
+                                                                          textScaler:
+                                                                              MediaQuery.of(context).textScaler,
+                                                                          text:
+                                                                              TextSpan(
+                                                                            children: [
+                                                                              TextSpan(
+                                                                                text: columnTemplateCertificadoRecord.preCurso,
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.preCursoCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.preCursoSIZE,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: ' (nome do curso) ',
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.cursoCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.cursoSize,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: columnTemplateCertificadoRecord.preProf,
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.preProfCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.preProfSIZE,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: ' (nome do professor) ',
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.profCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.profSIZE,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: columnTemplateCertificadoRecord.preDate,
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.preDateCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.preDateSIZE,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: ' (data)',
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.dataCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.dataSIZE,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: columnTemplateCertificadoRecord.preDuracao,
+                                                                                style: TextStyle(
+                                                                                  fontSize: columnTemplateCertificadoRecord.preDuracaoSize,
+                                                                                ),
+                                                                              ),
+                                                                              TextSpan(
+                                                                                text: ' (duração) horas.',
+                                                                                style: TextStyle(
+                                                                                  color: colorFromCssString(
+                                                                                    columnTemplateCertificadoRecord.duracaoCOR,
+                                                                                    defaultColor: Colors.black,
+                                                                                  ),
+                                                                                  fontSize: columnTemplateCertificadoRecord.duracaoSIZE,
+                                                                                ),
+                                                                              )
+                                                                            ],
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  color: const Color(0xFF101213),
+                                                                                  fontSize: 14.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                          ),
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        if (columnTemplateCertificadoRecord
+                                                                            .showIDokey)
+                                                                          Text(
+                                                                            'Powered by iDokey',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  fontSize: columnTemplateCertificadoRecord.iDokeySize,
+                                                                                ),
+                                                                          ),
+                                                                        Text(
+                                                                          'Key de segurança',
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          StreamBuilder<
+                                                              List<
+                                                                  TemplateCertificadoRecord>>(
+                                                            stream:
+                                                                queryTemplateCertificadoRecord(),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    child:
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              List<TemplateCertificadoRecord>
+                                                                  dropDownTemplateCertificadoRecordList =
+                                                                  snapshot
+                                                                      .data!;
+                                                              return FlutterFlowDropDown<
+                                                                  String>(
+                                                                controller: _model
+                                                                        .dropDownValueController ??=
+                                                                    FormFieldController<
+                                                                        String>(
+                                                                  _model.dropDownValue ??=
+                                                                      columnTemplateCertificadoRecord
+                                                                          .templateName,
+                                                                ),
+                                                                options: dropDownTemplateCertificadoRecordList
+                                                                    .map((e) =>
+                                                                        e.templateName)
+                                                                    .toList(),
+                                                                onChanged: (val) =>
+                                                                    setState(() =>
+                                                                        _model.dropDownValue =
+                                                                            val),
+                                                                width: 300.0,
+                                                                height: 56.0,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                                hintText:
+                                                                    'Please select...',
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .keyboard_arrow_down_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                                fillColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                elevation: 2.0,
+                                                                borderColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                borderWidth:
+                                                                    2.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        4.0,
+                                                                        16.0,
+                                                                        4.0),
+                                                                hidesUnderline:
+                                                                    true,
+                                                                isOverButton:
+                                                                    true,
+                                                                isSearchable:
+                                                                    false,
+                                                                isMultiSelect:
+                                                                    false,
+                                                              );
+                                                            },
+                                                          ),
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              if (_model.dropDownValue !=
+                                                                      null &&
+                                                                  _model.dropDownValue !=
+                                                                      '') {
+                                                                _model.templateRef =
+                                                                    await queryTemplateCertificadoRecordOnce(
+                                                                  queryBuilder: (templateCertificadoRecord) =>
+                                                                      templateCertificadoRecord
+                                                                          .where(
+                                                                            'TemplateName',
+                                                                            isEqualTo:
+                                                                                _model.dropDownValue,
+                                                                          )
+                                                                          .where(
+                                                                            'UserID',
+                                                                            isEqualTo:
+                                                                                currentUserReference,
+                                                                          ),
+                                                                  singleRecord:
+                                                                      true,
+                                                                ).then((s) => s
+                                                                        .firstOrNull);
+
+                                                                await cursoDetailCursosRecord
+                                                                    .reference
+                                                                    .update(
+                                                                        createCursosRecordData(
+                                                                  templateRef: _model
+                                                                      .templateRef
+                                                                      ?.reference,
+                                                                ));
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Por favor, selecione um template!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                    ),
+                                                                    duration: const Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .warning,
+                                                                  ),
+                                                                );
+                                                              }
+
+                                                              setState(() {});
+                                                            },
+                                                            text: 'Salvar',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 40.0,
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  const BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
+                                              );
+                                            },
                                           ),
                                         ),
                                       ],

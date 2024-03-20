@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'navbar_model.dart';
 export 'navbar_model.dart';
@@ -65,7 +64,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,9 +86,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                       }
                     },
                     child: Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -107,7 +106,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -122,7 +121,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +131,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).accent1,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(10.0),
                               bottomRight: Radius.circular(10.0),
                               topLeft: Radius.circular(10.0),
@@ -144,7 +143,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => InkWell(
                                 splashColor: Colors.transparent,
@@ -157,11 +156,10 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
-                                        Duration(milliseconds: 500),
-                                    imageUrl: currentUserPhoto != null &&
-                                            currentUserPhoto != ''
+                                        const Duration(milliseconds: 500),
+                                    imageUrl: currentUserPhoto != ''
                                         ? currentUserPhoto
                                         : 'https://t4.ftcdn.net/jpg/00/64/67/27/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg',
                                     width: 44.0,
@@ -186,7 +184,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -196,7 +194,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               context.pushNamed('HomePage');
                             },
                             child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
                               width: double.infinity,
                               height: 44.0,
@@ -209,7 +207,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -231,12 +229,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             currentUserDocument?.isProdutor, false))
                           AuthUserStreamWidget(
                             builder: (context) => Container(
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 5.0, 5.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -247,7 +245,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         context.pushNamed('ProductorCourses');
                                       },
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
+                                        duration: const Duration(milliseconds: 200),
                                         curve: Curves.easeInOut,
                                         width: double.infinity,
                                         height: 44.0,
@@ -263,7 +261,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -284,7 +282,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(5.0),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -294,7 +292,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         context.pushNamed('CreateNewCurse');
                                       },
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
+                                        duration: const Duration(milliseconds: 200),
                                         curve: Curves.easeInOut,
                                         width: double.infinity,
                                         height: 44.0,
@@ -310,7 +308,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -331,7 +329,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(5.0),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -341,7 +339,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         context.pushNamed('Dashboard');
                                       },
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 200),
+                                        duration: const Duration(milliseconds: 200),
                                         curve: Curves.easeInOut,
                                         width: double.infinity,
                                         height: 44.0,
@@ -357,7 +355,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -389,7 +387,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                         if (!valueOrDefault<bool>(
                             currentUserDocument?.isProdutor, false))
                           Padding(
-                            padding: EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => InkWell(
                                 splashColor: Colors.transparent,
@@ -400,7 +398,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   context.pushNamed('GetProPlan');
                                 },
                                 child: AnimatedContainer(
-                                  duration: Duration(milliseconds: 200),
+                                  duration: const Duration(milliseconds: 200),
                                   curve: Curves.easeInOut,
                                   width: double.infinity,
                                   height: 44.0,
@@ -413,7 +411,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -429,7 +427,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'Torne-se Produtor',
@@ -447,7 +445,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             ),
                           ),
                         Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -457,7 +455,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               context.pushNamed('UserCourses');
                             },
                             child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
                               width: double.infinity,
                               height: 44.0,
@@ -470,7 +468,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -489,7 +487,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -499,7 +497,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               context.pushNamed('VerifyCertificate');
                             },
                             child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
                               width: double.infinity,
                               height: 44.0,
@@ -512,7 +510,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -531,7 +529,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -541,7 +539,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               context.pushNamed('Settings');
                             },
                             child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
                               width: double.infinity,
                               height: 44.0,
@@ -554,7 +552,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -592,13 +590,13 @@ class _NavbarWidgetState extends State<NavbarWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -616,16 +614,16 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                         }
                       },
                       child: Container(
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 12.0, 16.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   Icons.menu_open_rounded,
                                   color: FlutterFlowTheme.of(context)
@@ -641,7 +639,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -651,7 +649,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           size: 32.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'iDokey',
@@ -663,7 +661,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -672,7 +670,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).accent1,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(10.0),
                               bottomRight: Radius.circular(10.0),
                               topLeft: Radius.circular(10.0),
@@ -684,7 +682,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => InkWell(
                                 splashColor: Colors.transparent,
@@ -697,11 +695,10 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
-                                        Duration(milliseconds: 500),
-                                    imageUrl: currentUserPhoto != null &&
-                                            currentUserPhoto != ''
+                                        const Duration(milliseconds: 500),
+                                    imageUrl: currentUserPhoto != ''
                                         ? currentUserPhoto
                                         : 'https://t4.ftcdn.net/jpg/00/64/67/27/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg',
                                     width: 44.0,
@@ -715,7 +712,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -729,7 +726,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     currentUserEmail,
@@ -751,7 +748,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
+                        const EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -761,7 +758,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                         context.pushNamed('HomePage');
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 200),
                         curve: Curves.easeInOut,
                         width: double.infinity,
                         height: 44.0,
@@ -773,7 +770,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -786,7 +783,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Página inicial',
@@ -811,15 +808,15 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               currentUserDocument?.isProdutor, false))
                             AuthUserStreamWidget(
                               builder: (context) => Container(
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 0.0, 0.0),
                                         child: Text(
                                           'Área do produtor',
@@ -829,7 +826,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 5.0, 12.0, 5.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -840,7 +837,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           context.pushNamed('ProductorCourses');
                                         },
                                         child: AnimatedContainer(
-                                          duration: Duration(milliseconds: 200),
+                                          duration: const Duration(milliseconds: 200),
                                           curve: Curves.easeInOut,
                                           width: double.infinity,
                                           height: 44.0,
@@ -856,7 +853,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -873,7 +870,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -892,7 +889,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 5.0, 12.0, 5.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -903,7 +900,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           context.pushNamed('CreateNewCurse');
                                         },
                                         child: AnimatedContainer(
-                                          duration: Duration(milliseconds: 200),
+                                          duration: const Duration(milliseconds: 200),
                                           curve: Curves.easeInOut,
                                           width: double.infinity,
                                           height: 44.0,
@@ -919,7 +916,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -936,7 +933,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -955,7 +952,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 5.0, 12.0, 5.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -966,7 +963,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           context.pushNamed('Dashboard');
                                         },
                                         child: AnimatedContainer(
-                                          duration: Duration(milliseconds: 200),
+                                          duration: const Duration(milliseconds: 200),
                                           curve: Curves.easeInOut,
                                           width: double.infinity,
                                           height: 44.0,
@@ -982,7 +979,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -999,7 +996,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -1022,15 +1019,15 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               ),
                             ),
                           Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Área pessoal',
@@ -1040,7 +1037,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 5.0, 12.0, 5.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -1051,7 +1048,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       context.pushNamed('UserCourses');
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
+                                      duration: const Duration(milliseconds: 200),
                                       curve: Curves.easeInOut,
                                       width: double.infinity,
                                       height: 44.0,
@@ -1066,7 +1063,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         shape: BoxShape.rectangle,
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1082,7 +1079,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -1102,7 +1099,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 if (!valueOrDefault<bool>(
                                     currentUserDocument?.isProdutor, false))
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 12.0, 5.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => InkWell(
@@ -1114,7 +1111,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           context.pushNamed('GetProPlan');
                                         },
                                         child: AnimatedContainer(
-                                          duration: Duration(milliseconds: 200),
+                                          duration: const Duration(milliseconds: 200),
                                           curve: Curves.easeInOut,
                                           width: double.infinity,
                                           height: 44.0,
@@ -1130,7 +1127,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1147,7 +1144,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -1167,7 +1164,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     ),
                                   ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 5.0, 12.0, 5.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -1178,7 +1175,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       context.pushNamed('VerifyCertificate');
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
+                                      duration: const Duration(milliseconds: 200),
                                       curve: Curves.easeInOut,
                                       width: double.infinity,
                                       height: 44.0,
@@ -1193,7 +1190,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         shape: BoxShape.rectangle,
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1209,7 +1206,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -1227,7 +1224,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 5.0, 12.0, 5.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -1238,7 +1235,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       context.pushNamed('Settings');
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
+                                      duration: const Duration(milliseconds: 200),
                                       curve: Curves.easeInOut,
                                       width: double.infinity,
                                       height: 44.0,
@@ -1253,7 +1250,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         shape: BoxShape.rectangle,
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1269,7 +1266,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -1289,15 +1286,15 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               ],
                             ),
                           ),
-                        ].divide(SizedBox(height: 12.0)),
+                        ].divide(const SizedBox(height: 12.0)),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
                       child: Container(
                         width: 250.0,
                         height: 50.0,
@@ -1310,7 +1307,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -1367,7 +1364,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Light Mode',
@@ -1443,7 +1440,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Dark Mode',
@@ -1496,9 +1493,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                       }
                     },
                     child: Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

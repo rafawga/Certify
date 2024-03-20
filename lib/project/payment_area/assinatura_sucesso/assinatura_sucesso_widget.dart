@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'assinatura_sucesso_model.dart';
 export 'assinatura_sucesso_model.dart';
 
@@ -37,8 +35,6 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -54,16 +50,16 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
             children: [
               Flexible(
                 child: Container(
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     maxWidth: 600.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -87,7 +83,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           child: Text(
                             'Assinatura realizada com sucesso!',
@@ -102,7 +98,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 50.0, 20.0, 0.0),
                           child: Text(
                             'Fique de olho no seu email para qualquer informação necessária que podemos enviar para você.',
@@ -116,7 +112,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 100.0, 0.0, 200.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -126,14 +122,14 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                             options: FFButtonOptions(
                               width: 300.0,
                               height: 50.0,
-                              padding: EdgeInsets.all(0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsets.all(0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle:
                                   FlutterFlowTheme.of(context).titleSmall,
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

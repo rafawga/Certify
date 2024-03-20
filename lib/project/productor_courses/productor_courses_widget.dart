@@ -3,13 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/navbar/navbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'productor_courses_model.dart';
 export 'productor_courses_model.dart';
 
@@ -41,8 +37,8 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(50.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -72,8 +68,6 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return FutureBuilder<int>(
       future: queryCursosRecordCount(
         queryBuilder: (cursosRecord) => cursosRecord.where(
@@ -110,27 +104,27 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
                       updateCallback: () => setState(() {}),
-                      child: NavbarWidget(
+                      child: const NavbarWidget(
                         tabAtual: 1,
                       ),
                     ),
                     if (productorCoursesCount > 0)
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
+                          alignment: const AlignmentDirectional(0.0, -1.0),
                           child: Container(
                             width: double.infinity,
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxWidth: 1170.0,
                             ),
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -145,7 +139,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 2.0, 0.0, 20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
@@ -167,7 +161,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           12.0,
@@ -184,7 +178,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
-                                                                  boxShadow: [
+                                                                  boxShadow: const [
                                                                     BoxShadow(
                                                                       blurRadius:
                                                                           1.0,
@@ -201,7 +195,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                               12.0),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -222,7 +216,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.space_dashboard_sharp,
                                                                                 color: FlutterFlowTheme.of(context).primary,
@@ -300,7 +294,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -320,7 +314,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -345,7 +339,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       16.0,
@@ -411,7 +405,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                       listViewCursosRecordList[
                                                                           listViewIndex];
                                                                   return Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             12.0,
@@ -456,7 +450,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          boxShadow: [
+                                                                          boxShadow: const [
                                                                             BoxShadow(
                                                                               blurRadius: 4.0,
                                                                               color: Color(0x230E151B),
@@ -477,7 +471,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 ClipRRect(
-                                                                                  borderRadius: BorderRadius.only(
+                                                                                  borderRadius: const BorderRadius.only(
                                                                                     bottomLeft: Radius.circular(12.0),
                                                                                     bottomRight: Radius.circular(0.0),
                                                                                     topLeft: Radius.circular(12.0),
@@ -500,7 +494,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
                                                                                   child: Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -559,24 +553,24 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                     if (productorCoursesCount <= 0)
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
+                          alignment: const AlignmentDirectional(0.0, -1.0),
                           child: Container(
                             width: double.infinity,
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxWidth: 1170.0,
                             ),
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 20.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 40.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -585,7 +579,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 12.0, 12.0, 25.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -596,7 +590,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 1.0,
                                                     color: Color(0x33000000),
@@ -607,7 +601,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                     BorderRadius.circular(12.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -624,7 +618,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -721,7 +715,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -737,7 +731,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -768,9 +762,9 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 2.0, 0.0, 0.0),
                                               child: SingleChildScrollView(
                                                 child: Column(
@@ -781,7 +775,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   16.0,
@@ -797,7 +791,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   32.0,
@@ -818,7 +812,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       16.0,
@@ -848,7 +842,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                               children: [
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -868,7 +862,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           10.0,

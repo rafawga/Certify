@@ -1,20 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -79,13 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : AuthLoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const AuthLoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : AuthLoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const AuthLoginWidget(),
         ),
         FFRoute(
           name: 'AuthCreateAccount',
@@ -107,13 +100,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProductorCourses',
           path: '/productorCourses',
           requireAuth: true,
-          builder: (context, params) => ProductorCoursesWidget(),
+          builder: (context, params) => const ProductorCoursesWidget(),
         ),
         FFRoute(
           name: 'CreateNewCurse',
           path: '/createNewCurse',
           requireAuth: true,
-          builder: (context, params) => CreateNewCurseWidget(),
+          builder: (context, params) => const CreateNewCurseWidget(),
         ),
         FFRoute(
           name: 'CursoDetail',
@@ -138,64 +131,64 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UserCourses',
           path: '/userCourses',
           requireAuth: true,
-          builder: (context, params) => UserCoursesWidget(),
+          builder: (context, params) => const UserCoursesWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
           requireAuth: true,
-          builder: (context, params) => SettingsWidget(),
+          builder: (context, params) => const SettingsWidget(),
         ),
         FFRoute(
           name: 'SettingsEditProfile',
           path: '/settingsEditProfile',
           requireAuth: true,
-          builder: (context, params) => SettingsEditProfileWidget(),
+          builder: (context, params) => const SettingsEditProfileWidget(),
         ),
         FFRoute(
           name: 'FeedBacks',
           path: '/feedBacks',
           requireAuth: true,
-          builder: (context, params) => FeedBacksWidget(),
+          builder: (context, params) => const FeedBacksWidget(),
         ),
         FFRoute(
           name: 'VerifyCertificate',
           path: '/VerifyCertificateAuth',
           requireAuth: true,
-          builder: (context, params) => VerifyCertificateWidget(),
+          builder: (context, params) => const VerifyCertificateWidget(),
         ),
         FFRoute(
           name: 'GetProPlan',
           path: '/iDokeyPlans',
           requireAuth: true,
-          builder: (context, params) => GetProPlanWidget(),
+          builder: (context, params) => const GetProPlanWidget(),
         ),
         FFRoute(
           name: 'AssinaturaSucesso',
           path: '/assinaturaSucesso',
-          builder: (context, params) => AssinaturaSucessoWidget(),
+          builder: (context, params) => const AssinaturaSucessoWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/home',
           requireAuth: true,
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'Dashboard',
           path: '/dashboard',
           requireAuth: true,
-          builder: (context, params) => DashboardWidget(),
+          builder: (context, params) => const DashboardWidget(),
         ),
         FFRoute(
           name: 'dummyPage',
           path: '/dummyPage',
-          builder: (context, params) => DummyPageWidget(),
+          builder: (context, params) => const DummyPageWidget(),
         ),
         FFRoute(
-          name: 'NewTemplate',
-          path: '/newTemplate',
-          builder: (context, params) => NewTemplateWidget(),
+          name: 'CreateNewTemplate',
+          path: '/CreatenewTemplate',
+          builder: (context, params) => const CreateNewTemplateWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -429,7 +422,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

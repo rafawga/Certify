@@ -36,16 +36,11 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /users/{parent}/CertificadoTemplate/{document} {
+    match /TemplateCertificado/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if true;
       allow delete: if true;
     }
-
-    match /{path=**}/CertificadoTemplate/{document} {
-      allow read: if true;
-    }
-
   }
 }
