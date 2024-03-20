@@ -2831,10 +2831,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             fontFamily:
                                                                                 'Readex Pro',
                                                                             color:
-                                                                                colorFromCssString(
-                                                                              columnTemplateCertificadoRecord.alunoCOR,
-                                                                              defaultColor: Colors.black,
-                                                                            ),
+                                                                                functions.stringToColor(columnTemplateCertificadoRecord.alunoCOR),
                                                                             fontSize:
                                                                                 columnTemplateCertificadoRecord.alunoSIZE,
                                                                           ),
@@ -2865,76 +2862,56 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               TextSpan(
                                                                                 text: columnTemplateCertificadoRecord.preCurso,
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.preCursoCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.preCursoCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.preCursoSIZE,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: ' (nome do curso) ',
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.cursoCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.cursoCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.cursoSize,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: columnTemplateCertificadoRecord.preProf,
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.preProfCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.preProfCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.preProfSIZE,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: ' (nome do professor) ',
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.profCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.profCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.profSIZE,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: columnTemplateCertificadoRecord.preDate,
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.preDateCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.preDateCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.preDateSIZE,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: ' (data)',
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.dataCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.dataCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.dataSIZE,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: columnTemplateCertificadoRecord.preDuracao,
                                                                                 style: TextStyle(
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.preDuracaoCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.preDuracaoSize,
                                                                                 ),
                                                                               ),
                                                                               TextSpan(
                                                                                 text: ' (duração) horas.',
                                                                                 style: TextStyle(
-                                                                                  color: colorFromCssString(
-                                                                                    columnTemplateCertificadoRecord.duracaoCOR,
-                                                                                    defaultColor: Colors.black,
-                                                                                  ),
+                                                                                  color: functions.stringToColor(columnTemplateCertificadoRecord.duracaoCOR),
                                                                                   fontSize: columnTemplateCertificadoRecord.duracaoSIZE,
                                                                                 ),
                                                                               )
@@ -3005,99 +2982,109 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             CrossAxisAlignment
                                                                 .start,
                                                         children: [
-                                                          StreamBuilder<
-                                                              List<
-                                                                  TemplateCertificadoRecord>>(
-                                                            stream:
-                                                                queryTemplateCertificadoRecord(),
-                                                            builder: (context,
-                                                                snapshot) {
-                                                              // Customize what your widget looks like when it's loading.
-                                                              if (!snapshot
-                                                                  .hasData) {
-                                                                return Center(
-                                                                  child:
-                                                                      SizedBox(
-                                                                    width: 50.0,
-                                                                    height:
-                                                                        50.0,
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        20.0),
+                                                            child: StreamBuilder<
+                                                                List<
+                                                                    TemplateCertificadoRecord>>(
+                                                              stream:
+                                                                  queryTemplateCertificadoRecord(),
+                                                              builder: (context,
+                                                                  snapshot) {
+                                                                // Customize what your widget looks like when it's loading.
+                                                                if (!snapshot
+                                                                    .hasData) {
+                                                                  return Center(
                                                                     child:
-                                                                        CircularProgressIndicator(
-                                                                      valueColor:
-                                                                          AlwaysStoppedAnimation<
-                                                                              Color>(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                        SizedBox(
+                                                                      width:
+                                                                          50.0,
+                                                                      height:
+                                                                          50.0,
+                                                                      child:
+                                                                          CircularProgressIndicator(
+                                                                        valueColor:
+                                                                            AlwaysStoppedAnimation<Color>(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                        ),
                                                                       ),
                                                                     ),
+                                                                  );
+                                                                }
+                                                                List<TemplateCertificadoRecord>
+                                                                    dropDownTemplateCertificadoRecordList =
+                                                                    snapshot
+                                                                        .data!;
+                                                                return FlutterFlowDropDown<
+                                                                    String>(
+                                                                  controller: _model
+                                                                          .dropDownValueController ??=
+                                                                      FormFieldController<
+                                                                          String>(
+                                                                    _model.dropDownValue ??=
+                                                                        columnTemplateCertificadoRecord
+                                                                            .templateName,
                                                                   ),
-                                                                );
-                                                              }
-                                                              List<TemplateCertificadoRecord>
-                                                                  dropDownTemplateCertificadoRecordList =
-                                                                  snapshot
-                                                                      .data!;
-                                                              return FlutterFlowDropDown<
-                                                                  String>(
-                                                                controller: _model
-                                                                        .dropDownValueController ??=
-                                                                    FormFieldController<
-                                                                        String>(
-                                                                  _model.dropDownValue ??=
-                                                                      columnTemplateCertificadoRecord
-                                                                          .templateName,
-                                                                ),
-                                                                options: dropDownTemplateCertificadoRecordList
-                                                                    .map((e) =>
-                                                                        e.templateName)
-                                                                    .toList(),
-                                                                onChanged: (val) =>
-                                                                    setState(() =>
-                                                                        _model.dropDownValue =
-                                                                            val),
-                                                                width: 300.0,
-                                                                height: 56.0,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                                hintText:
-                                                                    'Please select...',
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_rounded,
-                                                                  color: FlutterFlowTheme.of(
+                                                                  options: dropDownTemplateCertificadoRecordList
+                                                                      .map((e) =>
+                                                                          e.templateName)
+                                                                      .toList(),
+                                                                  onChanged: (val) =>
+                                                                      setState(() =>
+                                                                          _model.dropDownValue =
+                                                                              val),
+                                                                  width: 300.0,
+                                                                  height: 56.0,
+                                                                  textStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
-                                                                  size: 24.0,
-                                                                ),
-                                                                fillColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                elevation: 2.0,
-                                                                borderColor:
-                                                                    FlutterFlowTheme.of(
+                                                                      .bodyMedium,
+                                                                  hintText:
+                                                                      'Please select...',
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_down_rounded,
+                                                                    color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .alternate,
-                                                                borderWidth:
-                                                                    2.0,
-                                                                borderRadius:
-                                                                    8.0,
-                                                                margin: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        4.0,
-                                                                        16.0,
-                                                                        4.0),
-                                                                hidesUnderline:
-                                                                    true,
-                                                                isOverButton:
-                                                                    true,
-                                                                isSearchable:
-                                                                    false,
-                                                                isMultiSelect:
-                                                                    false,
-                                                              );
-                                                            },
+                                                                        .secondaryText,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  elevation:
+                                                                      2.0,
+                                                                  borderColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                  borderWidth:
+                                                                      2.0,
+                                                                  borderRadius:
+                                                                      8.0,
+                                                                  margin: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          4.0,
+                                                                          16.0,
+                                                                          4.0),
+                                                                  hidesUnderline:
+                                                                      true,
+                                                                  isOverButton:
+                                                                      true,
+                                                                  isSearchable:
+                                                                      false,
+                                                                  isMultiSelect:
+                                                                      false,
+                                                                );
+                                                              },
+                                                            ),
                                                           ),
                                                           FFButtonWidget(
                                                             onPressed:
@@ -3162,6 +3149,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                             text: 'Salvar',
                                                             options:
                                                                 FFButtonOptions(
+                                                              width: 300.0,
                                                               height: 40.0,
                                                               padding:
                                                                   const EdgeInsetsDirectional
