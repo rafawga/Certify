@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'user_pop_up_model.dart';
 export 'user_pop_up_model.dart';
 
@@ -62,15 +63,16 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                 child: SizedBox(
                   width: 50.0,
                   height: 50.0,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      FlutterFlowTheme.of(context).primary,
-                    ),
+                  child: SpinKitPulse(
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 50.0,
                   ),
                 ),
               );
             }
+
             final photoUploadUsersRecord = snapshot.data!;
+
             return Container(
               width: MediaQuery.sizeOf(context).width * 0.85,
               height: 350.0,
@@ -104,16 +106,16 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                         child: SizedBox(
                           width: 50.0,
                           height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
-                            ),
+                          child: SpinKitPulse(
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 50.0,
                           ),
                         ),
                       );
                     }
                     List<AlunosCursoRecord> columnAlunosCursoRecordList =
                         snapshot.data!;
+
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -157,7 +159,11 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .headlineMedium,
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -203,7 +209,11 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                             photoUploadUsersRecord.email,
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -229,7 +239,11 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                             )}',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -377,6 +391,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                       fontFamily: 'Lexend Deca',
                                                       color: Colors.white,
                                                       fontSize: 16.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),

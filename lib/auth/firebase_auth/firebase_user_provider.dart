@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class IDokeyFirebaseUser extends BaseAuthUser {
-  IDokeyFirebaseUser(this.user);
+class CertifyFirebaseUser extends BaseAuthUser {
+  CertifyFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -54,17 +54,17 @@ class IDokeyFirebaseUser extends BaseAuthUser {
 
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
-  static BaseAuthUser fromFirebaseUser(User? user) => IDokeyFirebaseUser(user);
+  static BaseAuthUser fromFirebaseUser(User? user) => CertifyFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> iDokeyFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> certifyFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = IDokeyFirebaseUser(user);
+        currentUser = CertifyFirebaseUser(user);
         return currentUser!;
       },
     );

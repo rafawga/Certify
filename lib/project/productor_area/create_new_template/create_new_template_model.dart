@@ -17,8 +17,8 @@ class CreateNewTemplateModel extends FlutterFlowModel<CreateNewTemplateWidget> {
   late NavbarModel navbarModel;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  TextEditingController? nameTextController;
+  String? Function(BuildContext, String?)? nameTextControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue1;
   bool isDataUploading = false;
@@ -28,125 +28,130 @@ class CreateNewTemplateModel extends FlutterFlowModel<CreateNewTemplateWidget> {
 
   // State field(s) for Certificado widget.
   FocusNode? certificadoFocusNode1;
-  TextEditingController? certificadoController1;
-  String? Function(BuildContext, String?)? certificadoController1Validator;
+  TextEditingController? certificadoTextController1;
+  String? Function(BuildContext, String?)? certificadoTextController1Validator;
   // State field(s) for CertificadoFonte widget.
   FocusNode? certificadoFonteFocusNode;
-  TextEditingController? certificadoFonteController;
-  String? Function(BuildContext, String?)? certificadoFonteControllerValidator;
+  TextEditingController? certificadoFonteTextController;
+  String? Function(BuildContext, String?)?
+      certificadoFonteTextControllerValidator;
   Color? colorPicked1;
   // State field(s) for AntesNome widget.
   FocusNode? antesNomeFocusNode;
-  TextEditingController? antesNomeController;
-  String? Function(BuildContext, String?)? antesNomeControllerValidator;
+  TextEditingController? antesNomeTextController;
+  String? Function(BuildContext, String?)? antesNomeTextControllerValidator;
   // State field(s) for AntesNomeFonte widget.
   FocusNode? antesNomeFonteFocusNode;
-  TextEditingController? antesNomeFonteController;
-  String? Function(BuildContext, String?)? antesNomeFonteControllerValidator;
+  TextEditingController? antesNomeFonteTextController;
+  String? Function(BuildContext, String?)?
+      antesNomeFonteTextControllerValidator;
   Color? colorPicked2;
   // State field(s) for ALuno widget.
   FocusNode? aLunoFocusNode;
-  TextEditingController? aLunoController;
-  String? Function(BuildContext, String?)? aLunoControllerValidator;
+  TextEditingController? aLunoTextController;
+  String? Function(BuildContext, String?)? aLunoTextControllerValidator;
   // State field(s) for NomeFonte widget.
   FocusNode? nomeFonteFocusNode;
-  TextEditingController? nomeFonteController;
-  String? Function(BuildContext, String?)? nomeFonteControllerValidator;
+  TextEditingController? nomeFonteTextController;
+  String? Function(BuildContext, String?)? nomeFonteTextControllerValidator;
   Color? colorPicked3;
   // State field(s) for Prf widget.
   FocusNode? prfFocusNode;
-  TextEditingController? prfController;
-  String? Function(BuildContext, String?)? prfControllerValidator;
+  TextEditingController? prfTextController;
+  String? Function(BuildContext, String?)? prfTextControllerValidator;
   // State field(s) for AntesCursoFonte widget.
   FocusNode? antesCursoFonteFocusNode;
-  TextEditingController? antesCursoFonteController;
-  String? Function(BuildContext, String?)? antesCursoFonteControllerValidator;
+  TextEditingController? antesCursoFonteTextController;
+  String? Function(BuildContext, String?)?
+      antesCursoFonteTextControllerValidator;
   Color? colorPicked4;
   // State field(s) for Curso widget.
   FocusNode? cursoFocusNode;
-  TextEditingController? cursoController;
-  String? Function(BuildContext, String?)? cursoControllerValidator;
+  TextEditingController? cursoTextController;
+  String? Function(BuildContext, String?)? cursoTextControllerValidator;
   // State field(s) for CursoFonte widget.
   FocusNode? cursoFonteFocusNode;
-  TextEditingController? cursoFonteController;
-  String? Function(BuildContext, String?)? cursoFonteControllerValidator;
+  TextEditingController? cursoFonteTextController;
+  String? Function(BuildContext, String?)? cursoFonteTextControllerValidator;
   Color? colorPicked5;
   // State field(s) for AntesProfessor widget.
   FocusNode? antesProfessorFocusNode;
-  TextEditingController? antesProfessorController;
-  String? Function(BuildContext, String?)? antesProfessorControllerValidator;
+  TextEditingController? antesProfessorTextController;
+  String? Function(BuildContext, String?)?
+      antesProfessorTextControllerValidator;
   // State field(s) for AntesProfFonte widget.
   FocusNode? antesProfFonteFocusNode;
-  TextEditingController? antesProfFonteController;
-  String? Function(BuildContext, String?)? antesProfFonteControllerValidator;
+  TextEditingController? antesProfFonteTextController;
+  String? Function(BuildContext, String?)?
+      antesProfFonteTextControllerValidator;
   Color? colorPicked6;
   // State field(s) for PRofessor widget.
   FocusNode? pRofessorFocusNode;
-  TextEditingController? pRofessorController;
-  String? Function(BuildContext, String?)? pRofessorControllerValidator;
+  TextEditingController? pRofessorTextController;
+  String? Function(BuildContext, String?)? pRofessorTextControllerValidator;
   // State field(s) for ProfFonte widget.
   FocusNode? profFonteFocusNode;
-  TextEditingController? profFonteController;
-  String? Function(BuildContext, String?)? profFonteControllerValidator;
+  TextEditingController? profFonteTextController;
+  String? Function(BuildContext, String?)? profFonteTextControllerValidator;
   Color? colorPicked7;
   // State field(s) for Antesdata widget.
   FocusNode? antesdataFocusNode;
-  TextEditingController? antesdataController;
-  String? Function(BuildContext, String?)? antesdataControllerValidator;
+  TextEditingController? antesdataTextController;
+  String? Function(BuildContext, String?)? antesdataTextControllerValidator;
   // State field(s) for AntesDataFonte widget.
   FocusNode? antesDataFonteFocusNode;
-  TextEditingController? antesDataFonteController;
-  String? Function(BuildContext, String?)? antesDataFonteControllerValidator;
+  TextEditingController? antesDataFonteTextController;
+  String? Function(BuildContext, String?)?
+      antesDataFonteTextControllerValidator;
   Color? colorPicked8;
   // State field(s) for data widget.
   FocusNode? dataFocusNode;
-  TextEditingController? dataController;
-  String? Function(BuildContext, String?)? dataControllerValidator;
+  TextEditingController? dataTextController;
+  String? Function(BuildContext, String?)? dataTextControllerValidator;
   // State field(s) for DataFonte widget.
   FocusNode? dataFonteFocusNode;
-  TextEditingController? dataFonteController;
-  String? Function(BuildContext, String?)? dataFonteControllerValidator;
+  TextEditingController? dataFonteTextController;
+  String? Function(BuildContext, String?)? dataFonteTextControllerValidator;
   Color? colorPicked9;
   // State field(s) for antesDuracao widget.
   FocusNode? antesDuracaoFocusNode;
-  TextEditingController? antesDuracaoController;
-  String? Function(BuildContext, String?)? antesDuracaoControllerValidator;
+  TextEditingController? antesDuracaoTextController;
+  String? Function(BuildContext, String?)? antesDuracaoTextControllerValidator;
   // State field(s) for AntesDuracaoFonte widget.
   FocusNode? antesDuracaoFonteFocusNode;
-  TextEditingController? antesDuracaoFonteController;
-  String? Function(BuildContext, String?)? antesDuracaoFonteControllerValidator;
+  TextEditingController? antesDuracaoFonteTextController;
+  String? Function(BuildContext, String?)?
+      antesDuracaoFonteTextControllerValidator;
   Color? colorPicked10;
   // State field(s) for Certificado widget.
   FocusNode? certificadoFocusNode2;
-  TextEditingController? certificadoController2;
-  String? Function(BuildContext, String?)? certificadoController2Validator;
+  TextEditingController? certificadoTextController2;
+  String? Function(BuildContext, String?)? certificadoTextController2Validator;
   // State field(s) for DuracaoFonte widget.
   FocusNode? duracaoFonteFocusNode;
-  TextEditingController? duracaoFonteController;
-  String? Function(BuildContext, String?)? duracaoFonteControllerValidator;
+  TextEditingController? duracaoFonteTextController;
+  String? Function(BuildContext, String?)? duracaoFonteTextControllerValidator;
   Color? colorPicked11;
   // State field(s) for PowerediDokey widget.
   FocusNode? powerediDokeyFocusNode;
-  TextEditingController? powerediDokeyController;
-  String? Function(BuildContext, String?)? powerediDokeyControllerValidator;
+  TextEditingController? powerediDokeyTextController;
+  String? Function(BuildContext, String?)? powerediDokeyTextControllerValidator;
   // State field(s) for idokeyFonte widget.
   FocusNode? idokeyFonteFocusNode;
-  TextEditingController? idokeyFonteController;
-  String? Function(BuildContext, String?)? idokeyFonteControllerValidator;
+  TextEditingController? idokeyFonteTextController;
+  String? Function(BuildContext, String?)? idokeyFonteTextControllerValidator;
   Color? colorPicked12;
   // State field(s) for Checkbox widget.
   bool? checkboxValue2;
   // State field(s) for Keysegurana widget.
   FocusNode? keyseguranaFocusNode;
-  TextEditingController? keyseguranaController;
-  String? Function(BuildContext, String?)? keyseguranaControllerValidator;
+  TextEditingController? keyseguranaTextController;
+  String? Function(BuildContext, String?)? keyseguranaTextControllerValidator;
   // State field(s) for keyFonte widget.
   FocusNode? keyFonteFocusNode;
-  TextEditingController? keyFonteController;
-  String? Function(BuildContext, String?)? keyFonteControllerValidator;
+  TextEditingController? keyFonteTextController;
+  String? Function(BuildContext, String?)? keyFonteTextControllerValidator;
   Color? colorPicked13;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -158,88 +163,84 @@ class CreateNewTemplateModel extends FlutterFlowModel<CreateNewTemplateWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
     nameFocusNode?.dispose();
-    nameController?.dispose();
+    nameTextController?.dispose();
 
     certificadoFocusNode1?.dispose();
-    certificadoController1?.dispose();
+    certificadoTextController1?.dispose();
 
     certificadoFonteFocusNode?.dispose();
-    certificadoFonteController?.dispose();
+    certificadoFonteTextController?.dispose();
 
     antesNomeFocusNode?.dispose();
-    antesNomeController?.dispose();
+    antesNomeTextController?.dispose();
 
     antesNomeFonteFocusNode?.dispose();
-    antesNomeFonteController?.dispose();
+    antesNomeFonteTextController?.dispose();
 
     aLunoFocusNode?.dispose();
-    aLunoController?.dispose();
+    aLunoTextController?.dispose();
 
     nomeFonteFocusNode?.dispose();
-    nomeFonteController?.dispose();
+    nomeFonteTextController?.dispose();
 
     prfFocusNode?.dispose();
-    prfController?.dispose();
+    prfTextController?.dispose();
 
     antesCursoFonteFocusNode?.dispose();
-    antesCursoFonteController?.dispose();
+    antesCursoFonteTextController?.dispose();
 
     cursoFocusNode?.dispose();
-    cursoController?.dispose();
+    cursoTextController?.dispose();
 
     cursoFonteFocusNode?.dispose();
-    cursoFonteController?.dispose();
+    cursoFonteTextController?.dispose();
 
     antesProfessorFocusNode?.dispose();
-    antesProfessorController?.dispose();
+    antesProfessorTextController?.dispose();
 
     antesProfFonteFocusNode?.dispose();
-    antesProfFonteController?.dispose();
+    antesProfFonteTextController?.dispose();
 
     pRofessorFocusNode?.dispose();
-    pRofessorController?.dispose();
+    pRofessorTextController?.dispose();
 
     profFonteFocusNode?.dispose();
-    profFonteController?.dispose();
+    profFonteTextController?.dispose();
 
     antesdataFocusNode?.dispose();
-    antesdataController?.dispose();
+    antesdataTextController?.dispose();
 
     antesDataFonteFocusNode?.dispose();
-    antesDataFonteController?.dispose();
+    antesDataFonteTextController?.dispose();
 
     dataFocusNode?.dispose();
-    dataController?.dispose();
+    dataTextController?.dispose();
 
     dataFonteFocusNode?.dispose();
-    dataFonteController?.dispose();
+    dataFonteTextController?.dispose();
 
     antesDuracaoFocusNode?.dispose();
-    antesDuracaoController?.dispose();
+    antesDuracaoTextController?.dispose();
 
     antesDuracaoFonteFocusNode?.dispose();
-    antesDuracaoFonteController?.dispose();
+    antesDuracaoFonteTextController?.dispose();
 
     certificadoFocusNode2?.dispose();
-    certificadoController2?.dispose();
+    certificadoTextController2?.dispose();
 
     duracaoFonteFocusNode?.dispose();
-    duracaoFonteController?.dispose();
+    duracaoFonteTextController?.dispose();
 
     powerediDokeyFocusNode?.dispose();
-    powerediDokeyController?.dispose();
+    powerediDokeyTextController?.dispose();
 
     idokeyFonteFocusNode?.dispose();
-    idokeyFonteController?.dispose();
+    idokeyFonteTextController?.dispose();
 
     keyseguranaFocusNode?.dispose();
-    keyseguranaController?.dispose();
+    keyseguranaTextController?.dispose();
 
     keyFonteFocusNode?.dispose();
-    keyFonteController?.dispose();
+    keyFonteTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -3,12 +3,10 @@ export '/project/auth_pages/auth_create_account/auth_create_account_widget.dart'
     show AuthCreateAccountWidget;
 export '/project/auth_pages/auth_login/auth_login_widget.dart'
     show AuthLoginWidget;
-export '/project/productor_courses/productor_courses_widget.dart'
+export '/project/productor_area/productor_courses/productor_courses_widget.dart'
     show ProductorCoursesWidget;
 export '/project/productor_area/create_new_curse/create_new_curse_widget.dart'
     show CreateNewCurseWidget;
-export '/project/productor_area/curso_detail/curso_detail_widget.dart'
-    show CursoDetailWidget;
 export '/project/user_area/course_invitation/course_invitation_widget.dart'
     show CourseInvitationWidget;
 export '/project/user_area/user_courses/user_courses_widget.dart'
@@ -31,3 +29,7 @@ export '/project/dummy_page/dummy_page/dummy_page_widget.dart'
     show DummyPageWidget;
 export '/project/productor_area/create_new_template/create_new_template_widget.dart'
     show CreateNewTemplateWidget;
+export '/project/productor_area/curso_detail/curso_detail_widget.dart'
+    show CursoDetailWidget;
+export '/project/productor_area/save/save_widget.dart' show SaveWidget;
+export '/project/copytest/auth1/auth1_widget.dart' show Auth1Widget;

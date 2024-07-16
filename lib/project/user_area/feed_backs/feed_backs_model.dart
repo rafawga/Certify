@@ -11,10 +11,8 @@ class FeedBacksModel extends FlutterFlowModel<FeedBacksWidget> {
   late NavbarModel navbarModel;
   // State field(s) for feedback widget.
   FocusNode? feedbackFocusNode;
-  TextEditingController? feedbackController;
-  String? Function(BuildContext, String?)? feedbackControllerValidator;
-
-  /// Initialization and disposal methods.
+  TextEditingController? feedbackTextController;
+  String? Function(BuildContext, String?)? feedbackTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -26,10 +24,6 @@ class FeedBacksModel extends FlutterFlowModel<FeedBacksWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
     feedbackFocusNode?.dispose();
-    feedbackController?.dispose();
+    feedbackTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -24,26 +24,26 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
 
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  TextEditingController? nameTextController;
+  String? Function(BuildContext, String?)? nameTextControllerValidator;
   // State field(s) for Description widget.
   FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionController;
-  String? Function(BuildContext, String?)? descriptionControllerValidator;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for Professor widget.
   FocusNode? professorFocusNode;
-  TextEditingController? professorController;
-  String? Function(BuildContext, String?)? professorControllerValidator;
+  TextEditingController? professorTextController;
+  String? Function(BuildContext, String?)? professorTextControllerValidator;
   // State field(s) for Duracao widget.
   FocusNode? duracaoFocusNode;
-  TextEditingController? duracaoController;
-  String? Function(BuildContext, String?)? duracaoControllerValidator;
+  TextEditingController? duracaoTextController;
+  String? Function(BuildContext, String?)? duracaoTextControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
   // State field(s) for LimiteUsers widget.
   FocusNode? limiteUsersFocusNode;
-  TextEditingController? limiteUsersController;
-  String? Function(BuildContext, String?)? limiteUsersControllerValidator;
+  TextEditingController? limiteUsersTextController;
+  String? Function(BuildContext, String?)? limiteUsersTextControllerValidator;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -54,8 +54,6 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
   FormFieldController<String>? dropDownValueController;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   TemplateCertificadoRecord? templateRef;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -68,22 +66,18 @@ class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
     navbarModel.dispose();
     tabBarController?.dispose();
     nameFocusNode?.dispose();
-    nameController?.dispose();
+    nameTextController?.dispose();
 
     descriptionFocusNode?.dispose();
-    descriptionController?.dispose();
+    descriptionTextController?.dispose();
 
     professorFocusNode?.dispose();
-    professorController?.dispose();
+    professorTextController?.dispose();
 
     duracaoFocusNode?.dispose();
-    duracaoController?.dispose();
+    duracaoTextController?.dispose();
 
     limiteUsersFocusNode?.dispose();
-    limiteUsersController?.dispose();
+    limiteUsersTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

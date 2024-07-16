@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -211,6 +210,21 @@ class TemplateCertificadoRecord extends FirestoreRecord {
   String get image => _image ?? '';
   bool hasImage() => _image != null;
 
+  // "ImageWidth" field.
+  double? _imageWidth;
+  double get imageWidth => _imageWidth ?? 0.0;
+  bool hasImageWidth() => _imageWidth != null;
+
+  // "ImageHeight" field.
+  double? _imageHeight;
+  double get imageHeight => _imageHeight ?? 0.0;
+  bool hasImageHeight() => _imageHeight != null;
+
+  // "AAAA" field.
+  String? _aaaa;
+  String get aaaa => _aaaa ?? '';
+  bool hasAaaa() => _aaaa != null;
+
   void _initializeFields() {
     _certificado = snapshotData['Certificado'] as String?;
     _certificadoCOR = snapshotData['CertificadoCOR'] as String?;
@@ -251,6 +265,9 @@ class TemplateCertificadoRecord extends FirestoreRecord {
     _userID = snapshotData['UserID'] as DocumentReference?;
     _showIDokey = snapshotData['ShowIDokey'] as bool?;
     _image = snapshotData['Image'] as String?;
+    _imageWidth = castToType<double>(snapshotData['ImageWidth']);
+    _imageHeight = castToType<double>(snapshotData['ImageHeight']);
+    _aaaa = snapshotData['AAAA'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -328,6 +345,9 @@ Map<String, dynamic> createTemplateCertificadoRecordData({
   DocumentReference? userID,
   bool? showIDokey,
   String? image,
+  double? imageWidth,
+  double? imageHeight,
+  String? aaaa,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -370,6 +390,9 @@ Map<String, dynamic> createTemplateCertificadoRecordData({
       'UserID': userID,
       'ShowIDokey': showIDokey,
       'Image': image,
+      'ImageWidth': imageWidth,
+      'ImageHeight': imageHeight,
+      'AAAA': aaaa,
     }.withoutNulls,
   );
 
@@ -420,7 +443,10 @@ class TemplateCertificadoRecordDocumentEquality
         e1?.isDefaultImage == e2?.isDefaultImage &&
         e1?.userID == e2?.userID &&
         e1?.showIDokey == e2?.showIDokey &&
-        e1?.image == e2?.image;
+        e1?.image == e2?.image &&
+        e1?.imageWidth == e2?.imageWidth &&
+        e1?.imageHeight == e2?.imageHeight &&
+        e1?.aaaa == e2?.aaaa;
   }
 
   @override
@@ -463,7 +489,10 @@ class TemplateCertificadoRecordDocumentEquality
         e?.isDefaultImage,
         e?.userID,
         e?.showIDokey,
-        e?.image
+        e?.image,
+        e?.imageWidth,
+        e?.imageHeight,
+        e?.aaaa
       ]);
 
   @override

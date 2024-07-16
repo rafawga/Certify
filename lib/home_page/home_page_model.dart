@@ -16,8 +16,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   // Model for Navbar component.
   late NavbarModel navbarModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
@@ -28,8 +26,4 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

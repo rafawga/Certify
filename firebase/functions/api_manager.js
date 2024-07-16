@@ -1,13 +1,49 @@
 const axios = require("axios").default;
 const qs = require("qs");
 
+async function _criarSessaoCheckoutCall(context, ffVariables) {
+  var successUrl = ffVariables["successUrl"];
+  var priceAPIID = ffVariables["priceAPIID"];
+  var customerEmail = ffVariables["customerEmail"];
+  var mode = ffVariables["mode"];
+
+  var url = `https://api.stripe.com/v1/checkout/sessions`;
+  var headers = {
+    Authorization: `Bearer sk_test_51PanpqBHJiDMTi8zyDlwWh6CdQYx9b08SsCFZZKOhwDoHPrbwBJk3yt72e0rDiUf81w55eZ5xE19ntUTVykFf9L8009zGUlA0D`,
+  };
+  var params = {
+    success_url: successUrl,
+    "line_items[0][price]": priceAPIID,
+    "line_items[0][quantity]": 1,
+    mode: mode,
+    customer_email: customerEmail,
+  };
+  var ffApiRequestBody = undefined;
+
+  return makeApiRequest({
+    method: "post",
+    url,
+    headers,
+    body: createBody({
+      headers,
+      params,
+      body: ffApiRequestBody,
+      bodyType: "X_WWW_FORM_URL_ENCODED",
+    }),
+    returnBody: true,
+    isStreamingApi: false,
+  });
+}
+
 /// Helper functions to route to the appropriate API Call.
 
 async function makeApiCall(context, data) {
   var callName = data["callName"] || "";
   var variables = data["variables"] || {};
 
-  const callMap = {};
+  const callMap = {
+    CriarSessaoCheckoutCall: _criarSessaoCheckoutCall,
+  };
 
   if (!(callName in callMap)) {
     return {
@@ -28,6 +64,7 @@ async function makeApiRequest({
   params,
   body,
   returnBody,
+  isStreamingApi,
 }) {
   return axios
     .request({
@@ -35,6 +72,7 @@ async function makeApiRequest({
       url: url,
       headers: headers,
       params: params,
+      responseType: isStreamingApi ? "stream" : "json",
       ...(body && { data: body }),
     })
     .then((response) => {
@@ -42,6 +80,7 @@ async function makeApiRequest({
         statusCode: response.status,
         headers: response.headers,
         ...(returnBody && { body: response.data }),
+        isStreamingApi: isStreamingApi,
       };
     })
     .catch(function (error) {

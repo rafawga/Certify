@@ -19,8 +19,6 @@ class GetProPlanModel extends FlutterFlowModel<GetProPlanWidget> {
   // Stores action output result for [Backend Call - API (Criar Sessao Checkout)] action in Button widget.
   ApiCallResponse? apiResult6ee;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
@@ -31,8 +29,4 @@ class GetProPlanModel extends FlutterFlowModel<GetProPlanWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

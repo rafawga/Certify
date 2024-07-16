@@ -18,16 +18,14 @@ class VerifyCertificateModel extends FlutterFlowModel<VerifyCertificateWidget> {
   late NavbarModel navbarModel;
   // State field(s) for HashInput widget.
   FocusNode? hashInputFocusNode;
-  TextEditingController? hashInputController;
-  String? Function(BuildContext, String?)? hashInputControllerValidator;
+  TextEditingController? hashInputTextController;
+  String? Function(BuildContext, String?)? hashInputTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
   AlunosCursoRecord? findedCertificate;
   // Stores action output result for [Backend Call - Read Document] action in IconButton widget.
   UsersRecord? findedUser;
   // Stores action output result for [Backend Call - Read Document] action in IconButton widget.
   CursosRecord? findedCourse;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -39,10 +37,6 @@ class VerifyCertificateModel extends FlutterFlowModel<VerifyCertificateWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
     hashInputFocusNode?.dispose();
-    hashInputController?.dispose();
+    hashInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

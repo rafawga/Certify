@@ -83,7 +83,11 @@ class _ConfirmarCancelamentoWidgetState
                                   'Deseja mesmo cancalear o seu plano de produtor? Após a confirmação não será possível voltar atrás!',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
-                                      .headlineSmall,
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ],
@@ -110,6 +114,7 @@ class _ConfirmarCancelamentoWidgetState
                                         await CancelarAAssinaturaCall.call(
                                       id: _model.assinaturaUser?.subAssinatura,
                                     );
+
                                     if ((_model.cancelarResponse?.succeeded ??
                                         true)) {
                                       ScaffoldMessenger.of(context)
@@ -171,6 +176,7 @@ class _ConfirmarCancelamentoWidgetState
                                           fontFamily: 'Lexend Deca',
                                           color: Colors.white,
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     elevation: 2.0,
@@ -198,6 +204,7 @@ class _ConfirmarCancelamentoWidgetState
                                           fontFamily: 'Lexend Deca',
                                           color: Colors.white,
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     elevation: 2.0,

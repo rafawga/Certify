@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/components/confirmar_cancelamento/confirmar_cancelamento_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'cancelar_assinatura_model.dart';
 export 'cancelar_assinatura_model.dart';
 
@@ -62,16 +63,16 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                 child: SizedBox(
                   width: 50.0,
                   height: 50.0,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      FlutterFlowTheme.of(context).primary,
-                    ),
+                  child: SpinKitPulse(
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 50.0,
                   ),
                 ),
               );
             }
             List<AssinaturasRecord> photoUploadAssinaturasRecordList =
                 snapshot.data!;
+
             // Return an empty Container when the item does not exist.
             if (snapshot.data!.isEmpty) {
               return Container();
@@ -127,7 +128,11 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .headlineMedium,
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -178,7 +183,11 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -273,6 +282,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                                     fontFamily: 'Lexend Deca',
                                                     color: Colors.white,
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),

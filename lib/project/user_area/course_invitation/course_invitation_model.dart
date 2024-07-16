@@ -21,8 +21,6 @@ class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UsersRecord? productor;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
@@ -33,8 +31,4 @@ class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

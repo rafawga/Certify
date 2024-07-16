@@ -1,4 +1,7 @@
 import 'dart:convert';
+import '../cloud_functions/cloud_functions.dart';
+
+import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -10,32 +13,23 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class CriarSessaoCheckoutCall {
   static Future<ApiCallResponse> call({
     String? successUrl = 'https://easy-certificados.flutterflow.app/',
-    String? priceAPIID = 'price_1OZLypGvat1kN0fUGpHdyVwH',
+    String? priceAPIID = 'price_1PansOBHJiDMTi8z3GbyPVvB',
     String? customerEmail = 'rafawga@gmail.com',
     String? mode = 'subscription',
   }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Criar Sessao Checkout',
-      apiUrl: 'https://api.stripe.com/v1/checkout/sessions',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer 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',
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'CriarSessaoCheckoutCall',
+        'variables': {
+          'successUrl': successUrl,
+          'priceAPIID': priceAPIID,
+          'customerEmail': customerEmail,
+          'mode': mode,
+        },
       },
-      params: {
-        'success_url': successUrl,
-        'line_items[0][price]': priceAPIID,
-        'line_items[0][quantity]': 1,
-        'mode': mode,
-        'customer_email': customerEmail,
-      },
-      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   static String? id(dynamic response) => castToType<String>(getJsonField(
@@ -69,6 +63,7 @@ class CancelarAAssinaturaCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -90,11 +85,21 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  if (item is DocumentReference) {
+    return item.path;
+  }
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -102,8 +107,11 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

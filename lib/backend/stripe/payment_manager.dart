@@ -14,10 +14,9 @@ import '../cloud_functions/cloud_functions.dart';
 const _isProd = false;
 
 // Stripe Credentials
-const _kProdStripePublishableKey =
-    'pk_live_51OVFkRGvat1kN0fUdOgW9HlH1FAwbKbl08ogTXL2wxIH0dSACojiqIqJqZYjxw2oB52zryCgThP4zCO9s0keuhhZ006fYjlyWE';
+const _kProdStripePublishableKey = '';
 const _kTestStripePublishableKey =
-    'pk_test_51OVFkRGvat1kN0fUl9Y1QWe6FFdPNoTvsoNEKbOzeNLHxXauOrTRvg7jk5GF6if76wdExs2xEqJx4Aj8lY9BS0NW00AOkeRbGs';
+    'pk_test_51PanpqBHJiDMTi8ziCyCSISSHKDBuNdkdXDVExrtBNAKs1lFe9LA2WGmNDPXy85XMZIybEMiCQgfB62a0m0fB0cn00XL0ij1WF';
 const _kAppleMerchantId = '';
 
 String stripePublishableKey() =>
@@ -92,17 +91,17 @@ Future<StripePaymentResponse> processStripePayment(
         paymentIntentClientSecret: response['paymentIntent'],
         customerEphemeralKeySecret: response['ephemeralKey'],
         customerId: response['customer'],
-        merchantDisplayName: 'iDokey',
+        merchantDisplayName: 'CertifyBr',
         googlePay: allowGooglePay
             ? PaymentSheetGooglePay(
-                merchantCountryCode: 'BRL',
+                merchantCountryCode: 'BR',
                 currencyCode: currency,
                 testEnv: !_isProd,
               )
             : null,
         applePay: isiOS && allowApplePay
             ? const PaymentSheetApplePay(
-                merchantCountryCode: 'BRL',
+                merchantCountryCode: 'BR',
               )
             : null,
         style: themeStyle,

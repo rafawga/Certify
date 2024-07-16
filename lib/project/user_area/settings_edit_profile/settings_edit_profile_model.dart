@@ -20,18 +20,16 @@ class SettingsEditProfileModel
 
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode1;
-  TextEditingController? yourNameController1;
-  String? Function(BuildContext, String?)? yourNameController1Validator;
+  TextEditingController? yourNameTextController1;
+  String? Function(BuildContext, String?)? yourNameTextController1Validator;
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode2;
-  TextEditingController? yourNameController2;
-  String? Function(BuildContext, String?)? yourNameController2Validator;
+  TextEditingController? yourNameTextController2;
+  String? Function(BuildContext, String?)? yourNameTextController2Validator;
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode3;
-  TextEditingController? yourNameController3;
-  String? Function(BuildContext, String?)? yourNameController3Validator;
-
-  /// Initialization and disposal methods.
+  TextEditingController? yourNameTextController3;
+  String? Function(BuildContext, String?)? yourNameTextController3Validator;
 
   @override
   void initState(BuildContext context) {
@@ -42,16 +40,12 @@ class SettingsEditProfileModel
   void dispose() {
     navbarModel.dispose();
     yourNameFocusNode1?.dispose();
-    yourNameController1?.dispose();
+    yourNameTextController1?.dispose();
 
     yourNameFocusNode2?.dispose();
-    yourNameController2?.dispose();
+    yourNameTextController2?.dispose();
 
     yourNameFocusNode3?.dispose();
-    yourNameController3?.dispose();
+    yourNameTextController3?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

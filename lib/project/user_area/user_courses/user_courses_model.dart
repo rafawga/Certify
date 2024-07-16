@@ -10,8 +10,6 @@ class UserCoursesModel extends FlutterFlowModel<UserCoursesWidget> {
   // Model for Navbar component.
   late NavbarModel navbarModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     navbarModel = createModel(context, () => NavbarModel());
@@ -22,8 +20,4 @@ class UserCoursesModel extends FlutterFlowModel<UserCoursesWidget> {
     unfocusNode.dispose();
     navbarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

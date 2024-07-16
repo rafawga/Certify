@@ -76,13 +76,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       if (FFAppState().navOpen) {
-                        setState(() {
-                          FFAppState().navOpen = false;
-                        });
+                        FFAppState().navOpen = false;
+                        setState(() {});
                       } else {
-                        setState(() {
-                          FFAppState().navOpen = true;
-                        });
+                        FFAppState().navOpen = true;
+                        setState(() {});
                       }
                     },
                     child: Container(
@@ -433,7 +431,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               'Torne-se Produtor',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -577,7 +580,13 @@ class _NavbarWidgetState extends State<NavbarWidget> {
               ),
             ),
           ),
-        if (FFAppState().navOpen)
+        if (FFAppState().navOpen &&
+            responsiveVisibility(
+              context: context,
+              phone: false,
+              tablet: false,
+              tabletLandscape: false,
+            ))
           Container(
             width: 270.0,
             height: double.infinity,
@@ -604,13 +613,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         if (FFAppState().navOpen) {
-                          setState(() {
-                            FFAppState().navOpen = false;
-                          });
+                          FFAppState().navOpen = false;
+                          setState(() {});
                         } else {
-                          setState(() {
-                            FFAppState().navOpen = true;
-                          });
+                          FFAppState().navOpen = true;
+                          setState(() {});
                         }
                       },
                       child: Container(
@@ -653,7 +660,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'iDokey',
-                            style: FlutterFlowTheme.of(context).headlineMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ],
@@ -721,8 +733,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 AuthUserStreamWidget(
                                   builder: (context) => Text(
                                     currentUserDisplayName,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                                 Padding(
@@ -731,7 +747,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                   child: Text(
                                     currentUserEmail,
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -787,8 +807,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Página inicial',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -821,7 +845,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         child: Text(
                                           'Área do produtor',
                                           style: FlutterFlowTheme.of(context)
-                                              .labelMedium,
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -875,10 +903,14 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'Meus Cursos',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -938,10 +970,14 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'Cadastrar novo curso',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -1001,10 +1037,14 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'Estatíticas',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -1032,7 +1072,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     child: Text(
                                       'Área pessoal',
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -1086,7 +1130,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                   'Meus Certificados',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -1149,10 +1198,14 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'Torne-se Produtor',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -1213,7 +1266,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                   'Verificar Autenticação',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -1273,7 +1331,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                   'Configurações',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -1381,6 +1444,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .secondaryText,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -1457,6 +1521,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .secondaryText,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -1483,13 +1548,11 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       if (FFAppState().navOpen) {
-                        setState(() {
-                          FFAppState().navOpen = false;
-                        });
+                        FFAppState().navOpen = false;
+                        setState(() {});
                       } else {
-                        setState(() {
-                          FFAppState().navOpen = true;
-                        });
+                        FFAppState().navOpen = true;
+                        setState(() {});
                       }
                     },
                     child: Container(
