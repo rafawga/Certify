@@ -229,7 +229,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'Auth1',
-          path: '/auth1',
+          path: '/auth1Cop',
           builder: (context, params) => const Auth1Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -401,7 +401,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/auth1';
+            return '/auth1Cop';
           }
           return null;
         },

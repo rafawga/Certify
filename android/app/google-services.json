@@ -12,7 +12,12 @@
           "package_name": "Robin.Do"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB6fYg7CLLaxhClI0omYhPmqLLMFxSabIQ"
@@ -20,7 +25,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483930210525-a6qae1bn5cvoni6opu0rg02eqp5dqod4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.certify"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483930210525:android:b37aa8e691dec06ece9b34",
+        "android_client_info": {
+          "package_name": "com.mycompany.certify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483930210525-rie67sc9evf7baq63aoed3bdp77cajhr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.certify",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6fYg7CLLaxhClI0omYhPmqLLMFxSabIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483930210525-a6qae1bn5cvoni6opu0rg02eqp5dqod4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.certify"
+              }
+            }
+          ]
         }
       }
     },
@@ -31,7 +92,20 @@
           "package_name": "com.mycompany.easycertificados"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "483930210525-g3jc935l45vhsfh0enp35nvnndars1o9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.easycertificados",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB6fYg7CLLaxhClI0omYhPmqLLMFxSabIQ"
@@ -39,7 +113,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483930210525-0759m2sf2pc6ntvo7i8d4ka2h271k1kf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483930210525-a6qae1bn5cvoni6opu0rg02eqp5dqod4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.certify"
+              }
+            }
+          ]
         }
       }
     }

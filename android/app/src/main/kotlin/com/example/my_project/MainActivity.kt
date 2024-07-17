@@ -1,4 +1,4 @@
-package com.mycompany.easycertificados
+package com.mycompany.certify
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

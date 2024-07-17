@@ -1,5 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -627,45 +625,8 @@ class _AuthCreateAccountWidgetState extends State<AuthCreateAccountWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 16.0),
                                         child: FFButtonWidget(
-                                          onPressed: () async {
-                                            GoRouter.of(context)
-                                                .prepareAuthEvent();
-                                            if (_model.passwordTextController
-                                                    .text !=
-                                                _model
-                                                    .passwordConfirmTextController
-                                                    .text) {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                const SnackBar(
-                                                  content: Text(
-                                                    'Passwords don\'t match!',
-                                                  ),
-                                                ),
-                                              );
-                                              return;
-                                            }
-
-                                            final user = await authManager
-                                                .createAccountWithEmail(
-                                              context,
-                                              _model.emailAddressTextController
-                                                  .text,
-                                              _model
-                                                  .passwordTextController.text,
-                                            );
-                                            if (user == null) {
-                                              return;
-                                            }
-
-                                            await UsersRecord.collection
-                                                .doc(user.uid)
-                                                .update(createUsersRecordData(
-                                                  email: '',
-                                                ));
-
-                                            context.goNamedAuth(
-                                                'HomePage', context.mounted);
+                                          onPressed: () {
+                                            print('Button pressed ...');
                                           },
                                           text: 'Criar conta',
                                           options: FFButtonOptions(
