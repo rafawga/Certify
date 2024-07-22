@@ -32,4 +32,6 @@ export '/project/productor_area/create_new_template/create_new_template_widget.d
 export '/project/productor_area/curso_detail/curso_detail_widget.dart'
     show CursoDetailWidget;
 export '/project/productor_area/save/save_widget.dart' show SaveWidget;
-export '/project/copytest/auth1/auth1_widget.dart' show Auth1Widget;
+export '/project/copytest/new_auth/new_auth_widget.dart' show NewAuthWidget;
+export '/project/new_home_page/new_home_page_widget.dart'
+    show NewHomePageWidget;

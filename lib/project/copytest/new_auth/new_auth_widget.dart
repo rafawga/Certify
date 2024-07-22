@@ -7,19 +7,19 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'auth1_model.dart';
-export 'auth1_model.dart';
+import 'new_auth_model.dart';
+export 'new_auth_model.dart';
 
-class Auth1Widget extends StatefulWidget {
-  const Auth1Widget({super.key});
+class NewAuthWidget extends StatefulWidget {
+  const NewAuthWidget({super.key});
 
   @override
-  State<Auth1Widget> createState() => _Auth1WidgetState();
+  State<NewAuthWidget> createState() => _NewAuthWidgetState();
 }
 
-class _Auth1WidgetState extends State<Auth1Widget>
+class _NewAuthWidgetState extends State<NewAuthWidget>
     with TickerProviderStateMixin {
-  late Auth1Model _model;
+  late NewAuthModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -28,7 +28,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Auth1Model());
+    _model = createModel(context, () => NewAuthModel());
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -149,7 +149,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -173,7 +173,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                       topRight: Radius.circular(0.0),
                                     ),
                                   ),
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Align(
                                     alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Column(
@@ -188,13 +188,21 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/CertifyTrim.png',
-                                                width: 250.0,
-                                                fit: BoxFit.cover,
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  Theme.of(context)
+                                                              .brightness ==
+                                                          Brightness.dark
+                                                      ? 'assets/images/white-logo.png'
+                                                      : 'assets/images/black-logo.png',
+                                                  width: 250.0,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
                                           ],

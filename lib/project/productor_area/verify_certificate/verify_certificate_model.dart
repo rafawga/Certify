@@ -1,6 +1,6 @@
 import '/backend/backend.dart';
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'verify_certificate_widget.dart' show VerifyCertificateWidget;
 import 'package:flutter/material.dart';
 

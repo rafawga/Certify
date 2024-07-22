@@ -1,5 +1,5 @@
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'dashboard_widget.dart' show DashboardWidget;
 import 'package:flutter/material.dart';
 

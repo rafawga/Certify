@@ -73,13 +73,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const NewAuthWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const Auth1Widget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const NewAuthWidget(),
         ),
         FFRoute(
           name: 'AuthCreateAccount',
@@ -228,9 +228,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Auth1',
-          path: '/auth1Cop',
-          builder: (context, params) => const Auth1Widget(),
+          name: 'NewAuth',
+          path: '/NewAuth',
+          builder: (context, params) => const NewAuthWidget(),
+        ),
+        FFRoute(
+          name: 'newHomePage',
+          path: '/newHomePage',
+          builder: (context, params) => const NewHomePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -401,7 +406,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/auth1Cop';
+            return '/NewAuth';
           }
           return null;
         },

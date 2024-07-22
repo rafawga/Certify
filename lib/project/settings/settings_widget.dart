@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'settings_model.dart';
@@ -400,7 +400,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               .clearRedirectLocation();
 
                                           context.goNamedAuth(
-                                              'Auth1', context.mounted);
+                                              'NewAuth', context.mounted);
                                         },
                                         text: 'Log Out',
                                         options: FFButtonOptions(

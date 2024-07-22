@@ -1,5 +1,5 @@
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';
 

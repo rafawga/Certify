@@ -1,7 +1,7 @@
 import '/backend/backend.dart';
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'save_widget.dart' show SaveWidget;
 import 'package:flutter/material.dart';
 

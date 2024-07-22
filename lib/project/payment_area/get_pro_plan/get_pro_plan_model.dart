@@ -1,6 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'get_pro_plan_widget.dart' show GetProPlanWidget;
 import 'package:flutter/material.dart';
 

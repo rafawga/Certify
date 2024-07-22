@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'auth1_widget.dart' show Auth1Widget;
+import 'new_auth_widget.dart' show NewAuthWidget;
 import 'package:flutter/material.dart';
 
-class Auth1Model extends FlutterFlowModel<Auth1Widget> {
+class NewAuthModel extends FlutterFlowModel<NewAuthWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

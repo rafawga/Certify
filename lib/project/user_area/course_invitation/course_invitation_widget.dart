@@ -1,9 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/project/components/navbar/navbar_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
