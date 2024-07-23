@@ -10,20 +10,26 @@ class NewProductorCourseModel
 
   final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
-  late SidebarExpandidoModel sidebarExpandidoModel;
+  late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.
   late SidebarReduzidoModel sidebarReduzidoModel;
+  // Model for SidebarExpandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel2;
 
   @override
   void initState(BuildContext context) {
-    sidebarExpandidoModel = createModel(context, () => SidebarExpandidoModel());
+    sidebarExpandidoModel1 =
+        createModel(context, () => SidebarExpandidoModel());
     sidebarReduzidoModel = createModel(context, () => SidebarReduzidoModel());
+    sidebarExpandidoModel2 =
+        createModel(context, () => SidebarExpandidoModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    sidebarExpandidoModel.dispose();
+    sidebarExpandidoModel1.dispose();
     sidebarReduzidoModel.dispose();
+    sidebarExpandidoModel2.dispose();
   }
 }

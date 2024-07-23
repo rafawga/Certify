@@ -1617,9 +1617,10 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                         6.0),
                                                             child:
                                                                 AuthUserStreamWidget(
-                                                              builder:
-                                                                  (context) =>
-                                                                      Text(
+                                                              builder: (context) =>
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
                                                                 'Bem-vindo novamente,  $currentUserDisplayName',
                                                                 textAlign:
                                                                     TextAlign
@@ -1636,7 +1637,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
-                                                              ),
+                                                              )),
                                                             ),
                                                           ),
                                                         ),

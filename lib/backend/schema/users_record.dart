@@ -40,20 +40,10 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
-  // "phone_number" field.
-  String? _phoneNumber;
-  String get phoneNumber => _phoneNumber ?? '';
-  bool hasPhoneNumber() => _phoneNumber != null;
-
   // "last_name" field.
   String? _lastName;
   String get lastName => _lastName ?? '';
   bool hasLastName() => _lastName != null;
-
-  // "cpf" field.
-  String? _cpf;
-  String get cpf => _cpf ?? '';
-  bool hasCpf() => _cpf != null;
 
   // "isProdutor" field.
   bool? _isProdutor;
@@ -85,21 +75,31 @@ class UsersRecord extends FirestoreRecord {
   int get alunosQnt => _alunosQnt ?? 0;
   bool hasAlunosQnt() => _alunosQnt != null;
 
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "completedRegistration" field.
+  bool? _completedRegistration;
+  bool get completedRegistration => _completedRegistration ?? false;
+  bool hasCompletedRegistration() => _completedRegistration != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _phoneNumber = snapshotData['phone_number'] as String?;
     _lastName = snapshotData['last_name'] as String?;
-    _cpf = snapshotData['cpf'] as String?;
     _isProdutor = snapshotData['isProdutor'] as bool?;
     _certificateName = snapshotData['CertificateName'] as String?;
     _hasChangeNameToken = snapshotData['HasChangeNameToken'] as bool?;
     _name = snapshotData['name'] as String?;
     _coursesQnt = castToType<int>(snapshotData['CoursesQnt']);
     _alunosQnt = castToType<int>(snapshotData['AlunosQnt']);
+    _phoneNumber = snapshotData['phone_number'] as String?;
+    _completedRegistration = snapshotData['completedRegistration'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -141,15 +141,15 @@ Map<String, dynamic> createUsersRecordData({
   String? photoUrl,
   String? uid,
   DateTime? createdTime,
-  String? phoneNumber,
   String? lastName,
-  String? cpf,
   bool? isProdutor,
   String? certificateName,
   bool? hasChangeNameToken,
   String? name,
   int? coursesQnt,
   int? alunosQnt,
+  String? phoneNumber,
+  bool? completedRegistration,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -158,15 +158,15 @@ Map<String, dynamic> createUsersRecordData({
       'photo_url': photoUrl,
       'uid': uid,
       'created_time': createdTime,
-      'phone_number': phoneNumber,
       'last_name': lastName,
-      'cpf': cpf,
       'isProdutor': isProdutor,
       'CertificateName': certificateName,
       'HasChangeNameToken': hasChangeNameToken,
       'name': name,
       'CoursesQnt': coursesQnt,
       'AlunosQnt': alunosQnt,
+      'phone_number': phoneNumber,
+      'completedRegistration': completedRegistration,
     }.withoutNulls,
   );
 
@@ -183,15 +183,15 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber &&
         e1?.lastName == e2?.lastName &&
-        e1?.cpf == e2?.cpf &&
         e1?.isProdutor == e2?.isProdutor &&
         e1?.certificateName == e2?.certificateName &&
         e1?.hasChangeNameToken == e2?.hasChangeNameToken &&
         e1?.name == e2?.name &&
         e1?.coursesQnt == e2?.coursesQnt &&
-        e1?.alunosQnt == e2?.alunosQnt;
+        e1?.alunosQnt == e2?.alunosQnt &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.completedRegistration == e2?.completedRegistration;
   }
 
   @override
@@ -201,15 +201,15 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber,
         e?.lastName,
-        e?.cpf,
         e?.isProdutor,
         e?.certificateName,
         e?.hasChangeNameToken,
         e?.name,
         e?.coursesQnt,
-        e?.alunosQnt
+        e?.alunosQnt,
+        e?.phoneNumber,
+        e?.completedRegistration
       ]);
 
   @override

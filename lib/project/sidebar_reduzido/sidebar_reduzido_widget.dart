@@ -75,7 +75,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    FFAppState().navOpen = !FFAppState().navOpen;
+                    FFAppState().navOpen = !(FFAppState().navOpen ?? true);
                     setState(() {});
                   },
                   child: Container(
@@ -95,7 +95,8 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().navOpen = !FFAppState().navOpen;
+                              FFAppState().navOpen =
+                                  !(FFAppState().navOpen ?? true);
                               FFAppState().update(() {});
                             },
                             child: Container(

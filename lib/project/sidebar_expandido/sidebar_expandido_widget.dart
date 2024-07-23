@@ -81,7 +81,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        FFAppState().navOpen = !FFAppState().navOpen;
+                        FFAppState().navOpen = !(FFAppState().navOpen ?? true);
                         FFAppState().update(() {});
                       },
                       child: Container(
@@ -169,7 +169,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Página Inicial',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -181,7 +182,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -231,7 +232,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Cursos',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -243,7 +245,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -293,7 +295,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Dashboard',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -305,7 +308,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -326,7 +329,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
-                      color: widget.currentTab == 2
+                      color: widget.currentTab == 4
                           ? FlutterFlowTheme.of(context).accent2
                           : FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
@@ -399,7 +402,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Autenticação',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -411,7 +415,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -450,7 +454,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Editar perfil',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -462,7 +467,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -501,7 +506,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Configurações',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -513,7 +519,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -552,7 +558,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                               size: 24.0,
                             ),
                           ),
-                          Text(
+                          SelectionArea(
+                              child: Text(
                             'Torne-se Produtor',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -564,7 +571,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          )),
                         ],
                       ),
                     ),
@@ -760,7 +767,8 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => Text(
+                                        builder: (context) => SelectionArea(
+                                            child: Text(
                                           currentUserDisplayName,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -770,13 +778,14 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
-                                        ),
+                                        )),
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
-                                      child: Text(
+                                      child: SelectionArea(
+                                          child: Text(
                                         currentUserEmail,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -788,7 +797,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
+                                      )),
                                     ),
                                   ],
                                 ),

@@ -48,3 +48,26 @@ Color? stringToColor(String? cor) {
     return null;
   }
 }
+
+String? getWordAtIndex(
+  String? value,
+  String? index,
+) {
+  if (value == null || index == null) {
+    return null;
+  }
+
+  int? idx = int.tryParse(index);
+
+  if (idx == null || idx < 0) {
+    return null;
+  }
+
+  List<String> words = value.split(' ');
+
+  if (idx >= words.length) {
+    return null;
+  }
+
+  return words[idx];
+}
