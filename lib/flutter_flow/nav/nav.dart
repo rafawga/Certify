@@ -73,13 +73,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const NewAuthWidget(),
+          appStateNotifier.loggedIn ? const NewHomePageWidget() : const NewAuthWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const NewAuthWidget(),
+              appStateNotifier.loggedIn ? const NewHomePageWidget() : const NewAuthWidget(),
         ),
         FFRoute(
           name: 'AuthCreateAccount',
@@ -236,6 +236,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'newHomePage',
           path: '/newHomePage',
           builder: (context, params) => const NewHomePageWidget(),
+        ),
+        FFRoute(
+          name: 'newProductorCourse',
+          path: '/newProductorCourse',
+          builder: (context, params) => const NewProductorCourseWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

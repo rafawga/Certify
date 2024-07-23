@@ -626,7 +626,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                 }
 
                                                                 context.goNamedAuth(
-                                                                    'HomePage',
+                                                                    'newHomePage',
                                                                     context
                                                                         .mounted);
                                                               },
@@ -829,7 +829,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                           }
 
                                                                           context.goNamedAuth(
-                                                                              'HomePage',
+                                                                              'newHomePage',
                                                                               context.mounted);
                                                                         },
                                                                         text:
@@ -1668,7 +1668,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                   ));
 
                                                               context.goNamedAuth(
-                                                                  'HomePage',
+                                                                  'newHomePage',
                                                                   context
                                                                       .mounted);
                                                             },
@@ -1801,7 +1801,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                       }
 
                                                                       context.goNamedAuth(
-                                                                          'HomePage',
+                                                                          'newHomePage',
                                                                           context
                                                                               .mounted);
                                                                     },

@@ -3,8 +3,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
+import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'new_home_page_model.dart';
 export 'new_home_page_model.dart';
 
@@ -403,6 +405,8 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: 'newHomePage',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -431,14 +435,27 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (responsiveVisibility(
-                    context: context,
-                    phone: false,
-                  ))
+                  if (FFAppState().navOpen &&
+                      responsiveVisibility(
+                        context: context,
+                        phone: false,
+                      ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
                       updateCallback: () => setState(() {}),
                       child: const SidebarExpandidoWidget(
+                        currentTab: 1,
+                      ),
+                    ),
+                  if (!FFAppState().navOpen &&
+                      responsiveVisibility(
+                        context: context,
+                        phone: false,
+                      ))
+                    wrapWithModel(
+                      model: _model.sidebarReduzidoModel,
+                      updateCallback: () => setState(() {}),
+                      child: const SidebarReduzidoWidget(
                         currentTab: 1,
                       ),
                     ),

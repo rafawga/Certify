@@ -1,11 +1,17 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'sidebar_reduzido_model.dart';
 export 'sidebar_reduzido_model.dart';
 
 class SidebarReduzidoWidget extends StatefulWidget {
-  const SidebarReduzidoWidget({super.key});
+  const SidebarReduzidoWidget({
+    super.key,
+    required this.currentTab,
+  });
+
+  final int? currentTab;
 
   @override
   State<SidebarReduzidoWidget> createState() => _SidebarReduzidoWidgetState();
@@ -62,50 +68,71 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(22.0, 0.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? 'assets/images/ICON-LOGO.png'
-                            : 'assets/images/BLACK-ICON-LOGO.png',
-                        width: 300.0,
-                        height: 200.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        FFAppState().navOpen = !FFAppState().navOpen;
-                        FFAppState().update(() {});
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(16.0),
-                            bottomRight: Radius.circular(0.0),
-                            topLeft: Radius.circular(16.0),
-                            topRight: Radius.circular(0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().navOpen = !FFAppState().navOpen;
+                    setState(() {});
+                  },
+                  child: Container(
+                    height: 30.0,
+                    decoration: const BoxDecoration(),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(22.0, 0.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              FFAppState().navOpen = !FFAppState().navOpen;
+                              FFAppState().update(() {});
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(16.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(16.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.keyboard_arrow_left,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 30.0,
+                              ),
+                            ),
                           ),
-                        ),
-                        child: Icon(
-                          Icons.keyboard_arrow_left,
-                          color: FlutterFlowTheme.of(context).primary,
-                          size: 23.0,
-                        ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? 'assets/images/ICON-LOGO.png'
+                        : 'assets/images/BLACK-ICON-LOGO.png',
+                    width: 40.0,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Padding(
@@ -128,10 +155,12 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                     );
                   },
                   child: Container(
-                    width: 50.0,
+                    width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: widget.currentTab == 1
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Row(
@@ -140,6 +169,300 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                       children: [
                         Icon(
                           Icons.home_outlined,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newProductorCourse',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 2
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.grid_view_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 3
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.bar_chart,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 4
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.checklist_rtl,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 5
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 6
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 7
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.settings_outlined,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'newHomePage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 8
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.addressCard,
                           color: FlutterFlowTheme.of(context).secondaryText,
                           size: 24.0,
                         ),

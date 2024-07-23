@@ -197,7 +197,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'ProductorCourses',
+                      'newProductorCourse',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,

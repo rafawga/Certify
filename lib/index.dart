@@ -32,6 +32,8 @@ export '/project/productor_area/create_new_template/create_new_template_widget.d
 export '/project/productor_area/curso_detail/curso_detail_widget.dart'
     show CursoDetailWidget;
 export '/project/productor_area/save/save_widget.dart' show SaveWidget;
-export '/project/copytest/new_auth/new_auth_widget.dart' show NewAuthWidget;
-export '/project/new_home_page/new_home_page_widget.dart'
+export '/project/new/new_auth/new_auth_widget.dart' show NewAuthWidget;
+export '/project/new/new_home_page/new_home_page_widget.dart'
     show NewHomePageWidget;
+export '/project/new/new_productor_course/new_productor_course_widget.dart'
+    show NewProductorCourseWidget;
