@@ -31,6 +31,30 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
     _model = createModel(context, () => NewHomePageModel());
 
     animationsMap.addAll({
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(20.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -408,7 +432,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
     context.watch<FFAppState>();
 
     return Title(
-        title: 'newHomePage',
+        title: 'Página Inicial',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -536,7 +560,9 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                     context)
                                                                 .secondaryText,
                                                         size: 24.0,
-                                                      ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'iconOnPageLoadAnimation']!),
                                                     ),
                                                     Text(
                                                       'Página inicial',
@@ -554,7 +580,9 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation']!),
                                                   ],
                                                 ),
                                                 Row(
@@ -1038,7 +1066,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                  'SettingsEditProfile');
+                                                                  'NewUserProfile');
                                                             },
                                                             child: Container(
                                                               width: MediaQuery
@@ -1353,7 +1381,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                  'CreateNewCurse');
+                                                                  'NewCreateCourse');
                                                             },
                                                             child: Container(
                                                               width: MediaQuery
@@ -1780,7 +1808,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                   onTap:
                                                                       () async {
                                                                     context.pushNamed(
-                                                                        'SettingsEditProfile');
+                                                                        'NewUserProfile');
                                                                   },
                                                                   child:
                                                                       Container(
@@ -2294,7 +2322,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                   onTap:
                                                                       () async {
                                                                     context.pushNamed(
-                                                                        'CreateNewCurse');
+                                                                        'NewCreateCourse');
                                                                   },
                                                                   child:
                                                                       Container(

@@ -1,6 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'sidebar_reduzido_model.dart';
 export 'sidebar_reduzido_model.dart';
@@ -17,8 +19,11 @@ class SidebarReduzidoWidget extends StatefulWidget {
   State<SidebarReduzidoWidget> createState() => _SidebarReduzidoWidgetState();
 }
 
-class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
+class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
+    with TickerProviderStateMixin {
   late SidebarReduzidoModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +35,21 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SidebarReduzidoModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -212,6 +232,48 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                       children: [
                         Icon(
                           Icons.grid_view_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'NewCreateCourse',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: widget.currentTab == 9
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add_to_photos,
                           color: FlutterFlowTheme.of(context).secondaryText,
                           size: 24.0,
                         ),
@@ -568,7 +630,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('SettingsEditProfile');
+                        context.pushNamed('NewUserProfile');
                       },
                       child: Container(
                         width: double.infinity,
@@ -612,7 +674,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget> {
             ],
           ),
         ),
-      ),
+      ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
     );
   }
 }

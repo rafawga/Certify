@@ -174,8 +174,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context
-                                            .pushNamed('SettingsEditProfile');
+                                        context.pushNamed('NewUserProfile');
                                       },
                                       child: Material(
                                         color: Colors.transparent,

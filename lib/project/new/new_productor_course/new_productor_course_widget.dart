@@ -34,6 +34,30 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
     _model = createModel(context, () => NewProductorCourseModel());
 
     animationsMap.addAll({
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(20.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -90,7 +114,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
     context.watch<FFAppState>();
 
     return Title(
-        title: 'newProductorCourse',
+        title: 'Meus Cursos',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -107,7 +131,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                   model: _model.sidebarExpandidoModel2,
                   updateCallback: () => setState(() {}),
                   child: const SidebarExpandidoWidget(
-                    currentTab: 1,
+                    currentTab: 2,
                   ),
                 ),
               ),
@@ -218,7 +242,9 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                                                                     context)
                                                                 .secondaryText,
                                                         size: 24.0,
-                                                      ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'iconOnPageLoadAnimation']!),
                                                     ),
                                                     Text(
                                                       'Meus cursos',
@@ -236,7 +262,9 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation']!),
                                                   ],
                                                 ),
                                                 Row(

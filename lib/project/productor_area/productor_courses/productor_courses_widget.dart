@@ -848,7 +848,7 @@ class _ProductorCoursesWidgetState extends State<ProductorCoursesWidget>
                                                                 onTap:
                                                                     () async {
                                                                   context.pushNamed(
-                                                                      'CreateNewCurse');
+                                                                      'NewCreateCourse');
                                                                 },
                                                                 child: Column(
                                                                   mainAxisSize:

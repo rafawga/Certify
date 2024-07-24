@@ -5,15 +5,11 @@ export '/project/auth_pages/auth_login/auth_login_widget.dart'
     show AuthLoginWidget;
 export '/project/productor_area/productor_courses/productor_courses_widget.dart'
     show ProductorCoursesWidget;
-export '/project/productor_area/create_new_curse/create_new_curse_widget.dart'
-    show CreateNewCurseWidget;
 export '/project/user_area/course_invitation/course_invitation_widget.dart'
     show CourseInvitationWidget;
 export '/project/user_area/user_courses/user_courses_widget.dart'
     show UserCoursesWidget;
 export '/project/settings/settings_widget.dart' show SettingsWidget;
-export '/project/user_area/settings_edit_profile/settings_edit_profile_widget.dart'
-    show SettingsEditProfileWidget;
 export '/project/user_area/feed_backs/feed_backs_widget.dart'
     show FeedBacksWidget;
 export '/project/productor_area/verify_certificate/verify_certificate_widget.dart'
@@ -37,3 +33,7 @@ export '/project/new/new_home_page/new_home_page_widget.dart'
     show NewHomePageWidget;
 export '/project/new/new_productor_course/new_productor_course_widget.dart'
     show NewProductorCourseWidget;
+export '/project/new/new_user_profile/new_user_profile_widget.dart'
+    show NewUserProfileWidget;
+export '/project/new/new_create_course/new_create_course_widget.dart'
+    show NewCreateCourseWidget;

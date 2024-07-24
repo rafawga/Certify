@@ -684,7 +684,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                          'CreateNewCurse');
+                                                          'NewCreateCourse');
                                                     },
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -793,7 +793,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                          'CreateNewCurse');
+                                                          'NewCreateCourse');
                                                     },
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -1056,7 +1056,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         context.pushNamed(
-                                                            'CreateNewCurse');
+                                                            'NewCreateCourse');
                                                       },
                                                       child: Container(
                                                         width: 210.0,

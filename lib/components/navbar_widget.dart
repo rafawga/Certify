@@ -149,7 +149,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('SettingsEditProfile');
+                                  context.pushNamed('NewUserProfile');
                                 },
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -287,7 +287,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('CreateNewCurse');
+                                        context.pushNamed('NewCreateCourse');
                                       },
                                       child: AnimatedContainer(
                                         duration: const Duration(milliseconds: 200),
@@ -702,7 +702,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('SettingsEditProfile');
+                                  context.pushNamed('NewUserProfile');
                                 },
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -929,7 +929,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('CreateNewCurse');
+                                          context.pushNamed('NewCreateCourse');
                                         },
                                         child: AnimatedContainer(
                                           duration: const Duration(milliseconds: 200),

@@ -112,12 +112,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ProductorCoursesWidget(),
         ),
         FFRoute(
-          name: 'CreateNewCurse',
-          path: '/createNewCurse',
-          requireAuth: true,
-          builder: (context, params) => const CreateNewCurseWidget(),
-        ),
-        FFRoute(
           name: 'CourseInvitation',
           path: '/courseInvitation',
           requireAuth: true,
@@ -141,12 +135,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/settings',
           requireAuth: true,
           builder: (context, params) => const SettingsWidget(),
-        ),
-        FFRoute(
-          name: 'SettingsEditProfile',
-          path: '/settingsEditProfile',
-          requireAuth: true,
-          builder: (context, params) => const SettingsEditProfileWidget(),
         ),
         FFRoute(
           name: 'FeedBacks',
@@ -235,12 +223,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'newHomePage',
           path: '/newHomePage',
+          requireAuth: true,
           builder: (context, params) => const NewHomePageWidget(),
         ),
         FFRoute(
           name: 'newProductorCourse',
           path: '/newProductorCourse',
+          requireAuth: true,
           builder: (context, params) => const NewProductorCourseWidget(),
+        ),
+        FFRoute(
+          name: 'NewUserProfile',
+          path: '/newUserProfile',
+          builder: (context, params) => const NewUserProfileWidget(),
+        ),
+        FFRoute(
+          name: 'NewCreateCourse',
+          path: '/newCreateCourse',
+          builder: (context, params) => const NewCreateCourseWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

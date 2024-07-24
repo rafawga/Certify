@@ -1,18 +1,21 @@
-import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'settings_edit_profile_widget.dart' show SettingsEditProfileWidget;
+import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
+import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
+import 'new_user_profile_widget.dart' show NewUserProfileWidget;
 import 'package:flutter/material.dart';
 
-class SettingsEditProfileModel
-    extends FlutterFlowModel<SettingsEditProfileWidget> {
+class NewUserProfileModel extends FlutterFlowModel<NewUserProfileWidget> {
   ///  Local state fields for this page.
 
   bool photoChanged = false;
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for Navbar component.
-  late NavbarModel navbarModel;
+  final unfocusNode = FocusNode();
+  // Model for SidebarExpandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel1;
+  // Model for SidebarReduzido component.
+  late SidebarReduzidoModel sidebarReduzidoModel;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -30,15 +33,23 @@ class SettingsEditProfileModel
   FocusNode? yourNameFocusNode3;
   TextEditingController? yourNameTextController3;
   String? Function(BuildContext, String?)? yourNameTextController3Validator;
+  // Model for SidebarExpandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel2;
 
   @override
   void initState(BuildContext context) {
-    navbarModel = createModel(context, () => NavbarModel());
+    sidebarExpandidoModel1 =
+        createModel(context, () => SidebarExpandidoModel());
+    sidebarReduzidoModel = createModel(context, () => SidebarReduzidoModel());
+    sidebarExpandidoModel2 =
+        createModel(context, () => SidebarExpandidoModel());
   }
 
   @override
   void dispose() {
-    navbarModel.dispose();
+    unfocusNode.dispose();
+    sidebarExpandidoModel1.dispose();
+    sidebarReduzidoModel.dispose();
     yourNameFocusNode1?.dispose();
     yourNameTextController1?.dispose();
 
@@ -47,5 +58,7 @@ class SettingsEditProfileModel
 
     yourNameFocusNode3?.dispose();
     yourNameTextController3?.dispose();
+
+    sidebarExpandidoModel2.dispose();
   }
 }

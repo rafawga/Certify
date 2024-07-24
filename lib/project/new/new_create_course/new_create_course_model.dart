@@ -1,18 +1,17 @@
-import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_new_curse_widget.dart' show CreateNewCurseWidget;
+import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
+import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
+import 'new_create_course_widget.dart' show NewCreateCourseWidget;
 import 'package:flutter/material.dart';
 
-class CreateNewCurseModel extends FlutterFlowModel<CreateNewCurseWidget> {
-  ///  Local state fields for this page.
-
-  bool photoChanged = false;
-
+class NewCreateCourseModel extends FlutterFlowModel<NewCreateCourseWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for Navbar component.
-  late NavbarModel navbarModel;
+  // Model for SidebarExpandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel1;
+  // Model for SidebarReduzido component.
+  late SidebarReduzidoModel sidebarReduzidoModel;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -40,15 +39,23 @@ class CreateNewCurseModel extends FlutterFlowModel<CreateNewCurseWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
+  // Model for SidebarExpandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel2;
+
   @override
   void initState(BuildContext context) {
-    navbarModel = createModel(context, () => NavbarModel());
+    sidebarExpandidoModel1 =
+        createModel(context, () => SidebarExpandidoModel());
+    sidebarReduzidoModel = createModel(context, () => SidebarReduzidoModel());
+    sidebarExpandidoModel2 =
+        createModel(context, () => SidebarExpandidoModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    navbarModel.dispose();
+    sidebarExpandidoModel1.dispose();
+    sidebarReduzidoModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
@@ -63,5 +70,7 @@ class CreateNewCurseModel extends FlutterFlowModel<CreateNewCurseWidget> {
 
     limiteUsersFocusNode?.dispose();
     limiteUsersTextController?.dispose();
+
+    sidebarExpandidoModel2.dispose();
   }
 }
