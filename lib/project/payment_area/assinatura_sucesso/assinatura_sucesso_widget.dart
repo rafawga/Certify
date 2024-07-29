@@ -121,7 +121,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
                                   0.0, 100.0, 0.0, 200.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('HomePage');
+                                  context.pushNamed('newHomePage');
                                 },
                                 text: 'Voltar ao início',
                                 options: FFButtonOptions(

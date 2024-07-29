@@ -69,12 +69,20 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 12.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Image.asset(
+                      Theme.of(context).brightness == Brightness.dark
+                          ? 'assets/images/white-logo.png'
+                          : 'assets/images/black-logo.png',
+                      width: 190.0,
+                      height: 100.0,
+                      fit: BoxFit.contain,
+                    ),
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -104,26 +112,6 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                       ),
                     ),
                   ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                child: Container(
-                  decoration: const BoxDecoration(),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? 'assets/images/white-logo.png'
-                            : 'assets/images/black-logo.png',
-                        width: 160.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
                 ),
               ),
               Padding(

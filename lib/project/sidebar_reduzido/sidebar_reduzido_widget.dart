@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -40,12 +41,20 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(60.0, 0.0),
+            begin: const Offset(90.0, 0.0),
             end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.4,
+            end: 1.0,
           ),
         ],
       ),
@@ -88,7 +97,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -144,7 +153,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -651,16 +660,18 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                width: 55.0,
-                                height: 55.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  '',
-                                  fit: BoxFit.cover,
+                              AuthUserStreamWidget(
+                                builder: (context) => Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    currentUserPhoto,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ],

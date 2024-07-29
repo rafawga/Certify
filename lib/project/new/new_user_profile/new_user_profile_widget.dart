@@ -261,7 +261,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                               'iconOnPageLoadAnimation']!),
                                                     ),
                                                     Text(
-                                                      'Meus cursos',
+                                                      'Editar Perfil',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -358,7 +358,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Cursos',
+                                                'Editar Perfil',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
@@ -375,7 +375,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Veja os cursos criados e acesse a página de detalhes!',
+                                                'Edite as informações do seu usuário.',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyLarge
@@ -1406,7 +1406,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                             );
 
                                                             context.pushNamed(
-                                                                'HomePage');
+                                                                'newHomePage');
                                                           },
                                                           text: 'Save Changes',
                                                           options:

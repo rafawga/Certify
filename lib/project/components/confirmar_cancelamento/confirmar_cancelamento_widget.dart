@@ -158,7 +158,7 @@ class _ConfirmarCancelamentoWidgetState
 
                                     Navigator.pop(context);
 
-                                    context.pushNamed('HomePage');
+                                    context.pushNamed('newHomePage');
 
                                     setState(() {});
                                   },

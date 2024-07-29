@@ -420,7 +420,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                                                   );
 
                                                   context.pushNamed(
-                                                      'ProductorCourses');
+                                                      'newProductorCourse');
                                                 },
                                                 text: 'Enviar sugestão',
                                                 options: FFButtonOptions(

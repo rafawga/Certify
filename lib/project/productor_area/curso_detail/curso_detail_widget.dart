@@ -1117,12 +1117,12 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                       );
                                                                                                     }
                                                                                                     List<AlunosCursoRecord> textAlunosCursoRecordList = snapshot.data!;
-
                                                                                                     // Return an empty Container when the item does not exist.
                                                                                                     if (snapshot.data!.isEmpty) {
                                                                                                       return Container();
                                                                                                     }
                                                                                                     final textAlunosCursoRecord = textAlunosCursoRecordList.isNotEmpty ? textAlunosCursoRecordList.first : null;
+
                                                                                                     return Text(
                                                                                                       dateTimeFormat(
                                                                                                         'yMMMd',

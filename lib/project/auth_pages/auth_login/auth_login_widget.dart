@@ -355,7 +355,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget> {
                                                     false) ==
                                                 true) {
                                               context.pushNamedAuth(
-                                                  'ProductorCourses',
+                                                  'newProductorCourse',
                                                   context.mounted);
                                             } else {
                                               context.pushNamedAuth(
@@ -422,7 +422,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget> {
                                             );
                                           } else {
                                             context.pushNamedAuth(
-                                                'HomePage', context.mounted);
+                                                'newHomePage', context.mounted);
                                           }
                                         },
                                         text: 'Entrar com o Google ',

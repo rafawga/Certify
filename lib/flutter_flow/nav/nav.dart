@@ -106,12 +106,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ProductorCourses',
-          path: '/productorCourses',
-          requireAuth: true,
-          builder: (context, params) => const ProductorCoursesWidget(),
-        ),
-        FFRoute(
           name: 'CourseInvitation',
           path: '/courseInvitation',
           requireAuth: true,
@@ -158,12 +152,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AssinaturaSucesso',
           path: '/assinaturaSucesso',
           builder: (context, params) => const AssinaturaSucessoWidget(),
-        ),
-        FFRoute(
-          name: 'HomePage',
-          path: '/home',
-          requireAuth: true,
-          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'Dashboard',

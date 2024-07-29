@@ -266,7 +266,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                               'iconOnPageLoadAnimation']!),
                                                     ),
                                                     Text(
-                                                      'Meus cursos',
+                                                      'Criar novo curso',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -363,7 +363,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Cursos',
+                                                'Criar novo curso',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
@@ -380,7 +380,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Veja os cursos criados e acesse a página de detalhes!',
+                                                'Crie um novo curso e gere certificados para seus alunos.',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyLarge
@@ -1338,7 +1338,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                           });
 
                                                           context.pushNamed(
-                                                              'ProductorCourses');
+                                                              'newProductorCourse');
                                                         },
                                                         text: 'Cadastre',
                                                         options:

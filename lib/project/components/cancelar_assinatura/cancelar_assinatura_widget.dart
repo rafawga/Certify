@@ -72,7 +72,6 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
             }
             List<AssinaturasRecord> photoUploadAssinaturasRecordList =
                 snapshot.data!;
-
             // Return an empty Container when the item does not exist.
             if (snapshot.data!.isEmpty) {
               return Container();
@@ -81,6 +80,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                 photoUploadAssinaturasRecordList.isNotEmpty
                     ? photoUploadAssinaturasRecordList.first
                     : null;
+
             return Container(
               width: MediaQuery.sizeOf(context).width * 0.85,
               height: 350.0,

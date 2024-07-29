@@ -115,7 +115,6 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                     }
                     List<AlunosCursoRecord> columnAlunosCursoRecordList =
                         snapshot.data!;
-
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -124,6 +123,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                         columnAlunosCursoRecordList.isNotEmpty
                             ? columnAlunosCursoRecordList.first
                             : null;
+
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [

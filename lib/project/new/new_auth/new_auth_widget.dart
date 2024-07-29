@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -230,21 +231,16 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                     child: Column(
                                       children: [
                                         Align(
-                                          alignment: const Alignment(-1.0, 0),
-                                          child: TabBar(
+                                          alignment: const Alignment(0.0, 0),
+                                          child: FlutterFlowButtonTabBar(
+                                            useToggleButtonStyle: true,
                                             isScrollable: true,
-                                            labelColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            unselectedLabelColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                            labelPadding: const EdgeInsets.all(16.0),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
                                                       fontFamily: 'Roboto',
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                     ),
                                             unselectedLabelStyle:
@@ -252,14 +248,26 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                     .displaySmall
                                                     .override(
                                                       fontFamily: 'Roboto',
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
-                                            indicatorColor:
+                                            labelColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                            unselectedLabelColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            backgroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .primary,
-                                            indicatorWeight: 4.0,
+                                            borderWidth: 2.0,
+                                            borderRadius: 12.0,
+                                            elevation: 1.0,
+                                            labelPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    32.0, 0.0, 32.0, 0.0),
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 16.0, 12.0),
@@ -631,7 +639,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                     context
                                                                         .mounted);
                                                               },
-                                                              text: 'Sign In',
+                                                              text: 'Entrar',
                                                               options:
                                                                   FFButtonOptions(
                                                                 width: 230.0,
