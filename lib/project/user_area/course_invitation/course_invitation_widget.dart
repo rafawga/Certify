@@ -470,7 +470,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                           });
 
                                                                           context
-                                                                              .pushNamed('UserCourses');
+                                                                              .pushNamed('newUserCourses');
 
                                                                           ScaffoldMessenger.of(context)
                                                                               .showSnackBar(
@@ -519,7 +519,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                         }
 
                                                                         context.pushNamed(
-                                                                            'UserCourses');
+                                                                            'newUserCourses');
                                                                       }
 
                                                                       setState(

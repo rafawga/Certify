@@ -359,7 +359,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget> {
                                                   context.mounted);
                                             } else {
                                               context.pushNamedAuth(
-                                                  'UserCourses',
+                                                  'newUserCourses',
                                                   context.mounted);
                                             }
                                           }

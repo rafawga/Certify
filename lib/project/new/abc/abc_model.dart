@@ -1,9 +1,9 @@
 import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'user_courses_widget.dart' show UserCoursesWidget;
+import 'abc_widget.dart' show AbcWidget;
 import 'package:flutter/material.dart';
 
-class UserCoursesModel extends FlutterFlowModel<UserCoursesWidget> {
+class AbcModel extends FlutterFlowModel<AbcWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

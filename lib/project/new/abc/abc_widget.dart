@@ -9,19 +9,18 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'user_courses_model.dart';
-export 'user_courses_model.dart';
+import 'abc_model.dart';
+export 'abc_model.dart';
 
-class UserCoursesWidget extends StatefulWidget {
-  const UserCoursesWidget({super.key});
+class AbcWidget extends StatefulWidget {
+  const AbcWidget({super.key});
 
   @override
-  State<UserCoursesWidget> createState() => _UserCoursesWidgetState();
+  State<AbcWidget> createState() => _AbcWidgetState();
 }
 
-class _UserCoursesWidgetState extends State<UserCoursesWidget>
-    with TickerProviderStateMixin {
-  late UserCoursesModel _model;
+class _AbcWidgetState extends State<AbcWidget> with TickerProviderStateMixin {
+  late AbcModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -30,7 +29,7 @@ class _UserCoursesWidgetState extends State<UserCoursesWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => UserCoursesModel());
+    _model = createModel(context, () => AbcModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -73,7 +72,7 @@ class _UserCoursesWidgetState extends State<UserCoursesWidget>
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'UserCourses',
+        title: 'abc',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus

@@ -119,12 +119,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'UserCourses',
-          path: '/userCourses',
-          requireAuth: true,
-          builder: (context, params) => const UserCoursesWidget(),
-        ),
-        FFRoute(
           name: 'Settings',
           path: '/settings',
           requireAuth: true,
@@ -229,6 +223,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'NewCreateCourse',
           path: '/newCreateCourse',
           builder: (context, params) => const NewCreateCourseWidget(),
+        ),
+        FFRoute(
+          name: 'newUserCourses',
+          path: '/newUserCourses',
+          requireAuth: true,
+          builder: (context, params) => const NewUserCoursesWidget(),
+        ),
+        FFRoute(
+          name: 'newUserCoursesCopy',
+          path: '/newUserCoursesCopy',
+          requireAuth: true,
+          builder: (context, params) => const NewUserCoursesCopyWidget(),
+        ),
+        FFRoute(
+          name: 'abc',
+          path: '/abc',
+          builder: (context, params) => const AbcWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

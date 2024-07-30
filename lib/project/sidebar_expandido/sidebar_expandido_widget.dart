@@ -370,7 +370,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('UserCourses');
+                    context.pushNamed('newUserCourses');
                   },
                   child: Container(
                     width: double.infinity,
@@ -429,7 +429,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
-                      color: widget.currentTab == 4
+                      color: widget.currentTab == 5
                           ? FlutterFlowTheme.of(context).accent2
                           : FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),

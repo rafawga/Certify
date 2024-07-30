@@ -850,7 +850,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                  'UserCourses');
+                                                                  'newUserCourses');
                                                             },
                                                             child: Container(
                                                               width: MediaQuery
@@ -2006,7 +2006,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                                                                   onTap:
                                                                       () async {
                                                                     context.pushNamed(
-                                                                        'UserCourses');
+                                                                        'newUserCourses');
                                                                   },
                                                                   child:
                                                                       Container(

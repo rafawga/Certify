@@ -455,7 +455,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('UserCourses');
+                              context.pushNamed('newUserCourses');
                             },
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 200),
@@ -1090,7 +1090,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('UserCourses');
+                                      context.pushNamed('newUserCourses');
                                     },
                                     child: AnimatedContainer(
                                       duration: const Duration(milliseconds: 200),
