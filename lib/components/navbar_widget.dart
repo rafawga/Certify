@@ -663,7 +663,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 0.0,
                                 ),
                           ),

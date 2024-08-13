@@ -13,7 +13,6 @@ class GetProPlanModel extends FlutterFlowModel<GetProPlanWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Stores action output result for [Backend Call - API (Criar Sessao Checkout)] action in Button widget.
@@ -26,7 +25,6 @@ class GetProPlanModel extends FlutterFlowModel<GetProPlanWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     navbarModel.dispose();
   }
 }

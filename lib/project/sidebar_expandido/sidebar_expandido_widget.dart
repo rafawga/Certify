@@ -580,13 +580,15 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('GetProPlan');
+                    context.pushNamed('NewPlans');
                   },
                   child: Container(
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: widget.currentTab == 10
+                          ? FlutterFlowTheme.of(context).accent2
+                          : FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Padding(

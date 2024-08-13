@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class NewHomePageModel extends FlutterFlowModel<NewHomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.
@@ -26,7 +25,6 @@ class NewHomePageModel extends FlutterFlowModel<NewHomePageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     sidebarExpandidoModel1.dispose();
     sidebarReduzidoModel.dispose();
     sidebarExpandidoModel2.dispose();

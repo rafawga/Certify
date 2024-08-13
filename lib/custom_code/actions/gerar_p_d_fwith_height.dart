@@ -12,7 +12,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-Future<void> gerarPDFCopy2(
+Future<void> gerarPDFwithHeight(
   double? width,
   double? height,
   String? imagePath,

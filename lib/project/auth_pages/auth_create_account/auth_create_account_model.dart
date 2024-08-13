@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class AuthCreateAccountModel extends FlutterFlowModel<AuthCreateAccountWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -38,7 +37,6 @@ class AuthCreateAccountModel extends FlutterFlowModel<AuthCreateAccountWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 

@@ -151,9 +151,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
             title: 'CursoDetail',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -427,7 +425,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .headlineLarge
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
@@ -534,7 +532,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             Text(
                                                                               cursoDetailCursosRecord.name,
                                                                               style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                    fontFamily: 'Roboto',
+                                                                                    fontFamily: 'Poppins',
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -589,7 +587,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         .headlineSmall
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Roboto',
+                                                                              'Poppins',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -698,7 +696,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                       child: Text(
                                                                                         'Convidar membros',
                                                                                         style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                              fontFamily: 'Roboto',
+                                                                                              fontFamily: 'Poppins',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 24.0,
                                                                                               letterSpacing: 0.0,
@@ -798,7 +796,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                       child: Text(
                                                                                         'Visualizar Certificado',
                                                                                         style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                              fontFamily: 'Roboto',
+                                                                                              fontFamily: 'Poppins',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 24.0,
                                                                                               letterSpacing: 0.0,
@@ -848,7 +846,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                           .headlineSmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1125,7 +1123,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
 
                                                                                                     return Text(
                                                                                                       dateTimeFormat(
-                                                                                                        'yMMMd',
+                                                                                                        "yMMMd",
                                                                                                         textAlunosCursoRecord!.dataInscricao!,
                                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                                       ),
@@ -1167,7 +1165,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                               backgroundColor: Colors.transparent,
                                                                                                               alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                                               child: GestureDetector(
-                                                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                                                 child: UserPopUpWidget(
                                                                                                                   userRef: containerUsersRecord.reference,
                                                                                                                   courseRef: widget.curso!,
@@ -1176,7 +1174,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                                               ),
                                                                                                             );
                                                                                                           },
-                                                                                                        ).then((value) => setState(() {}));
+                                                                                                        );
                                                                                                       },
                                                                                                     ),
                                                                                                   ),
@@ -1394,7 +1392,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     .headlineLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -2459,7 +2457,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     .headlineLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -2507,7 +2505,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                     .headlineMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2804,7 +2802,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                   .headlineMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -3045,7 +3043,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                 .headlineMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Roboto',
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),

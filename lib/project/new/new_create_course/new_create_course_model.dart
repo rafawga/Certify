@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class NewCreateCourseModel extends FlutterFlowModel<NewCreateCourseWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.
@@ -53,7 +52,6 @@ class NewCreateCourseModel extends FlutterFlowModel<NewCreateCourseWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     sidebarExpandidoModel1.dispose();
     sidebarReduzidoModel.dispose();
     nameFocusNode?.dispose();

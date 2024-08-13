@@ -136,9 +136,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
         title: 'NewCreateCourse',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -368,7 +366,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,

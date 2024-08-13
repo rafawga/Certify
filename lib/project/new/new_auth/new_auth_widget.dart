@@ -129,9 +129,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
         title: 'Autenticação - Certify',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -239,7 +237,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Roboto',
+                                                      fontFamily: 'Poppins',
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                     ),
@@ -247,7 +245,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Roboto',
+                                                      fontFamily: 'Poppins',
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -273,7 +271,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                     0.0, 12.0, 16.0, 12.0),
                                             tabs: const [
                                               Tab(
-                                                text: 'Login',
+                                                text: ' Login  ',
                                               ),
                                               Tab(
                                                 text: 'Cadastro',
@@ -843,6 +841,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                               name: functions.getWordAtIndex(currentUserDisplayName, '0'),
                                                                               lastName: functions.getWordAtIndex(currentUserDisplayName, '1'),
                                                                               completedRegistration: true,
+                                                                              isProdutor: false,
                                                                             ));
                                                                           }
 

@@ -161,7 +161,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                           context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -230,7 +230,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
                                             'Entrou em ${dateTimeFormat(
-                                              'yMd',
+                                              "yMd",
                                               columnAlunosCursoRecord
                                                   ?.dataInscricao,
                                               locale:

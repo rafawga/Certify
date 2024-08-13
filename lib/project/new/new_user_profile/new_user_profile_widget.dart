@@ -131,9 +131,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
         title: 'NewUserProfile',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -363,7 +361,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1098,14 +1096,12 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                                 const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 GestureDetector(
-                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                               child: const CancelarAssinaturaWidget(),
                                                                             ),
                                                                           );
                                                                         },
-                                                                      ).then((value) =>
-                                                                          setState(
-                                                                              () {}));
+                                                                      );
                                                                     },
                                                                     child:
                                                                         Container(

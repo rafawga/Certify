@@ -149,9 +149,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
             title: 'save',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -425,7 +423,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                           .headlineLarge
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
@@ -532,7 +530,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                             Text(
                                                                               saveCursosRecord.name,
                                                                               style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                    fontFamily: 'Roboto',
+                                                                                    fontFamily: 'Poppins',
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -587,7 +585,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                         .headlineSmall
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Roboto',
+                                                                              'Poppins',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -696,7 +694,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                                       child: Text(
                                                                                         'Convidar membros',
                                                                                         style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                              fontFamily: 'Roboto',
+                                                                                              fontFamily: 'Poppins',
                                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                                               fontSize: 24.0,
                                                                                               letterSpacing: 0.0,
@@ -777,7 +775,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                                     child: Text(
                                                                                       'Visualizar Certificado',
                                                                                       style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                            fontFamily: 'Roboto',
+                                                                                            fontFamily: 'Poppins',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
                                                                                             fontSize: 24.0,
                                                                                             letterSpacing: 0.0,
@@ -826,7 +824,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                           .headlineSmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1103,7 +1101,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
 
                                                                                                     return Text(
                                                                                                       dateTimeFormat(
-                                                                                                        'yMMMd',
+                                                                                                        "yMMMd",
                                                                                                         textAlunosCursoRecord!.dataInscricao!,
                                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                                       ),
@@ -1145,7 +1143,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                                                               backgroundColor: Colors.transparent,
                                                                                                               alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                                               child: GestureDetector(
-                                                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                                                 child: UserPopUpWidget(
                                                                                                                   userRef: containerUsersRecord.reference,
                                                                                                                   courseRef: widget.curso!,
@@ -1154,7 +1152,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                                                               ),
                                                                                                             );
                                                                                                           },
-                                                                                                        ).then((value) => setState(() {}));
+                                                                                                        );
                                                                                                       },
                                                                                                     ),
                                                                                                   ),
@@ -1372,7 +1370,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                     .headlineLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -2446,7 +2444,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                         .headlineLarge
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Roboto',
+                                                                              'Poppins',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -2490,7 +2488,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                         .headlineMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Roboto',
+                                                                              'Poppins',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -2769,7 +2767,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                       .headlineMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Roboto',
+                                                                            'Poppins',
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -2979,7 +2977,7 @@ class _SaveWidgetState extends State<SaveWidget> with TickerProviderStateMixin {
                                                                 .headlineMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Roboto',
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),

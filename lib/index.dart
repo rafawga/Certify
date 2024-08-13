@@ -1,8 +1,7 @@
 // Export pages
 export '/project/auth_pages/auth_create_account/auth_create_account_widget.dart'
     show AuthCreateAccountWidget;
-export '/project/auth_pages/auth_login/auth_login_widget.dart'
-    show AuthLoginWidget;
+export '/project/auth_login/auth_login_widget.dart' show AuthLoginWidget;
 export '/project/user_area/course_invitation/course_invitation_widget.dart'
     show CourseInvitationWidget;
 export '/project/settings/settings_widget.dart' show SettingsWidget;
@@ -37,3 +36,8 @@ export '/project/new/new_user_courses/new_user_courses_widget.dart'
 export '/project/new/new_user_courses_copy/new_user_courses_copy_widget.dart'
     show NewUserCoursesCopyWidget;
 export '/project/new/abc/abc_widget.dart' show AbcWidget;
+export '/project/new/new_plans/new_plans_widget.dart' show NewPlansWidget;
+export '/project/new/new_plans_copy/new_plans_copy_widget.dart'
+    show NewPlansCopyWidget;
+export '/project/new/new_plans_copy2/new_plans_copy2_widget.dart'
+    show NewPlansCopy2Widget;

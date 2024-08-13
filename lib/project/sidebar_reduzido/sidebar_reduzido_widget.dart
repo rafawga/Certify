@@ -510,7 +510,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'newHomePage',
+                      'NewPlans',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
@@ -524,7 +524,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
-                      color: widget.currentTab == 8
+                      color: widget.currentTab == 10
                           ? FlutterFlowTheme.of(context).accent2
                           : FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),

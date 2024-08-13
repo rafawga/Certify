@@ -240,6 +240,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'abc',
           path: '/abc',
           builder: (context, params) => const AbcWidget(),
+        ),
+        FFRoute(
+          name: 'NewPlans',
+          path: '/newPlans',
+          builder: (context, params) => const NewPlansWidget(),
+        ),
+        FFRoute(
+          name: 'NewPlansCopy',
+          path: '/CreateNewPlan',
+          builder: (context, params) => const NewPlansCopyWidget(),
+        ),
+        FFRoute(
+          name: 'NewPlansCopy2',
+          path: '/newPlansCopy2',
+          builder: (context, params) => const NewPlansCopy2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

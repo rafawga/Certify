@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class AuthLoginModel extends FlutterFlowModel<AuthLoginWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
@@ -23,7 +22,6 @@ class AuthLoginModel extends FlutterFlowModel<AuthLoginWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
 

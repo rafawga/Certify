@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class AbcModel extends FlutterFlowModel<AbcWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
 
@@ -17,7 +16,6 @@ class AbcModel extends FlutterFlowModel<AbcWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     navbarModel.dispose();
   }
 }

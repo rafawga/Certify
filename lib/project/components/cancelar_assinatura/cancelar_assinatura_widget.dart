@@ -130,7 +130,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -176,7 +176,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         dateTimeFormat(
-                                          'd/M/y',
+                                          "d/M/y",
                                           photoUploadAssinaturasRecord?.data,
                                           locale: FFLocalizations.of(context)
                                               .languageCode,
@@ -263,7 +263,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
                                                     const ConfirmarCancelamentoWidget(),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          );
                                         },
                                         text: 'Cancelar assinatura',
                                         options: FFButtonOptions(

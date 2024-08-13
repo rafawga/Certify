@@ -11,7 +11,6 @@ class NewUserProfileModel extends FlutterFlowModel<NewUserProfileWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.
@@ -47,7 +46,6 @@ class NewUserProfileModel extends FlutterFlowModel<NewUserProfileWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     sidebarExpandidoModel1.dispose();
     sidebarReduzidoModel.dispose();
     yourNameFocusNode1?.dispose();

@@ -55,11 +55,6 @@ class UsersRecord extends FirestoreRecord {
   String get certificateName => _certificateName ?? '';
   bool hasCertificateName() => _certificateName != null;
 
-  // "HasChangeNameToken" field.
-  bool? _hasChangeNameToken;
-  bool get hasChangeNameToken => _hasChangeNameToken ?? false;
-  bool hasHasChangeNameToken() => _hasChangeNameToken != null;
-
   // "name" field.
   String? _name;
   String get name => _name ?? '';
@@ -94,7 +89,6 @@ class UsersRecord extends FirestoreRecord {
     _lastName = snapshotData['last_name'] as String?;
     _isProdutor = snapshotData['isProdutor'] as bool?;
     _certificateName = snapshotData['CertificateName'] as String?;
-    _hasChangeNameToken = snapshotData['HasChangeNameToken'] as bool?;
     _name = snapshotData['name'] as String?;
     _coursesQnt = castToType<int>(snapshotData['CoursesQnt']);
     _alunosQnt = castToType<int>(snapshotData['AlunosQnt']);
@@ -144,7 +138,6 @@ Map<String, dynamic> createUsersRecordData({
   String? lastName,
   bool? isProdutor,
   String? certificateName,
-  bool? hasChangeNameToken,
   String? name,
   int? coursesQnt,
   int? alunosQnt,
@@ -161,7 +154,6 @@ Map<String, dynamic> createUsersRecordData({
       'last_name': lastName,
       'isProdutor': isProdutor,
       'CertificateName': certificateName,
-      'HasChangeNameToken': hasChangeNameToken,
       'name': name,
       'CoursesQnt': coursesQnt,
       'AlunosQnt': alunosQnt,
@@ -186,7 +178,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.lastName == e2?.lastName &&
         e1?.isProdutor == e2?.isProdutor &&
         e1?.certificateName == e2?.certificateName &&
-        e1?.hasChangeNameToken == e2?.hasChangeNameToken &&
         e1?.name == e2?.name &&
         e1?.coursesQnt == e2?.coursesQnt &&
         e1?.alunosQnt == e2?.alunosQnt &&
@@ -204,7 +195,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.lastName,
         e?.isProdutor,
         e?.certificateName,
-        e?.hasChangeNameToken,
         e?.name,
         e?.coursesQnt,
         e?.alunosQnt,

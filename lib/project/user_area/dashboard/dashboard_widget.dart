@@ -291,9 +291,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
             title: 'Dashboard',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -462,7 +460,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .headlineLarge
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -627,7 +625,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               .displayMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Roboto',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -729,7 +727,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               .displayMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Roboto',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -827,7 +825,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               .displayMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Roboto',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -879,7 +877,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .headlineLarge
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -954,7 +952,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                               .headlineLarge
                                                               .override(
                                                                 fontFamily:
-                                                                    'Roboto',
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1111,7 +1109,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displayMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               letterSpacing: 0.0,
                                                                             ),
@@ -1233,7 +1231,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displayMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               letterSpacing: 0.0,
                                                                             ),
@@ -1354,7 +1352,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displayMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               letterSpacing: 0.0,
                                                                             ),
@@ -1432,7 +1430,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                     .titleLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1532,7 +1530,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                     .titleLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2040,11 +2038,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   '${dateTimeFormat(
-                                                                                    'd/M/y',
+                                                                                    "d/M/y",
                                                                                     listViewAlunosCursoRecord.dataInscricao,
                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                   )} às ${dateTimeFormat(
-                                                                                    'Hm',
+                                                                                    "Hm",
                                                                                     listViewAlunosCursoRecord.dataInscricao,
                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                   )}',

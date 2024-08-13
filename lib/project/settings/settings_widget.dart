@@ -115,7 +115,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .info,
@@ -316,7 +316,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        await actions.gerarPDFCopy2(
+                                        await actions.gerarPDFwithHeight(
                                           501.0,
                                           260.0,
                                           'https://firebasestorage.googleapis.com/v0/b/easy-certificates-y874s2.appspot.com/o/users%2FZ3l7xXYs6eT7UqsGOOI5TaZMJxG2%2Fuploads%2F1712012492551000.png?alt=media&token=ca6955a5-af64-4ab8-bb63-7b4ff7727012',

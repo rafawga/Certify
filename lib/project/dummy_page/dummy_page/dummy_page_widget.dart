@@ -37,9 +37,7 @@ class _DummyPageWidgetState extends State<DummyPageWidget> {
         title: 'dummyPage',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -49,7 +47,7 @@ class _DummyPageWidgetState extends State<DummyPageWidget> {
               title: Text(
                 'Page Title',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,

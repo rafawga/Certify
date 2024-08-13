@@ -119,9 +119,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
         title: 'Meus Cursos',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -376,7 +374,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
                                                               .headlineLarge
                                                               .override(
                                                                 fontFamily:
-                                                                    'Roboto',
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
