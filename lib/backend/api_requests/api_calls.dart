@@ -1,5 +1,4 @@
 import 'dart:convert';
-import '../cloud_functions/cloud_functions.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -17,19 +16,30 @@ class CriarSessaoCheckoutCall {
     String? customerEmail = 'rafawga@gmail.com',
     String? mode = 'subscription',
   }) async {
-    final response = await makeCloudCall(
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'CriarSessaoCheckoutCall',
-        'variables': {
-          'successUrl': successUrl,
-          'priceAPIID': priceAPIID,
-          'customerEmail': customerEmail,
-          'mode': mode,
-        },
+    return ApiManager.instance.makeApiCall(
+      callName: 'Criar Sessao Checkout',
+      apiUrl: 'https://api.stripe.com/v1/checkout/sessions',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer sk_test_51PanpqBHJiDMTi8zyDlwWh6CdQYx9b08SsCFZZKOhwDoHPrbwBJk3yt72e0rDiUf81w55eZ5xE19ntUTVykFf9L8009zGUlA0D',
       },
+      params: {
+        'success_url': successUrl,
+        'line_items[0][price]': priceAPIID,
+        'line_items[0][quantity]': 1,
+        'mode': mode,
+        'customer_email': customerEmail,
+        'allow_promotion_codes': true,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
-    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   static String? id(dynamic response) => castToType<String>(getJsonField(

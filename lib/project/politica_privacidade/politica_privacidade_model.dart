@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'new_plans_copy_widget.dart' show NewPlansCopyWidget;
+import 'politica_privacidade_widget.dart' show PoliticaPrivacidadeWidget;
 import 'package:flutter/material.dart';
 
-class NewPlansCopyModel extends FlutterFlowModel<NewPlansCopyWidget> {
+class PoliticaPrivacidadeModel
+    extends FlutterFlowModel<PoliticaPrivacidadeWidget> {
   @override
   void initState(BuildContext context) {}
 

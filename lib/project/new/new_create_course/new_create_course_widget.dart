@@ -475,9 +475,10 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFF4B39EF),
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -587,9 +588,10 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFF4B39EF),
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -701,9 +703,10 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFF4B39EF),
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -813,9 +816,10 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFF4B39EF),
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1015,9 +1019,10 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                                 focusedBorder:
                                                                     OutlineInputBorder(
                                                                   borderSide:
-                                                                      const BorderSide(
-                                                                    color: Color(
-                                                                        0xFF4B39EF),
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                     width: 1.0,
                                                                   ),
                                                                   borderRadius:

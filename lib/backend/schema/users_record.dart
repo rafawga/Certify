@@ -80,6 +80,22 @@ class UsersRecord extends FirestoreRecord {
   bool get completedRegistration => _completedRegistration ?? false;
   bool hasCompletedRegistration() => _completedRegistration != null;
 
+  // "limits" field.
+  LimitsStruct? _limits;
+  LimitsStruct get limits => _limits ?? LimitsStruct();
+  bool hasLimits() => _limits != null;
+
+  // "current_plan" field.
+  UserPlanStruct? _currentPlan;
+  UserPlanStruct get currentPlan => _currentPlan ?? UserPlanStruct();
+  bool hasCurrentPlan() => _currentPlan != null;
+
+  // "acces_management" field.
+  AccessManagementStruct? _accesManagement;
+  AccessManagementStruct get accesManagement =>
+      _accesManagement ?? AccessManagementStruct();
+  bool hasAccesManagement() => _accesManagement != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -94,6 +110,10 @@ class UsersRecord extends FirestoreRecord {
     _alunosQnt = castToType<int>(snapshotData['AlunosQnt']);
     _phoneNumber = snapshotData['phone_number'] as String?;
     _completedRegistration = snapshotData['completedRegistration'] as bool?;
+    _limits = LimitsStruct.maybeFromMap(snapshotData['limits']);
+    _currentPlan = UserPlanStruct.maybeFromMap(snapshotData['current_plan']);
+    _accesManagement =
+        AccessManagementStruct.maybeFromMap(snapshotData['acces_management']);
   }
 
   static CollectionReference get collection =>
@@ -143,6 +163,9 @@ Map<String, dynamic> createUsersRecordData({
   int? alunosQnt,
   String? phoneNumber,
   bool? completedRegistration,
+  LimitsStruct? limits,
+  UserPlanStruct? currentPlan,
+  AccessManagementStruct? accesManagement,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -159,8 +182,21 @@ Map<String, dynamic> createUsersRecordData({
       'AlunosQnt': alunosQnt,
       'phone_number': phoneNumber,
       'completedRegistration': completedRegistration,
+      'limits': LimitsStruct().toMap(),
+      'current_plan': UserPlanStruct().toMap(),
+      'acces_management': AccessManagementStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "limits" field.
+  addLimitsStructData(firestoreData, limits, 'limits');
+
+  // Handle nested data for "current_plan" field.
+  addUserPlanStructData(firestoreData, currentPlan, 'current_plan');
+
+  // Handle nested data for "acces_management" field.
+  addAccessManagementStructData(
+      firestoreData, accesManagement, 'acces_management');
 
   return firestoreData;
 }
@@ -182,7 +218,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.coursesQnt == e2?.coursesQnt &&
         e1?.alunosQnt == e2?.alunosQnt &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.completedRegistration == e2?.completedRegistration;
+        e1?.completedRegistration == e2?.completedRegistration &&
+        e1?.limits == e2?.limits &&
+        e1?.currentPlan == e2?.currentPlan &&
+        e1?.accesManagement == e2?.accesManagement;
   }
 
   @override
@@ -199,7 +238,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.coursesQnt,
         e?.alunosQnt,
         e?.phoneNumber,
-        e?.completedRegistration
+        e?.completedRegistration,
+        e?.limits,
+        e?.currentPlan,
+        e?.accesManagement
       ]);
 
   @override

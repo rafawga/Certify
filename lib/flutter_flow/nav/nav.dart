@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -247,14 +249,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const NewPlansWidget(),
         ),
         FFRoute(
-          name: 'NewPlansCopy',
-          path: '/CreateNewPlan',
-          builder: (context, params) => const NewPlansCopyWidget(),
-        ),
-        FFRoute(
           name: 'NewPlansCopy2',
           path: '/newPlansCopy2',
           builder: (context, params) => const NewPlansCopy2Widget(),
+        ),
+        FFRoute(
+          name: 'PoliticaPrivacidade',
+          path: '/politicaPrivacidade',
+          builder: (context, params) => const PoliticaPrivacidadeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -374,6 +376,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -392,6 +395,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -202,7 +204,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 40.0, 0.0, 0.0),
+                                                  0.0, 12.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -656,8 +658,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultBasicMonthly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultBasicMonthly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultBasicMonthly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -981,8 +1009,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultGrowthMonthly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1PpqawBHJiDMTi8zoQLqjLvD',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultGrowthMonthly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultGrowthMonthly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1105,11 +1159,30 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                             size: 20.0,
                                                                                           ),
                                                                                         ),
-                                                                                        Flexible(
-                                                                                          child: Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              'Gere certificados ILIMITADOS',
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                          child: RichText(
+                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                            text: TextSpan(
+                                                                                              children: [
+                                                                                                TextSpan(
+                                                                                                  text: 'Gere certificados ',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Readex Pro',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.normal,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                TextSpan(
+                                                                                                  text: 'ilimitados',
+                                                                                                  style: TextStyle(
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                    decoration: TextDecoration.underline,
+                                                                                                  ),
+                                                                                                )
+                                                                                              ],
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     letterSpacing: 0.0,
@@ -1306,8 +1379,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultUnlimitedMonthly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1Ppqg4BHJiDMTi8zpvts3fqB',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultUnlimitedMonthly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultUnlimitedMonthly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1631,8 +1730,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultBasicYearly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1PpqY0BHJiDMTi8zjS76N9Xr',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultBasicYearly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultBasicYearly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1956,8 +2081,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultGrowthYearly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultGrowthYearly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultGrowthYearly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -2068,8 +2219,6 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       mainAxisAlignment: MainAxisAlignment.start,
                                                                                       children: [
                                                                                         Container(
-                                                                                          width: 20.0,
-                                                                                          height: 20.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                             borderRadius: BorderRadius.circular(24.0),
@@ -2080,13 +2229,32 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                             size: 20.0,
                                                                                           ),
                                                                                         ),
-                                                                                        Flexible(
-                                                                                          child: Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              'Gere certificados ILIMITADOS',
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                          child: RichText(
+                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                            text: TextSpan(
+                                                                                              children: [
+                                                                                                TextSpan(
+                                                                                                  text: 'Gere certificaados ',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Readex Pro',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.normal,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                TextSpan(
+                                                                                                  text: 'ilimitados',
+                                                                                                  style: TextStyle(
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                    decoration: TextDecoration.underline,
+                                                                                                  ),
+                                                                                                )
+                                                                                              ],
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Poppins',
+                                                                                                    fontFamily: 'Readex Pro',
                                                                                                     letterSpacing: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2281,8 +2449,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                           children: [
                                                                                             Expanded(
                                                                                               child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
+                                                                                                onPressed: () async {
+                                                                                                  _model.apiResultUnlimitedYearly = await CriarSessaoCheckoutCall.call(
+                                                                                                    successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                    priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                    customerEmail: currentUserEmail,
+                                                                                                    mode: 'subscription',
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultUnlimitedYearly?.succeeded ?? true)) {
+                                                                                                    await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                      (_model.apiResultUnlimitedYearly?.jsonBody ?? ''),
+                                                                                                    )!);
+                                                                                                  } else {
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'erro',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+
+                                                                                                  setState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -2800,14 +2994,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Gere até 30 certificados por mês',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -2827,14 +3023,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -2854,14 +3052,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -2881,68 +3081,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3019,8 +3167,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultBasicMonthlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultBasicMonthlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultBasicMonthlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -3099,7 +3273,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Text(
-                                                                                'Starter',
+                                                                                'Growth',
                                                                                 style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 44.0,
@@ -3120,7 +3294,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Text(
-                                                                                  'Para quem está começando',
+                                                                                  'Para quem quer crescer',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 16.0,
@@ -3154,14 +3328,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Gere até 80 certificados por mês',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3181,14 +3357,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3208,14 +3386,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3235,14 +3415,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3262,41 +3444,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Relatórios mensais de certificação',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3327,7 +3484,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               text: TextSpan(
                                                                                                 children: [
                                                                                                   TextSpan(
-                                                                                                    text: 'R\$29,90',
+                                                                                                    text: 'R\$49,90',
                                                                                                     style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 42.0,
@@ -3351,7 +3508,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'R\$49,90',
+                                                                                              'R\$89,90',
                                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -3373,8 +3530,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultGrowthMonthlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1PpqawBHJiDMTi8zoQLqjLvD',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultGrowthMonthlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultGrowthMonthlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -3453,7 +3636,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Text(
-                                                                                'Starter',
+                                                                                'Unlimited',
                                                                                 style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 44.0,
@@ -3474,7 +3657,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Text(
-                                                                                  'Para quem está começando',
+                                                                                  'Para os profissionais',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 16.0,
@@ -3510,12 +3693,33 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                     ),
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
+                                                                                      child: RichText(
+                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                        text: TextSpan(
+                                                                                          children: [
+                                                                                            TextSpan(
+                                                                                              text: 'Gere certificados ',
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Readex Pro',
+                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.normal,
+                                                                                                  ),
                                                                                             ),
+                                                                                            TextSpan(
+                                                                                              text: 'ilimitados',
+                                                                                              style: TextStyle(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                fontWeight: FontWeight.bold,
+                                                                                                decoration: TextDecoration.underline,
+                                                                                              ),
+                                                                                            )
+                                                                                          ],
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3535,14 +3739,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3562,14 +3768,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3589,14 +3797,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3616,41 +3826,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Relatórios mensais de certificação',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3681,7 +3866,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               text: TextSpan(
                                                                                                 children: [
                                                                                                   TextSpan(
-                                                                                                    text: 'R\$29,90',
+                                                                                                    text: 'R\$89,90',
                                                                                                     style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 42.0,
@@ -3705,7 +3890,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'R\$49,90',
+                                                                                              'R\$189,90',
                                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -3727,8 +3912,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultUnlimitedMonthlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1Ppqg4BHJiDMTi8zpvts3fqB',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultUnlimitedMonthlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultUnlimitedMonthlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -3875,14 +4086,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Gere até 30 certificados por mês',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3902,14 +4115,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3929,14 +4144,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -3956,68 +4173,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4048,7 +4213,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               text: TextSpan(
                                                                                                 children: [
                                                                                                   TextSpan(
-                                                                                                    text: 'R\$29,90',
+                                                                                                    text: 'R\$290,90',
                                                                                                     style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 42.0,
@@ -4057,7 +4222,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                         ),
                                                                                                   ),
                                                                                                   TextSpan(
-                                                                                                    text: '/mês',
+                                                                                                    text: '/ano',
                                                                                                     style: GoogleFonts.getFont(
                                                                                                       'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -4072,7 +4237,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'R\$49,90',
+                                                                                              'R\$490,90',
                                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -4094,8 +4259,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultBasicYearlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1PpqY0BHJiDMTi8zjS76N9Xr',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultBasicYearlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultBasicYearlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -4174,7 +4365,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Text(
-                                                                                'Starter',
+                                                                                'Growth',
                                                                                 style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 44.0,
@@ -4195,7 +4386,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Text(
-                                                                                  'Para quem está começando',
+                                                                                  'Para quem quer crescer',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 16.0,
@@ -4229,14 +4420,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Gere até 80 certificados por mês',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4256,14 +4449,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4283,14 +4478,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4310,14 +4507,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4337,41 +4536,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Relatórios mensais de certificação',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4402,7 +4576,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               text: TextSpan(
                                                                                                 children: [
                                                                                                   TextSpan(
-                                                                                                    text: 'R\$29,90',
+                                                                                                    text: 'R\$490,90',
                                                                                                     style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 42.0,
@@ -4411,7 +4585,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                         ),
                                                                                                   ),
                                                                                                   TextSpan(
-                                                                                                    text: '/mês',
+                                                                                                    text: '/ano',
                                                                                                     style: GoogleFonts.getFont(
                                                                                                       'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -4426,7 +4600,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'R\$49,90',
+                                                                                              'R\$890,90',
                                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -4448,8 +4622,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultGrowthYearlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultGrowthYearlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultGrowthYearlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -4528,7 +4728,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Text(
-                                                                                'Starter',
+                                                                                'Unlimited',
                                                                                 style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 44.0,
@@ -4549,7 +4749,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Text(
-                                                                                  'Para quem está começando',
+                                                                                  'Para os profissionais',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 16.0,
@@ -4571,8 +4771,6 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                   mainAxisAlignment: MainAxisAlignment.start,
                                                                                   children: [
                                                                                     Container(
-                                                                                      width: 20.0,
-                                                                                      height: 20.0,
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         borderRadius: BorderRadius.circular(24.0),
@@ -4585,12 +4783,33 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                     ),
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
+                                                                                      child: RichText(
+                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                        text: TextSpan(
+                                                                                          children: [
+                                                                                            TextSpan(
+                                                                                              text: 'Gere certificaados ',
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Readex Pro',
+                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.normal,
+                                                                                                  ),
                                                                                             ),
+                                                                                            TextSpan(
+                                                                                              text: 'ilimitados',
+                                                                                              style: TextStyle(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                fontWeight: FontWeight.bold,
+                                                                                                decoration: TextDecoration.underline,
+                                                                                              ),
+                                                                                            )
+                                                                                          ],
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Readex Pro',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4610,14 +4829,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Suporte prioritário',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4637,14 +4858,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Página de validação de certificados',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4664,14 +4887,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Acesso à biblioteca de templates',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4691,41 +4916,16 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         size: 20.0,
                                                                                       ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        borderRadius: BorderRadius.circular(24.0),
-                                                                                      ),
-                                                                                      child: Icon(
-                                                                                        Icons.check_sharp,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Gere até 30 certificados por mês',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
+                                                                                    Flexible(
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Relatórios mensais de certificação',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -4756,7 +4956,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               text: TextSpan(
                                                                                                 children: [
                                                                                                   TextSpan(
-                                                                                                    text: 'R\$29,90',
+                                                                                                    text: 'R\$890,90',
                                                                                                     style: FlutterFlowTheme.of(context).displayMedium.override(
                                                                                                           fontFamily: 'Inter',
                                                                                                           fontSize: 42.0,
@@ -4765,7 +4965,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                         ),
                                                                                                   ),
                                                                                                   TextSpan(
-                                                                                                    text: '/mês',
+                                                                                                    text: '/ano',
                                                                                                     style: GoogleFonts.getFont(
                                                                                                       'Inter',
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -4780,7 +4980,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'R\$49,90',
+                                                                                              'R\$1890,90',
                                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                                     fontFamily: 'Inter',
                                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -4802,8 +5002,34 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                       children: [
                                                                                         Expanded(
                                                                                           child: FFButtonWidget(
-                                                                                            onPressed: () {
-                                                                                              print('Button pressed ...');
+                                                                                            onPressed: () async {
+                                                                                              _model.apiResultUnlimitedYearlyPhone = await CriarSessaoCheckoutCall.call(
+                                                                                                successUrl: 'https://certify.app.br/assinaturaSucesso',
+                                                                                                priceAPIID: 'price_1PpqVDBHJiDMTi8z8WW8CLUH',
+                                                                                                customerEmail: currentUserEmail,
+                                                                                                mode: 'subscription',
+                                                                                              );
+
+                                                                                              if ((_model.apiResultUnlimitedYearlyPhone?.succeeded ?? true)) {
+                                                                                                await launchURL(CriarSessaoCheckoutCall.url(
+                                                                                                  (_model.apiResultUnlimitedYearlyPhone?.jsonBody ?? ''),
+                                                                                                )!);
+                                                                                              } else {
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'erro',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+
+                                                                                              setState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(

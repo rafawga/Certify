@@ -36,8 +36,8 @@ export '/project/new/new_user_courses/new_user_courses_widget.dart'
 export '/project/new/new_user_courses_copy/new_user_courses_copy_widget.dart'
     show NewUserCoursesCopyWidget;
 export '/project/new/abc/abc_widget.dart' show AbcWidget;
-export '/project/new/new_plans/new_plans_widget.dart' show NewPlansWidget;
-export '/project/new/new_plans_copy/new_plans_copy_widget.dart'
-    show NewPlansCopyWidget;
+export '/project/new_plans/new_plans_widget.dart' show NewPlansWidget;
 export '/project/new/new_plans_copy2/new_plans_copy2_widget.dart'
     show NewPlansCopy2Widget;
+export '/project/politica_privacidade/politica_privacidade_widget.dart'
+    show PoliticaPrivacidadeWidget;
