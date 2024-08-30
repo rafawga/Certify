@@ -48,6 +48,8 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
         text: valueOrDefault(currentUserDocument?.certificateName, ''));
     _model.yourNameFocusNode3 ??= FocusNode();
 
+    _model.switchValue =
+        valueOrDefault<bool>(currentUserDocument?.productorMode, false);
     animationsMap.addAll({
       'iconOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -1025,7 +1027,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          16.0,
+                                                                          0.0,
                                                                           16.0,
                                                                           0.0,
                                                                           0.0),
@@ -1107,8 +1109,8 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                         Container(
                                                                       decoration:
                                                                           BoxDecoration(
-                                                                        color: valueOrDefault<bool>(currentUserDocument?.isProdutor,
-                                                                                false)
+                                                                        color: currentUserDocument?.accesManagement.hasSubscription ==
+                                                                                true
                                                                             ? FlutterFlowTheme.of(context).primary
                                                                             : const Color(0x00000000),
                                                                         borderRadius:
@@ -1117,12 +1119,16 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(10.0),
+                                                                            const EdgeInsets.all(12.0),
                                                                         child: SelectionArea(
                                                                             child: Text(
-                                                                          valueOrDefault<bool>(currentUserDocument?.isProdutor, false)
-                                                                              ? 'PRO'
-                                                                              : 'Default',
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            currentUserDocument?.accesManagement.hasSubscription == true
+                                                                                ? currentUserDocument?.currentPlan.planName
+                                                                                : 'Default',
+                                                                            'Default',
+                                                                          ),
                                                                           textAlign:
                                                                               TextAlign.center,
                                                                           style: FlutterFlowTheme.of(context)
@@ -1469,6 +1475,93 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                         const SizedBox(width: 50.0)),
                                                   ),
                                                 ),
+                                                if (currentUserDocument
+                                                        ?.accesManagement
+                                                        .hasSubscription ??
+                                                    true)
+                                                  AuthUserStreamWidget(
+                                                    builder: (context) => Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'Modo Usuário',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                        Switch.adaptive(
+                                                          value: _model
+                                                              .switchValue!,
+                                                          onChanged:
+                                                              (newValue) async {
+                                                            setState(() => _model
+                                                                    .switchValue =
+                                                                newValue);
+                                                            if (newValue) {
+                                                              await currentUserReference!
+                                                                  .update(
+                                                                      createUsersRecordData(
+                                                                productorMode:
+                                                                    true,
+                                                              ));
+
+                                                              context.pushNamed(
+                                                                  'newHomePage');
+                                                            } else {
+                                                              await currentUserReference!
+                                                                  .update(
+                                                                      createUsersRecordData(
+                                                                productorMode:
+                                                                    false,
+                                                              ));
+
+                                                              context.pushNamed(
+                                                                  'newHomePage');
+                                                            }
+                                                          },
+                                                          activeColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          activeTrackColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .accent1,
+                                                          inactiveTrackColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .alternate,
+                                                          inactiveThumbColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                        ),
+                                                        Text(
+                                                          'Modo Produtor',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ].divide(const SizedBox(
+                                                          width: 10.0)),
+                                                    ),
+                                                  ),
                                               ],
                                             ),
                                           ),

@@ -170,7 +170,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                       model: _model.sidebarReduzidoModel,
                       updateCallback: () => setState(() {}),
                       child: const SidebarReduzidoWidget(
-                        currentTab: 9,
+                        currentTab: 10,
                       ),
                     ),
                   if (responsiveVisibility(
@@ -1468,7 +1468,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                           .max,
                                                                   mainAxisAlignment:
                                                                       MainAxisAlignment
-                                                                          .spaceEvenly,
+                                                                          .center,
                                                                   children: [
                                                                     ClipRRect(
                                                                       borderRadius:
@@ -4788,7 +4788,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                         text: TextSpan(
                                                                                           children: [
                                                                                             TextSpan(
-                                                                                              text: 'Gere certificaados ',
+                                                                                              text: 'Gere certificados ',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Readex Pro',
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,

@@ -84,30 +84,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const NewHomePageWidget() : const NewAuthWidget(),
         ),
         FFRoute(
-          name: 'AuthCreateAccount',
-          path: '/authCreateAccount',
-          builder: (context, params) => AuthCreateAccountWidget(
-            conviteCurso: params.getParam(
-              'conviteCurso',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['cursos'],
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'AuthLogin',
-          path: '/authLogin',
-          builder: (context, params) => AuthLoginWidget(
-            conviteCurso: params.getParam(
-              'conviteCurso',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['cursos'],
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'CourseInvitation',
           path: '/courseInvitation',
           requireAuth: true,
@@ -183,23 +159,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'save',
-          path: '/save',
-          requireAuth: true,
-          builder: (context, params) => SaveWidget(
-            curso: params.getParam(
-              'curso',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['cursos'],
-            ),
-            tab: params.getParam(
-              'tab',
-              ParamType.int,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'NewAuth',
           path: '/NewAuth',
           builder: (context, params) => const NewAuthWidget(),
@@ -257,6 +216,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PoliticaPrivacidade',
           path: '/politicaPrivacidade',
           builder: (context, params) => const PoliticaPrivacidadeWidget(),
+        ),
+        FFRoute(
+          name: 'detailCourse',
+          path: '/detailCourse',
+          requireAuth: true,
+          builder: (context, params) => DetailCourseWidget(
+            curso: params.getParam(
+              'curso',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['cursos'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

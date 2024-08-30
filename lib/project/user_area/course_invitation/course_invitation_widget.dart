@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -62,16 +61,6 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
           ),
         );
         _model.curso = await CursosRecord.getDocumentOnce(widget.cursoID!);
-      } else {
-        context.pushNamed(
-          'AuthLogin',
-          queryParameters: {
-            'conviteCurso': serializeParam(
-              widget.cursoID,
-              ParamType.DocumentReference,
-            ),
-          }.withoutNulls,
-        );
       }
     });
 
@@ -124,13 +113,6 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        wrapWithModel(
-                          model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
-                          child: const NavbarWidget(
-                            tabAtual: -1,
-                          ),
-                        ),
                         Expanded(
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),

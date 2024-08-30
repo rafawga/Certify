@@ -2,10 +2,10 @@ import '/backend/backend.dart';
 import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'save_widget.dart' show SaveWidget;
+import 'curso_detail_widget.dart' show CursoDetailWidget;
 import 'package:flutter/material.dart';
 
-class SaveModel extends FlutterFlowModel<SaveWidget> {
+class CursoDetailModel extends FlutterFlowModel<CursoDetailWidget> {
   ///  Local state fields for this page.
 
   bool photoChanged = false;
@@ -14,6 +14,7 @@ class SaveModel extends FlutterFlowModel<SaveWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // State field(s) for TabBar widget.

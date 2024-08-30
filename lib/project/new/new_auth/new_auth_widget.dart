@@ -841,7 +841,6 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                               name: functions.getWordAtIndex(currentUserDisplayName, '0'),
                                                                               lastName: functions.getWordAtIndex(currentUserDisplayName, '1'),
                                                                               completedRegistration: true,
-                                                                              isProdutor: false,
                                                                             ));
                                                                           }
 

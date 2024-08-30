@@ -14,6 +14,7 @@ class UserPlanStruct extends FFFirebaseStruct {
     DateTime? startDate,
     DateTime? endDate,
     String? customerId,
+    String? subscriptionId,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _priceID = priceID,
         _planName = planName,
@@ -21,6 +22,7 @@ class UserPlanStruct extends FFFirebaseStruct {
         _startDate = startDate,
         _endDate = endDate,
         _customerId = customerId,
+        _subscriptionId = subscriptionId,
         super(firestoreUtilData);
 
   // "priceID" field.
@@ -65,6 +67,13 @@ class UserPlanStruct extends FFFirebaseStruct {
 
   bool hasCustomerId() => _customerId != null;
 
+  // "subscription_id" field.
+  String? _subscriptionId;
+  String get subscriptionId => _subscriptionId ?? '';
+  set subscriptionId(String? val) => _subscriptionId = val;
+
+  bool hasSubscriptionId() => _subscriptionId != null;
+
   static UserPlanStruct fromMap(Map<String, dynamic> data) => UserPlanStruct(
         priceID: data['priceID'] as String?,
         planName: data['plan_name'] as String?,
@@ -72,6 +81,7 @@ class UserPlanStruct extends FFFirebaseStruct {
         startDate: data['start_date'] as DateTime?,
         endDate: data['end_date'] as DateTime?,
         customerId: data['customer_id'] as String?,
+        subscriptionId: data['subscription_id'] as String?,
       );
 
   static UserPlanStruct? maybeFromMap(dynamic data) =>
@@ -84,6 +94,7 @@ class UserPlanStruct extends FFFirebaseStruct {
         'start_date': _startDate,
         'end_date': _endDate,
         'customer_id': _customerId,
+        'subscription_id': _subscriptionId,
       }.withoutNulls;
 
   @override
@@ -110,6 +121,10 @@ class UserPlanStruct extends FFFirebaseStruct {
         ),
         'customer_id': serializeParam(
           _customerId,
+          ParamType.String,
+        ),
+        'subscription_id': serializeParam(
+          _subscriptionId,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -146,6 +161,11 @@ class UserPlanStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        subscriptionId: deserializeParam(
+          data['subscription_id'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -159,12 +179,20 @@ class UserPlanStruct extends FFFirebaseStruct {
         interval == other.interval &&
         startDate == other.startDate &&
         endDate == other.endDate &&
-        customerId == other.customerId;
+        customerId == other.customerId &&
+        subscriptionId == other.subscriptionId;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([priceID, planName, interval, startDate, endDate, customerId]);
+  int get hashCode => const ListEquality().hash([
+        priceID,
+        planName,
+        interval,
+        startDate,
+        endDate,
+        customerId,
+        subscriptionId
+      ]);
 }
 
 UserPlanStruct createUserPlanStruct({
@@ -174,6 +202,7 @@ UserPlanStruct createUserPlanStruct({
   DateTime? startDate,
   DateTime? endDate,
   String? customerId,
+  String? subscriptionId,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -186,6 +215,7 @@ UserPlanStruct createUserPlanStruct({
       startDate: startDate,
       endDate: endDate,
       customerId: customerId,
+      subscriptionId: subscriptionId,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

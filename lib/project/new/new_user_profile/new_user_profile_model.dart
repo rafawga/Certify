@@ -11,6 +11,7 @@ class NewUserProfileModel extends FlutterFlowModel<NewUserProfileWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.
@@ -32,6 +33,8 @@ class NewUserProfileModel extends FlutterFlowModel<NewUserProfileWidget> {
   FocusNode? yourNameFocusNode3;
   TextEditingController? yourNameTextController3;
   String? Function(BuildContext, String?)? yourNameTextController3Validator;
+  // State field(s) for Switch widget.
+  bool? switchValue;
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel2;
 

@@ -45,11 +45,6 @@ class UsersRecord extends FirestoreRecord {
   String get lastName => _lastName ?? '';
   bool hasLastName() => _lastName != null;
 
-  // "isProdutor" field.
-  bool? _isProdutor;
-  bool get isProdutor => _isProdutor ?? false;
-  bool hasIsProdutor() => _isProdutor != null;
-
   // "CertificateName" field.
   String? _certificateName;
   String get certificateName => _certificateName ?? '';
@@ -96,6 +91,11 @@ class UsersRecord extends FirestoreRecord {
       _accesManagement ?? AccessManagementStruct();
   bool hasAccesManagement() => _accesManagement != null;
 
+  // "ProductorMode" field.
+  bool? _productorMode;
+  bool get productorMode => _productorMode ?? false;
+  bool hasProductorMode() => _productorMode != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -103,7 +103,6 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _lastName = snapshotData['last_name'] as String?;
-    _isProdutor = snapshotData['isProdutor'] as bool?;
     _certificateName = snapshotData['CertificateName'] as String?;
     _name = snapshotData['name'] as String?;
     _coursesQnt = castToType<int>(snapshotData['CoursesQnt']);
@@ -114,6 +113,7 @@ class UsersRecord extends FirestoreRecord {
     _currentPlan = UserPlanStruct.maybeFromMap(snapshotData['current_plan']);
     _accesManagement =
         AccessManagementStruct.maybeFromMap(snapshotData['acces_management']);
+    _productorMode = snapshotData['ProductorMode'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -156,7 +156,6 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? lastName,
-  bool? isProdutor,
   String? certificateName,
   String? name,
   int? coursesQnt,
@@ -166,6 +165,7 @@ Map<String, dynamic> createUsersRecordData({
   LimitsStruct? limits,
   UserPlanStruct? currentPlan,
   AccessManagementStruct? accesManagement,
+  bool? productorMode,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -175,7 +175,6 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'last_name': lastName,
-      'isProdutor': isProdutor,
       'CertificateName': certificateName,
       'name': name,
       'CoursesQnt': coursesQnt,
@@ -185,6 +184,7 @@ Map<String, dynamic> createUsersRecordData({
       'limits': LimitsStruct().toMap(),
       'current_plan': UserPlanStruct().toMap(),
       'acces_management': AccessManagementStruct().toMap(),
+      'ProductorMode': productorMode,
     }.withoutNulls,
   );
 
@@ -212,7 +212,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.lastName == e2?.lastName &&
-        e1?.isProdutor == e2?.isProdutor &&
         e1?.certificateName == e2?.certificateName &&
         e1?.name == e2?.name &&
         e1?.coursesQnt == e2?.coursesQnt &&
@@ -221,7 +220,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.completedRegistration == e2?.completedRegistration &&
         e1?.limits == e2?.limits &&
         e1?.currentPlan == e2?.currentPlan &&
-        e1?.accesManagement == e2?.accesManagement;
+        e1?.accesManagement == e2?.accesManagement &&
+        e1?.productorMode == e2?.productorMode;
   }
 
   @override
@@ -232,7 +232,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.lastName,
-        e?.isProdutor,
         e?.certificateName,
         e?.name,
         e?.coursesQnt,
@@ -241,7 +240,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.completedRegistration,
         e?.limits,
         e?.currentPlan,
-        e?.accesManagement
+        e?.accesManagement,
+        e?.productorMode
       ]);
 
   @override

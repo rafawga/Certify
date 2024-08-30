@@ -1,10 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'confirmar_cancelamento_model.dart';
 export 'confirmar_cancelamento_model.dart';
@@ -101,18 +99,10 @@ class _ConfirmarCancelamentoWidgetState
                               children: [
                                 FFButtonWidget(
                                   onPressed: () async {
-                                    _model.assinaturaUser =
-                                        await queryAssinaturasRecordOnce(
-                                      queryBuilder: (assinaturasRecord) =>
-                                          assinaturasRecord.where(
-                                        'Email',
-                                        isEqualTo: currentUserEmail,
-                                      ),
-                                      singleRecord: true,
-                                    ).then((s) => s.firstOrNull);
                                     _model.cancelarResponse =
                                         await CancelarAAssinaturaCall.call(
-                                      id: _model.assinaturaUser?.subAssinatura,
+                                      id: currentUserDocument
+                                          ?.currentPlan.subscriptionId,
                                     );
 
                                     if ((_model.cancelarResponse?.succeeded ??

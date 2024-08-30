@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
-import 'new_plans_copy2_widget.dart' show NewPlansCopy2Widget;
+import 'new_productor_course_widget.dart' show NewProductorCourseWidget;
 import 'package:flutter/material.dart';
 
-class NewPlansCopy2Model extends FlutterFlowModel<NewPlansCopy2Widget> {
+class NewProductorCourseModel
+    extends FlutterFlowModel<NewProductorCourseWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

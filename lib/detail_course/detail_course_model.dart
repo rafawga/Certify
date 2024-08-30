@@ -1,13 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
-import 'new_productor_course_widget.dart' show NewProductorCourseWidget;
+import 'detail_course_widget.dart' show DetailCourseWidget;
 import 'package:flutter/material.dart';
 
-class NewProductorCourseModel
-    extends FlutterFlowModel<NewProductorCourseWidget> {
+class DetailCourseModel extends FlutterFlowModel<DetailCourseWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for SidebarReduzido component.

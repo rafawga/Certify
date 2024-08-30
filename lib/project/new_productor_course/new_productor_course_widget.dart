@@ -494,6 +494,23 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                                                                   }.withoutNulls,
                                                                 );
                                                               },
+                                                              onDoubleTap:
+                                                                  () async {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'detailCourse',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'curso':
+                                                                        serializeParam(
+                                                                      listViewCursosRecord
+                                                                          .reference,
+                                                                      ParamType
+                                                                          .DocumentReference,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              },
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
