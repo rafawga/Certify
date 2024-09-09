@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class CourseInvitationModel extends FlutterFlowModel<CourseInvitationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in CourseInvitation widget.
   AlunosCursoRecord? alreadyExist;
   // Stores action output result for [Firestore Query - Query a collection] action in CourseInvitation widget.

@@ -417,7 +417,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -445,7 +445,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 1,
                   ),
@@ -464,7 +464,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 1,
                       ),
@@ -476,7 +476,7 @@ class _NewHomePageWidgetState extends State<NewHomePageWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 1,
                       ),

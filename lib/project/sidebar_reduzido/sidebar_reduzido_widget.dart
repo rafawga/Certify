@@ -60,7 +60,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -105,7 +105,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     FFAppState().navOpen = !(FFAppState().navOpen ?? true);
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   child: Container(
                     height: 30.0,

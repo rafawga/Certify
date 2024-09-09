@@ -59,7 +59,7 @@ class _AbcWidgetState extends State<AbcWidget> with TickerProviderStateMixin {
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -88,7 +88,7 @@ class _AbcWidgetState extends State<AbcWidget> with TickerProviderStateMixin {
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const NavbarWidget(
                         tabAtual: 3,
                       ),

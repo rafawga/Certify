@@ -30,7 +30,7 @@ class _ConfirmarCancelamentoWidgetState
     super.initState();
     _model = createModel(context, () => ConfirmarCancelamentoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -150,7 +150,7 @@ class _ConfirmarCancelamentoWidgetState
 
                                     context.pushNamed('newHomePage');
 
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                   text: 'Cancelar Assinatura',
                                   options: FFButtonOptions(

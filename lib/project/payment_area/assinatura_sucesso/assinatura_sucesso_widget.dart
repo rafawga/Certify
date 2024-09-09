@@ -23,7 +23,7 @@ class _AssinaturaSucessoWidgetState extends State<AssinaturaSucessoWidget> {
     super.initState();
     _model = createModel(context, () => AssinaturaSucessoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -21,7 +21,7 @@ class _DummyPageWidgetState extends State<DummyPageWidget> {
     super.initState();
     _model = createModel(context, () => DummyPageModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

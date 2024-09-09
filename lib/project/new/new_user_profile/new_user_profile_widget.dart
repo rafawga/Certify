@@ -115,7 +115,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -143,7 +143,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 1,
                   ),
@@ -162,7 +162,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 6,
                       ),
@@ -174,7 +174,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 6,
                       ),
@@ -496,9 +496,9 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                   validateFileFormat(
                                                                       m.storagePath,
                                                                       context))) {
-                                                            setState(() => _model
-                                                                    .isDataUploading =
-                                                                true);
+                                                            safeSetState(() =>
+                                                                _model.isDataUploading =
+                                                                    true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
 
@@ -551,7 +551,7 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                         .length ==
                                                                     selectedMedia
                                                                         .length) {
-                                                              setState(() {
+                                                              safeSetState(() {
                                                                 _model.uploadedLocalFile =
                                                                     selectedUploadedFiles
                                                                         .first;
@@ -560,14 +560,15 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                                         .first;
                                                               });
                                                             } else {
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               return;
                                                             }
                                                           }
 
                                                           _model.photoChanged =
                                                               true;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         },
                                                         text: 'Mudar Foto',
                                                         options:
@@ -1504,9 +1505,9 @@ class _NewUserProfileWidgetState extends State<NewUserProfileWidget>
                                                               .switchValue!,
                                                           onChanged:
                                                               (newValue) async {
-                                                            setState(() => _model
-                                                                    .switchValue =
-                                                                newValue);
+                                                            safeSetState(() =>
+                                                                _model.switchValue =
+                                                                    newValue);
                                                             if (newValue) {
                                                               await currentUserReference!
                                                                   .update(

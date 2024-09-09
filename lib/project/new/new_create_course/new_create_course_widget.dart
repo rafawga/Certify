@@ -118,7 +118,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -146,7 +146,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 1,
                   ),
@@ -165,7 +165,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 9,
                       ),
@@ -177,7 +177,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 9,
                       ),
@@ -941,7 +941,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                                 false,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxValue =
                                                                       newValue!);
                                                             },
@@ -1148,7 +1148,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                                       validateFileFormat(
                                                                           m.storagePath,
                                                                           context))) {
-                                                                setState(() =>
+                                                                safeSetState(() =>
                                                                     _model.isDataUploading =
                                                                         true);
                                                                 var selectedUploadedFiles =
@@ -1196,7 +1196,8 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                                             .length ==
                                                                         selectedMedia
                                                                             .length) {
-                                                                  setState(() {
+                                                                  safeSetState(
+                                                                      () {
                                                                     _model.uploadedLocalFile =
                                                                         selectedUploadedFiles
                                                                             .first;
@@ -1205,7 +1206,7 @@ class _NewCreateCourseWidgetState extends State<NewCreateCourseWidget>
                                                                             .first;
                                                                   });
                                                                 } else {
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                   return;
                                                                 }

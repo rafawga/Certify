@@ -38,7 +38,7 @@ class _UserPopUpWidgetState extends State<UserPopUpWidget> {
     super.initState();
     _model = createModel(context, () => UserPopUpModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

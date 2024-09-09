@@ -58,7 +58,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
             0,
           ),
           2),
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
 
     _model.nameFocusNode ??= FocusNode();
 
@@ -113,7 +113,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -164,7 +164,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                       children: [
                         wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(
                             tabAtual: 1,
                           ),
@@ -1019,7 +1019,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
-                                                                                          Expanded(
+                                                                                          Flexible(
                                                                                             flex: 2,
                                                                                             child: Padding(
                                                                                               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
@@ -1884,7 +1884,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                               cursoDetailCursosRecord.hasUserLimit,
                                                                           onChanged:
                                                                               (newValue) async {
-                                                                            setState(() =>
+                                                                            safeSetState(() =>
                                                                                 _model.checkboxValue = newValue!);
                                                                           },
                                                                           side:
@@ -2061,7 +2061,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             );
                                                                             if (selectedMedia != null &&
                                                                                 selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                              setState(() => _model.isDataUploading = true);
+                                                                              safeSetState(() => _model.isDataUploading = true);
                                                                               var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                               var downloadUrls = <String>[];
@@ -2088,19 +2088,19 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                                 _model.isDataUploading = false;
                                                                               }
                                                                               if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
-                                                                                setState(() {
+                                                                                safeSetState(() {
                                                                                   _model.uploadedLocalFile = selectedUploadedFiles.first;
                                                                                   _model.uploadedFileUrl = downloadUrls.first;
                                                                                 });
                                                                               } else {
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             }
 
                                                                             _model.photoChanged =
                                                                                 true;
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           },
                                                                           text:
                                                                               'Escolher Foto',
@@ -2869,7 +2869,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                             .toList(),
                                                                         onChanged:
                                                                             (val) =>
-                                                                                setState(() => _model.dropDownValue = val),
+                                                                                safeSetState(() => _model.dropDownValue = val),
                                                                         width:
                                                                             300.0,
                                                                         height:
@@ -2970,7 +2970,7 @@ class _CursoDetailWidgetState extends State<CursoDetailWidget>
                                                                         );
                                                                       }
 
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                     },
                                                                     text:

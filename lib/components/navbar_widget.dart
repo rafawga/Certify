@@ -29,7 +29,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
     super.initState();
     _model = createModel(context, () => NavbarModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -26,7 +26,7 @@ class _TableWidgetState extends State<TableWidget> {
     super.initState();
     _model = createModel(context, () => TableModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

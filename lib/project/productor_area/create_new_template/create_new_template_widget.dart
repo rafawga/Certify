@@ -114,7 +114,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
     _model.keyFonteTextController ??= TextEditingController();
     _model.keyFonteFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.certificadoTextController1?.text = 'Certificado';
           _model.certificadoFonteTextController?.text = '23';
           _model.antesNomeTextController?.text = 'Certificamos que';
@@ -171,7 +171,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const NavbarWidget(
                         tabAtual: 4,
                       ),
@@ -449,7 +449,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             _model.mode = 1;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           },
                                                           child: Text(
                                                             _model
@@ -502,7 +502,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                     .transparent,
                                                             onTap: () async {
                                                               _model.mode = 2;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             child: Text(
                                                               _model
@@ -550,7 +551,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           _model.mode = 3;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         },
                                                         child: Text(
                                                           'NOME DO ALUNO',
@@ -618,7 +619,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               4;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -643,7 +644,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               5;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -669,7 +670,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               6;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -694,7 +695,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               7;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -720,7 +721,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               8;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -745,7 +746,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               9;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -771,7 +772,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               10;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -796,7 +797,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               11;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 )
@@ -852,7 +853,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                               onTap: () async {
                                                                 _model.mode =
                                                                     12;
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                               child: Text(
                                                                 'Powered by iDokey',
@@ -884,7 +886,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                     .transparent,
                                                             onTap: () async {
                                                               _model.mode = 13;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             child: Text(
                                                               'Key de segurança',
@@ -954,7 +957,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             _model.mode = 1;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           },
                                                           child: Text(
                                                             _model
@@ -1007,7 +1010,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                     .transparent,
                                                             onTap: () async {
                                                               _model.mode = 2;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             child: Text(
                                                               _model
@@ -1055,7 +1059,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           _model.mode = 3;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         },
                                                         child: Text(
                                                           'NOME DO ALUNO',
@@ -1123,7 +1127,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               4;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1148,7 +1152,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               5;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1174,7 +1178,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               6;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1199,7 +1203,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               7;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1225,7 +1229,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               8;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1250,7 +1254,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               9;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1276,7 +1280,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               10;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 ),
@@ -1301,7 +1305,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                             () async {
                                                                           _model.mode =
                                                                               11;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         },
                                                                 )
@@ -1357,7 +1361,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                               onTap: () async {
                                                                 _model.mode =
                                                                     12;
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                               child: Text(
                                                                 'Powered by iDokey',
@@ -1389,7 +1394,8 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                                     .transparent,
                                                             onTap: () async {
                                                               _model.mode = 13;
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             child: Text(
                                                               'Key de segurança',
@@ -1462,17 +1468,17 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                             true,
                                                         onChanged:
                                                             (newValue) async {
-                                                          setState(() => _model
-                                                                  .checkboxValue1 =
-                                                              newValue!);
+                                                          safeSetState(() =>
+                                                              _model.checkboxValue1 =
+                                                                  newValue!);
                                                           if (newValue!) {
                                                             _model.photoAdded =
                                                                 false;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           } else {
                                                             _model.photoAdded =
                                                                 true;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .showSnackBar(
@@ -1545,7 +1551,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() =>
+                                                    safeSetState(() =>
                                                         _model.isDataUploading =
                                                             true);
                                                     var selectedUploadedFiles =
@@ -1600,7 +1606,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                         downloadUrls.length ==
                                                             selectedMedia
                                                                 .length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFile =
                                                             selectedUploadedFiles
                                                                 .first;
@@ -1608,14 +1614,14 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                             downloadUrls.first;
                                                       });
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       return;
                                                     }
                                                   }
 
                                                   _model.photoAdded = true;
-                                                  setState(() {});
-                                                  setState(() {
+                                                  safeSetState(() {});
+                                                  safeSetState(() {
                                                     _model.checkboxValue1 =
                                                         false;
                                                   });
@@ -1689,7 +1695,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.certificadoTextController1',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -1793,7 +1799,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.certificadoFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -1989,7 +1995,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.antesNomeTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2094,7 +2100,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.antesNomeFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2290,7 +2296,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.aLunoTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2395,7 +2401,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.nomeFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2591,7 +2597,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.prfTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2696,7 +2702,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.antesCursoFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2888,7 +2894,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.cursoTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -2993,7 +2999,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.cursoFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3185,7 +3191,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.antesProfessorTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3290,7 +3296,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.antesProfFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3482,7 +3488,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.pRofessorTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3588,7 +3594,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.profFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3780,7 +3786,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.antesdataTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -3885,7 +3891,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.antesDataFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4077,7 +4083,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.dataTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4182,7 +4188,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.dataFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4374,7 +4380,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.antesDuracaoTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4479,7 +4485,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.antesDuracaoFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4671,7 +4677,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.certificadoTextController2',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4776,7 +4782,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.duracaoFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -4968,7 +4974,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.powerediDokeyTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -5074,7 +5080,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.idokeyFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -5290,7 +5296,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                   value: _model
                                                       .checkboxValue2 ??= true,
                                                   onChanged: (newValue) async {
-                                                    setState(() =>
+                                                    safeSetState(() =>
                                                         _model.checkboxValue2 =
                                                             newValue!);
                                                   },
@@ -5337,7 +5343,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                       EasyDebounce.debounce(
                                                     '_model.keyseguranaTextController',
                                                     const Duration(milliseconds: 10),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [
@@ -5443,7 +5449,7 @@ class _CreateNewTemplateWidgetState extends State<CreateNewTemplateWidget> {
                                                     '_model.keyFonteTextController',
                                                     const Duration(
                                                         milliseconds: 2000),
-                                                    () => setState(() {}),
+                                                    () => safeSetState(() {}),
                                                   ),
                                                   autofocus: true,
                                                   autofillHints: const [

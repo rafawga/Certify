@@ -29,7 +29,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
     _model.feedbackTextController ??= TextEditingController();
     _model.feedbackFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -58,7 +58,7 @@ class _FeedBacksWidgetState extends State<FeedBacksWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const NavbarWidget(
                         tabAtual: 4,
                       ),

@@ -80,6 +80,11 @@ class CursosRecord extends FirestoreRecord {
   DocumentReference? get templateRef => _templateRef;
   bool hasTemplateRef() => _templateRef != null;
 
+  // "courseInvite" field.
+  CourseInviteStruct? _courseInvite;
+  CourseInviteStruct get courseInvite => _courseInvite ?? CourseInviteStruct();
+  bool hasCourseInvite() => _courseInvite != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -94,6 +99,8 @@ class CursosRecord extends FirestoreRecord {
     _usersLimit = castToType<int>(snapshotData['UsersLimit']);
     _hasUserLimit = snapshotData['HasUserLimit'] as bool?;
     _templateRef = snapshotData['TemplateRef'] as DocumentReference?;
+    _courseInvite =
+        CourseInviteStruct.maybeFromMap(snapshotData['courseInvite']);
   }
 
   static CollectionReference get collection =>
@@ -141,6 +148,7 @@ Map<String, dynamic> createCursosRecordData({
   int? usersLimit,
   bool? hasUserLimit,
   DocumentReference? templateRef,
+  CourseInviteStruct? courseInvite,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -155,8 +163,12 @@ Map<String, dynamic> createCursosRecordData({
       'UsersLimit': usersLimit,
       'HasUserLimit': hasUserLimit,
       'TemplateRef': templateRef,
+      'courseInvite': CourseInviteStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "courseInvite" field.
+  addCourseInviteStructData(firestoreData, courseInvite, 'courseInvite');
 
   return firestoreData;
 }
@@ -179,7 +191,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e1?.photoURL == e2?.photoURL &&
         e1?.usersLimit == e2?.usersLimit &&
         e1?.hasUserLimit == e2?.hasUserLimit &&
-        e1?.templateRef == e2?.templateRef;
+        e1?.templateRef == e2?.templateRef &&
+        e1?.courseInvite == e2?.courseInvite;
   }
 
   @override
@@ -196,7 +209,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e?.photoURL,
         e?.usersLimit,
         e?.hasUserLimit,
-        e?.templateRef
+        e?.templateRef,
+        e?.courseInvite
       ]);
 
   @override

@@ -26,7 +26,7 @@ class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
     super.initState();
     _model = createModel(context, () => NewPlansCopy2Model());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -54,7 +54,7 @@ class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 1,
                   ),
@@ -73,7 +73,7 @@ class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 9,
                       ),
@@ -85,7 +85,7 @@ class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 9,
                       ),

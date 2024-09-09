@@ -36,7 +36,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -113,7 +113,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -304,26 +304,35 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0,
-                                                                      24.0),
-                                                          child: Text(
-                                                            'Acesse sua conta.',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0,
+                                                                          24.0),
+                                                              child: Text(
+                                                                'Acesse sua conta.',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
                                                         Padding(
                                                           padding:
@@ -554,7 +563,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                                 suffixIcon:
                                                                     InkWell(
                                                                   onTap: () =>
-                                                                      setState(
+                                                                      safeSetState(
                                                                     () => _model
                                                                             .passwordVisibility =
                                                                         !_model
@@ -1421,7 +1430,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                               suffixIcon:
                                                                   InkWell(
                                                                 onTap: () =>
-                                                                    setState(
+                                                                    safeSetState(
                                                                   () => _model
                                                                           .passwordCreateVisibility =
                                                                       !_model
@@ -1567,7 +1576,7 @@ class _NewAuthWidgetState extends State<NewAuthWidget>
                                                               suffixIcon:
                                                                   InkWell(
                                                                 onTap: () =>
-                                                                    setState(
+                                                                    safeSetState(
                                                                   () => _model
                                                                           .passwordConfirmVisibility =
                                                                       !_model

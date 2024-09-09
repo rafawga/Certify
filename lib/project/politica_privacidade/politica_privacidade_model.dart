@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 
 class PoliticaPrivacidadeModel
     extends FlutterFlowModel<PoliticaPrivacidadeWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

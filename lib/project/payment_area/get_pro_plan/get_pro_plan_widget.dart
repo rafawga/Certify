@@ -26,7 +26,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
     super.initState();
     _model = createModel(context, () => GetProPlanModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -55,7 +55,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const NavbarWidget(
                         tabAtual: 6,
                       ),
@@ -344,7 +344,7 @@ class _GetProPlanWidgetState extends State<GetProPlanWidget> {
                                                   );
                                                 }
 
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               text: 'Começe agora',
                                               options: FFButtonOptions(

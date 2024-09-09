@@ -32,7 +32,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
     super.initState();
     _model = createModel(context, () => SidebarExpandidoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

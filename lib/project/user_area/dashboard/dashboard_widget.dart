@@ -253,7 +253,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -304,7 +304,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                       children: [
                         wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(
                             tabAtual: 8,
                           ),

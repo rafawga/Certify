@@ -1,5 +1,5 @@
 // Export pages
-export '/project/user_area/course_invitation/course_invitation_widget.dart'
+export '/course_invitation/course_invitation_widget.dart'
     show CourseInvitationWidget;
 export '/project/settings/settings_widget.dart' show SettingsWidget;
 export '/project/user_area/feed_backs/feed_backs_widget.dart'

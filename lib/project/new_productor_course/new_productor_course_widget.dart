@@ -99,7 +99,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -127,7 +127,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 2,
                   ),
@@ -146,7 +146,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 2,
                       ),
@@ -158,7 +158,7 @@ class _NewProductorCourseWidgetState extends State<NewProductorCourseWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 2,
                       ),

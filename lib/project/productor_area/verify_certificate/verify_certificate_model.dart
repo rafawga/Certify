@@ -13,7 +13,6 @@ class VerifyCertificateModel extends FlutterFlowModel<VerifyCertificateWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // State field(s) for HashInput widget.

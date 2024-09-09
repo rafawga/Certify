@@ -101,7 +101,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -129,7 +129,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 2,
                   ),
@@ -148,7 +148,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 4,
                       ),
@@ -160,7 +160,7 @@ class _NewUserCoursesCopyWidgetState extends State<NewUserCoursesCopyWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 4,
                       ),

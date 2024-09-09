@@ -38,12 +38,12 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.tabBarController2 = TabController(
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -109,7 +109,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -137,7 +137,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const SidebarExpandidoWidget(
                     currentTab: 1,
                   ),
@@ -156,7 +156,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarExpandidoModel1,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 10,
                       ),
@@ -168,7 +168,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                       ))
                     wrapWithModel(
                       model: _model.sidebarReduzidoModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const SidebarReduzidoWidget(
                         currentTab: 10,
                       ),
@@ -685,7 +685,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1036,7 +1036,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1406,7 +1406,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -1757,7 +1757,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -2108,7 +2108,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -2476,7 +2476,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                     );
                                                                                                   }
 
-                                                                                                  setState(() {});
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 text: 'Assine agora',
                                                                                                 options: FFButtonOptions(
@@ -3194,7 +3194,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -3557,7 +3557,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -3939,7 +3939,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -4286,7 +4286,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -4649,7 +4649,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(
@@ -5029,7 +5029,7 @@ class _NewPlansWidgetState extends State<NewPlansWidget>
                                                                                                 );
                                                                                               }
 
-                                                                                              setState(() {});
+                                                                                              safeSetState(() {});
                                                                                             },
                                                                                             text: 'Assine agora',
                                                                                             options: FFButtonOptions(

@@ -16,10 +16,10 @@ export 'course_invitation_model.dart';
 class CourseInvitationWidget extends StatefulWidget {
   const CourseInvitationWidget({
     super.key,
-    required this.cursoID,
+    required this.invitetionCode,
   });
 
-  final DocumentReference? cursoID;
+  final DocumentReference? invitetionCode;
 
   @override
   State<CourseInvitationWidget> createState() => _CourseInvitationWidgetState();
@@ -44,7 +44,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
               queryBuilder: (alunosCursoRecord) => alunosCursoRecord
                   .where(
                     'cursoID',
-                    isEqualTo: widget.cursoID,
+                    isEqualTo: widget.invitetionCode,
                   )
                   .where(
                     'alunoUser',
@@ -57,14 +57,15 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
         _model.qntdAlunos = await queryAlunosCursoRecordCount(
           queryBuilder: (alunosCursoRecord) => alunosCursoRecord.where(
             'cursoID',
-            isEqualTo: widget.cursoID,
+            isEqualTo: widget.invitetionCode,
           ),
         );
-        _model.curso = await CursosRecord.getDocumentOnce(widget.cursoID!);
+        _model.curso =
+            await CursosRecord.getDocumentOnce(widget.invitetionCode!);
       }
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -77,7 +78,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<CursosRecord>(
-      stream: CursosRecord.getDocument(widget.cursoID!),
+      stream: CursosRecord.getDocument(widget.invitetionCode!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -390,7 +391,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                           _model.generetedHash =
                                                                               await actions.gerarHash(
                                                                             currentUserReference?.id,
-                                                                            widget.cursoID?.id,
+                                                                            widget.invitetionCode?.id,
                                                                           );
 
                                                                           await AlunosCursoRecord
@@ -398,7 +399,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                               .doc()
                                                                               .set({
                                                                             ...createAlunosCursoRecordData(
-                                                                              cursoID: widget.cursoID,
+                                                                              cursoID: widget.invitetionCode,
                                                                               isDone: true,
                                                                               alunoUser: currentUserReference,
                                                                               hash: _model.generetedHash,
@@ -414,7 +415,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                           });
 
                                                                           await widget
-                                                                              .cursoID!
+                                                                              .invitetionCode!
                                                                               .update({
                                                                             ...mapToFirestore(
                                                                               {
@@ -502,7 +503,7 @@ class _CourseInvitationWidgetState extends State<CourseInvitationWidget> {
                                                                             'newUserCourses');
                                                                       }
 
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                     },
                                                                     text:

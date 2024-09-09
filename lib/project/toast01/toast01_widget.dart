@@ -26,7 +26,7 @@ class _Toast01WidgetState extends State<Toast01Widget> {
     super.initState();
     _model = createModel(context, () => Toast01Model());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -30,7 +30,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
     _model.hashInputTextController ??= TextEditingController();
     _model.hashInputFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -59,7 +59,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const NavbarWidget(
                         tabAtual: 5,
                       ),
@@ -449,7 +449,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                         ),
                                         onPressed: () async {
                                           _model.hasSearched = false;
-                                          setState(() {});
+                                          safeSetState(() {});
                                           _model.findedCertificate =
                                               await queryAlunosCursoRecordOnce(
                                             queryBuilder: (alunosCursoRecord) =>
@@ -470,7 +470,7 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                                   ?.reference !=
                                               null) {
                                             _model.hasFinded = true;
-                                            setState(() {});
+                                            safeSetState(() {});
                                             _model.findedUser =
                                                 await UsersRecord
                                                     .getDocumentOnce(_model
@@ -483,13 +483,13 @@ class _VerifyCertificateWidgetState extends State<VerifyCertificateWidget> {
                                                         .cursoID!);
                                           } else {
                                             _model.hasFinded = false;
-                                            setState(() {});
+                                            safeSetState(() {});
                                           }
 
                                           _model.hasSearched = true;
-                                          setState(() {});
+                                          safeSetState(() {});
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                       ),
                                     ],

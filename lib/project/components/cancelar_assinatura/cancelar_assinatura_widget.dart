@@ -32,7 +32,7 @@ class _CancelarAssinaturaWidgetState extends State<CancelarAssinaturaWidget> {
     super.initState();
     _model = createModel(context, () => CancelarAssinaturaModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -88,8 +88,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/courseInvitation',
           requireAuth: true,
           builder: (context, params) => CourseInvitationWidget(
-            cursoID: params.getParam(
-              'cursoID',
+            invitetionCode: params.getParam(
+              'invitetionCode',
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['cursos'],

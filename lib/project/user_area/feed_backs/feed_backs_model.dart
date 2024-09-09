@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class FeedBacksModel extends FlutterFlowModel<FeedBacksWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // State field(s) for feedback widget.
