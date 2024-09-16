@@ -7,6 +7,7 @@ import '/project/components/user_pop_up/user_pop_up_widget.dart';
 import '/project/course_link/course_link_widget.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -342,6 +343,40 @@ class _DetailCourseWidgetState extends State<DetailCourseWidget> {
                                                                 Colors
                                                                     .transparent,
                                                             onTap: () async {
+                                                              _model.cursoSelecionado =
+                                                                  await CursosRecord
+                                                                      .getDocumentOnce(
+                                                                          detailCourseCursosRecord
+                                                                              .reference);
+                                                              if (!(detailCourseCursosRecord
+                                                                          .courseInvite
+                                                                          .code !=
+                                                                      '')) {
+                                                                _model.invitedCode =
+                                                                    await actions
+                                                                        .gerarInviteCode(
+                                                                  detailCourseCursosRecord
+                                                                      .reference
+                                                                      .id,
+                                                                );
+
+                                                                await detailCourseCursosRecord
+                                                                    .reference
+                                                                    .update(
+                                                                        createCursosRecordData(
+                                                                  courseInvite:
+                                                                      createCourseInviteStruct(
+                                                                    date:
+                                                                        getCurrentTimestamp,
+                                                                    code: _model
+                                                                        .invitedCode,
+                                                                    isActive:
+                                                                        true,
+                                                                    clearUnsetFields:
+                                                                        false,
+                                                                  ),
+                                                                ));
+                                                              }
                                                               await showDialog(
                                                                 context:
                                                                     context,
@@ -375,6 +410,9 @@ class _DetailCourseWidgetState extends State<DetailCourseWidget> {
                                                                   );
                                                                 },
                                                               );
+
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             child: Container(
                                                               decoration:

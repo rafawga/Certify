@@ -229,6 +229,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['cursos'],
             ),
           ),
+        ),
+        FFRoute(
+          name: 'accept-invite',
+          path: '/accept-invite',
+          requireAuth: true,
+          builder: (context, params) => AcceptInviteWidget(
+            courseCode: params.getParam(
+              'courseCode',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

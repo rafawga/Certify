@@ -37,3 +37,5 @@ export '/project/new/new_plans_copy2/new_plans_copy2_widget.dart'
 export '/project/politica_privacidade/politica_privacidade_widget.dart'
     show PoliticaPrivacidadeWidget;
 export '/detail_course/detail_course_widget.dart' show DetailCourseWidget;
+export '/project/new/accept_invite/accept_invite_widget.dart'
+    show AcceptInviteWidget;
