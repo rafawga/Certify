@@ -10,12 +10,18 @@ class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
 
   CursosRecord? curso;
 
+  bool? cursoTemVagas = false;
+
+  bool? alunoJaInscrito = false;
+
+  bool? alunoRemovido = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
   CursosRecord? cursoEncontrado;
   // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
-  AlunosCursoRecord? alreadyExist;
+  AlunosCursoRecord? alunoCurso;
   // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
   int? qntdAlunos;
   // Model for SidebarExpandido component.
@@ -24,8 +30,6 @@ class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
   late SidebarReduzidoModel sidebarReduzidoModel;
   // Stores action output result for [Custom Action - gerarHash] action in Button widget.
   String? generetedHash;
-  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  UsersRecord? productor;
   // Model for SidebarExpandido component.
   late SidebarExpandidoModel sidebarExpandidoModel2;
 

@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
 import 'card11_options_model.dart';
 export 'card11_options_model.dart';
 
@@ -99,26 +98,21 @@ class _Card11OptionsWidgetState extends State<Card11OptionsWidget> {
                   ),
                 ),
               ),
-              Builder(
-                builder: (context) => Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                  child: FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: 8.0,
-                    borderWidth: 2.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.content_copy,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 20.0,
-                    ),
-                    onPressed: () async {
-                      await Share.share(
-                        'abcdef',
-                        sharePositionOrigin: getWidgetBoundingBox(context),
-                      );
-                    },
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                child: FlutterFlowIconButton(
+                  borderColor: FlutterFlowTheme.of(context).alternate,
+                  borderRadius: 8.0,
+                  borderWidth: 2.0,
+                  buttonSize: 40.0,
+                  icon: Icon(
+                    Icons.content_copy,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 20.0,
                   ),
+                  onPressed: () {
+                    print('IconButton pressed ...');
+                  },
                 ),
               ),
               Padding(

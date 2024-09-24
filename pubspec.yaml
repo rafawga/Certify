@@ -89,7 +89,6 @@ dependencies:
   printing: ^5.9.3
   provider: 6.1.2
   rxdart: 0.27.7
-  share_plus: 9.0.0
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
   shared_preferences_foundation: 2.3.4
@@ -105,15 +104,16 @@ dependencies:
   stripe_js: 3.4.0
   stripe_platform_interface: 10.1.1
   timeago: 3.6.1
-  url_launcher: 6.2.5
-  url_launcher_android: 6.3.0
-  url_launcher_ios: 6.2.5
+  url_launcher: 6.3.0
+  url_launcher_android: 6.3.4
+  url_launcher_ios: 6.3.1
   url_launcher_platform_interface: 2.3.2
   video_player: 2.8.6
   video_player_android: 2.4.16
   video_player_avfoundation: 2.6.1
   video_player_platform_interface: 6.2.2
   video_player_web: 2.3.1
+  xml: ^6.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -150,6 +150,16 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+  fonts:
+    - family: 'Dancing Script'
+      fonts:
+        - asset: assets/fonts/DancingScript-Regular.ttf
+        - asset: assets/fonts/DancingScript-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DancingScript-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/DancingScript-Bold.ttf
+          weight: 700
 
   
   # An image asset can refer to one or more resolution-specific "variants", see

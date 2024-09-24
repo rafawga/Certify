@@ -32,10 +32,13 @@ export '/project/new/new_user_courses_copy/new_user_courses_copy_widget.dart'
     show NewUserCoursesCopyWidget;
 export '/project/new/abc/abc_widget.dart' show AbcWidget;
 export '/project/new_plans/new_plans_widget.dart' show NewPlansWidget;
-export '/project/new/new_plans_copy2/new_plans_copy2_widget.dart'
-    show NewPlansCopy2Widget;
+export '/project/new/teste_c_ancelar_assinatura/teste_c_ancelar_assinatura_widget.dart'
+    show TesteCAncelarAssinaturaWidget;
 export '/project/politica_privacidade/politica_privacidade_widget.dart'
     show PoliticaPrivacidadeWidget;
 export '/detail_course/detail_course_widget.dart' show DetailCourseWidget;
-export '/project/new/accept_invite/accept_invite_widget.dart'
-    show AcceptInviteWidget;
+export '/accept_invite/accept_invite_widget.dart' show AcceptInviteWidget;
+export '/project/new/editar_curso/editar_curso_widget.dart'
+    show EditarCursoWidget;
+export '/project/dummy_page/svgtest/svgtest_widget.dart' show SvgtestWidget;
+export '/project/dummy_page/pdftest/pdftest_widget.dart' show PdftestWidget;

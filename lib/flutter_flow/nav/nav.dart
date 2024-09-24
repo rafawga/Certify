@@ -208,9 +208,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const NewPlansWidget(),
         ),
         FFRoute(
-          name: 'NewPlansCopy2',
-          path: '/newPlansCopy2',
-          builder: (context, params) => const NewPlansCopy2Widget(),
+          name: 'testeCAncelarAssinatura',
+          path: '/NewPlansCopy2',
+          builder: (context, params) => const TesteCAncelarAssinaturaWidget(),
         ),
         FFRoute(
           name: 'PoliticaPrivacidade',
@@ -240,6 +240,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'EditarCurso',
+          path: '/editarCurso',
+          builder: (context, params) => EditarCursoWidget(
+            cursoId: params.getParam(
+              'cursoId',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['cursos'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'svgtest',
+          path: '/svgtest',
+          builder: (context, params) => const SvgtestWidget(),
+        ),
+        FFRoute(
+          name: 'pdftest',
+          path: '/pdftest',
+          builder: (context, params) => const PdftestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

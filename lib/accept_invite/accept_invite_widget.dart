@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
-import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -52,28 +51,42 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
       ).then((s) => s.firstOrNull);
       _model.curso = _model.cursoEncontrado;
       safeSetState(() {});
-      unawaited(
-        () async {
-          _model.alreadyExist = await queryAlunosCursoRecordOnce(
-            queryBuilder: (alunosCursoRecord) => alunosCursoRecord
-                .where(
-                  'cursoID',
-                  isEqualTo: _model.curso?.reference,
-                )
-                .where(
-                  'alunoUser',
-                  isEqualTo: currentUserReference,
-                ),
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-        }(),
-      );
-      _model.qntdAlunos = await queryAlunosCursoRecordCount(
-        queryBuilder: (alunosCursoRecord) => alunosCursoRecord.where(
-          'cursoID',
-          isEqualTo: _model.curso?.reference,
-        ),
-      );
+      _model.alunoCurso = await queryAlunosCursoRecordOnce(
+        queryBuilder: (alunosCursoRecord) => alunosCursoRecord
+            .where(
+              'cursoID',
+              isEqualTo: _model.curso?.reference,
+            )
+            .where(
+              'alunoUser',
+              isEqualTo: currentUserReference,
+            ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      if (_model.alunoCurso?.alunoUser?.id != null &&
+          _model.alunoCurso?.alunoUser?.id != '') {
+        _model.alunoJaInscrito = true;
+        _model.alunoRemovido = !_model.alunoCurso!.isValid;
+        safeSetState(() {});
+      } else {
+        _model.alunoJaInscrito = false;
+        _model.alunoRemovido = false;
+        safeSetState(() {});
+      }
+
+      if (_model.curso!.hasUserLimit) {
+        _model.qntdAlunos = await queryAlunosCursoRecordCount(
+          queryBuilder: (alunosCursoRecord) => alunosCursoRecord.where(
+            'cursoID',
+            isEqualTo: _model.curso?.reference,
+          ),
+        );
+        _model.cursoTemVagas = _model.qntdAlunos! < _model.curso!.usersLimit;
+        safeSetState(() {});
+      } else {
+        _model.cursoTemVagas = true;
+        safeSetState(() {});
+      }
     });
 
     animationsMap.addAll({
@@ -191,6 +204,39 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        Text(
+                          valueOrDefault<String>(
+                            _model.cursoTemVagas?.toString(),
+                            '123',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        Text(
+                          valueOrDefault<String>(
+                            _model.alunoJaInscrito?.toString(),
+                            '12345',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        Text(
+                          valueOrDefault<String>(
+                            _model.alunoRemovido?.toString(),
+                            '6',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                         Expanded(
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
@@ -381,52 +427,56 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'Você foi convidado para o curso ${_model.curso?.name}.',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
+                                                      Flexible(
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Você foi convidado para o curso ${_model.curso?.name}.',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                          ),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'Você pode aceitar ou recusar este convite.',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      Flexible(
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Aceite o convite para ter acesso ao certificado.',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
@@ -468,128 +518,128 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                                 FFButtonWidget(
                                                               onPressed:
                                                                   () async {
-                                                                if ((_model.alreadyExist !=
-                                                                        null) ==
-                                                                    true) {
-                                                                  if ((_model.qntdAlunos! >=
-                                                                          _model
-                                                                              .cursoEncontrado!
-                                                                              .usersLimit) &&
-                                                                      _model
-                                                                          .curso!
-                                                                          .hasUserLimit) {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Este curso já atingiu o limite de usuários definidos pelo produtor! Entre em contato com o mesmo.',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                          ),
-                                                                        ),
-                                                                        duration:
-                                                                            const Duration(milliseconds: 3000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).warning,
-                                                                      ),
-                                                                    );
-                                                                  } else {
-                                                                    _model.generetedHash =
-                                                                        await actions
-                                                                            .gerarHash(
-                                                                      currentUserReference
-                                                                          ?.id,
-                                                                      _model
-                                                                          .curso
-                                                                          ?.reference
-                                                                          .id,
-                                                                    );
-
-                                                                    await AlunosCursoRecord
-                                                                        .collection
-                                                                        .doc()
-                                                                        .set({
-                                                                      ...createAlunosCursoRecordData(
-                                                                        cursoID: _model
-                                                                            .cursoEncontrado
-                                                                            ?.reference,
-                                                                        isDone:
-                                                                            true,
-                                                                        alunoUser:
-                                                                            currentUserReference,
-                                                                        hash: _model
-                                                                            .generetedHash,
-                                                                        isValid:
-                                                                            true,
-                                                                        professorID: _model
-                                                                            .curso
-                                                                            ?.productorId,
-                                                                      ),
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'dataInscricao':
-                                                                              FieldValue.serverTimestamp(),
-                                                                          'dataModificacao':
-                                                                              FieldValue.serverTimestamp(),
-                                                                        },
-                                                                      ),
-                                                                    });
-
-                                                                    await _model
-                                                                        .cursoEncontrado!
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'UserList':
-                                                                              FieldValue.arrayUnion([
-                                                                            currentUserReference
-                                                                          ]),
-                                                                        },
-                                                                      ),
-                                                                    });
-                                                                    _model.productor =
-                                                                        await queryUsersRecordOnce(
-                                                                      queryBuilder:
-                                                                          (usersRecord) =>
-                                                                              usersRecord.where(
-                                                                        'uid',
-                                                                        isEqualTo: _model
-                                                                            .curso
-                                                                            ?.productorId
+                                                                if (!_model
+                                                                    .alunoRemovido!) {
+                                                                  if (!_model
+                                                                      .alunoJaInscrito!) {
+                                                                    if (_model
+                                                                        .cursoTemVagas!) {
+                                                                      _model.generetedHash =
+                                                                          await actions
+                                                                              .gerarHash(
+                                                                        currentUserReference
                                                                             ?.id,
-                                                                      ),
-                                                                      singleRecord:
-                                                                          true,
-                                                                    ).then((s) =>
-                                                                            s.firstOrNull);
+                                                                        _model
+                                                                            .curso
+                                                                            ?.reference
+                                                                            .id,
+                                                                      );
 
-                                                                    await _model
-                                                                        .productor!
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'AlunosQnt':
-                                                                              FieldValue.increment(1),
-                                                                        },
-                                                                      ),
-                                                                    });
+                                                                      await AlunosCursoRecord
+                                                                          .collection
+                                                                          .doc()
+                                                                          .set({
+                                                                        ...createAlunosCursoRecordData(
+                                                                          cursoID: _model
+                                                                              .curso
+                                                                              ?.reference,
+                                                                          isDone:
+                                                                              true,
+                                                                          alunoUser:
+                                                                              currentUserReference,
+                                                                          hash:
+                                                                              _model.generetedHash,
+                                                                          isValid:
+                                                                              true,
+                                                                          professorID: _model
+                                                                              .curso
+                                                                              ?.productorId,
+                                                                        ),
+                                                                        ...mapToFirestore(
+                                                                          {
+                                                                            'dataInscricao':
+                                                                                FieldValue.serverTimestamp(),
+                                                                            'dataModificacao':
+                                                                                FieldValue.serverTimestamp(),
+                                                                          },
+                                                                        ),
+                                                                      });
 
-                                                                    context.pushNamed(
-                                                                        'newUserCourses');
+                                                                      await _model
+                                                                          .curso!
+                                                                          .reference
+                                                                          .update({
+                                                                        ...mapToFirestore(
+                                                                          {
+                                                                            'UserList':
+                                                                                FieldValue.arrayUnion([
+                                                                              currentUserReference
+                                                                            ]),
+                                                                          },
+                                                                        ),
+                                                                      });
 
+                                                                      await _model
+                                                                          .curso!
+                                                                          .productorId!
+                                                                          .update({
+                                                                        ...mapToFirestore(
+                                                                          {
+                                                                            'AlunosQnt':
+                                                                                FieldValue.increment(1),
+                                                                          },
+                                                                        ),
+                                                                      });
+
+                                                                      context.pushNamed(
+                                                                          'newUserCourses');
+
+                                                                      ScaffoldMessenger.of(
+                                                                              context)
+                                                                          .showSnackBar(
+                                                                        SnackBar(
+                                                                          content:
+                                                                              Text(
+                                                                            'Inscrição Confirmada: Você foi adicionado ao curso com sucesso!',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                            ),
+                                                                          ),
+                                                                          duration:
+                                                                              const Duration(milliseconds: 3000),
+                                                                          backgroundColor:
+                                                                              FlutterFlowTheme.of(context).success,
+                                                                        ),
+                                                                      );
+                                                                    } else {
+                                                                      ScaffoldMessenger.of(
+                                                                              context)
+                                                                          .showSnackBar(
+                                                                        SnackBar(
+                                                                          content:
+                                                                              Text(
+                                                                            'Acesso Revogado: Seu acesso a este curso foi removido. Por favor, entre em contato com o professor para mais informações.',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                            ),
+                                                                          ),
+                                                                          duration:
+                                                                              const Duration(milliseconds: 4000),
+                                                                          backgroundColor:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                  } else {
                                                                     ScaffoldMessenger.of(
                                                                             context)
                                                                         .showSnackBar(
                                                                       SnackBar(
                                                                         content:
                                                                             Text(
-                                                                          'Você foi adicionado (a) ao curso com sucesso',
+                                                                          'Inscrição Existente: Você já está inscrito neste curso.',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -597,60 +647,34 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                                           ),
                                                                         ),
                                                                         duration:
-                                                                            const Duration(milliseconds: 3000),
+                                                                            const Duration(milliseconds: 4000),
                                                                         backgroundColor:
-                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                            FlutterFlowTheme.of(context).error,
                                                                       ),
                                                                     );
                                                                   }
                                                                 } else {
-                                                                  if (_model
-                                                                          .alreadyExist
-                                                                          ?.isValid ==
-                                                                      true) {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Você foi removido deste curso pelo produtor.',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                          ),
+                                                                  ScaffoldMessenger.of(
+                                                                          context)
+                                                                      .showSnackBar(
+                                                                    SnackBar(
+                                                                      content:
+                                                                          Text(
+                                                                        'Vagas Esgotadas: Infelizmente, todas as vagas para este curso foram preenchidas.',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
                                                                         ),
-                                                                        duration:
-                                                                            const Duration(milliseconds: 3000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).warning,
                                                                       ),
-                                                                    );
-                                                                  } else {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Você já esta registrado (a) neste curso',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                          ),
-                                                                        ),
-                                                                        duration:
-                                                                            const Duration(milliseconds: 3000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).warning,
-                                                                      ),
-                                                                    );
-                                                                  }
-
-                                                                  context.pushNamed(
-                                                                      'newUserCourses');
+                                                                      duration: const Duration(
+                                                                          milliseconds:
+                                                                              4000),
+                                                                      backgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .error,
+                                                                    ),
+                                                                  );
                                                                 }
 
                                                                 safeSetState(

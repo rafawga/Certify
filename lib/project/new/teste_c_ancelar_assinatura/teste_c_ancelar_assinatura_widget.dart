@@ -6,25 +6,27 @@ import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'new_plans_copy2_model.dart';
-export 'new_plans_copy2_model.dart';
+import 'teste_c_ancelar_assinatura_model.dart';
+export 'teste_c_ancelar_assinatura_model.dart';
 
-class NewPlansCopy2Widget extends StatefulWidget {
-  const NewPlansCopy2Widget({super.key});
+class TesteCAncelarAssinaturaWidget extends StatefulWidget {
+  const TesteCAncelarAssinaturaWidget({super.key});
 
   @override
-  State<NewPlansCopy2Widget> createState() => _NewPlansCopy2WidgetState();
+  State<TesteCAncelarAssinaturaWidget> createState() =>
+      _TesteCAncelarAssinaturaWidgetState();
 }
 
-class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
-  late NewPlansCopy2Model _model;
+class _TesteCAncelarAssinaturaWidgetState
+    extends State<TesteCAncelarAssinaturaWidget> {
+  late TesteCAncelarAssinaturaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NewPlansCopy2Model());
+    _model = createModel(context, () => TesteCAncelarAssinaturaModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -41,7 +43,7 @@ class _NewPlansCopy2WidgetState extends State<NewPlansCopy2Widget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'NewPlansCopy2',
+        title: 'testeCAncelarAssinatura',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
