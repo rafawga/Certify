@@ -11,22 +11,23 @@ import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String? colorToString(Color? cor) {
   if (cor == null) return null;
 
-  // Extract the ARGB components of the color
-  int alpha = cor.alpha;
+  // Extrai apenas os componentes RGB da cor
   int red = cor.red;
   int green = cor.green;
   int blue = cor.blue;
 
-  // Convert the components to a hexadecimal string
+  // Converte os componentes para uma string hexadecimal, garantindo dois dígitos
   String colorStr =
-      '#${alpha.toRadixString(16).padLeft(2, '0')}${red.toRadixString(16).padLeft(2, '0')}${green.toRadixString(16).padLeft(2, '0')}${blue.toRadixString(16).padLeft(2, '0')}';
+      '#${red.toRadixString(16).padLeft(2, '0')}${green.toRadixString(16).padLeft(2, '0')}${blue.toRadixString(16).padLeft(2, '0')}';
 
-  return colorStr;
+  // Converte a string para maiúsculas (opcional, mais comum em CSS)
+  return colorStr.toUpperCase();
 }
 
 Color? stringToColor(String? cor) {
@@ -71,4 +72,53 @@ String? getWordAtIndex(
   }
 
   return words[idx];
+}
+
+String? gerarText(
+  bool? profissionalBool,
+  bool? cargaBool,
+  bool? dataBool,
+  bool? isCurso,
+) {
+  // Inicia a mensagem com o texto fixo
+  String mensagem = "Certificamos que [aluno] concluiu ";
+
+  // Verifica se é curso ou treinamento
+  if (isCurso == true) {
+    mensagem += "o curso";
+  } else {
+    mensagem += "o treinamento";
+  }
+
+  // Lista para armazenar as partes opcionais do texto
+  List<String> partesOpcionais = [];
+
+  // Adiciona "ministrado pelo profissional Albert Einstein" se profissionalBool for true
+  if (profissionalBool == true) {
+    partesOpcionais.add("ministrado pelo [profissional]");
+  }
+
+  // Adiciona "na data de 11/12/2024" se dataBool for true
+  if (dataBool == true) {
+    partesOpcionais.add("na data de dd/mm/aaaa");
+  }
+
+  // Adiciona "com uma carga horária de x horas" se cargaBool for true
+  if (cargaBool == true) {
+    partesOpcionais.add("com uma carga horária de [x horas]");
+  }
+
+  // Concatena as partes opcionais com vírgulas, se houver
+  if (partesOpcionais.isNotEmpty) {
+    mensagem += ", " + partesOpcionais.join(", ");
+  }
+
+  // Adiciona o ponto final
+  mensagem += ".";
+
+  return mensagem;
+}
+
+String? imagePathToString(String? imagePath) {
+  return imagePath;
 }

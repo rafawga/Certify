@@ -1,0 +1,51 @@
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
+import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
+import 'accept_invite_widget.dart' show AcceptInviteWidget;
+import 'package:flutter/material.dart';
+
+class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
+  ///  Local state fields for this page.
+
+  CursosRecord? curso;
+
+  bool? cursoTemVagas = false;
+
+  bool? alunoJaInscrito = false;
+
+  bool? alunoRemovido = false;
+
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
+  CursosRecord? cursoEncontrado;
+  // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
+  AlunosCursoRecord? alunoCurso;
+  // Stores action output result for [Firestore Query - Query a collection] action in accept-invite widget.
+  int? qntdAlunos;
+  // Model for sidebar-expandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel1;
+  // Model for sidebar-reduzido component.
+  late SidebarReduzidoModel sidebarReduzidoModel;
+  // Stores action output result for [Custom Action - gerarHash] action in Button widget.
+  String? generetedHash;
+  // Model for sidebar-expandido component.
+  late SidebarExpandidoModel sidebarExpandidoModel2;
+
+  @override
+  void initState(BuildContext context) {
+    sidebarExpandidoModel1 =
+        createModel(context, () => SidebarExpandidoModel());
+    sidebarReduzidoModel = createModel(context, () => SidebarReduzidoModel());
+    sidebarExpandidoModel2 =
+        createModel(context, () => SidebarExpandidoModel());
+  }
+
+  @override
+  void dispose() {
+    sidebarExpandidoModel1.dispose();
+    sidebarReduzidoModel.dispose();
+    sidebarExpandidoModel2.dispose();
+  }
+}

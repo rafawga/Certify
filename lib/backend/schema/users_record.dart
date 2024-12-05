@@ -40,11 +40,6 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
-  // "last_name" field.
-  String? _lastName;
-  String get lastName => _lastName ?? '';
-  bool hasLastName() => _lastName != null;
-
   // "CertificateName" field.
   String? _certificateName;
   String get certificateName => _certificateName ?? '';
@@ -96,13 +91,17 @@ class UsersRecord extends FirestoreRecord {
   bool get productorMode => _productorMode ?? false;
   bool hasProductorMode() => _productorMode != null;
 
+  // "last_name" field.
+  String? _lastName;
+  String get lastName => _lastName ?? '';
+  bool hasLastName() => _lastName != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _lastName = snapshotData['last_name'] as String?;
     _certificateName = snapshotData['CertificateName'] as String?;
     _name = snapshotData['name'] as String?;
     _coursesQnt = castToType<int>(snapshotData['CoursesQnt']);
@@ -114,6 +113,7 @@ class UsersRecord extends FirestoreRecord {
     _accesManagement =
         AccessManagementStruct.maybeFromMap(snapshotData['acces_management']);
     _productorMode = snapshotData['ProductorMode'] as bool?;
+    _lastName = snapshotData['last_name'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -155,7 +155,6 @@ Map<String, dynamic> createUsersRecordData({
   String? photoUrl,
   String? uid,
   DateTime? createdTime,
-  String? lastName,
   String? certificateName,
   String? name,
   int? coursesQnt,
@@ -166,6 +165,7 @@ Map<String, dynamic> createUsersRecordData({
   UserPlanStruct? currentPlan,
   AccessManagementStruct? accesManagement,
   bool? productorMode,
+  String? lastName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -174,7 +174,6 @@ Map<String, dynamic> createUsersRecordData({
       'photo_url': photoUrl,
       'uid': uid,
       'created_time': createdTime,
-      'last_name': lastName,
       'CertificateName': certificateName,
       'name': name,
       'CoursesQnt': coursesQnt,
@@ -185,6 +184,7 @@ Map<String, dynamic> createUsersRecordData({
       'current_plan': UserPlanStruct().toMap(),
       'acces_management': AccessManagementStruct().toMap(),
       'ProductorMode': productorMode,
+      'last_name': lastName,
     }.withoutNulls,
   );
 
@@ -211,7 +211,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.lastName == e2?.lastName &&
         e1?.certificateName == e2?.certificateName &&
         e1?.name == e2?.name &&
         e1?.coursesQnt == e2?.coursesQnt &&
@@ -221,7 +220,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.limits == e2?.limits &&
         e1?.currentPlan == e2?.currentPlan &&
         e1?.accesManagement == e2?.accesManagement &&
-        e1?.productorMode == e2?.productorMode;
+        e1?.productorMode == e2?.productorMode &&
+        e1?.lastName == e2?.lastName;
   }
 
   @override
@@ -231,7 +231,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.lastName,
         e?.certificateName,
         e?.name,
         e?.coursesQnt,
@@ -241,7 +240,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.limits,
         e?.currentPlan,
         e?.accesManagement,
-        e?.productorMode
+        e?.productorMode,
+        e?.lastName
       ]);
 
   @override

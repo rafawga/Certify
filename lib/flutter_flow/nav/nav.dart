@@ -75,29 +75,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NewHomePageWidget() : const NewAuthWidget(),
+          appStateNotifier.loggedIn ? const HomeWidget() : const AuthenticationWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NewHomePageWidget() : const NewAuthWidget(),
+              appStateNotifier.loggedIn ? const HomeWidget() : const AuthenticationWidget(),
         ),
         FFRoute(
-          name: 'CourseInvitation',
-          path: '/courseInvitation',
-          requireAuth: true,
-          builder: (context, params) => CourseInvitationWidget(
-            invitetionCode: params.getParam(
-              'invitetionCode',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['cursos'],
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'Settings',
+          name: 'settings',
           path: '/settings',
           requireAuth: true,
           builder: (context, params) => const SettingsWidget(),
@@ -109,16 +96,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const FeedBacksWidget(),
         ),
         FFRoute(
-          name: 'VerifyCertificate',
-          path: '/VerifyCertificateAuth',
+          name: 'verify-auth',
+          path: '/verify-auth',
           requireAuth: true,
-          builder: (context, params) => const VerifyCertificateWidget(),
-        ),
-        FFRoute(
-          name: 'GetProPlan',
-          path: '/iDokeyPlans',
-          requireAuth: true,
-          builder: (context, params) => const GetProPlanWidget(),
+          builder: (context, params) => const VerifyAuthWidget(),
         ),
         FFRoute(
           name: 'AssinaturaSucesso',
@@ -132,96 +113,58 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const DashboardWidget(),
         ),
         FFRoute(
-          name: 'dummyPage',
-          path: '/dummyPage',
-          builder: (context, params) => const DummyPageWidget(),
+          name: 'authentication',
+          path: '/login',
+          builder: (context, params) => const AuthenticationWidget(),
         ),
         FFRoute(
-          name: 'CreateNewTemplate',
-          path: '/CreatenewTemplate',
-          builder: (context, params) => const CreateNewTemplateWidget(),
-        ),
-        FFRoute(
-          name: 'CursoDetail',
-          path: '/cursoDetail',
+          name: 'home',
+          path: '/home',
           requireAuth: true,
-          builder: (context, params) => CursoDetailWidget(
-            curso: params.getParam(
-              'curso',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['cursos'],
-            ),
-            tab: params.getParam(
-              'tab',
-              ParamType.int,
-            ),
-          ),
+          builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
-          name: 'NewAuth',
-          path: '/NewAuth',
-          builder: (context, params) => const NewAuthWidget(),
-        ),
-        FFRoute(
-          name: 'newHomePage',
-          path: '/newHomePage',
+          name: 'productor-course',
+          path: '/productor-course',
           requireAuth: true,
-          builder: (context, params) => const NewHomePageWidget(),
+          builder: (context, params) => const ProductorCourseWidget(),
         ),
         FFRoute(
-          name: 'newProductorCourse',
-          path: '/newProductorCourse',
+          name: 'user-settings',
+          path: '/user-settings',
+          builder: (context, params) => const UserSettingsWidget(),
+        ),
+        FFRoute(
+          name: 'create-course',
+          path: '/create-course',
+          builder: (context, params) => const CreateCourseWidget(),
+        ),
+        FFRoute(
+          name: 'user-certificates',
+          path: '/user-certificates',
           requireAuth: true,
-          builder: (context, params) => const NewProductorCourseWidget(),
+          builder: (context, params) => const UserCertificatesWidget(),
         ),
         FFRoute(
-          name: 'NewUserProfile',
-          path: '/newUserProfile',
-          builder: (context, params) => const NewUserProfileWidget(),
+          name: 'pricing',
+          path: '/pricing',
+          builder: (context, params) => const PricingWidget(),
         ),
         FFRoute(
-          name: 'NewCreateCourse',
-          path: '/newCreateCourse',
-          builder: (context, params) => const NewCreateCourseWidget(),
+          name: 'teste-cancelar-assinatura',
+          path: '/teste-cancelar-assinatura',
+          builder: (context, params) => const TesteCancelarAssinaturaWidget(),
         ),
         FFRoute(
-          name: 'newUserCourses',
-          path: '/newUserCourses',
-          requireAuth: true,
-          builder: (context, params) => const NewUserCoursesWidget(),
-        ),
-        FFRoute(
-          name: 'newUserCoursesCopy',
-          path: '/newUserCoursesCopy',
-          requireAuth: true,
-          builder: (context, params) => const NewUserCoursesCopyWidget(),
-        ),
-        FFRoute(
-          name: 'abc',
-          path: '/abc',
-          builder: (context, params) => const AbcWidget(),
-        ),
-        FFRoute(
-          name: 'NewPlans',
-          path: '/newPlans',
-          builder: (context, params) => const NewPlansWidget(),
-        ),
-        FFRoute(
-          name: 'testeCAncelarAssinatura',
-          path: '/NewPlansCopy2',
-          builder: (context, params) => const TesteCAncelarAssinaturaWidget(),
-        ),
-        FFRoute(
-          name: 'PoliticaPrivacidade',
-          path: '/politicaPrivacidade',
+          name: 'politica-privacidade',
+          path: '/politica-privacidade',
           builder: (context, params) => const PoliticaPrivacidadeWidget(),
         ),
         FFRoute(
-          name: 'detailCourse',
-          path: '/detailCourse',
+          name: 'course-detail',
+          path: '/course-detail',
           requireAuth: true,
-          builder: (context, params) => DetailCourseWidget(
+          builder: (context, params) => CourseDetailWidget(
             curso: params.getParam(
               'curso',
               ParamType.DocumentReference,
@@ -242,9 +185,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'EditarCurso',
-          path: '/editarCurso',
-          builder: (context, params) => EditarCursoWidget(
+          name: 'edit-course',
+          path: '/edit-course',
+          requireAuth: true,
+          builder: (context, params) => EditCourseWidget(
             cursoId: params.getParam(
               'cursoId',
               ParamType.DocumentReference,
@@ -254,14 +198,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'svgtest',
-          path: '/svgtest',
-          builder: (context, params) => const SvgtestWidget(),
+          name: 'svg-create-new',
+          path: '/svg-create-new',
+          builder: (context, params) => const SvgCreateNewWidget(),
         ),
         FFRoute(
           name: 'pdftest',
           path: '/pdftest',
           builder: (context, params) => const PdftestWidget(),
+        ),
+        FFRoute(
+          name: 'template-config',
+          path: '/template-config',
+          requireAuth: true,
+          builder: (context, params) => TemplateConfigWidget(
+            course: params.getParam(
+              'course',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['cursos'],
+            ),
+            creating: params.getParam(
+              'creating',
+              ParamType.bool,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'font',
+          path: '/font',
+          builder: (context, params) => const FontWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -434,7 +400,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/NewAuth';
+            return '/login';
           }
           return null;
         },

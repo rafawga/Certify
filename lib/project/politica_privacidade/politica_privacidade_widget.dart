@@ -35,7 +35,7 @@ class _PoliticaPrivacidadeWidgetState extends State<PoliticaPrivacidadeWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'PoliticaPrivacidade',
+        title: 'politica-privacidade',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),

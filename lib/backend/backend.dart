@@ -12,6 +12,7 @@ import 'schema/report_record.dart';
 import 'schema/assinaturas_record.dart';
 import 'schema/template_certificado_record.dart';
 import 'schema/template_images_record.dart';
+import 'schema/template_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -27,6 +28,7 @@ export 'schema/report_record.dart';
 export 'schema/assinaturas_record.dart';
 export 'schema/template_certificado_record.dart';
 export 'schema/template_images_record.dart';
+export 'schema/template_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -282,6 +284,43 @@ Future<List<TemplateImagesRecord>> queryTemplateImagesRecordOnce({
     queryCollectionOnce(
       TemplateImagesRecord.collection,
       TemplateImagesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query TemplateRecords (as a Stream and as a Future).
+Future<int> queryTemplateRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TemplateRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TemplateRecord>> queryTemplateRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TemplateRecord.collection,
+      TemplateRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TemplateRecord>> queryTemplateRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TemplateRecord.collection,
+      TemplateRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

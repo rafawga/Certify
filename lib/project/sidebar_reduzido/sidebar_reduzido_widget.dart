@@ -174,7 +174,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'newHomePage',
+                      'home',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
@@ -220,7 +220,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'newProductorCourse',
+                          'productor-course',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
@@ -268,55 +268,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'NewCreateCourse',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                            ),
-                          },
-                        );
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: widget.currentTab == 9
-                              ? FlutterFlowTheme.of(context).accent2
-                              : FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.add_to_photos,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              if (currentUserDocument!.accesManagement.hasSubscription &&
-                  valueOrDefault<bool>(
-                      currentUserDocument?.productorMode, false))
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                  child: AuthUserStreamWidget(
-                    builder: (context) => InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed(
-                          'newHomePage',
+                          'home',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
@@ -365,7 +317,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'newHomePage',
+                          'home',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
@@ -414,7 +366,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'newHomePage',
+                          'home',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
@@ -458,7 +410,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'NewUserProfile',
+                      'user-settings',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
@@ -500,7 +452,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'Settings',
+                      'settings',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
@@ -542,7 +494,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'NewPlans',
+                      'pricing',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
@@ -671,7 +623,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('NewUserProfile');
+                        context.pushNamed('user-settings');
                       },
                       child: Container(
                         width: double.infinity,

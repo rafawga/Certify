@@ -15,7 +15,7 @@ class CourseLinkModel extends FlutterFlowModel<CourseLinkWidget> {
 
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - Read Document] action in CourseLink widget.
+  // Stores action output result for [Backend Call - Read Document] action in course-link widget.
   CursosRecord? cursoSelecionado;
   // Stores action output result for [Custom Action - gerarInviteCode] action in Container widget.
   String? hash;

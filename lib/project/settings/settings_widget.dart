@@ -3,7 +3,6 @@ import '/components/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
@@ -38,7 +37,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'Settings',
+        title: 'settings',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: Scaffold(
           key: scaffoldKey,
@@ -174,7 +173,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('NewUserProfile');
+                                        context.pushNamed('user-settings');
                                       },
                                       child: Material(
                                         color: Colors.transparent,
@@ -316,14 +315,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        await actions.gerarPDFwithHeight(
-                                          501.0,
-                                          260.0,
-                                          'https://firebasestorage.googleapis.com/v0/b/easy-certificates-y874s2.appspot.com/o/users%2FZ3l7xXYs6eT7UqsGOOI5TaZMJxG2%2Fuploads%2F1712012492551000.png?alt=media&token=ca6955a5-af64-4ab8-bb63-7b4ff7727012',
-                                          '20',
-                                          '20',
-                                          '10',
-                                        );
+                                        context.pushNamed('font');
                                       },
                                       child: Material(
                                         color: Colors.transparent,
@@ -398,8 +390,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           GoRouter.of(context)
                                               .clearRedirectLocation();
 
-                                          context.goNamedAuth(
-                                              'NewAuth', context.mounted);
+                                          context.goNamedAuth('authentication',
+                                              context.mounted);
                                         },
                                         text: 'Log Out',
                                         options: FFButtonOptions(

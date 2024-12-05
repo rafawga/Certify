@@ -1,6 +1,7 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -16,7 +17,7 @@ import 'package:http/http.dart' as http; // Para fazer download do SVG
 import 'package:xml/xml.dart'
     as xml; // Para manipulação de XML e extração de dimensões do SVG
 
-Future<String> gerarPDFwithSVG(String svgUrl) async {
+Future<String> gerarPDFwithSVG(String svgUrl, String cor) async {
   final pdf = pw.Document();
 
   // Verifica se a URL do SVG é válida
@@ -33,17 +34,11 @@ Future<String> gerarPDFwithSVG(String svgUrl) async {
 
     String svgContent = response.body; // Pega o conteúdo do SVG como string
 
-    // Substitui 'CERTIFICADO' por 'teste' no conteúdo do SVG
-    svgContent = svgContent.replaceAll('CERTIFICADO', 'teste');
-
-    // Substitui 'aluno' por 'lucas fortunato' no conteúdo do SVG
-    svgContent = svgContent.replaceAll('aluno', 'lucas fortunato');
-
-    // Substitui todas as ocorrências da cor 'CCCCCC' por '#0f1496'
+    // Substitui todas as ocorrências da cor 'CCCCCC' pela cor fornecida como parâmetro
     // Considera diferentes formas da cor (maiúsculas/minúsculas, com ou sem '#')
     final colorPatterns = ['#CCCCCC', '#cccccc', 'CCCCCC', 'cccccc'];
     for (final pattern in colorPatterns) {
-      svgContent = svgContent.replaceAll(pattern, '#0f1496');
+      svgContent = svgContent.replaceAll(pattern, cor);
     }
 
     // Parseia o SVG modificado para obter as dimensões (width e height)
