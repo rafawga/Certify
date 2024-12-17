@@ -121,7 +121,10 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
         title: 'Meus certificados',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -754,6 +757,13 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                                                             ),
                                                                                                             singleRecord: true,
                                                                                                           ).then((s) => s.firstOrNull);
+                                                                                                          _model.produtor = await queryUsersRecordOnce(
+                                                                                                            queryBuilder: (usersRecord) => usersRecord.where(
+                                                                                                              'uid',
+                                                                                                              isEqualTo: videoCardCursosRecord.productorId?.id,
+                                                                                                            ),
+                                                                                                            singleRecord: true,
+                                                                                                          ).then((s) => s.firstOrNull);
                                                                                                           _model.certificadoOutput = await actions.gerarCertificado(
                                                                                                             _model.image!.svg,
                                                                                                             _model.template!.cor,
@@ -771,7 +781,7 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                                                             _model.template!.hasLogo,
                                                                                                             functions.imagePathToString(_model.template?.logoPath),
                                                                                                             _model.image!.mainText,
-                                                                                                            'Código de e autenticação: {code}',
+                                                                                                            'Código de autenticação: {code}',
                                                                                                             _model.template!.profissional,
                                                                                                             _model.template!.dataConclusao,
                                                                                                             _model.template!.cargaHoraria,
@@ -783,6 +793,9 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                                                             _model.image!.codeFontURL,
                                                                                                             _model.image!.nameAlignment,
                                                                                                             _model.image!.mainTextAlignment,
+                                                                                                            _model.image!.alunoFontSizeCoefficient,
+                                                                                                            _model.image!.mainTextFontSizeCoefficient,
+                                                                                                            _model.produtor!.genero,
                                                                                                           );
                                                                                                           _model.currentHash = listViewAlunosCursoRecord.hash;
                                                                                                           safeSetState(() {});

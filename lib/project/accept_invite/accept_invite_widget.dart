@@ -154,7 +154,10 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
         title: 'Convite para Certificação',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -575,6 +578,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                                                 FieldValue.arrayUnion([
                                                                               currentUserReference
                                                                             ]),
+                                                                            'Quantity':
+                                                                                FieldValue.increment(1),
                                                                           },
                                                                         ),
                                                                       });

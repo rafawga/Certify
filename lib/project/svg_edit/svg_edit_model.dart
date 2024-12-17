@@ -1,10 +1,16 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'svg_create_new_widget.dart' show SvgCreateNewWidget;
+import 'svg_edit_widget.dart' show SvgEditWidget;
 import 'package:flutter/material.dart';
 
-class SvgCreateNewModel extends FlutterFlowModel<SvgCreateNewWidget> {
+class SvgEditModel extends FlutterFlowModel<SvgEditWidget> {
+  ///  Local state fields for this page.
+
+  bool svgHasChanged = false;
+
+  bool pngHasChanged = false;
+
   ///  State fields for stateful widgets in this page.
 
   bool isDataUploading1 = false;

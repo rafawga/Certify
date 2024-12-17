@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
@@ -44,6 +45,12 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
     _model.fonteCodeTextController ??= TextEditingController();
     _model.fonteCodeFocusNode ??= FocusNode();
 
+    _model.alunoEscaleTextController ??= TextEditingController();
+    _model.alunoEscaleFocusNode ??= FocusNode();
+
+    _model.mainTextEscaleTextController ??= TextEditingController();
+    _model.mainTextEscaleFocusNode ??= FocusNode();
+
     _model.mainTextTextController ??= TextEditingController();
     _model.mainTextFocusNode ??= FocusNode();
 
@@ -54,6 +61,14 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
     _model.nomeCursoTestFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.fontalunoTextController?.text =
+              'https://firebasestorage.googleapis.com/v0/b/certify-br.appspot.com/o/fonts%2FLuxuriousScript-Regular.ttf?alt=media&token=7a3dc364-8598-4abc-9138-fde8fd9ee339';
+          _model.fonteMainTextTextController?.text =
+              'https://firebasestorage.googleapis.com/v0/b/certify-br.appspot.com/o/fonts%2FSarabun-Regular.ttf?alt=media&token=fb1712e5-ccd9-4b55-9049-3734903f5df0';
+          _model.fonteCodeTextController?.text =
+              'https://firebasestorage.googleapis.com/v0/b/certify-br.appspot.com/o/fonts%2FSarabun-Regular.ttf?alt=media&token=fb1712e5-ccd9-4b55-9049-3734903f5df0';
+          _model.alunoEscaleTextController?.text = '1';
+          _model.mainTextEscaleTextController?.text = '1';
           _model.mainTextTextController?.text =
               'Concluiu o {c-type} {c-name}{?hasProfissional}, ministrado pelo profissional {teacher}{/hasProfissional}{?hasDate} na data de {date}{/hasDate}{?hasDuration} com uma duração de {duration} horas{/hasDuration}.';
           _model.nomeAlunoTestTextController?.text = 'Rafael Gutierrez';
@@ -74,7 +89,10 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
         title: 'svg-create-new',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -815,6 +833,176 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text(
+                              'Escala do tamanho da fonte (aluno) -->',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            SizedBox(
+                              width: 200.0,
+                              child: TextFormField(
+                                controller: _model.alunoEscaleTextController,
+                                focusNode: _model.alunoEscaleFocusNode,
+                                autofocus: false,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'fonte',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                        decimal: true),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                validator: _model
+                                    .alunoEscaleTextControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ].divide(const SizedBox(width: 10.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Escala do tamanho da fonte (main text) -->',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            SizedBox(
+                              width: 200.0,
+                              child: TextFormField(
+                                controller: _model.mainTextEscaleTextController,
+                                focusNode: _model.mainTextEscaleFocusNode,
+                                autofocus: false,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  hintText: 'fonte',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                        decimal: true),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                validator: _model
+                                    .mainTextEscaleTextControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ].divide(const SizedBox(width: 10.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
@@ -1405,7 +1593,7 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
                                   true,
                                   'https://firebasestorage.googleapis.com/v0/b/certify-br.appspot.com/o/users%2F61zV42pDdkhn0Aa2tTHMwHyKHwC3%2Fuploads%2F1726614538944000.jpg?alt=media&token=38c98020-74c9-4dbb-b597-ffeacc9cd143',
                                   _model.mainTextTextController.text,
-                                  'Código de e autenticação: {code}',
+                                  'Código de autenticação: {code}',
                                   true,
                                   true,
                                   true,
@@ -1417,6 +1605,12 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
                                   _model.fonteCodeTextController.text,
                                   _model.alunoAlignValue!,
                                   _model.maintextAlignValue!,
+                                  double.parse(
+                                      _model.alunoEscaleTextController.text),
+                                  double.parse(
+                                      _model.mainTextEscaleTextController.text),
+                                  valueOrDefault(
+                                      currentUserDocument?.genero, ''),
                                 );
                               },
                               text: 'Testar Certificado',
@@ -1472,16 +1666,20 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
                                 await TemplateImagesRecord.collection
                                     .doc()
                                     .set(createTemplateImagesRecordData(
-                                      name: _model
-                                          .nomeAlunoTestTextController.text,
+                                      name: _model.nomeTextController.text,
                                       svg: _model.uploadedFileUrl1,
                                       png: _model.uploadedFileUrl2,
                                       index: _model.ultimo!.index + 1,
                                       nameAlignment: _model.alunoAlignValue,
                                       mainTextAlignment:
                                           _model.maintextAlignValue,
-                                      alunoFontSizeCoefficient: 1.0,
-                                      mainTextFontSizeCoefficient: 1.0,
+                                      alunoFontSizeCoefficient: double.tryParse(
+                                          _model
+                                              .alunoEscaleTextController.text),
+                                      mainTextFontSizeCoefficient:
+                                          double.tryParse(_model
+                                              .mainTextEscaleTextController
+                                              .text),
                                       alunoFontColor: functions
                                           .colorToString(_model.colorPicked1),
                                       mainTextFontColor: functions

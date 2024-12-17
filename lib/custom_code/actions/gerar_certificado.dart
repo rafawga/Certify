@@ -46,8 +46,12 @@ Future<String> gerarCertificado(
     String
         alunoAlignment, // Alinhamento do texto do aluno (left, right, center, justify)
     String
-        mainTextAlignment // Alinhamento do texto principal (left, right, center, justify)
-    ) async {
+        mainTextAlignment, // Alinhamento do texto principal (left, right, center, justify)
+    // Novos parâmetros de escala de fonte
+    double alunoFontScale,
+    double mainTextFontScale,
+    // Novo parâmetro de gênero do profissional
+    String ProfissionalGender) async {
   final pdf = pw.Document();
 
   if (svgUrl.isEmpty) {
@@ -119,6 +123,22 @@ Future<String> gerarCertificado(
     authenticationCode =
         processTemplate(authenticationCode, variables, conditions);
 
+    // Ajusta o gênero do profissional substituindo {gender}
+    String genderLower = ProfissionalGender.toLowerCase();
+    String genderReplace = 'o'; // valor padrão
+    if (genderLower == 'feminino') {
+      genderReplace = 'a';
+    } else if (genderLower == 'masculino') {
+      genderReplace = 'o';
+    } else {
+      // qualquer outro valor também fica "o"
+      genderReplace = 'o';
+    }
+
+    mainText = mainText.replaceAll('{gender}', genderReplace);
+    authenticationCode =
+        authenticationCode.replaceAll('{gender}', genderReplace);
+
     // Função para converter código hex em PdfColor
     PdfColor hexToPdfColor(String hexColor) {
       hexColor = hexColor.replaceAll('#', '');
@@ -137,7 +157,7 @@ Future<String> gerarCertificado(
       }
     }
 
-    // Converte as cores para PdfColor, com fallback em caso de inválido
+    // Converte as cores para PdfColor
     final PdfColor parsedAlunoColor = hexToPdfColor(alunoColor);
     final PdfColor parsedMainTextColor = hexToPdfColor(mainTextColor);
     final PdfColor parsedCodeColor = hexToPdfColor(codeColor);
@@ -305,15 +325,19 @@ Future<String> gerarCertificado(
       }
     }
 
-    // Constrói o PDF
     final pdfSaved = await Printing.layoutPdf(
       onLayout: (PdfPageFormat format) async {
         pdf.addPage(
           pw.Page(
             pageFormat: pageFormat,
             build: (pw.Context context) {
-              double maxMainFontSize = 84;
-              double alunoFontSize = (alunoInfo?['height'] ?? 0) * 0.9;
+              // Ajuste de tamanhos de fonte com base nos fatores
+              double baseAlunoFontSize = (alunoInfo?['height'] ?? 0) * 0.5;
+              double alunoFontSize = baseAlunoFontSize * alunoFontScale;
+
+              double baseMainFontSize = 84; // valor base para mainText
+              double maxMainFontSize = baseMainFontSize * mainTextFontScale;
+
               double codeFontSize = (codeInfo?['height'] ?? 0) * 0.5;
 
               return pw.Stack(

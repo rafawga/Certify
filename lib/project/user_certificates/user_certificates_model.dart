@@ -20,6 +20,8 @@ class UserCertificatesModel extends FlutterFlowModel<UserCertificatesWidget> {
   TemplateRecord? template;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   TemplateImagesRecord? image;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersRecord? produtor;
   // Stores action output result for [Custom Action - gerarCertificado] action in Button widget.
   String? certificadoOutput;
   // Model for sidebar-expandido component.

@@ -85,6 +85,11 @@ class CursosRecord extends FirestoreRecord {
   CourseInviteStruct get courseInvite => _courseInvite ?? CourseInviteStruct();
   bool hasCourseInvite() => _courseInvite != null;
 
+  // "Quantity" field.
+  int? _quantity;
+  int get quantity => _quantity ?? 0;
+  bool hasQuantity() => _quantity != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -99,8 +104,10 @@ class CursosRecord extends FirestoreRecord {
     _usersLimit = castToType<int>(snapshotData['UsersLimit']);
     _hasUserLimit = snapshotData['HasUserLimit'] as bool?;
     _templateRef = snapshotData['TemplateRef'] as DocumentReference?;
-    _courseInvite =
-        CourseInviteStruct.maybeFromMap(snapshotData['courseInvite']);
+    _courseInvite = snapshotData['courseInvite'] is CourseInviteStruct
+        ? snapshotData['courseInvite']
+        : CourseInviteStruct.maybeFromMap(snapshotData['courseInvite']);
+    _quantity = castToType<int>(snapshotData['Quantity']);
   }
 
   static CollectionReference get collection =>
@@ -149,6 +156,7 @@ Map<String, dynamic> createCursosRecordData({
   bool? hasUserLimit,
   DocumentReference? templateRef,
   CourseInviteStruct? courseInvite,
+  int? quantity,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -164,6 +172,7 @@ Map<String, dynamic> createCursosRecordData({
       'HasUserLimit': hasUserLimit,
       'TemplateRef': templateRef,
       'courseInvite': CourseInviteStruct().toMap(),
+      'Quantity': quantity,
     }.withoutNulls,
   );
 
@@ -192,7 +201,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e1?.usersLimit == e2?.usersLimit &&
         e1?.hasUserLimit == e2?.hasUserLimit &&
         e1?.templateRef == e2?.templateRef &&
-        e1?.courseInvite == e2?.courseInvite;
+        e1?.courseInvite == e2?.courseInvite &&
+        e1?.quantity == e2?.quantity;
   }
 
   @override
@@ -210,7 +220,8 @@ class CursosRecordDocumentEquality implements Equality<CursosRecord> {
         e?.usersLimit,
         e?.hasUserLimit,
         e?.templateRef,
-        e?.courseInvite
+        e?.courseInvite,
+        e?.quantity
       ]);
 
   @override

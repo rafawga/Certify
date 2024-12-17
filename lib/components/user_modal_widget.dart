@@ -341,6 +341,9 @@ class _UserModalWidgetState extends State<UserModalWidget> {
                                                   'UserList':
                                                       FieldValue.arrayRemove(
                                                           [widget.userRef]),
+                                                  'Quantity':
+                                                      FieldValue.increment(
+                                                          -(1)),
                                                 },
                                               ),
                                             });

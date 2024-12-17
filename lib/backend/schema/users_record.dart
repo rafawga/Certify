@@ -96,6 +96,11 @@ class UsersRecord extends FirestoreRecord {
   String get lastName => _lastName ?? '';
   bool hasLastName() => _lastName != null;
 
+  // "genero" field.
+  String? _genero;
+  String get genero => _genero ?? '';
+  bool hasGenero() => _genero != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -108,12 +113,19 @@ class UsersRecord extends FirestoreRecord {
     _alunosQnt = castToType<int>(snapshotData['AlunosQnt']);
     _phoneNumber = snapshotData['phone_number'] as String?;
     _completedRegistration = snapshotData['completedRegistration'] as bool?;
-    _limits = LimitsStruct.maybeFromMap(snapshotData['limits']);
-    _currentPlan = UserPlanStruct.maybeFromMap(snapshotData['current_plan']);
-    _accesManagement =
-        AccessManagementStruct.maybeFromMap(snapshotData['acces_management']);
+    _limits = snapshotData['limits'] is LimitsStruct
+        ? snapshotData['limits']
+        : LimitsStruct.maybeFromMap(snapshotData['limits']);
+    _currentPlan = snapshotData['current_plan'] is UserPlanStruct
+        ? snapshotData['current_plan']
+        : UserPlanStruct.maybeFromMap(snapshotData['current_plan']);
+    _accesManagement = snapshotData['acces_management']
+            is AccessManagementStruct
+        ? snapshotData['acces_management']
+        : AccessManagementStruct.maybeFromMap(snapshotData['acces_management']);
     _productorMode = snapshotData['ProductorMode'] as bool?;
     _lastName = snapshotData['last_name'] as String?;
+    _genero = snapshotData['genero'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -166,6 +178,7 @@ Map<String, dynamic> createUsersRecordData({
   AccessManagementStruct? accesManagement,
   bool? productorMode,
   String? lastName,
+  String? genero,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -185,6 +198,7 @@ Map<String, dynamic> createUsersRecordData({
       'acces_management': AccessManagementStruct().toMap(),
       'ProductorMode': productorMode,
       'last_name': lastName,
+      'genero': genero,
     }.withoutNulls,
   );
 
@@ -221,7 +235,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.currentPlan == e2?.currentPlan &&
         e1?.accesManagement == e2?.accesManagement &&
         e1?.productorMode == e2?.productorMode &&
-        e1?.lastName == e2?.lastName;
+        e1?.lastName == e2?.lastName &&
+        e1?.genero == e2?.genero;
   }
 
   @override
@@ -241,7 +256,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.currentPlan,
         e?.accesManagement,
         e?.productorMode,
-        e?.lastName
+        e?.lastName,
+        e?.genero
       ]);
 
   @override

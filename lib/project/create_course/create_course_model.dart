@@ -20,10 +20,6 @@ class CreateCourseModel extends FlutterFlowModel<CreateCourseWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  // State field(s) for Professor widget.
-  FocusNode? professorFocusNode;
-  TextEditingController? professorTextController;
-  String? Function(BuildContext, String?)? professorTextControllerValidator;
   // State field(s) for Duracao widget.
   FocusNode? duracaoFocusNode;
   TextEditingController? duracaoTextController;
@@ -62,9 +58,6 @@ class CreateCourseModel extends FlutterFlowModel<CreateCourseWidget> {
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
-
-    professorFocusNode?.dispose();
-    professorTextController?.dispose();
 
     duracaoFocusNode?.dispose();
     duracaoTextController?.dispose();

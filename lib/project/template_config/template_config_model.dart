@@ -27,8 +27,8 @@ class TemplateConfigModel extends FlutterFlowModel<TemplateConfigWidget> {
   int carouselCurrentIndex1 = 0;
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  TemplateImagesRecord? imagemSelecionada2;
-  // Stores action output result for [Custom Action - gerarPDFwithSVG] action in Button widget.
+  TemplateImagesRecord? imagemSelecionadaPC;
+  // Stores action output result for [Custom Action - gerarCertificado] action in Button widget.
   String? pdfReturn2;
   // State field(s) for NamePC widget.
   FocusNode? namePCFocusNode2;

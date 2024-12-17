@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
 import 'user_settings_widget.dart' show UserSettingsWidget;
@@ -32,6 +33,9 @@ class UserSettingsModel extends FlutterFlowModel<UserSettingsWidget> {
   FocusNode? yourNameFocusNode3;
   TextEditingController? yourNameTextController3;
   String? Function(BuildContext, String?)? yourNameTextController3Validator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
   // State field(s) for Switch widget.
   bool? switchValue;
   // Model for sidebar-expandido component.

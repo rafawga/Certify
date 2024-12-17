@@ -76,7 +76,10 @@ class _CourseDetailWidgetState extends State<CourseDetailWidget> {
             title: 'Detalhes do Curso',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -452,8 +455,11 @@ class _CourseDetailWidgetState extends State<CourseDetailWidget> {
                                                                             const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         child:
                                                                             GestureDetector(
-                                                                          onTap: () =>
-                                                                              FocusScope.of(dialogContext).unfocus(),
+                                                                          onTap:
+                                                                              () {
+                                                                            FocusScope.of(dialogContext).unfocus();
+                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                          },
                                                                           child:
                                                                               CourseLinkWidget(
                                                                             courseID:
@@ -927,9 +933,15 @@ class _CourseDetailWidgetState extends State<CourseDetailWidget> {
                                                                             Directionality.of(context)),
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () =>
-                                                                          FocusScope.of(dialogContext)
-                                                                              .unfocus(),
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(dialogContext)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
                                                                       child:
                                                                           CourseLinkWidget(
                                                                         courseID:
@@ -1699,7 +1711,10 @@ class _CourseDetailWidgetState extends State<CourseDetailWidget> {
                                                                                                   backgroundColor: Colors.transparent,
                                                                                                   alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                                   child: GestureDetector(
-                                                                                                    onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                                    onTap: () {
+                                                                                                      FocusScope.of(dialogContext).unfocus();
+                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                    },
                                                                                                     child: UserModalWidget(
                                                                                                       userRef: containerUsersRecord.reference,
                                                                                                       courseRef: widget.curso!,
@@ -1827,7 +1842,10 @@ class _CourseDetailWidgetState extends State<CourseDetailWidget> {
                                                                                 const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 GestureDetector(
-                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
                                                                               child: CourseLinkWidget(
                                                                                 courseID: widget.curso!,
                                                                               ),

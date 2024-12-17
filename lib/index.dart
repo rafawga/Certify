@@ -31,3 +31,6 @@ export '/project/pdftest/pdftest_widget.dart' show PdftestWidget;
 export '/project/template_config/template_config_widget.dart'
     show TemplateConfigWidget;
 export '/project/dummy_page/font/font_widget.dart' show FontWidget;
+export '/project/svg_edit/svg_edit_widget.dart' show SvgEditWidget;
+export '/project/dashboard_new/dashboard_new_widget.dart'
+    show DashboardNewWidget;

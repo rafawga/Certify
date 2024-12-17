@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -24,11 +25,11 @@ class TemplateConfigWidget extends StatefulWidget {
   const TemplateConfigWidget({
     super.key,
     required this.course,
-    this.creating,
-  });
+    bool? creating,
+  }) : creating = creating ?? false;
 
   final DocumentReference? course;
-  final bool? creating;
+  final bool creating;
 
   @override
   State<TemplateConfigWidget> createState() => _TemplateConfigWidgetState();
@@ -120,7 +121,10 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
             title: 'Edição de Template',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -583,7 +587,10 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                                           backgroundColor: Colors.transparent,
                                                                                           alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(dialogContext).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: LogoCertificadoWidget(
                                                                                               template: rowTemplateRecord!,
                                                                                             ),
@@ -828,7 +835,10 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                                       backgroundColor: Colors.transparent,
                                                                                       alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(dialogContext).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: TextoCertificadoWidget(
                                                                                           template: rowTemplateRecord!,
                                                                                         ),
@@ -897,7 +907,12 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                   List<
                                                                       TemplateImagesRecord>>(
                                                                 stream:
-                                                                    queryTemplateImagesRecord(),
+                                                                    queryTemplateImagesRecord(
+                                                                  queryBuilder:
+                                                                      (templateImagesRecord) =>
+                                                                          templateImagesRecord
+                                                                              .orderBy('Index'),
+                                                                ),
                                                                 builder: (context,
                                                                     snapshot) {
                                                                   // Customize what your widget looks like when it's loading.
@@ -1050,7 +1065,7 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                               FFButtonWidget(
                                                                 onPressed:
                                                                     () async {
-                                                                  _model.imagemSelecionada2 =
+                                                                  _model.imagemSelecionadaPC =
                                                                       await queryTemplateImagesRecordOnce(
                                                                     queryBuilder:
                                                                         (templateImagesRecord) =>
@@ -1066,13 +1081,79 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                           s.firstOrNull);
                                                                   _model.pdfReturn2 =
                                                                       await actions
-                                                                          .gerarPDFwithSVG(
+                                                                          .gerarCertificado(
                                                                     _model
-                                                                        .imagemSelecionada2!
+                                                                        .imagemSelecionadaPC!
                                                                         .svg,
-                                                                    functions.colorToString(
-                                                                        _model
-                                                                            .colorPicked1)!,
+                                                                    rowTemplateRecord!
+                                                                        .cor,
+                                                                    'Nome do Aluno',
+                                                                    rowTemplateRecord
+                                                                        .isACourse,
+                                                                    templateConfigCursosRecord
+                                                                        .instructorName,
+                                                                    dateTimeFormat(
+                                                                      "d/M/y",
+                                                                      getCurrentTimestamp,
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    ),
+                                                                    templateConfigCursosRecord
+                                                                        .duracao
+                                                                        .toString(),
+                                                                    templateConfigCursosRecord
+                                                                        .name,
+                                                                    '123456789123456789',
+                                                                    rowTemplateRecord
+                                                                        .hasLogo,
+                                                                    functions.imagePathToString(
+                                                                        rowTemplateRecord
+                                                                            .logoPath),
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .mainText,
+                                                                    'Código de autenticação: {code}',
+                                                                    rowTemplateRecord
+                                                                        .profissional,
+                                                                    rowTemplateRecord
+                                                                        .dataConclusao,
+                                                                    rowTemplateRecord
+                                                                        .cargaHoraria,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .alunoFontColor,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .mainTextFontColor,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .codeFontColor,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .alunoFontURL,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .mainTextFontURL,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .codeFontURL,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .nameAlignment,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .mainTextAlignment,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .alunoFontSizeCoefficient,
+                                                                    _model
+                                                                        .imagemSelecionadaPC!
+                                                                        .mainTextFontSizeCoefficient,
+                                                                    valueOrDefault(
+                                                                        currentUserDocument
+                                                                            ?.genero,
+                                                                        ''),
                                                                   );
 
                                                                   safeSetState(
@@ -1118,8 +1199,7 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                 ),
                                                               ),
                                                               if (widget
-                                                                      .creating ??
-                                                                  true)
+                                                                  .creating)
                                                                 FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
@@ -1130,6 +1210,21 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                       index: _model
                                                                           .carouselCurrentIndex1,
                                                                     ));
+
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'course-detail',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'curso':
+                                                                            serializeParam(
+                                                                          widget
+                                                                              .course,
+                                                                          ParamType
+                                                                              .DocumentReference,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
                                                                   },
                                                                   text:
                                                                       'Finalizar',
@@ -1383,7 +1478,10 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                                 const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 GestureDetector(
-                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
                                                                               child: LogoCertificadoWidget(
                                                                                 template: rowTemplateRecord!,
                                                                               ),
@@ -1503,7 +1601,10 @@ class _TemplateConfigWidgetState extends State<TemplateConfigWidget>
                                                                                       backgroundColor: Colors.transparent,
                                                                                       alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(dialogContext).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: TextoCertificadoWidget(
                                                                                           template: rowTemplateRecord!,
                                                                                         ),

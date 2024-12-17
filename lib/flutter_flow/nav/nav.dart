@@ -228,6 +228,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'font',
           path: '/font',
           builder: (context, params) => const FontWidget(),
+        ),
+        FFRoute(
+          name: 'svg-edit',
+          path: '/svg-edit',
+          builder: (context, params) => SvgEditWidget(
+            id: params.getParam(
+              'id',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TemplateImages'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'DashboardNew',
+          path: '/dash',
+          requireAuth: true,
+          builder: (context, params) => DashboardNewWidget(
+            course: params.getParam(
+              'course',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['cursos'],
+            ),
+            creating: params.getParam(
+              'creating',
+              ParamType.bool,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

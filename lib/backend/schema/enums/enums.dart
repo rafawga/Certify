@@ -7,6 +7,12 @@ enum Alinhamento {
   Justify,
 }
 
+enum Genders {
+  Masculino,
+  Feminino,
+  Outro,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -20,6 +26,8 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (Alinhamento):
       return Alinhamento.values.deserialize(value) as T?;
+    case (Genders):
+      return Genders.values.deserialize(value) as T?;
     default:
       return null;
   }

@@ -129,7 +129,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
         title: 'Autenticação - Certify',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -843,19 +846,23 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                               null) {
                                                                             return;
                                                                           }
-                                                                          if (!valueOrDefault<bool>(
+                                                                          if (valueOrDefault<bool>(
                                                                               currentUserDocument?.completedRegistration,
                                                                               false)) {
+                                                                            context.pushNamedAuth('home',
+                                                                                context.mounted);
+                                                                          } else {
                                                                             await currentUserReference!.update(createUsersRecordData(
                                                                               name: functions.getWordAtIndex(currentUserDisplayName, '0'),
                                                                               lastName: functions.getWordAtIndex(currentUserDisplayName, '1'),
                                                                               completedRegistration: true,
+                                                                              certificateName: currentUserDisplayName,
+                                                                              genero: 'Masculino',
                                                                             ));
-                                                                          }
 
-                                                                          context.pushNamedAuth(
-                                                                              'home',
-                                                                              context.mounted);
+                                                                            context.pushNamedAuth('user-settings',
+                                                                                context.mounted);
+                                                                          }
                                                                         },
                                                                         text:
                                                                             'Continuar com Google',
@@ -1690,6 +1697,10 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                     email: _model
                                                                         .emailAddressCreateTextController
                                                                         .text,
+                                                                    certificateName:
+                                                                        '${_model.nomeCreateTextController.text} ${_model.sobrenomeCreateTextController.text}',
+                                                                    genero:
+                                                                        'Masculino',
                                                                   ));
 
                                                               context.goNamedAuth(

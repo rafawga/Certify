@@ -1,11 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/enums/enums.dart';
 import '/components/cancelar_assinatura_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/project/sidebar_expandido/sidebar_expandido_widget.dart';
 import '/project/sidebar_reduzido/sidebar_reduzido_widget.dart';
@@ -133,7 +136,10 @@ class _UserSettingsWidgetState extends State<UserSettingsWidget>
         title: 'Configuraçãoes de Conta',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1004,6 +1010,78 @@ class _UserSettingsWidgetState extends State<UserSettingsWidget>
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(16.0, 16.0,
+                                                          16.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        FlutterFlowDropDown<
+                                                            String>(
+                                                      controller: _model
+                                                              .dropDownValueController ??=
+                                                          FormFieldController<
+                                                              String>(
+                                                        _model.dropDownValue ??=
+                                                            valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.genero,
+                                                                ''),
+                                                      ),
+                                                      options: Genders.values
+                                                          .map((e) => e.name)
+                                                          .toList(),
+                                                      onChanged: (val) =>
+                                                          safeSetState(() =>
+                                                              _model.dropDownValue =
+                                                                  val),
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 60.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintText: 'Gênero',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 0.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: false,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   child: Row(
@@ -1099,7 +1177,10 @@ class _UserSettingsWidgetState extends State<UserSettingsWidget>
                                                                                 const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 GestureDetector(
-                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
                                                                               child: const CancelarAssinaturaWidget(),
                                                                             ),
                                                                           );
@@ -1360,6 +1441,8 @@ class _UserSettingsWidgetState extends State<UserSettingsWidget>
                                                                         .text,
                                                                 photoUrl: _model
                                                                     .uploadedFileUrl,
+                                                                genero: _model
+                                                                    .dropDownValue,
                                                               ));
                                                             } else {
                                                               await currentUserReference!
@@ -1377,6 +1460,8 @@ class _UserSettingsWidgetState extends State<UserSettingsWidget>
                                                                     _model
                                                                         .yourNameTextController3
                                                                         .text,
+                                                                genero: _model
+                                                                    .dropDownValue,
                                                               ));
                                                             }
 

@@ -122,3 +122,11 @@ String? gerarText(
 String? imagePathToString(String? imagePath) {
   return imagePath;
 }
+
+String? getCurrentMonth() {
+  // create a function called getCurrentMonth that returns a date time with the first day of the current month
+  DateTime getCurrentMonth() {
+    DateTime now = DateTime.now();
+    return DateTime(now.year, now.month, 1);
+  }
+}

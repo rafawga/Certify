@@ -42,9 +42,6 @@ class _CreateCourseWidgetState extends State<CreateCourseWidget>
     _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
 
-    _model.professorTextController ??= TextEditingController();
-    _model.professorFocusNode ??= FocusNode();
-
     _model.duracaoTextController ??= TextEditingController();
     _model.duracaoFocusNode ??= FocusNode();
 
@@ -136,7 +133,10 @@ class _CreateCourseWidgetState extends State<CreateCourseWidget>
         title: 'Criar Curso',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -643,121 +643,6 @@ class _CreateCourseWidgetState extends State<CreateCourseWidget>
                                                             ),
                                                             validator: _model
                                                                 .descriptionTextControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            16.0),
-                                                        child: SizedBox(
-                                                          width:
-                                                              double.infinity,
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                .professorTextController,
-                                                            focusNode: _model
-                                                                .professorFocusNode,
-                                                            autofocus: true,
-                                                            autofillHints: const [
-                                                              AutofillHints
-                                                                  .email
-                                                            ],
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              labelText:
-                                                                  'Professor ',
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              hintText:
-                                                                  'Nome de display do certificado',
-                                                              enabledBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                              ),
-                                                              focusedBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                              ),
-                                                              errorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFFFF5963),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                              ),
-                                                              focusedErrorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    const BorderSide(
-                                                                  color: Color(
-                                                                      0xFFFF5963),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                              ),
-                                                              filled: true,
-                                                              fillColor: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                            ),
-                                                            style: GoogleFonts
-                                                                .getFont(
-                                                              'Plus Jakarta Sans',
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontSize: 14.0,
-                                                            ),
-                                                            validator: _model
-                                                                .professorTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -1302,9 +1187,6 @@ class _CreateCourseWidgetState extends State<CreateCourseWidget>
                                                               description: _model
                                                                   .descriptionTextController
                                                                   .text,
-                                                              instructorName: _model
-                                                                  .professorTextController
-                                                                  .text,
                                                               productorId:
                                                                   currentUserReference,
                                                               duracao: int
@@ -1339,9 +1221,6 @@ class _CreateCourseWidgetState extends State<CreateCourseWidget>
                                                                   .text,
                                                               description: _model
                                                                   .descriptionTextController
-                                                                  .text,
-                                                              instructorName: _model
-                                                                  .professorTextController
                                                                   .text,
                                                               productorId:
                                                                   currentUserReference,
