@@ -14,8 +14,6 @@ export '/project/user_settings/user_settings_widget.dart'
     show UserSettingsWidget;
 export '/project/create_course/create_course_widget.dart'
     show CreateCourseWidget;
-export '/project/user_certificates/user_certificates_widget.dart'
-    show UserCertificatesWidget;
 export '/project/pricing/pricing_widget.dart' show PricingWidget;
 export '/project/teste_cancelar_assinatura/teste_cancelar_assinatura_widget.dart'
     show TesteCancelarAssinaturaWidget;
@@ -34,3 +32,12 @@ export '/project/dummy_page/font/font_widget.dart' show FontWidget;
 export '/project/svg_edit/svg_edit_widget.dart' show SvgEditWidget;
 export '/project/dashboard_new/dashboard_new_widget.dart'
     show DashboardNewWidget;
+export '/project/chart_test/chart_test_widget.dart' show ChartTestWidget;
+export '/project/template_config_copy/template_config_copy_widget.dart'
+    show TemplateConfigCopyWidget;
+export '/project/new_certificate_successful/new_certificate_successful_widget.dart'
+    show NewCertificateSuccessfulWidget;
+export '/project/new_custom_certificate/new_custom_certificate_widget.dart'
+    show NewCustomCertificateWidget;
+export '/project/user_certificates/user_certificates_widget.dart'
+    show UserCertificatesWidget;

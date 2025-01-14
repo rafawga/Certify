@@ -13,6 +13,7 @@ import 'schema/assinaturas_record.dart';
 import 'schema/template_certificado_record.dart';
 import 'schema/template_images_record.dart';
 import 'schema/template_record.dart';
+import 'schema/custom_certificate_request_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -29,6 +30,7 @@ export 'schema/assinaturas_record.dart';
 export 'schema/template_certificado_record.dart';
 export 'schema/template_images_record.dart';
 export 'schema/template_record.dart';
+export 'schema/custom_certificate_request_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -325,6 +327,45 @@ Future<List<TemplateRecord>> queryTemplateRecordOnce({
       limit: limit,
       singleRecord: singleRecord,
     );
+
+/// Functions to query CustomCertificateRequestRecords (as a Stream and as a Future).
+Future<int> queryCustomCertificateRequestRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CustomCertificateRequestRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CustomCertificateRequestRecord>>
+    queryCustomCertificateRequestRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollection(
+          CustomCertificateRequestRecord.collection,
+          CustomCertificateRequestRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<List<CustomCertificateRequestRecord>>
+    queryCustomCertificateRequestRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          CustomCertificateRequestRecord.collection,
+          CustomCertificateRequestRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

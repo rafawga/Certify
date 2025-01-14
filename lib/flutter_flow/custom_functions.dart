@@ -123,10 +123,22 @@ String? imagePathToString(String? imagePath) {
   return imagePath;
 }
 
-String? getCurrentMonth() {
-  // create a function called getCurrentMonth that returns a date time with the first day of the current month
-  DateTime getCurrentMonth() {
-    DateTime now = DateTime.now();
-    return DateTime(now.year, now.month, 1);
-  }
+List<DateTime> getCurrentMonth() {
+  DateTime now = DateTime.now();
+
+  // Mês Atual
+  DateTime firstDayCurrent = DateTime(now.year, now.month, 1);
+  DateTime lastDayCurrent = DateTime(now.year, now.month + 1, 0);
+
+  // Mês Anterior
+  DateTime firstDayPrevious = DateTime(now.year, now.month - 1, 1);
+  DateTime lastDayPrevious = DateTime(now.year, now.month, 0);
+
+  // Retorna uma lista com as datas
+  return [
+    firstDayCurrent, // Primeiro dia do mês atual
+    lastDayCurrent, // Último dia do mês atual
+    firstDayPrevious, // Primeiro dia do mês anterior
+    lastDayPrevious, // Último dia do mês anterior
+  ];
 }

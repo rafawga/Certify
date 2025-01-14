@@ -12,3 +12,8 @@ export 'gerar_certificado_simplificado.dart' show gerarCertificadoSimplificado;
 export 'gerar_hello_world_com_fonte_customizada.dart'
     show gerarHelloWorldComFonteCustomizada;
 export 'generate_p_d_f_with_font.dart' show generatePDFWithFont;
+export 'get_months_range.dart' show getMonthsRange;
+export 'get_count_certificates_view.dart' show getCountCertificatesView;
+export 'get_month_number.dart' show getMonthNumber;
+export 'get_months_string.dart' show getMonthsString;
+export 'index_of_s.dart' show indexOfS;

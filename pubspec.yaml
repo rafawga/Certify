@@ -57,12 +57,14 @@ dependencies:
   firebase_storage: ^12.3.2
   firebase_storage_platform_interface: 5.1.33
   firebase_storage_web: 3.10.5
+  fl_chart: 0.68.0
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
   flutter_plugin_android_lifecycle: 2.0.20
   flutter_spinkit: 5.2.0
   flutter_stripe: 11.1.0
   flutter_stripe_web: 6.1.0
+  flutter_svg: 2.0.10+1
   flutterflow_colorpicker: 
     git:
       url: https://github.com/FlutterFlow/flutterflow_colorpicker.git

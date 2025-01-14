@@ -6,40 +6,30 @@ import 'user_certificates_widget.dart' show UserCertificatesWidget;
 import 'package:flutter/material.dart';
 
 class UserCertificatesModel extends FlutterFlowModel<UserCertificatesWidget> {
-  ///  Local state fields for this page.
-
-  String currentHash = '123';
-
   ///  State fields for stateful widgets in this page.
 
   // Model for sidebar-expandido component.
-  late SidebarExpandidoModel sidebarExpandidoModel1;
+  late SidebarExpandidoModel sidebarExpandidoModel;
   // Model for sidebar-reduzido component.
   late SidebarReduzidoModel sidebarReduzidoModel;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  TemplateRecord? template;
+  TemplateRecord? template2;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  TemplateImagesRecord? image;
+  TemplateImagesRecord? image2;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  UsersRecord? produtor;
+  UsersRecord? produtor2;
   // Stores action output result for [Custom Action - gerarCertificado] action in Button widget.
   String? certificadoOutput;
-  // Model for sidebar-expandido component.
-  late SidebarExpandidoModel sidebarExpandidoModel2;
 
   @override
   void initState(BuildContext context) {
-    sidebarExpandidoModel1 =
-        createModel(context, () => SidebarExpandidoModel());
+    sidebarExpandidoModel = createModel(context, () => SidebarExpandidoModel());
     sidebarReduzidoModel = createModel(context, () => SidebarReduzidoModel());
-    sidebarExpandidoModel2 =
-        createModel(context, () => SidebarExpandidoModel());
   }
 
   @override
   void dispose() {
-    sidebarExpandidoModel1.dispose();
+    sidebarExpandidoModel.dispose();
     sidebarReduzidoModel.dispose();
-    sidebarExpandidoModel2.dispose();
   }
 }

@@ -258,7 +258,7 @@ class _SidebarExpandidoWidgetState extends State<SidebarExpandidoWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'Dashboard',
+                          'DashboardNew',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,

@@ -118,7 +118,7 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
     context.watch<FFAppState>();
 
     return Title(
-        title: 'Meus certificados',
+        title: 'user-certificates',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () {
@@ -128,19 +128,6 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            drawer: SizedBox(
-              width: 300.0,
-              child: Drawer(
-                elevation: 16.0,
-                child: wrapWithModel(
-                  model: _model.sidebarExpandidoModel2,
-                  updateCallback: () => safeSetState(() {}),
-                  child: const SidebarExpandidoWidget(
-                    currentTab: 2,
-                  ),
-                ),
-              ),
-            ),
             body: SafeArea(
               top: true,
               child: Row(
@@ -152,7 +139,7 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                         phone: false,
                       ))
                     wrapWithModel(
-                      model: _model.sidebarExpandidoModel1,
+                      model: _model.sidebarExpandidoModel,
                       updateCallback: () => safeSetState(() {}),
                       child: const SidebarExpandidoWidget(
                         currentTab: 4,
@@ -416,85 +403,6 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                   ),
                                                 ).animateOnPageLoad(animationsMap[
                                                     'containerOnPageLoadAnimation1']!),
-                                                Text(
-                                                  'Hello World',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Dancing Script',
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                                ),
-                                                FFButtonWidget(
-                                                  onPressed: () async {
-                                                    await actions
-                                                        .generatePDFWithFont(
-                                                      'Hello,  World!',
-                                                      'https://firebasestorage.googleapis.com/v0/b/certify-br.appspot.com/o/fonts%2FDancingScript-Regular.ttf?alt=media&token=94c7b8b4-b2cf-4a7a-8f9d-6b23d0eadd31',
-                                                    );
-                                                  },
-                                                  text: 'Button',
-                                                  options: FFButtonOptions(
-                                                    height: 40.0,
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
-                                                    iconPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.white,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    elevation: 0.0,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                                SelectionArea(
-                                                    child: Text(
-                                                  valueOrDefault<String>(
-                                                    _model.certificadoOutput,
-                                                    'log here',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                )),
-                                                SelectionArea(
-                                                    child: Text(
-                                                  valueOrDefault<String>(
-                                                    _model.currentHash,
-                                                    '123',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                )),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -639,16 +547,227 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                             context,
                                                                         phone:
                                                                             false,
+                                                                        tablet:
+                                                                            false,
                                                                       ))
                                                                         Column(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (responsiveVisibility(
-                                                                              context: context,
-                                                                              phone: false,
-                                                                            ))
-                                                                              Row(
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    ClipRRect(
+                                                                                      borderRadius: const BorderRadius.only(
+                                                                                        bottomLeft: Radius.circular(12.0),
+                                                                                        bottomRight: Radius.circular(0.0),
+                                                                                        topLeft: Radius.circular(12.0),
+                                                                                        topRight: Radius.circular(0.0),
+                                                                                      ),
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          videoCardCursosRecord.photoURL,
+                                                                                          'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg',
+                                                                                        ),
+                                                                                        width: 120.0,
+                                                                                        height: 100.0,
+                                                                                        fit: BoxFit.cover,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                Expanded(
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                          children: [
+                                                                                            Text(
+                                                                                              videoCardCursosRecord.name,
+                                                                                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                                    fontFamily: 'Readex Pro',
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                            if (responsiveVisibility(
+                                                                                              context: context,
+                                                                                              phone: false,
+                                                                                              tablet: false,
+                                                                                            ))
+                                                                                              Padding(
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                child: Text(
+                                                                                                  '${videoCardCursosRecord.duracao.toString()}h',
+                                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                        fontFamily: 'Readex Pro',
+                                                                                                        letterSpacing: 0.0,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                if (responsiveVisibility(
+                                                                                                  context: context,
+                                                                                                  phone: false,
+                                                                                                  tablet: false,
+                                                                                                ))
+                                                                                                  Text(
+                                                                                                    videoCardCursosRecord.instructorName,
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Readex Pro',
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Align(
+                                                                                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                              child: Container(
+                                                                                                decoration: const BoxDecoration(),
+                                                                                                child: Align(
+                                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                  child: FFButtonWidget(
+                                                                                                    onPressed: () async {
+                                                                                                      if (valueOrDefault(currentUserDocument?.certificateName, '') != '') {
+                                                                                                        _model.template2 = await queryTemplateRecordOnce(
+                                                                                                          queryBuilder: (templateRecord) => templateRecord.where(
+                                                                                                            'CursoID',
+                                                                                                            isEqualTo: listViewAlunosCursoRecord.cursoID,
+                                                                                                          ),
+                                                                                                          singleRecord: true,
+                                                                                                        ).then((s) => s.firstOrNull);
+                                                                                                        _model.image2 = await queryTemplateImagesRecordOnce(
+                                                                                                          queryBuilder: (templateImagesRecord) => templateImagesRecord.where(
+                                                                                                            'Index',
+                                                                                                            isEqualTo: _model.template2?.index,
+                                                                                                          ),
+                                                                                                          singleRecord: true,
+                                                                                                        ).then((s) => s.firstOrNull);
+                                                                                                        _model.produtor2 = await queryUsersRecordOnce(
+                                                                                                          queryBuilder: (usersRecord) => usersRecord.where(
+                                                                                                            'uid',
+                                                                                                            isEqualTo: videoCardCursosRecord.productorId?.id,
+                                                                                                          ),
+                                                                                                          singleRecord: true,
+                                                                                                        ).then((s) => s.firstOrNull);
+                                                                                                        _model.certificadoOutput = await actions.gerarCertificado(
+                                                                                                          _model.image2!.svg,
+                                                                                                          _model.template2!.cor,
+                                                                                                          valueOrDefault(currentUserDocument?.certificateName, ''),
+                                                                                                          _model.template2!.isACourse,
+                                                                                                          videoCardCursosRecord.instructorName,
+                                                                                                          dateTimeFormat(
+                                                                                                            "d/M/y",
+                                                                                                            listViewAlunosCursoRecord.dataInscricao!,
+                                                                                                            locale: FFLocalizations.of(context).languageCode,
+                                                                                                          ),
+                                                                                                          videoCardCursosRecord.duracao.toString(),
+                                                                                                          videoCardCursosRecord.name,
+                                                                                                          listViewAlunosCursoRecord.hash,
+                                                                                                          _model.template2!.hasLogo,
+                                                                                                          functions.imagePathToString(_model.template2?.logoPath),
+                                                                                                          _model.image2!.mainText,
+                                                                                                          'Código de autenticação: {code}',
+                                                                                                          _model.template2!.profissional,
+                                                                                                          _model.template2!.dataConclusao,
+                                                                                                          _model.template2!.cargaHoraria,
+                                                                                                          _model.image2!.alunoFontColor,
+                                                                                                          _model.image2!.mainTextFontColor,
+                                                                                                          _model.image2!.codeFontColor,
+                                                                                                          _model.image2!.alunoFontURL,
+                                                                                                          _model.image2!.mainTextFontURL,
+                                                                                                          _model.image2!.codeFontURL,
+                                                                                                          _model.image2!.nameAlignment,
+                                                                                                          _model.image2!.mainTextAlignment,
+                                                                                                          _model.image2!.alunoFontSizeCoefficient,
+                                                                                                          _model.image2!.mainTextFontSizeCoefficient,
+                                                                                                          _model.produtor2!.genero,
+                                                                                                        );
+                                                                                                      } else {
+                                                                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                          SnackBar(
+                                                                                                            content: Text(
+                                                                                                              'Você precisa definir o nome de exibição de seus certificados através da tela de configurações.',
+                                                                                                              style: TextStyle(
+                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            duration: const Duration(milliseconds: 4900),
+                                                                                                            backgroundColor: FlutterFlowTheme.of(context).warning,
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      }
+
+                                                                                                      safeSetState(() {});
+                                                                                                    },
+                                                                                                    text: 'Emitir Certificado',
+                                                                                                    options: FFButtonOptions(
+                                                                                                      height: 40.0,
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                            fontFamily: 'Readex Pro',
+                                                                                                            color: Colors.white,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                          ),
+                                                                                                      elevation: 3.0,
+                                                                                                      borderSide: const BorderSide(
+                                                                                                        color: Colors.transparent,
+                                                                                                        width: 1.0,
+                                                                                                      ),
+                                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      if (responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tabletLandscape:
+                                                                            false,
+                                                                        desktop:
+                                                                            false,
+                                                                      ))
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.start,
                                                                                 children: [
@@ -667,178 +786,120 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                                             videoCardCursosRecord.photoURL,
                                                                                             'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg',
                                                                                           ),
-                                                                                          width: 120.0,
+                                                                                          width: 140.0,
                                                                                           height: 100.0,
                                                                                           fit: BoxFit.cover,
                                                                                         ),
                                                                                       ),
                                                                                     ],
                                                                                   ),
-                                                                                  Expanded(
-                                                                                    child: Row(
+                                                                                  Flexible(
+                                                                                    child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       children: [
-                                                                                        Padding(
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                videoCardCursosRecord.name,
-                                                                                                style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                                      fontFamily: 'Readex Pro',
-                                                                                                      letterSpacing: 0.0,
-                                                                                                    ),
-                                                                                              ),
-                                                                                              if (responsiveVisibility(
-                                                                                                context: context,
-                                                                                                phone: false,
-                                                                                              ))
-                                                                                                Padding(
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                                                  child: Text(
-                                                                                                    '${videoCardCursosRecord.duracao.toString()}h',
-                                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
+                                                                                              child: Column(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    videoCardCursosRecord.name,
+                                                                                                    style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                                           fontFamily: 'Readex Pro',
                                                                                                           letterSpacing: 0.0,
                                                                                                         ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                children: [
                                                                                                   if (responsiveVisibility(
                                                                                                     context: context,
                                                                                                     phone: false,
+                                                                                                    tablet: false,
                                                                                                   ))
-                                                                                                    Text(
-                                                                                                      videoCardCursosRecord.instructorName,
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Readex Pro',
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
+                                                                                                    Padding(
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                      child: Text(
+                                                                                                        '${videoCardCursosRecord.duracao.toString()}h',
+                                                                                                        style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                              fontFamily: 'Readex Pro',
+                                                                                                              letterSpacing: 0.0,
+                                                                                                            ),
+                                                                                                      ),
                                                                                                     ),
+                                                                                                  Row(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    children: [
+                                                                                                      if (responsiveVisibility(
+                                                                                                        context: context,
+                                                                                                        phone: false,
+                                                                                                        tablet: false,
+                                                                                                      ))
+                                                                                                        Text(
+                                                                                                          videoCardCursosRecord.instructorName,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Readex Pro',
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
+                                                                                                        ),
+                                                                                                    ],
+                                                                                                  ),
                                                                                                 ],
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                         Align(
                                                                                           alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                                child: Container(
-                                                                                                  decoration: const BoxDecoration(),
-                                                                                                  child: Align(
-                                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                                    child: FFButtonWidget(
-                                                                                                      onPressed: () async {
-                                                                                                        if (valueOrDefault(currentUserDocument?.certificateName, '') != '') {
-                                                                                                          _model.template = await queryTemplateRecordOnce(
-                                                                                                            queryBuilder: (templateRecord) => templateRecord.where(
-                                                                                                              'CursoID',
-                                                                                                              isEqualTo: listViewAlunosCursoRecord.cursoID,
-                                                                                                            ),
-                                                                                                            singleRecord: true,
-                                                                                                          ).then((s) => s.firstOrNull);
-                                                                                                          _model.image = await queryTemplateImagesRecordOnce(
-                                                                                                            queryBuilder: (templateImagesRecord) => templateImagesRecord.where(
-                                                                                                              'Index',
-                                                                                                              isEqualTo: _model.template?.index,
-                                                                                                            ),
-                                                                                                            singleRecord: true,
-                                                                                                          ).then((s) => s.firstOrNull);
-                                                                                                          _model.produtor = await queryUsersRecordOnce(
-                                                                                                            queryBuilder: (usersRecord) => usersRecord.where(
-                                                                                                              'uid',
-                                                                                                              isEqualTo: videoCardCursosRecord.productorId?.id,
-                                                                                                            ),
-                                                                                                            singleRecord: true,
-                                                                                                          ).then((s) => s.firstOrNull);
-                                                                                                          _model.certificadoOutput = await actions.gerarCertificado(
-                                                                                                            _model.image!.svg,
-                                                                                                            _model.template!.cor,
-                                                                                                            valueOrDefault(currentUserDocument?.certificateName, ''),
-                                                                                                            _model.template!.isACourse,
-                                                                                                            videoCardCursosRecord.instructorName,
-                                                                                                            dateTimeFormat(
-                                                                                                              "d/M/y",
-                                                                                                              listViewAlunosCursoRecord.dataInscricao!,
-                                                                                                              locale: FFLocalizations.of(context).languageCode,
-                                                                                                            ),
-                                                                                                            videoCardCursosRecord.duracao.toString(),
-                                                                                                            videoCardCursosRecord.name,
-                                                                                                            listViewAlunosCursoRecord.hash,
-                                                                                                            _model.template!.hasLogo,
-                                                                                                            functions.imagePathToString(_model.template?.logoPath),
-                                                                                                            _model.image!.mainText,
-                                                                                                            'Código de autenticação: {code}',
-                                                                                                            _model.template!.profissional,
-                                                                                                            _model.template!.dataConclusao,
-                                                                                                            _model.template!.cargaHoraria,
-                                                                                                            _model.image!.alunoFontColor,
-                                                                                                            _model.image!.mainTextFontColor,
-                                                                                                            _model.image!.codeFontColor,
-                                                                                                            _model.image!.alunoFontURL,
-                                                                                                            _model.image!.mainTextFontURL,
-                                                                                                            _model.image!.codeFontURL,
-                                                                                                            _model.image!.nameAlignment,
-                                                                                                            _model.image!.mainTextAlignment,
-                                                                                                            _model.image!.alunoFontSizeCoefficient,
-                                                                                                            _model.image!.mainTextFontSizeCoefficient,
-                                                                                                            _model.produtor!.genero,
-                                                                                                          );
-                                                                                                          _model.currentHash = listViewAlunosCursoRecord.hash;
-                                                                                                          safeSetState(() {});
-                                                                                                        } else {
-                                                                                                          ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                            SnackBar(
-                                                                                                              content: Text(
-                                                                                                                'Você precisa definir o nome de exibição de seus certificados através da tela de configurações.',
-                                                                                                                style: TextStyle(
-                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                              duration: const Duration(milliseconds: 4900),
-                                                                                                              backgroundColor: FlutterFlowTheme.of(context).warning,
-                                                                                                            ),
-                                                                                                          );
-                                                                                                        }
-
-                                                                                                        safeSetState(() {});
-                                                                                                      },
-                                                                                                      text: 'Emitir Certificado',
-                                                                                                      options: FFButtonOptions(
-                                                                                                        height: 40.0,
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                              fontFamily: 'Readex Pro',
-                                                                                                              color: Colors.white,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                            ),
-                                                                                                        elevation: 3.0,
-                                                                                                        borderSide: const BorderSide(
-                                                                                                          color: Colors.transparent,
-                                                                                                          width: 1.0,
+                                                                                          child: Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                  child: Container(
+                                                                                                    decoration: const BoxDecoration(),
+                                                                                                    child: Align(
+                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                      child: FFButtonWidget(
+                                                                                                        onPressed: () {
+                                                                                                          print('Button pressed ...');
+                                                                                                        },
+                                                                                                        text: 'Emitir',
+                                                                                                        icon: const Icon(
+                                                                                                          Icons.workspace_premium,
+                                                                                                          size: 15.0,
                                                                                                         ),
-                                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                                        options: FFButtonOptions(
+                                                                                                          height: 40.0,
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                          iconAlignment: IconAlignment.start,
+                                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                fontFamily: 'Readex Pro',
+                                                                                                                color: Colors.white,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
+                                                                                                          elevation: 3.0,
+                                                                                                          borderSide: const BorderSide(
+                                                                                                            color: Colors.transparent,
+                                                                                                            width: 1.0,
+                                                                                                          ),
+                                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                                        ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
-                                                                                              ),
-                                                                                            ],
+                                                                                              ],
+                                                                                            ),
                                                                                           ),
                                                                                         ),
                                                                                       ],
@@ -846,140 +907,7 @@ class _UserCertificatesWidgetState extends State<UserCertificatesWidget>
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                          ],
-                                                                        ),
-                                                                      if (responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tablet:
-                                                                            false,
-                                                                        tabletLandscape:
-                                                                            false,
-                                                                        desktop:
-                                                                            false,
-                                                                      ))
-                                                                        Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            if (responsiveVisibility(
-                                                                              context: context,
-                                                                              tablet: false,
-                                                                              tabletLandscape: false,
-                                                                              desktop: false,
-                                                                            ))
-                                                                              InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  if (valueOrDefault(currentUserDocument?.certificateName, '') != '') {
-                                                                                    await actions.gerarPDF(
-                                                                                      valueOrDefault(currentUserDocument?.certificateName, ''),
-                                                                                      videoCardCursosRecord.name,
-                                                                                      videoCardCursosRecord.instructorName,
-                                                                                      listViewAlunosCursoRecord.dataInscricao!,
-                                                                                      videoCardCursosRecord.duracao.toString(),
-                                                                                      listViewAlunosCursoRecord.hash,
-                                                                                    );
-                                                                                  } else {
-                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                      SnackBar(
-                                                                                        content: Text(
-                                                                                          'Você precisa definir o nome de exibição de seus certificados através da tela de configurações.',
-                                                                                          style: TextStyle(
-                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          ),
-                                                                                        ),
-                                                                                        duration: const Duration(milliseconds: 4900),
-                                                                                        backgroundColor: FlutterFlowTheme.of(context).warning,
-                                                                                      ),
-                                                                                    );
-                                                                                  }
-                                                                                },
-                                                                                child: SingleChildScrollView(
-                                                                                  scrollDirection: Axis.horizontal,
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.min,
-                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                    children: [
-                                                                                      Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          ClipRRect(
-                                                                                            borderRadius: const BorderRadius.only(
-                                                                                              bottomLeft: Radius.circular(12.0),
-                                                                                              bottomRight: Radius.circular(0.0),
-                                                                                              topLeft: Radius.circular(12.0),
-                                                                                              topRight: Radius.circular(0.0),
-                                                                                            ),
-                                                                                            child: Image.network(
-                                                                                              valueOrDefault<String>(
-                                                                                                videoCardCursosRecord.photoURL,
-                                                                                                'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg',
-                                                                                              ),
-                                                                                              width: 120.0,
-                                                                                              height: 100.0,
-                                                                                              fit: BoxFit.cover,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                        children: [
-                                                                                          Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 0.0),
-                                                                                            child: Column(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  videoCardCursosRecord.name,
-                                                                                                  style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                                        fontFamily: 'Readex Pro',
-                                                                                                        letterSpacing: 0.0,
-                                                                                                      ),
-                                                                                                ),
-                                                                                                if (responsiveVisibility(
-                                                                                                  context: context,
-                                                                                                  phone: false,
-                                                                                                ))
-                                                                                                  Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                                                    child: Text(
-                                                                                                      '${videoCardCursosRecord.duracao.toString()}h',
-                                                                                                      style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                            fontFamily: 'Readex Pro',
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: [
-                                                                                                    Text(
-                                                                                                      videoCardCursosRecord.instructorName,
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Readex Pro',
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ),
+                                                                            ),
                                                                           ],
                                                                         ),
                                                                     ],

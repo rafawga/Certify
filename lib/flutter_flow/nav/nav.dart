@@ -17,6 +17,8 @@ export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
 
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
+
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
 
@@ -74,6 +76,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
           appStateNotifier.loggedIn ? const HomeWidget() : const AuthenticationWidget(),
       routes: [
@@ -138,12 +141,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'create-course',
           path: '/create-course',
           builder: (context, params) => const CreateCourseWidget(),
-        ),
-        FFRoute(
-          name: 'user-certificates',
-          path: '/user-certificates',
-          requireAuth: true,
-          builder: (context, params) => const UserCertificatesWidget(),
         ),
         FFRoute(
           name: 'pricing',
@@ -245,7 +242,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'DashboardNew',
           path: '/dash',
           requireAuth: true,
-          builder: (context, params) => DashboardNewWidget(
+          builder: (context, params) => const DashboardNewWidget(),
+        ),
+        FFRoute(
+          name: 'chartTest',
+          path: '/chartTest',
+          builder: (context, params) => const ChartTestWidget(),
+        ),
+        FFRoute(
+          name: 'template-configCopy',
+          path: '/template-config2',
+          requireAuth: true,
+          builder: (context, params) => TemplateConfigCopyWidget(
             course: params.getParam(
               'course',
               ParamType.DocumentReference,
@@ -257,6 +265,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.bool,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'new-certificate-successful',
+          path: '/new-certificate-successful',
+          builder: (context, params) => NewCertificateSuccessfulWidget(
+            id: params.getParam(
+              'id',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['CustomCertificateRequest'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'new-custom-certificate',
+          path: '/new-custom-certificate',
+          requireAuth: true,
+          builder: (context, params) => NewCustomCertificateWidget(
+            id: params.getParam(
+              'id',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['CustomCertificateRequest'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'user-certificates',
+          path: '/userCertificates',
+          builder: (context, params) => const UserCertificatesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

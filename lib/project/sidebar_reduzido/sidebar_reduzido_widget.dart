@@ -268,7 +268,7 @@ class _SidebarReduzidoWidgetState extends State<SidebarReduzidoWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'home',
+                          'DashboardNew',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,

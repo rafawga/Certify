@@ -13,6 +13,20 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "TemplateImages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "accessiblePlans",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "Index",
+          "order": "ASCENDING"
+        }
+      ]
     }
   ]
 }

@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
+import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -120,6 +121,32 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
                                   ),
                             ),
                           ],
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: const BoxDecoration(),
+                          child: FlutterFlowCheckboxGroup(
+                            options: const ['Starter', 'Growth', 'Unlimited'],
+                            onChanged: (val) => safeSetState(
+                                () => _model.checkboxGroupValues = val),
+                            controller: _model.checkboxGroupValueController ??=
+                                FormFieldController<List<String>>(
+                              List.from(
+                                  ['Unlimited', 'Growth', 'Starter'] ?? []),
+                            ),
+                            activeColor: FlutterFlowTheme.of(context).primary,
+                            checkColor: FlutterFlowTheme.of(context).info,
+                            checkboxBorderColor:
+                                FlutterFlowTheme.of(context).secondaryText,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            checkboxBorderRadius: BorderRadius.circular(4.0),
+                            initialized: _model.checkboxGroupValues != null,
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1665,38 +1692,44 @@ class _SvgCreateNewWidgetState extends State<SvgCreateNewWidget> {
 
                                 await TemplateImagesRecord.collection
                                     .doc()
-                                    .set(createTemplateImagesRecordData(
-                                      name: _model.nomeTextController.text,
-                                      svg: _model.uploadedFileUrl1,
-                                      png: _model.uploadedFileUrl2,
-                                      index: _model.ultimo!.index + 1,
-                                      nameAlignment: _model.alunoAlignValue,
-                                      mainTextAlignment:
-                                          _model.maintextAlignValue,
-                                      alunoFontSizeCoefficient: double.tryParse(
-                                          _model
-                                              .alunoEscaleTextController.text),
-                                      mainTextFontSizeCoefficient:
-                                          double.tryParse(_model
-                                              .mainTextEscaleTextController
-                                              .text),
-                                      alunoFontColor: functions
-                                          .colorToString(_model.colorPicked1),
-                                      mainTextFontColor: functions
-                                          .colorToString(_model.colorPicked2),
-                                      codeFontColor: functions
-                                          .colorToString(_model.colorPicked3),
-                                      alunoFontURL:
-                                          _model.fontalunoTextController.text,
-                                      mainTextFontURL: _model
-                                          .fonteMainTextTextController.text,
-                                      codeFontURL:
-                                          _model.fonteCodeTextController.text,
-                                      hasCustomColorDetails:
-                                          _model.hasDetailsValue,
-                                      mainText:
-                                          _model.mainTextTextController.text,
-                                    ));
+                                    .set({
+                                  ...createTemplateImagesRecordData(
+                                    name: _model.nomeTextController.text,
+                                    svg: _model.uploadedFileUrl1,
+                                    png: _model.uploadedFileUrl2,
+                                    index: _model.ultimo!.index + 1,
+                                    nameAlignment: _model.alunoAlignValue,
+                                    mainTextAlignment:
+                                        _model.maintextAlignValue,
+                                    alunoFontSizeCoefficient: double.tryParse(
+                                        _model.alunoEscaleTextController.text),
+                                    mainTextFontSizeCoefficient:
+                                        double.tryParse(_model
+                                            .mainTextEscaleTextController.text),
+                                    alunoFontColor: functions
+                                        .colorToString(_model.colorPicked1),
+                                    mainTextFontColor: functions
+                                        .colorToString(_model.colorPicked2),
+                                    codeFontColor: functions
+                                        .colorToString(_model.colorPicked3),
+                                    alunoFontURL:
+                                        _model.fontalunoTextController.text,
+                                    mainTextFontURL:
+                                        _model.fonteMainTextTextController.text,
+                                    codeFontURL:
+                                        _model.fonteCodeTextController.text,
+                                    hasCustomColorDetails:
+                                        _model.hasDetailsValue,
+                                    mainText:
+                                        _model.mainTextTextController.text,
+                                  ),
+                                  ...mapToFirestore(
+                                    {
+                                      'accessiblePlans':
+                                          _model.checkboxGroupValues,
+                                    },
+                                  ),
+                                });
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(

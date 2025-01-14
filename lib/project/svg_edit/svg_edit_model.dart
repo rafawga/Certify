@@ -13,6 +13,12 @@ class SvgEditModel extends FlutterFlowModel<SvgEditWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for CheckboxGroup widget.
+  FormFieldController<List<String>>? checkboxGroupValueController;
+  List<String>? get checkboxGroupValues => checkboxGroupValueController?.value;
+  set checkboxGroupValues(List<String>? v) =>
+      checkboxGroupValueController?.value = v;
+
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));

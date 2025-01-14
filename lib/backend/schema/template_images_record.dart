@@ -95,6 +95,11 @@ class TemplateImagesRecord extends FirestoreRecord {
   String get mainText => _mainText ?? '';
   bool hasMainText() => _mainText != null;
 
+  // "accessiblePlans" field.
+  List<String>? _accessiblePlans;
+  List<String> get accessiblePlans => _accessiblePlans ?? const [];
+  bool hasAccessiblePlans() => _accessiblePlans != null;
+
   void _initializeFields() {
     _name = snapshotData['Name'] as String?;
     _svg = snapshotData['Svg'] as String?;
@@ -114,6 +119,7 @@ class TemplateImagesRecord extends FirestoreRecord {
     _codeFontURL = snapshotData['CodeFontURL'] as String?;
     _hasCustomColorDetails = snapshotData['HasCustomColorDetails'] as bool?;
     _mainText = snapshotData['MainText'] as String?;
+    _accessiblePlans = getDataList(snapshotData['accessiblePlans']);
   }
 
   static CollectionReference get collection =>
@@ -198,6 +204,7 @@ class TemplateImagesRecordDocumentEquality
 
   @override
   bool equals(TemplateImagesRecord? e1, TemplateImagesRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.name == e2?.name &&
         e1?.svg == e2?.svg &&
         e1?.png == e2?.png &&
@@ -213,7 +220,8 @@ class TemplateImagesRecordDocumentEquality
         e1?.mainTextFontURL == e2?.mainTextFontURL &&
         e1?.codeFontURL == e2?.codeFontURL &&
         e1?.hasCustomColorDetails == e2?.hasCustomColorDetails &&
-        e1?.mainText == e2?.mainText;
+        e1?.mainText == e2?.mainText &&
+        listEquality.equals(e1?.accessiblePlans, e2?.accessiblePlans);
   }
 
   @override
@@ -233,7 +241,8 @@ class TemplateImagesRecordDocumentEquality
         e?.mainTextFontURL,
         e?.codeFontURL,
         e?.hasCustomColorDetails,
-        e?.mainText
+        e?.mainText,
+        e?.accessiblePlans
       ]);
 
   @override

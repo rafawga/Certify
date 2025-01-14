@@ -16,10 +16,24 @@ class DashboardNewModel extends FlutterFlowModel<DashboardNewWidget> {
 
   int? crescimento = 0;
 
+  bool laodChartData = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in DashboardNew widget.
   CursosRecord? maxValueQuantity;
+  // Stores action output result for [Custom Action - getMonthsRange] action in DashboardNew widget.
+  List<DateTime>? months;
+  // Stores action output result for [Firestore Query - Query a collection] action in DashboardNew widget.
+  int? countCurrentMonth;
+  // Stores action output result for [Firestore Query - Query a collection] action in DashboardNew widget.
+  int? countPreviousMonth;
+  // Stores action output result for [Custom Action - getCountCertificatesView] action in DashboardNew widget.
+  List<int>? valuesMonthView;
+  // Stores action output result for [Custom Action - getMonthNumber] action in DashboardNew widget.
+  List<int>? monthsNumberList;
+  // Stores action output result for [Custom Action - getMonthsString] action in DashboardNew widget.
+  List<String>? getMonthsString;
   // Model for sidebar-expandido component.
   late SidebarExpandidoModel sidebarExpandidoModel1;
   // Model for sidebar-reduzido component.
@@ -29,9 +43,7 @@ class DashboardNewModel extends FlutterFlowModel<DashboardNewWidget> {
   // Model for DashboardContainer component.
   late DashboardContainerModel dashboardContainerModel2;
   // Model for DashboardContainerWSubtext component.
-  late DashboardContainerWSubtextModel dashboardContainerWSubtextModel1;
-  // Model for DashboardContainerWSubtext component.
-  late DashboardContainerWSubtextModel dashboardContainerWSubtextModel2;
+  late DashboardContainerWSubtextModel dashboardContainerWSubtextModel;
   // Model for sidebar-expandido component.
   late SidebarExpandidoModel sidebarExpandidoModel2;
 
@@ -44,9 +56,7 @@ class DashboardNewModel extends FlutterFlowModel<DashboardNewWidget> {
         createModel(context, () => DashboardContainerModel());
     dashboardContainerModel2 =
         createModel(context, () => DashboardContainerModel());
-    dashboardContainerWSubtextModel1 =
-        createModel(context, () => DashboardContainerWSubtextModel());
-    dashboardContainerWSubtextModel2 =
+    dashboardContainerWSubtextModel =
         createModel(context, () => DashboardContainerWSubtextModel());
     sidebarExpandidoModel2 =
         createModel(context, () => SidebarExpandidoModel());
@@ -58,8 +68,7 @@ class DashboardNewModel extends FlutterFlowModel<DashboardNewWidget> {
     sidebarReduzidoModel.dispose();
     dashboardContainerModel1.dispose();
     dashboardContainerModel2.dispose();
-    dashboardContainerWSubtextModel1.dispose();
-    dashboardContainerWSubtextModel2.dispose();
+    dashboardContainerWSubtextModel.dispose();
     sidebarExpandidoModel2.dispose();
   }
 }
